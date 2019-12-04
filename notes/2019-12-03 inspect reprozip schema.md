@@ -141,10 +141,15 @@
 	scratch/.reprozip-trace$ sqlite3 trace.sqlite3 
 	SQLite version 3.22.0 2018-01-22 18:45:57
 	Enter ".help" for usage hints.
+	
 	sqlite> .tables
 	executed_files  opened_files    processes 
 	```
-
+- Enabled pretty-printing of database table contents:
+	```
+	sqlite> .headers on
+	sqlite> .mode column
+	```
 - The second run is now represented in the `processes` table:
 	```
 	sqlite> select * from processes;
