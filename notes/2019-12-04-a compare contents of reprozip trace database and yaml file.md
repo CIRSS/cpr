@@ -1,6 +1,6 @@
 ## 2019-12-04-a Compare contents of ReproZip trace database and YAML file
 
-### Inspect contents of the `config.yml` file in the `.reprozip-trace` directory
+### Inspect contents of `config.yml` file in `.reprozip-trace` directory
  - For the example trace of two runs of `reprozip trace date` performed yesterday, dumped the contents of the `config.yml` file here:
 	```yaml
 	# ReproZip configuration file
@@ -172,7 +172,7 @@
 
                     # The list item included here corresponds to run 0 in the database. 
                     # Much of the run-time environment information below is NOT IN DATABASE.
-					
+
 		- architecture: x86_64 		# NOT IN DATABASE
 	      argv:                
 	        - date
@@ -286,6 +286,6 @@
 - The database additionally stores timestamps for processes, execution, and file open events.
 
 
-### Conclusions
+### Conclusion
 
 - We may need both to parse the `config.yml` file *and* query the `trace.sqlite3` file to get all the information we need to satisfy provenance queries for Whole Tale.
