@@ -8,7 +8,7 @@
 
 - Following execution of the above command the directory contained a `.reprozip-trace` sub-directory containing a SQLite database file:
 	```
-	 (.venv-reprozip) tmcphill@artemis:~/GitRepos/wt-prov-model/toolkits/reprozip/scratch$ ls -al .reprozip-trace/
+	 scratch$ ls -al .reprozip-trace/
 	 total 44
 	 drwxrwxr-x 2 tmcphill tmcphill  4096 Dec  2 19:13 .
 	 drwxrwxr-x 3 tmcphill tmcphill  4096 Dec  2 19:13 ..
@@ -17,7 +17,7 @@
 	```
 - Opened the SQLite database using the `sqlite3` command:
 	```
-	(.venv-reprozip) tmcphill@artemis:~/GitRepos/wt-prov-model/toolkits/reprozip/scratch$ sqlite3 .reprozip-trace/trace.sqlite3 
+	scratch$ sqlite3 .reprozip-trace/trace.sqlite3 
 	SQLite version 3.22.0 2018-01-22 18:45:57
 	Enter ".help" for usage hints.	
 	sqlite>
@@ -123,4 +123,68 @@
 
 - The `opened_files` table has a `mode` column.  No table in this database instance records file read or write operations.  So is the mode used when opening a file employed by ReproZip to infer that a processes in fact reads or writes to particular files?
  
+### Observed effects of tracing a second run of the same command
+
+- Traced a second execution of the `date` command in the same directory as before:
+	```
+	scratch$ reprozip trace date
+	Trace directory .reprozip-trace exists
+	(a)ppend run to the trace, (d)elete it or (s)top? [a/d/s] a
+	[REPROZIP] 21:14:41.751 WARNING: You can use --overwrite to replace the existing trace (or --continue to append
+	without prompt)
+	Tue Dec  3 21:14:41 PST 2019
+	Configuration file written in .reprozip-trace/config.yml
+	Edit that file then run the packer -- use 'reprozip pack -h' for help
+	```
+- Noted that no new tables were created in the trace database:
+	```
+	scratch/.reprozip-trace$ sqlite3 trace.sqlite3 
+	SQLite version 3.22.0 2018-01-22 18:45:57
+	Enter ".help" for usage hints.
+	sqlite> .tables
+	executed_files  opened_files    processes 
+	```
+
+- The second run is now represented in the `processes` table:
+	```
+	sqlite> select * from processes;
+	
+	id          run_id      parent      timestamp       is_thread   exitcode  
+	----------  ----------  ----------  --------------  ----------  ----------
+	1           0                       15577399435137  0           0         
+	2           1                       3518788081903   0           0
+	```
+- The `executed_files` table also has a second row now (leaving out the `envp` column):
+	```
+	sqlite> select id, name, run_id, timestamp, process, argv, workingdir  from executed_files ;
+	
+	id          name        run_id      timestamp       process     argv        workingdir                                               
+	----------  ----------  ----------  --------------  ----------  ----------  ---------------------------------------------------------
+	1           /bin/date   0           15577407955282  1           date        /linfast/GitRepos/wt-prov-model/toolkits/reprozip/scratch
+	2           /bin/date   1           3518797166217   2           date        /linfast/GitRepos/wt-prov-model/toolkits/reprozip/scratch
+	```
+
+- And the rows in `opened_files` have been repeated for the new run:
+	```
+	sqlite> select * from opened_files ;
+	
+	id          run_id      name                                                       timestamp       mode        is_directory  process   
+	----------  ----------  ---------------------------------------------------------  --------------  ----------  ------------  ----------
+	1           0           /linfast/GitRepos/wt-prov-model/toolkits/reprozip/scratch  15577399441065  4           1             1         
+	2           0           /linfast/GitRepos/wt-prov-model/toolkits/reprozip/scratch  15577399443805  4           1             1         
+	3           0           /lib/x86_64-linux-gnu/ld-2.27.so                           15577408452187  1           0             1         
+	4           0           /etc/ld.so.cache                                           15577408763619  1           0             1         
+	5           0           /lib/x86_64-linux-gnu/libc.so.6                            15577408954429  1           0             1         
+	6           0           /usr/lib/locale/locale-archive                             15577409838454  1           0             1         
+	7           0           /etc/localtime                                             15577410055926  1           0             1         
+	8           1           /linfast/GitRepos/wt-prov-model/toolkits/reprozip/scratch  3518788378372   4           1             2         
+	9           1           /linfast/GitRepos/wt-prov-model/toolkits/reprozip/scratch  3518788414383   4           1             2         
+	10          1           /lib/x86_64-linux-gnu/ld-2.27.so                           3518797500912   1           0             2         
+	11          1           /etc/ld.so.cache                                           3518797691441   1           0             2         
+	12          1           /lib/x86_64-linux-gnu/libc.so.6                            3518797813869   1           0             2         
+	13          1           /usr/lib/locale/locale-archive                             3518798335187   1           0             2         
+	14          1           /etc/localtime                                             3518798466915   1           0             2     
+	```
+
+- The two runs do appear to be independent, with each row of all tables identified with a single run.
 
