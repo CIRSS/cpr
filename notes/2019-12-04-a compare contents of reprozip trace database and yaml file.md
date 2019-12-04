@@ -166,12 +166,12 @@
 	```yaml
 	version: "0.8" 	# NOT IN DATABASE  This is presumably the version of the JSON schema (ReproZip version is 1.016)
 	
-	runs:			# This is the list of runs recorded in the trace.  The two items in the list
-					# in this instance correspond to rows with `run_id` equal to 0 and 1 in the
-					# database tables.
+	runs:           # This is the list of runs recorded in the trace.  The two items in the list
+	                # in this instance correspond to rows with `run_id` equal to 0 and 1 in the
+                    # database tables.
 
-					# The list item included here corresponds to run 0 in the database. 
-					# Much of the run-time environment information below is NOT IN DATABASE.
+                    # The list item included here corresponds to run 0 in the database. 
+                    # Much of the run-time environment information below is NOT IN DATABASE.
 					
 		- architecture: x86_64 		# NOT IN DATABASE
 	      argv:                
@@ -183,7 +183,7 @@
 		  environ:					# NOT COMPLETE IN DATABASE (only first 1516 characters of env string)
 			DISPLAY: localhost:10.0
 		    HOME: /home/tmcphill
-			. . .
+            . . .
 		  exitcode: 0
 		  gid: 1000					# NOT IN DATABASE
 		  hostname: artemis			# NOT IN DATABASE
@@ -196,16 +196,16 @@
 
 	. . .
 	
-	inputs_outputs:	# This is where data files input or output by the run would be listed. 
-					# This is empty for these runs here, but in the database there are five
-					# 'accessed files' associated with each run.  The distinction between
-					# files used to execute the run (listed below) and those read or written
-					# explicitly by the run (which presumably would be listed here) is 
-					# NOT IN DATABASE.
+	inputs_outputs: # This is where data files input or output by the run would be listed. 
+                    # This is empty for these runs here, but in the database there are five
+                    # 'accessed files' associated with each run.  The distinction between
+                    # files used to execute the run (listed below) and those read or written
+                    # explicitly by the run (which presumably would be listed here) is 
+                    # NOT IN DATABASE.
 	
-	packages:		# This is a list of packages installed on the host system that provide
-					# the files listed for each that the runs use.
-					# Except for the paths to the four files, this info is NOT IN DATABASE.
+	packages:       # This is a list of packages installed on the host system that provide
+	                # the files listed for each that the runs use.
+                    # Except for the paths to the four files, this info is NOT IN DATABASE.
 
 	  - name: "coreutils"
 	    version: "8.28-1ubuntu1"
@@ -234,10 +234,10 @@
 	      # Installed package size: 2.96 MB
 	      - "/usr/share/zoneinfo/America/Los_Angeles" # 2.78 KB
 	
-	other_files: 	# This is a list of files used by the runs but not considered to be provided by
-					# the packages above. This distinction is NOT IN DATABASE.
-					# Moreover, two files below are symbolic links to files that are provided by packages
-					# above.
+	other_files:    # This is a list of files used by the runs but not considered to be provided by
+	                # the packages above. This distinction is NOT IN DATABASE.
+	                # Moreover, two files below are symbolic links to files that are provided by packages
+	                # above.
 
 	  - "/etc/ld.so.cache" # 130.37 KB
 	  - "/etc/localtime" # Link to /usr/share/zoneinfo/America/Los_Angeles
