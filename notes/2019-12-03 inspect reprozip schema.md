@@ -193,3 +193,71 @@
 
 - The two runs do appear to be independent, with each row of all tables identified with a single run.
 
+### Observed limitation of information in ReproZip trace database with respect to symbolic links
+
+- Listed each of the five files that were recorded (twice each) in the `opened_files` table:
+	```
+	$ ls -al /lib/x86_64-linux-gnu/ld-2.27.so /etc/ld.so.cache /lib/x86_64-linux-gnu/libc.so.6 /usr/lib/locale/locale-archive /etc/localtime
+	-rw-r--r-- 1 root root  133499 Dec  3 20:19 /etc/ld.so.cache
+	lrwxrwxrwx 1 root root      39 Dec  2 13:57 /etc/localtime -> /usr/share/zoneinfo/America/Los_Angeles
+	-rwxr-xr-x 1 root root  170960 Apr 16  2018 /lib/x86_64-linux-gnu/ld-2.27.so
+	lrwxrwxrwx 1 root root      12 Nov  7  2018 /lib/x86_64-linux-gnu/libc.so.6 -> libc-2.27.so
+	-rw-r--r-- 1 root root 3004224 Jul 24  2018 /usr/lib/locale/locale-archive
+	```
+- Two of the files are actually symbolic links:
+	```
+	/etc/localtime -> /usr/share/zoneinfo/America/Los_Angeles
+	/lib/x86_64-linux-gnu/libc.so.6 -> libc-2.27.so
+	```
+
+- ReproZip appears to record the file path used to request access to the file, not the path to the actual file accessed on the filesystem.
+
+- However, the `config.yml` file (used for driving the ReproZip packer) stored in the same directory as `trace.sqlite3` *does* note the path to the actual file in comments that acknowledge the symbolic links:
+	```yaml
+	.
+	.
+	.
+	packages:
+	  - name: "coreutils"
+	    version: "8.28-1ubuntu1"
+	    size: 6717440
+	    packfiles: true
+	    files:
+	      # Total files used: 98.21 KB
+	      # Installed package size: 6.41 MB
+	      - "/bin/date" # 98.21 KB
+	  - name: "libc6"
+	    version: "2.27-3ubuntu1"
+	    size: 12162048
+	    packfiles: true
+	    files:
+	      # Total files used: 2.10 MB
+	      # Installed package size: 11.60 MB
+	      - "/lib/x86_64-linux-gnu/ld-2.27.so" # 166.95 KB
+	      - "/lib/x86_64-linux-gnu/libc-2.27.so" # 1.94 MB
+	      - "/lib/x86_64-linux-gnu/libc.so.6" # Link to /lib/x86_64-linux-gnu/libc-2.27.so
+	  - name: "tzdata"
+	    version: "2019c-0ubuntu0.18.04"
+	    size: 3106816
+	    packfiles: true
+	    files:
+	      # Total files used: 2.78 KB
+	      # Installed package size: 2.96 MB
+	      - "/usr/share/zoneinfo/America/Los_Angeles" # 2.78 KB
+
+	# These files do not appear to come with an installed package -- you probably
+	# want them packed
+	other_files:
+	  - "/etc/ld.so.cache" # 130.37 KB
+	  - "/etc/localtime" # Link to /usr/share/zoneinfo/America/Los_Angeles
+	  - "/lib64/ld-linux-x86-64.so.2" # Link to /lib/x86_64-linux-gnu/ld-2.27.so
+	  - "/linfast/GitRepos/wt-prov-model/toolkits/reprozip/scratch" # Directory
+	  - "/usr/lib/locale/locale-archive" # 2.87 MB
+	.
+	.
+	.
+	```
+- Thus, it appears that ReproZip does see this information at run-time, but does not record the targets of symbolic links in the SQLite database file.
+ 
+
+
