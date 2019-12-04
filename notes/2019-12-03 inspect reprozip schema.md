@@ -195,8 +195,15 @@
 
 ### Observed limitation of information in ReproZip trace database with respect to symbolic links
 
-- Listed each of the five files that were recorded (twice each) in the `opened_files` table:
+- Inspected the type of each of the five files that were recorded (twice each) in the `opened_files` table:
 	```
+	$ file /lib/x86_64-linux-gnu/ld-2.27.so /etc/ld.so.cache /lib/x86_64-linux-gnu/libc.so.6 /usr/lib/locale/locale-archive /etc/localtime
+	/lib/x86_64-linux-gnu/ld-2.27.so: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, BuildID[sha1]=64df1b961228382fe18684249ed800ab1dceaad4, stripped
+	/etc/ld.so.cache:                 data
+	/lib/x86_64-linux-gnu/libc.so.6:  symbolic link to libc-2.27.so
+	/usr/lib/locale/locale-archive:   locale archive 228 strings
+	/etc/localtime:                   symbolic link to /usr/share/zoneinfo/America/Los_Angeles
+
 	$ ls -al /lib/x86_64-linux-gnu/ld-2.27.so /etc/ld.so.cache /lib/x86_64-linux-gnu/libc.so.6 /usr/lib/locale/locale-archive /etc/localtime
 	-rw-r--r-- 1 root root  133499 Dec  3 20:19 /etc/ld.so.cache
 	lrwxrwxrwx 1 root root      39 Dec  2 13:57 /etc/localtime -> /usr/share/zoneinfo/America/Los_Angeles
@@ -208,9 +215,9 @@
 	```
 	/etc/localtime -> /usr/share/zoneinfo/America/Los_Angeles
 	/lib/x86_64-linux-gnu/libc.so.6 -> libc-2.27.so
+	/lib64/ld-linux-x86-64.so.2: symbolic link to /lib/x86_64-linux-gnu/ld-2.27.so
 	```
-
-- ReproZip appears to record the file path used to request access to the file, not the path to the actual file accessed on the filesystem.
+- In the case of symbolic links, ReproZip appears to record in the database the path of the link, not the path to the actual file accessed on the filesystem via the link.
 
 - However, the `config.yml` file (used for driving the ReproZip packer) stored in the same directory as `trace.sqlite3` *does* note the path to the actual file in comments that acknowledge the symbolic links:
 	```yaml
@@ -257,7 +264,9 @@
 	.
 	.
 	```
-- Thus, it appears that ReproZip does see this information at run-time, but does not record the targets of symbolic links in the SQLite database file.
+- Moreover, the `config.yml` file (above) notes that `/lib64/ld-linux-x86-64.so.2` is a symbolic link to `/lib/x86_64-linux-gnu/ld-2.27.so`, whereas in the database only the target of that link is recorded (`/lib/x86_64-linux-gnu/ld-2.27.so`).
+
+- Thus, it appears that ReproZip does see this information at run-time, but does not consistently record the targets of symbolic links in the SQLite database file.
  
 
 
