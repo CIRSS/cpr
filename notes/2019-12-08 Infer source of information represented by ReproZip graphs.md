@@ -174,7 +174,7 @@
 
 ### Compared information in graph with contents of files in `.reprozip-trace` directory
 
-- Referred to comparison of contents of `trace.sqlite3` and `config.yml` (notes [2019-12-04-a](2019-12-04-a%20compare%20contents%20of%20reprozip%20trace%20database%20and%20yaml%20file.md#2019-12-04-a-compare-contents-of-reprozip-trace-database-and-yaml-file)).
+- Referred to comparison of contents of `trace.sqlite3` and `config.yml` (notes [2019-12-04](2019-12-04%20compare%20contents%20of%20reprozip%20trace%20database%20and%20yaml%20file.md#2019-12-04-compare-contents-of-reprozip-trace-database-and-yaml-file)).
 
 - All of the information in the default visualization above, including all labels and edges, can be found in the SQLite database with the following exceptions:
 	1. The names of the packages `coreutils` and `libc6`, and their respective versions `8.28-1ubuntu1` and `2.27-3ubuntu1` labeling the subgraphs in the top left corner of the figure, are not in the database.
