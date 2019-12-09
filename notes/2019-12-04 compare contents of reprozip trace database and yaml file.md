@@ -1,4 +1,4 @@
-## 2019-12-04-a Compare contents of ReproZip trace database and YAML file
+## 2019-12-04 Compare contents of ReproZip trace database and YAML file
 
 ### Inspect contents of `config.yml` file in `.reprozip-trace` directory
  - For the example trace of two runs of `reprozip trace date` performed yesterday, dumped the contents of the `config.yml` file here:
