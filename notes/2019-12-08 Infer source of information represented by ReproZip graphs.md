@@ -118,7 +118,7 @@
 	reprounzip version 1.0.16
 	```
 
-- Listed pip packages currently installed in virtual environment, noting that only the `reprounzip` package is new (see notes [2019-12-02](/2019-12-02%20install%20reprozip%20on%20desktop%20linux%20system.md)):
+- Listed pip packages currently installed in virtual environment, noting that only the `reprounzip` package is new (see notes [2019-12-02](2019-12-02%20install%20reprozip%20on%20desktop%20linux%20system.md)):
     ```
 	(.venv-reprozip) wt-prov-model/toolkits/reprozip$ pip list
 	Package       Version   
