@@ -419,7 +419,7 @@
 ### Observations
 - There appears to be no record saved here of the system calls made during execution, outside of the CDE products which still require examination.
 
-- The contents of the files stored in the trace directdory are fairly opaque, other than the timestamps, commands run, and files accessed by the executions.
+- The contents of the files stored in the trace directory are fairly opaque, other than the timestamps, commands run, and files accessed by the executions.
  
 - Given that the `vvpkg.json` file and `scratch` directory are empty, more complex executions may lead to additional information being recorded.
 
