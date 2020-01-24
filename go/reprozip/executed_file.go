@@ -16,7 +16,7 @@ type ExecutedFile struct {
 	WorkingDir string
 }
 
-func QueryExecutedFiles(db *sql.DB) *sql.Rows {
+func QueryExecutedFiles(db *sql.DB) (*sql.Rows) {
 	rows, err := db.Query("SELECT id, name, run_id, timestamp, process, argv, envp, workingdir FROM executed_files")
 	if err != nil {
 		panic(err)
