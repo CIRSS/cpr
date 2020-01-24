@@ -38,6 +38,6 @@ func dq(s string) string {
 }
 
 func (f *ExecutedFile) String() string {
-	return fmt.Sprintf("rz_executed_file(e%d, %s, r%d, %d, p%d, %s, %s).", 
-		f.ID, dq(f.Name), f.RunID, f.Timestamp, f.Process, dq(f.Argv), dq(f.WorkingDir))
+	return fmt.Sprintf("rz_executed_file(e%d, r%d, p%d, %s, %s, %s, %d).", 
+		f.ID, f.RunID, f.Process, dq(f.Name), dq(f.Argv), dq(f.WorkingDir), f.Timestamp)
 }

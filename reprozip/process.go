@@ -40,6 +40,7 @@ func Int32OrNil(prefix string, i sql.NullInt32) string {
 }
 
 func (p *Process) String() string {
-	return fmt.Sprintf("rz_process(p%d, r%d, %s, %d, %t, %d).", 
-		p.ID, p.RunID, Int32OrNil("p", p.Parent), p.Timestamp, p.IsThread, p.ExitCode)
+	return fmt.Sprintf("rz_process(p%d, %s, r%d, %t, %d, %d).", 
+
+		p.ID, Int32OrNil("p", p.Parent), p.RunID, p.IsThread, p.ExitCode, p.Timestamp)
 }

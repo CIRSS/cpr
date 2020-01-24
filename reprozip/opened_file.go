@@ -33,6 +33,6 @@ func WriteOpenedFiles(rows *sql.Rows) {
 }
 
 func (f *OpenedFile) String() string {
-	return fmt.Sprintf("rz_opened_file(f%d, r%d, %s, %d, %d, %t, p%d).", 
-		f.ID, f.RunID, dq(f.Name), f.Timestamp, f.Mode, f.IsDirectory, f.Process)
+	return fmt.Sprintf("rz_opened_file(f%d, r%d, p%d, %s, %d, %t, %d).", 
+		f.ID, f.RunID, f.Process, dq(f.Name), f.Mode, f.IsDirectory, f.Timestamp)
 }
