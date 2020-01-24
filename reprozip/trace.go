@@ -21,11 +21,17 @@ func ExtractTrace(traceDir string) {
 	}
 	WriteProcessFacts(rows)
 
-	rows, err = QueryExecutions(db)
+	rows, err = QueryExecutedFiles(db)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	WriteExecutions(rows)
+	WriteExecutedFiles(rows)
 
+	rows, err = QueryOpenedFiles(db)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	WriteOpenedFiles(rows)
 }
