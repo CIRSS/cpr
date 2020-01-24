@@ -14,16 +14,11 @@ func ExtractTrace(traceDir string) {
 		return
 	}
 
-	rows, err := db.Query("SELECT id, run_id, parent, timestamp, is_thread, exitcode FROM processes")
+	rows, err := QueryProcesses(db)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	var p Process
-
-	for rows.Next() {
-		err = rows.Scan(&p.ID, &p.RunID, &p.Parent, &p.Timestamp, &p.IsThread, &p.ExitCode)
-		fmt.Println(p.String())
-	}
+	WriteRows(rows)
 }
