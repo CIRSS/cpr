@@ -15,9 +15,12 @@ type OpenedFile struct {
 	Process int
 }
 
-func QueryOpenedFiles(db *sql.DB) (*sql.Rows, error) {
+func QueryOpenedFiles(db *sql.DB) *sql.Rows {
 	rows, err := db.Query("SELECT id, run_id, name, timestamp, mode, is_directory, process FROM opened_files")
-	return rows, err
+	if err != nil {
+		panic(err)
+	}
+	return rows
 }
 
 func WriteOpenedFiles(rows *sql.Rows) {

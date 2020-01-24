@@ -14,24 +14,12 @@ func ExtractTrace(traceDir string) {
 		return
 	}
 
-	rows, err := QueryProcesses(db)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	WriteProcessFacts(rows)
+	ps := QueryProcesses(db)
+	WriteProcessFacts(ps)
 
-	rows, err = QueryExecutedFiles(db)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	WriteExecutedFiles(rows)
+	es := QueryExecutedFiles(db)
+	WriteExecutedFiles(es)
 
-	rows, err = QueryOpenedFiles(db)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	WriteOpenedFiles(rows)
+	fs := QueryOpenedFiles(db)
+	WriteOpenedFiles(fs)
 }

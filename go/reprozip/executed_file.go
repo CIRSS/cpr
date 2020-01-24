@@ -16,9 +16,12 @@ type ExecutedFile struct {
 	WorkingDir string
 }
 
-func QueryExecutedFiles(db *sql.DB) (*sql.Rows, error) {
+func QueryExecutedFiles(db *sql.DB) *sql.Rows {
 	rows, err := db.Query("SELECT id, name, run_id, timestamp, process, argv, envp, workingdir FROM executed_files")
-	return rows, err
+	if err != nil {
+		panic(err)
+	}
+	return rows
 }
 
 func WriteExecutedFiles(rows *sql.Rows) {
@@ -31,10 +34,6 @@ func WriteExecutedFiles(rows *sql.Rows) {
 		}
 		fmt.Println(f.String())
 	}
-}
-
-func dq(s string) string {
-	return "\"" + s + "\""
 }
 
 func (f *ExecutedFile) String() string {
