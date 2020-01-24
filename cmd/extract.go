@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"github.com/whole-tale/wt-prov-model/reprozip"
 
 	"github.com/tmcphillips/main-wrapper/mw"
 )
@@ -32,7 +33,7 @@ func main() {
 	switch flags.NArg() {
 	case 1:
 		traceDirectory := flags.Arg(0)
-		fmt.Println(traceDirectory)
+		reprozip.ExtractTrace(traceDirectory)
 	default:
 		flags.Usage()
 		return
