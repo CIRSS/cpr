@@ -19,6 +19,13 @@ func ExtractTrace(traceDir string) {
 		fmt.Println(err)
 		return
 	}
+	WriteProcessFacts(rows)
 
-	WriteRows(rows)
+	rows, err = QueryExecutions(db)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	WriteExecutions(rows)
+
 }

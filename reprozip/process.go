@@ -19,7 +19,7 @@ func QueryProcesses(db *sql.DB) (*sql.Rows, error) {
 	return rows, err
 }
 
-func WriteRows(rows *sql.Rows) {
+func WriteProcessFacts(rows *sql.Rows) {
 	var p Process
 	for rows.Next() {
 		err := rows.Scan(&p.ID, &p.RunID, &p.Parent, &p.Timestamp, &p.IsThread, &p.ExitCode)
@@ -31,15 +31,15 @@ func WriteRows(rows *sql.Rows) {
 	}
 }
 
-func Int32OrNil(i sql.NullInt32) string {
+func Int32OrNil(prefix string, i sql.NullInt32) string {
 	if i.Valid {
-		return string(i.Int32)
+		return prefix + string(i.Int32)
 	} else {
 		return "nil"
 	}
 }
 
 func (p *Process) String() string {
-	return fmt.Sprintf("rz_process(%d, %d, %s, %d, %t, %d).", 
-		p.ID, p.RunID, Int32OrNil(p.Parent), p.Timestamp, p.IsThread, p.ExitCode)
+	return fmt.Sprintf("rz_process(p%d, r%d, %s, %d, %t, %d).", 
+		p.ID, p.RunID, Int32OrNil("p", p.Parent), p.Timestamp, p.IsThread, p.ExitCode)
 }
