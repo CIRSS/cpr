@@ -14,7 +14,7 @@ import (
 var MW mw.MainWrapper
 
 func init() {
-	MW = mw.NewMainWrapper("knia", main)
+	MW = mw.NewMainWrapper("extract", main)
 }
 
 // Extracts provenance information from the specified ReproZip trace directory

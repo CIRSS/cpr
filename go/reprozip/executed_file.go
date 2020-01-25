@@ -7,7 +7,7 @@ import (
 
 type ExecutedFile struct {
 	ID int
-	Name string 
+	Name string
 	RunID int
 	Timestamp uint64
 	Process int
@@ -37,6 +37,6 @@ func WriteExecutedFiles(rows *sql.Rows) {
 }
 
 func (f *ExecutedFile) String() string {
-	return fmt.Sprintf("rz_executed_file(e%d, r%d, p%d, %s, %s, %s, %d).", 
+	return fmt.Sprintf("rpz_executed_file(e%d, r%d, p%d, %s, %s, %s, %d).",
 		f.ID, f.RunID, f.Process, dq(f.Name), dq(f.Argv), dq(f.WorkingDir), f.Timestamp)
 }
