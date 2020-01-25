@@ -1,3 +1,3 @@
-#/bin/bash
+#!/bin/bash
 
 cat input.txt > output.txt
