@@ -1,4 +1,4 @@
 #!/bin/bash
 
-rm -fv 02-hello-go
+rm -fv 03-hello-c
 rm -fvr .reprozip-trace
