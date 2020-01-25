@@ -14,7 +14,7 @@ import (
 var MW mw.MainWrapper
 
 func init() {
-	MW = mw.NewMainWrapper("extract", main)
+	MW = mw.NewMainWrapper("reprozip2prolog", main)
 }
 
 // Extracts provenance information from the specified ReproZip trace directory
