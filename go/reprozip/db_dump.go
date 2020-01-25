@@ -1,6 +1,7 @@
 package reprozip
 
 import (
+	"fmt"
 	"strconv"
 	"database/sql"
 )
@@ -10,10 +11,10 @@ const (
 )
 
 func printRowHeader(header string) {
-	println()
-	println(separator)
-	println("% FACT:", header)
-	println(separator)
+	fmt.Println()
+	fmt.Println(separator)
+	fmt.Println("% FACT:", header)
+	fmt.Println(separator)
 }
 
 func dq(s string) string {
