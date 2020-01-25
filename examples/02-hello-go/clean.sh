@@ -1,4 +1,4 @@
 #!/bin/bash
 
 rm -fv 01-hello-go
-rm -rfv .reprozip-trace
+rm -fvr .reprozip-trace
