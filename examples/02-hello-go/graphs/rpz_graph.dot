@@ -1,0 +1,64 @@
+digraph G {
+    rankdir=LR;
+
+    /* programs */
+    node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
+    subgraph cluster_run0 {
+        label="run0";
+        prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/run.sh (1)"];
+        prog1 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go (2)"];
+        prog0 -> prog1 [label="fork+exec"];
+        prog2 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go (3)",fillcolor="#666666"];
+        prog1 -> prog2 [label="thread"];
+        prog3 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go (4)",fillcolor="#666666"];
+        prog1 -> prog3 [label="thread"];
+        prog4 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go (5)",fillcolor="#666666"];
+        prog1 -> prog4 [label="thread"];
+        prog5 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go (6)",fillcolor="#666666"];
+        prog3 -> prog5 [label="thread"];
+    }
+
+    node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
+
+    /* system packages */
+    subgraph cluster_pkg0 {
+        label="bash 4.4-5";
+        "/bin/bash";
+    }
+    subgraph cluster_pkg1 {
+        label="libc6 2.24-11+deb9u4";
+        "/lib/x86_64-linux-gnu/ld-2.24.so";
+        "/lib/x86_64-linux-gnu/libc.so.6";
+        "/lib/x86_64-linux-gnu/libdl.so.2";
+        "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache";
+    }
+    subgraph cluster_pkg2 {
+        label="libtinfo5 6.0+20161126-1+deb9u2";
+        "/lib/x86_64-linux-gnu/libtinfo.so.5";
+    }
+
+    /* other files */
+    "/dev/tty";
+    "/etc/ld.so.cache";
+    "/home/tmcphill/GitRepos";
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go";
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/run.sh";
+    "/proc/self/exe";
+    "/sys/kernel/mm/transparent_hugepage/hpage_pmd_size";
+    "/usr/lib/locale/locale-archive";
+
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/run.sh" -> prog0 [style=bold, label="./run.sh"];
+    "/bin/bash" -> prog0 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/ld-2.24.so" -> prog0 [color="#8888CC"];
+    "/etc/ld.so.cache" -> prog0 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libtinfo.so.5" -> prog0 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libdl.so.2" -> prog0 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libc.so.6" -> prog0 [color="#8888CC"];
+    prog0 -> "/dev/tty" [color="#000088"];
+    "/usr/lib/locale/locale-archive" -> prog0 [color="#8888CC"];
+    "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache" -> prog0 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/run.sh" -> prog0 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go" -> prog1 [style=bold, label="./bin/hello_go"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go" -> prog1 [color="#8888CC"];
+    "/sys/kernel/mm/transparent_hugepage/hpage_pmd_size" -> prog1 [color="#8888CC"];
+}

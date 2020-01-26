@@ -1,0 +1,225 @@
+digraph G {
+    rankdir=LR;
+
+    /* programs */
+    node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
+    subgraph cluster_run0 {
+        label="run0";
+        prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/run.sh (1)"];
+        prog1 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/hello.py (2)"];
+        prog0 -> prog1 [label="fork+exec"];
+        prog2 [label="/home/tmcphill/.venv/reprozip/bin/python (2)"];
+        prog1 -> prog2 [label="exec"];
+    }
+
+    node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
+
+    /* system packages */
+    subgraph cluster_pkg0 {
+        label="bash 4.4-5";
+        "/bin/bash";
+    }
+    subgraph cluster_pkg1 {
+        label="coreutils 8.26-3";
+        "/usr/bin/env";
+    }
+    subgraph cluster_pkg2 {
+        label="libc6 2.24-11+deb9u4";
+        "/lib/x86_64-linux-gnu/ld-2.24.so";
+        "/lib/x86_64-linux-gnu/libc.so.6";
+        "/lib/x86_64-linux-gnu/libdl.so.2";
+        "/lib/x86_64-linux-gnu/libm.so.6";
+        "/lib/x86_64-linux-gnu/libpthread.so.0";
+        "/lib/x86_64-linux-gnu/libutil.so.1";
+        "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache";
+    }
+    subgraph cluster_pkg3 {
+        label="libexpat1 2.2.0-2+deb9u2";
+        "/lib/x86_64-linux-gnu/libexpat.so.1";
+    }
+    subgraph cluster_pkg4 {
+        label="libpython3.5-minimal 3.5.3-1+deb9u1";
+        "/usr/lib/python3.5/_bootlocale.py";
+        "/usr/lib/python3.5/_collections_abc.py";
+        "/usr/lib/python3.5/_sitebuiltins.py";
+        "/usr/lib/python3.5/_sysconfigdata.py";
+        "/usr/lib/python3.5/_weakrefset.py";
+        "/usr/lib/python3.5/abc.py";
+        "/usr/lib/python3.5/codecs.py";
+        "/usr/lib/python3.5/collections/__init__.py";
+        "/usr/lib/python3.5/collections/abc.py";
+        "/usr/lib/python3.5/contextlib.py";
+        "/usr/lib/python3.5/copyreg.py";
+        "/usr/lib/python3.5/encodings/__init__.py";
+        "/usr/lib/python3.5/encodings/aliases.py";
+        "/usr/lib/python3.5/encodings/latin_1.py";
+        "/usr/lib/python3.5/encodings/utf_8.py";
+        "/usr/lib/python3.5/functools.py";
+        "/usr/lib/python3.5/genericpath.py";
+        "/usr/lib/python3.5/heapq.py";
+        "/usr/lib/python3.5/importlib/__init__.py";
+        "/usr/lib/python3.5/importlib/abc.py";
+        "/usr/lib/python3.5/importlib/machinery.py";
+        "/usr/lib/python3.5/importlib/util.py";
+        "/usr/lib/python3.5/io.py";
+        "/usr/lib/python3.5/keyword.py";
+        "/usr/lib/python3.5/operator.py";
+        "/usr/lib/python3.5/os.py";
+        "/usr/lib/python3.5/plat-x86_64-linux-gnu/_sysconfigdata_m.py";
+        "/usr/lib/python3.5/posixpath.py";
+        "/usr/lib/python3.5/re.py";
+        "/usr/lib/python3.5/reprlib.py";
+        "/usr/lib/python3.5/site.py";
+        "/usr/lib/python3.5/sitecustomize.py";
+        "/usr/lib/python3.5/sre_compile.py";
+        "/usr/lib/python3.5/sre_constants.py";
+        "/usr/lib/python3.5/sre_parse.py";
+        "/usr/lib/python3.5/stat.py";
+        "/usr/lib/python3.5/sysconfig.py";
+        "/usr/lib/python3.5/types.py";
+        "/usr/lib/python3.5/warnings.py";
+        "/usr/lib/python3.5/weakref.py";
+    }
+    subgraph cluster_pkg5 {
+        label="libtinfo5 6.0+20161126-1+deb9u2";
+        "/lib/x86_64-linux-gnu/libtinfo.so.5";
+    }
+    subgraph cluster_pkg6 {
+        label="python3-minimal 3.5.3-1";
+        "/usr/bin/python3";
+    }
+    subgraph cluster_pkg7 {
+        label="python3.5-minimal 3.5.3-1+deb9u1";
+        "/usr/bin/python3.5";
+    }
+    subgraph cluster_pkg8 {
+        label="zlib1g 1:1.2.8.dfsg-5";
+        "/lib/x86_64-linux-gnu/libz.so.1";
+    }
+
+    /* other files */
+    "/dev/tty";
+    "/etc/ld.so.cache";
+    "/home/tmcphill/.venv/reprozip/bin/python" [fillcolor="#A3B4E0", label="python\n/home/tmcphill/.venv/reprozip/bin/python"];
+    "/home/tmcphill/.venv/reprozip/bin/python3" [fillcolor="#A3B4E0", label="python3\n/home/tmcphill/.venv/reprozip/bin/python3"];
+    "/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth" [fillcolor="#A3B4E0", label="reprounzip-1.0.16-py3.6-nspkg.pth\n/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth"];
+    "/home/tmcphill/.venv/reprozip/pyvenv.cfg" [fillcolor="#A3B4E0", label="pyvenv.cfg\n/home/tmcphill/.venv/reprozip/pyvenv.cfg"];
+    "/home/tmcphill/GitRepos";
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/hello.py";
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/run.sh";
+    "/usr/lib/locale/locale-archive";
+    "/usr/lib/python3.5/__pycache__/_bootlocale.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/_collections_abc.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/_sitebuiltins.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/_sysconfigdata.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/_weakrefset.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/abc.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/codecs.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/contextlib.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/copyreg.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/functools.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/genericpath.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/heapq.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/io.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/keyword.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/operator.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/os.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/posixpath.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/re.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/reprlib.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/site.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/sitecustomize.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/sre_compile.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/sre_constants.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/sre_parse.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/stat.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/sysconfig.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/types.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/warnings.cpython-35.pyc";
+    "/usr/lib/python3.5/__pycache__/weakref.cpython-35.pyc";
+    "/usr/lib/python3.5/collections/__pycache__/__init__.cpython-35.pyc";
+    "/usr/lib/python3.5/collections/__pycache__/abc.cpython-35.pyc";
+    "/usr/lib/python3.5/encodings/__pycache__/__init__.cpython-35.pyc";
+    "/usr/lib/python3.5/encodings/__pycache__/aliases.cpython-35.pyc";
+    "/usr/lib/python3.5/encodings/__pycache__/latin_1.cpython-35.pyc";
+    "/usr/lib/python3.5/encodings/__pycache__/utf_8.cpython-35.pyc";
+    "/usr/lib/python3.5/importlib/__pycache__/__init__.cpython-35.pyc";
+    "/usr/lib/python3.5/importlib/__pycache__/abc.cpython-35.pyc";
+    "/usr/lib/python3.5/importlib/__pycache__/machinery.cpython-35.pyc";
+    "/usr/lib/python3.5/importlib/__pycache__/util.cpython-35.pyc";
+    "/usr/lib/python3.5/plat-x86_64-linux-gnu/__pycache__/_sysconfigdata_m.cpython-35.pyc";
+
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/run.sh" -> prog0 [style=bold, label="./run.sh"];
+    "/bin/bash" -> prog0 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/ld-2.24.so" -> prog0 [color="#8888CC"];
+    "/etc/ld.so.cache" -> prog0 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libtinfo.so.5" -> prog0 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libdl.so.2" -> prog0 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libc.so.6" -> prog0 [color="#8888CC"];
+    prog0 -> "/dev/tty" [color="#000088"];
+    "/usr/lib/locale/locale-archive" -> prog0 [color="#8888CC"];
+    "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache" -> prog0 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/run.sh" -> prog0 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/hello.py" -> prog1 [style=bold, label="./hello.py"];
+    "/usr/bin/env" -> prog1 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/ld-2.24.so" -> prog1 [color="#8888CC"];
+    "/etc/ld.so.cache" -> prog1 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libc.so.6" -> prog1 [color="#8888CC"];
+    "/usr/lib/locale/locale-archive" -> prog1 [color="#8888CC"];
+    "/home/tmcphill/.venv/reprozip/bin/python" -> prog2 [style=bold, label="python ./hello.py"];
+    "/usr/bin/python3.5" -> prog2 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/ld-2.24.so" -> prog2 [color="#8888CC"];
+    "/etc/ld.so.cache" -> prog2 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libpthread.so.0" -> prog2 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libdl.so.2" -> prog2 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libutil.so.1" -> prog2 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libexpat.so.1" -> prog2 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libz.so.1" -> prog2 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libm.so.6" -> prog2 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libc.so.6" -> prog2 [color="#8888CC"];
+    "/usr/lib/locale/locale-archive" -> prog2 [color="#8888CC"];
+    "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/encodings/__pycache__/__init__.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/codecs.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/encodings/__pycache__/aliases.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/encodings/__pycache__/utf_8.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/encodings/__pycache__/latin_1.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/io.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/abc.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/_weakrefset.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/site.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/os.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/stat.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/posixpath.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/genericpath.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/_collections_abc.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/_sitebuiltins.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/re.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/sre_compile.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/sre_parse.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/sre_constants.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/copyreg.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/home/tmcphill/.venv/reprozip/pyvenv.cfg" -> prog2 [color="#8888CC"];
+    "/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/_bootlocale.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/types.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/functools.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/collections/__pycache__/__init__.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/operator.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/keyword.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/heapq.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/reprlib.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/weakref.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/collections/__pycache__/abc.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/importlib/__pycache__/__init__.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/warnings.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/importlib/__pycache__/util.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/importlib/__pycache__/abc.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/importlib/__pycache__/machinery.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/contextlib.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/sysconfig.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/_sysconfigdata.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/plat-x86_64-linux-gnu/__pycache__/_sysconfigdata_m.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/usr/lib/python3.5/__pycache__/sitecustomize.cpython-35.pyc" -> prog2 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/hello.py" -> prog2 [color="#8888CC"];
+}
