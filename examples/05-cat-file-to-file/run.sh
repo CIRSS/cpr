@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cat input.txt > output.txt
+cat inputs/input.txt > outputs/output.txt
