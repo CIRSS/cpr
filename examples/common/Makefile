@@ -1,18 +1,24 @@
 
+.PHONY: clean
 clean:
 	rm -rfv bin
+	rm -rfv outputs
 	rm -rfv .reprozip-trace
 	rm -rfv facts
 
 build:
 
-run:
+.PHONY: dirs
+dirs:
+	mkdir -p  bin facts outputs
+
+.PHONY: run
+run: dirs
 	./run.sh
 
-record:
-	mkdir -p facts
+record: dirs
 	reprozip trace --overwrite ./run.sh
 
-extract:
+extract: dirs
 	rpz2prolog .reprozip-trace > facts/rpz_facts.pl
 

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-date > date.txt
+date > outputs/date.txt
