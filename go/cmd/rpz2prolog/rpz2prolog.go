@@ -23,12 +23,16 @@ func main() {
 	var err error
 
 	flags := MW.InitFlagSet()
+	var mask = flags.Bool("m", false, "Mask unrepeatable attributes")
+
 	err = flags.Parse(os.Args[1:])
 	if err != nil {
 		fmt.Println(err)
 		flags.Usage()
 		return
 	}
+
+	reprozip.MaskNonrepeatables = *mask
 
 	switch flags.NArg() {
 	case 1:

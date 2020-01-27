@@ -6,6 +6,10 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
+var (
+	MaskNonrepeatables=true
+)
+
 func ExtractTrace(traceDir string) {
 
 	db, err := sql.Open("sqlite3", traceDir + "/trace.sqlite3")

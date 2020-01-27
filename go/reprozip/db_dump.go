@@ -23,8 +23,14 @@ func dq(s string) string {
 
 func int32OrNil(prefix string, i sql.NullInt32) string {
 	if i.Valid {
-		return prefix + strconv.FormatInt(int64(i.Int32), 32)
+		return prefix + strconv.FormatInt(int64(i.Int32), 10)
 	}
 	return "nil"
 }
 
+func maskableInt64(value int64) string {
+	if MaskNonrepeatables {
+		return "nil"
+	}
+	return strconv.FormatInt(value, 10)
+}

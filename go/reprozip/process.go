@@ -36,6 +36,6 @@ func WriteProcessFacts(rows *sql.Rows) {
 }
 
 func (p *Process) String() string {
-	return fmt.Sprintf("rpz_process(p%d, %s, r%d, %t, %d, %d).",
-		p.ID, int32OrNil("p", p.Parent), p.RunID, p.IsThread, p.ExitCode, p.Timestamp)
+	return fmt.Sprintf("rpz_process(p%d, %s, r%d, %t, %d, %s).",
+		p.ID, int32OrNil("p", p.Parent), p.RunID, p.IsThread, p.ExitCode, maskableInt64(p.Timestamp))
 }

@@ -25,7 +25,7 @@ record: dirs
 	reprozip trace --overwrite ./run.sh
 
 extract: dirs
-	rpz2prolog .reprozip-trace > facts/rpz_facts.pl
+	rpz2prolog -m .reprozip-trace > facts/rpz_facts.pl
 
 graph: dirs $(GRAPHS)
 
