@@ -40,7 +40,6 @@ digraph G {
     /* other files */
     "/dev/tty";
     "/etc/ld.so.cache";
-    "/home/tmcphill/GitRepos";
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go";
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/run.sh";
     "/proc/self/exe";

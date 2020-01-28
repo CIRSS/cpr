@@ -37,7 +37,6 @@ digraph G {
     "/dev/tty";
     "/etc/ld.so.cache";
     "/etc/localtime";
-    "/home/tmcphill/GitRepos";
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/01-date-cmd/run.sh";
     "/usr/lib/locale/locale-archive";
 

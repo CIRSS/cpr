@@ -36,7 +36,6 @@ digraph G {
     /* other files */
     "/dev/tty";
     "/etc/ld.so.cache";
-    "/home/tmcphill/GitRepos";
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/inputs/input.txt" [fillcolor="#A3B4E0", label="input.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/inputs/input.txt"];
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/outputs/output.txt" [fillcolor="#A3B4E0", label="output.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/outputs/output.txt"];
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/run.sh";

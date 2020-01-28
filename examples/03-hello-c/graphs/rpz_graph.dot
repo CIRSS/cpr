@@ -32,7 +32,6 @@ digraph G {
     /* other files */
     "/dev/tty";
     "/etc/ld.so.cache";
-    "/home/tmcphill/GitRepos";
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/03-hello-c/bin/hello_c";
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/03-hello-c/run.sh";
     "/usr/lib/locale/locale-archive";

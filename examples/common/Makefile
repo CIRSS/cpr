@@ -7,6 +7,8 @@ PNGS = $(GRAPHS:.dot=.png)
 .SUFFIXES:
 .SUFFIXES: .dot .pdf .png
 
+all:  build record extract graph
+
 .PHONY: clean
 clean:
 	rm -rfv bin outputs .reprozip-trace facts graphs
