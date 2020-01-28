@@ -6,7 +6,7 @@ import (
 )
 
 type Process struct {
- 	ID int
+ 	ID int32
 	RunID int
 	Parent sql.NullInt32
 	Timestamp int64
@@ -37,5 +37,5 @@ func WriteProcessFacts(rows *sql.Rows) {
 
 func (p *Process) String() string {
 	return fmt.Sprintf("rpz_process(p%d, %s, r%d, %t, %d, %s).",
-		p.ID, int32OrNil("p", p.Parent), p.RunID, p.IsThread, p.ExitCode, maskableInt64(p.Timestamp))
+		processId(p.ID), int32OrNil("p", p.Parent), p.RunID, p.IsThread, p.ExitCode, maskableInt64(p.Timestamp))
 }

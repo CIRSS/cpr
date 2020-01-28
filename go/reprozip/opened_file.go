@@ -12,7 +12,7 @@ type OpenedFile struct {
 	Timestamp int64
 	Mode int
 	IsDirectory bool
-	Process int
+	Process int32
 }
 
 func QueryOpenedFiles(db *sql.DB) *sql.Rows {
@@ -37,5 +37,5 @@ func WriteOpenedFiles(rows *sql.Rows) {
 
 func (f *OpenedFile) String() string {
 	return fmt.Sprintf("rpz_opened_file(f%d, r%d, p%d, %s, %d, %t, %s).",
-		f.ID, f.RunID, f.Process, dq(f.Name), f.Mode, f.IsDirectory, maskableInt64(f.Timestamp))
+		f.ID, f.RunID, processId(f.Process), dq(f.Name), f.Mode, f.IsDirectory, maskableInt64(f.Timestamp))
 }

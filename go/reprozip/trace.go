@@ -8,6 +8,7 @@ import (
 
 var (
 	MaskNonrepeatables=true
+	ZeroOffsetProcessIDs=true
 )
 
 func ExtractTrace(traceDir string) {

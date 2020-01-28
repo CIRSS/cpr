@@ -10,7 +10,7 @@ type ExecutedFile struct {
 	Name string
 	RunID int
 	Timestamp int64
-	Process int
+	Process int32
 	Argv string
 	Envp string
 	WorkingDir string
@@ -38,5 +38,5 @@ func WriteExecutedFiles(rows *sql.Rows) {
 
 func (f *ExecutedFile) String() string {
 	return fmt.Sprintf("rpz_executed_file(e%d, r%d, p%d, %s, %s, %s, %s).",
-		f.ID, f.RunID, f.Process, dq(f.Name), dq(f.Argv), dq(f.WorkingDir), maskableInt64(f.Timestamp))
+		f.ID, f.RunID, processId(f.Process), dq(f.Name), dq(f.Argv), dq(f.WorkingDir), maskableInt64(f.Timestamp))
 }
