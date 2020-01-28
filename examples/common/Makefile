@@ -7,7 +7,7 @@ PNGS = $(GRAPHS:.dot=.png)
 .SUFFIXES:
 .SUFFIXES: .dot .pdf .png
 
-all:  build record extract graph
+all:  build record extract png
 
 .PHONY: clean
 clean:
