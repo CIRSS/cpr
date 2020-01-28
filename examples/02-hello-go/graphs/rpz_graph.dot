@@ -13,9 +13,9 @@ digraph G {
         prog3 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go (4)",fillcolor="#666666"];
         prog1 -> prog3 [label="thread"];
         prog4 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go (5)",fillcolor="#666666"];
-        prog1 -> prog4 [label="thread"];
+        prog3 -> prog4 [label="thread"];
         prog5 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go (6)",fillcolor="#666666"];
-        prog3 -> prog5 [label="thread"];
+        prog1 -> prog5 [label="thread"];
     }
 
     node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];

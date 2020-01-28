@@ -14,6 +14,9 @@ type Process struct {
 	ExitCode int
 }
 
+var (
+	firstProcessID int32 = -1
+)
 
 func QueryProcesses(db *sql.DB) *sql.Rows {
 	rows, err := db.Query("SELECT id, run_id, parent, timestamp, is_thread, exitcode FROM processes")
@@ -31,11 +34,15 @@ func WriteProcessFacts(rows *sql.Rows) {
 			fmt.Println(err)
 			return
 		}
+		if firstProcessID == -1 {
+			firstProcessID = p.ID
+		}
+
 		fmt.Println(p.String())
 	}
 }
 
 func (p *Process) String() string {
 	return fmt.Sprintf("rpz_process(p%d, %s, r%d, %t, %d, %s).",
-		processId(p.ID), int32OrNil("p", p.Parent), p.RunID, p.IsThread, p.ExitCode, maskableInt64(p.Timestamp))
+		p.ID, int32OrNil("p", p.Parent), p.RunID, p.IsThread, p.ExitCode, maskableInt64(p.Timestamp))
 }

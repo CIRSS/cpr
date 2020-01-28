@@ -31,11 +31,14 @@ func WriteOpenedFiles(rows *sql.Rows) {
 			fmt.Println(err)
 			return
 		}
+		if IgnoreFirstProcessFiles && f.Process == firstProcessID {
+			continue
+		}
 		fmt.Println(f.String())
 	}
 }
 
 func (f *OpenedFile) String() string {
 	return fmt.Sprintf("rpz_opened_file(f%d, r%d, p%d, %s, %d, %t, %s).",
-		f.ID, f.RunID, processId(f.Process), dq(f.Name), f.Mode, f.IsDirectory, maskableInt64(f.Timestamp))
+		f.ID, f.RunID, f.Process, dq(f.Name), f.Mode, f.IsDirectory, maskableInt64(f.Timestamp))
 }

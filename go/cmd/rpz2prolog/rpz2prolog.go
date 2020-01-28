@@ -24,6 +24,7 @@ func main() {
 
 	flags := MW.InitFlagSet()
 	var mask = flags.Bool("m", false, "Mask unrepeatable attributes")
+	var ignore = flags.Bool("i", false, "Ignore files written by the first process")
 
 	err = flags.Parse(os.Args[1:])
 	if err != nil {
@@ -33,6 +34,7 @@ func main() {
 	}
 
 	reprozip.MaskNonrepeatables = *mask
+	reprozip.IgnoreFirstProcessFiles = *ignore
 
 	switch flags.NArg() {
 	case 1:
