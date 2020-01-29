@@ -174,4 +174,4 @@
 - However, the graph created by the `reprounzip graph --packages drop` command correctly shows a single file named `date.txt` being both read and written despite the differences in the paths used:
 	
 
-![enter image description here](https://lh3.googleusercontent.com/9A9w_k1pNznvdZxgDUY3tbXCiqkzFckg8qHLR_It46nOpxNT0XXbgjHD65TVCvaRgiHgP1h2aFU8=s4000)
+![enter image description here](https://lh3.googleusercontent.com/9A9w_k1pNznvdZxgDUY3tbXCiqkzFckg8qHLR_It46nOpxNT0XXbgjHD65TVCvaRgiHgP1h2aFU8=s1000)
