@@ -1,0 +1,30 @@
+digraph G {
+    rankdir=LR;
+
+    /* programs */
+    node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
+    subgraph cluster_run0 {
+        label="run0";
+        prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/03-hello-c/run.sh (1)"];
+        prog1 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/03-hello-c/bin/hello_c (2)"];
+        prog0 -> prog1 [label="fork+exec"];
+    }
+
+    node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
+
+    /* other files */
+    "/dev/tty";
+    "/etc/ld.so.cache";
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/03-hello-c/bin/hello_c";
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/03-hello-c/run.sh";
+    "/usr/lib/locale/locale-archive";
+
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/03-hello-c/run.sh" -> prog0 [style=bold, label="./run.sh"];
+    "/etc/ld.so.cache" -> prog0 [color="#8888CC"];
+    prog0 -> "/dev/tty" [color="#000088"];
+    "/usr/lib/locale/locale-archive" -> prog0 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/03-hello-c/run.sh" -> prog0 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/03-hello-c/bin/hello_c" -> prog1 [style=bold, label="./bin/hello_c"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/03-hello-c/bin/hello_c" -> prog1 [color="#8888CC"];
+    "/etc/ld.so.cache" -> prog1 [color="#8888CC"];
+}

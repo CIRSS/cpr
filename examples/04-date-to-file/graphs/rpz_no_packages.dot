@@ -20,8 +20,6 @@ digraph G {
     "/dev/tty";
     "/etc/ld.so.cache";
     "/etc/localtime";
-    "/home/tmcphill/GitRepos";
-    "/home/tmcphill/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt";
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" [fillcolor="#A3B4E0", label="date.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt"];
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/run.sh";
     "/usr/lib/locale/locale-archive";
@@ -37,5 +35,5 @@ digraph G {
     "/etc/localtime" -> prog1 [color="#8888CC"];
     "/etc/ld.so.cache" -> prog3 [color="#8888CC"];
     "/usr/lib/locale/locale-archive" -> prog3 [color="#8888CC"];
-    "/home/tmcphill/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" -> prog3 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" -> prog3 [color="#8888CC"];
 }

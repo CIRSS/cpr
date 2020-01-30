@@ -1,0 +1,24 @@
+digraph G {
+    rankdir=LR;
+
+    /* programs */
+    node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
+    subgraph cluster_run0 {
+        label="run0";
+        prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/run.sh (1)"];
+        prog1 [label="/bin/date (2)"];
+        prog0 -> prog1 [label="fork+exec"];
+        prog2 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/run.sh (3)"];
+        prog0 -> prog2 [label="fork"];
+        prog3 [label="/bin/cat (4)"];
+        prog0 -> prog3 [label="fork+exec"];
+    }
+
+    node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
+
+    /* other files */
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" [fillcolor="#A3B4E0", label="date.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt"];
+
+    prog1 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" [color="#000088"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" -> prog3 [color="#8888CC"];
+}

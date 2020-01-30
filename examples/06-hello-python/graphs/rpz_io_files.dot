@@ -1,0 +1,26 @@
+digraph G {
+    rankdir=LR;
+
+    /* programs */
+    node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
+    subgraph cluster_run0 {
+        label="run0";
+        prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/run.sh (1)"];
+        prog1 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/hello.py (2)"];
+        prog0 -> prog1 [label="fork+exec"];
+        prog2 [label="/home/tmcphill/.venv/reprozip/bin/python (2)"];
+        prog1 -> prog2 [label="exec"];
+    }
+
+    node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
+
+    /* other files */
+    "/home/tmcphill/.venv/reprozip/bin/python" [fillcolor="#A3B4E0", label="python\n/home/tmcphill/.venv/reprozip/bin/python"];
+    "/home/tmcphill/.venv/reprozip/bin/python3" [fillcolor="#A3B4E0", label="python3\n/home/tmcphill/.venv/reprozip/bin/python3"];
+    "/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth" [fillcolor="#A3B4E0", label="reprounzip-1.0.16-py3.6-nspkg.pth\n/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth"];
+    "/home/tmcphill/.venv/reprozip/pyvenv.cfg" [fillcolor="#A3B4E0", label="pyvenv.cfg\n/home/tmcphill/.venv/reprozip/pyvenv.cfg"];
+
+    "/home/tmcphill/.venv/reprozip/bin/python" -> prog2 [style=bold, label="python ./hello.py"];
+    "/home/tmcphill/.venv/reprozip/pyvenv.cfg" -> prog2 [color="#8888CC"];
+    "/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth" -> prog2 [color="#8888CC"];
+}

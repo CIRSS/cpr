@@ -1,7 +1,15 @@
 
-RPZ_GRAPH = graphs/rpz_graph
-
 GRAPHS = $(RPZ_GRAPH).dot
+
+RPZ_COMPLETE=graphs/rpz_complete
+RPZ_NO_PACKAGES=graphs/rpz_no_packages
+RPZ_IO_FILES=graphs/rpz_io_files
+
+RPZ_GRAPHS=$(RPZ_COMPLETE).dot 		\
+           $(RPZ_NO_PACKAGES).dot	\
+		   $(RPZ_IO_FILES).dot
+
+GRAPHS=$(RPZ_GRAPHS)
 PNGS = $(GRAPHS:.dot=.png)
 
 .SUFFIXES:
@@ -29,11 +37,20 @@ record: dirs
 extract: dirs
 	rpz2prolog -m -i .reprozip-trace > facts/rpz_facts.pl
 
-graph: dirs $(GRAPHS)
+graph: $(GRAPHS)
 
-$(RPZ_GRAPH).dot:
-	rm -fv $(RPZ_GRAPH).dot
-	reprounzip graph --packages drop $(RPZ_GRAPH).dot
+$(RPZ_COMPLETE).dot:
+	rm -fv $@
+	reprounzip graph --processes process $@
+
+$(RPZ_NO_PACKAGES).dot:
+	rm -fv $@
+	reprounzip graph --processes process --packages drop $@
+
+$(RPZ_IO_FILES).dot:
+	rm -fv $@
+	reprounzip graph --processes process --packages drop --otherfiles io $@
+
 
 .dot.png:
 	dot -Tpng $*.dot -o $*.png

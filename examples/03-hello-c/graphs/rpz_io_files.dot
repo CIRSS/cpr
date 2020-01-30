@@ -1,0 +1,17 @@
+digraph G {
+    rankdir=LR;
+
+    /* programs */
+    node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
+    subgraph cluster_run0 {
+        label="run0";
+        prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/03-hello-c/run.sh (1)"];
+        prog1 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/03-hello-c/bin/hello_c (2)"];
+        prog0 -> prog1 [label="fork+exec"];
+    }
+
+    node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
+
+    /* other files */
+
+}
