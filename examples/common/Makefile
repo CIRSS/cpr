@@ -33,7 +33,7 @@ graph: dirs $(GRAPHS)
 
 $(RPZ_GRAPH).dot:
 	rm -fv $(RPZ_GRAPH).dot
-	reprounzip graph $(RPZ_GRAPH).dot
+	reprounzip graph --packages drop $(RPZ_GRAPH).dot
 
 .dot.png:
 	dot -Tpng $*.dot -o $*.png
