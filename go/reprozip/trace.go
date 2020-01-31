@@ -32,12 +32,12 @@ func ExtractTrace(traceDir string) {
 		fmt.Println(p.String())
 	}
 
-	printRowHeader("rpz_executed_file(ExecutionID, RunID, ProcessID, Program, Argv, WorkingDir, TimeStamp).")
+	printRowHeader("rpz_executed_file(ExecutionID, RunID, ProcessID, FileIndex, FilePath, Argv, WorkingDir, TimeStamp).")
 	for _, f := range(executedFiles) {
 		fmt.Println(f.String())
 	}
 
-	printRowHeader("rpz_opened_file(FileID, RunID, ProcessID, File, Mode, IsDirectory, Timestamp).")
+	printRowHeader("rpz_opened_file(FileID, RunID, ProcessID, FileIndex, FilePath, Mode, IsDirectory, Timestamp).")
 	for _, f := range(openedFiles) {
 		fmt.Println(f.String())
 	}
