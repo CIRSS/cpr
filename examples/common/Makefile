@@ -1,13 +1,15 @@
 
-GRAPHS = $(RPZ_GRAPH).dot
+RPZ_RUN_AND_IO_FILES=graphs/rpz_A_run_with_input_and_output_files
+RPZ_IO_FILES=graphs/rpz_B_run_processes_with_input_and_output_files
+RPZ_NO_PACKAGES=graphs/rpz_C_run_processes_with_nonpackage_files
+RPZ_PACKAGES=graphs/rpz_D_run_processes_with_nonpackage_files_and_packages
+RPZ_PACKAGE_CONTENTS=graphs/rpz_E_run_processes_with_all_files_and_packages
 
-RPZ_COMPLETE=graphs/rpz_complete
-RPZ_NO_PACKAGES=graphs/rpz_no_packages
-RPZ_IO_FILES=graphs/rpz_io_files
-
-RPZ_GRAPHS=$(RPZ_COMPLETE).dot 		\
-           $(RPZ_NO_PACKAGES).dot	\
-		   $(RPZ_IO_FILES).dot
+RPZ_GRAPHS=$(RPZ_RUN_AND_IO_FILES).dot	\
+           $(RPZ_IO_FILES).dot			\
+		   $(RPZ_NO_PACKAGES).dot		\
+		   $(RPZ_PACKAGES).dot			\
+		   $(RPZ_PACKAGE_CONTENTS).dot
 
 GRAPHS=$(RPZ_GRAPHS)
 PNGS = $(GRAPHS:.dot=.png)
@@ -39,17 +41,26 @@ extract: dirs
 
 graph: $(GRAPHS)
 
-$(RPZ_COMPLETE).dot:
+$(RPZ_RUN_AND_IO_FILES).dot:
 	rm -fv $@
-	reprounzip graph --processes process $@
+	reprounzip graph --processes run --packages drop --otherfiles io $@
+
+$(RPZ_IO_FILES).dot:
+	rm -fv $@
+	reprounzip graph --processes process --packages drop --otherfiles io $@
 
 $(RPZ_NO_PACKAGES).dot:
 	rm -fv $@
 	reprounzip graph --processes process --packages drop $@
 
-$(RPZ_IO_FILES).dot:
+$(RPZ_PACKAGES).dot:
 	rm -fv $@
-	reprounzip graph --processes process --packages drop --otherfiles io $@
+	reprounzip graph --packages package --processes process $@
+
+$(RPZ_PACKAGE_CONTENTS).dot:
+	rm -fv $@
+	reprounzip graph --processes process $@
+
 
 
 .dot.png:
