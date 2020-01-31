@@ -47,7 +47,7 @@
 	rpz_opened_file(f7, r0, p1, "/etc/localtime", 1, false, 345235316407598).
 	```
 
-- Running the `date` command via a `run.sh` bash script that redirects the output to a file, then outputs the contents of that file gives the following (using the rpz2prolog options -m and -i to mask timestamps and ignore files written by the first processs, i.e. bash):
+- Running the `date` command via a `run.sh` bash script that redirects the output to a file, then outputs the contents of that file gives the following (using the `rpz2prolog` options `-m` and `-i` to mask timestamps and ignore files written by the first process, i.e. `bash`):
 	```
 	(reprozip) tmcphill@circe:~/scratch$ cat run.sh  
 	#!/bin/bash  
@@ -210,7 +210,7 @@
 
 - As a result the `reprounzip` graphs for the run indicates that `date.txt` is considered an output of the run (and of the `/bin/date (2)` process in particular), but not an input of the run (nor an input to `/bin/cat`):
 
-![enter image description here](https://lh3.googleusercontent.com/WCxRbNZavaSejcXiwPO7i1zcj0S9QXvoaaxkz8QuUI5AgL8QVGoYS24DgweDkX7YuiPKWY019Gn5=s4000)
+	![enter image description here](https://lh3.googleusercontent.com/WCxRbNZavaSejcXiwPO7i1zcj0S9QXvoaaxkz8QuUI5AgL8QVGoYS24DgweDkX7YuiPKWY019Gn5=s4000)
 
 - However, resolving the paths in question to inode number does seem to confirm they point to the same file:
 	```
