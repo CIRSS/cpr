@@ -34,7 +34,7 @@ func GetOpenedFiles(db *sql.DB) []OpenedFile {
 			return ofs
 		}
 
-		if IgnoreFirstProcessFiles && f.Process == firstProcessID {
+		if IgnoreFirstProcessFiles && f.Process == FirstProcessID {
 			continue
 		}
 

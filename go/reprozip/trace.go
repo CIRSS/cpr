@@ -9,6 +9,7 @@ import (
 var (
 	MaskNonrepeatables=true
 	IgnoreFirstProcessFiles=true
+	FirstProcessID int32
 )
 
 func ExtractTrace(traceDir string) {
@@ -20,8 +21,11 @@ func ExtractTrace(traceDir string) {
 	}
 
 	processes := GetProcesses(db)
+	FirstProcessID = processes[0].ID
+
 	executedFiles := GetExecutedFiles(db)
 	openedFiles := GetOpenedFiles(db)
+
 
 	printRowHeader("rpz_process(ProcessID, ParentID, RunID, IsThread, ExitCode, TimeStamp).")
 	for _, p := range(processes) {

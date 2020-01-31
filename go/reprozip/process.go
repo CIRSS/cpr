@@ -14,10 +14,6 @@ type Process struct {
 	ExitCode int
 }
 
-var (
-	firstProcessID int32 = -1
-)
-
 func GetProcesses(db *sql.DB) []Process {
 
 	var ps []Process
@@ -33,9 +29,6 @@ func GetProcesses(db *sql.DB) []Process {
 		if err != nil {
 			fmt.Println(err)
 			return ps
-		}
-		if firstProcessID == -1 {
-			firstProcessID = p.ID
 		}
 		ps = append(ps, p)
 	}
