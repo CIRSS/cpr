@@ -15,27 +15,33 @@ type OpenedFile struct {
 	Process int32
 }
 
-func QueryOpenedFiles(db *sql.DB) *sql.Rows {
+func GetOpenedFiles(db *sql.DB) []OpenedFile {
+
+	var ofs []OpenedFile
+
 	rows, err := db.Query("SELECT id, run_id, name, timestamp, mode, is_directory, process FROM opened_files")
 	if err != nil {
 		panic(err)
 	}
-	return rows
-}
 
-func WriteOpenedFiles(rows *sql.Rows) {
-	var f OpenedFile
 	for rows.Next() {
+
+		var f OpenedFile
+
 		err := rows.Scan(&f.ID, &f.RunID, &f.Name, &f.Timestamp, &f.Mode, &f.IsDirectory, &f.Process)
 		if err != nil {
 			fmt.Println(err)
-			return
+			return ofs
 		}
+
 		if IgnoreFirstProcessFiles && f.Process == firstProcessID {
 			continue
 		}
-		fmt.Println(f.String())
+
+		ofs = append(ofs, f)
 	}
+
+	return ofs
 }
 
 func (f *OpenedFile) String() string {

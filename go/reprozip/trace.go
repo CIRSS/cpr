@@ -19,15 +19,22 @@ func ExtractTrace(traceDir string) {
 		return
 	}
 
+	processes := GetProcesses(db)
+	executedFiles := GetExecutedFiles(db)
+	openedFiles := GetOpenedFiles(db)
+
 	printRowHeader("rpz_process(ProcessID, ParentID, RunID, IsThread, ExitCode, TimeStamp).")
-	ps := QueryProcesses(db)
-	WriteProcessFacts(ps)
+	for _, p := range(processes) {
+		fmt.Println(p.String())
+	}
 
 	printRowHeader("rpz_executed_file(ExecutionID, RunID, ProcessID, Program, Argv, WorkingDir, TimeStamp).")
-	es := QueryExecutedFiles(db)
-	WriteExecutedFiles(es)
+	for _, f := range(executedFiles) {
+		fmt.Println(f.String())
+	}
 
 	printRowHeader("rpz_opened_file(FileID, RunID, ProcessID, File, Mode, IsDirectory, Timestamp).")
-	fs := QueryOpenedFiles(db)
-	WriteOpenedFiles(fs)
+	for _, f := range(openedFiles) {
+		fmt.Println(f.String())
+	}
 }
