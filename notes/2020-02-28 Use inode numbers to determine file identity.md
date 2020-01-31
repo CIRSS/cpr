@@ -1,4 +1,4 @@
-## 2020-02-28 Use inode numbers to determine file identity
+## 2020-02-28 Determine we may need to use inode numbers to determine file identity
 
 ### Background
 - Our primary interest in employing ReproZip in Whole Tale is in supporting the construction of the process-data graphs (data lineage) associated with Tale runs.
@@ -7,7 +7,7 @@
 
 - The ReproZip trace files record the paths to the files executed or opened.  However, support for detecting when two different paths refer to the same file (e.g. when one path traverses a symbolic link and the other does not) is limited.
 
-- We need to detect what file paths recorded by ReproZip in fact refer to the same fileso that accurate data-process graphs can be created, queried, and visualized reliably.
+- We need to detect what file paths used by the processes comprising a run refer to the same file so that accurate data-process graphs can be created, queried, and visualized reliably.
 
 ### The current rpz2prolog prototype demonstrating expected behavior
 
@@ -106,7 +106,8 @@
 
 - Under these circumstances multiple opened files can be determined to refer to the same file if the paths to it in the different rows of `opened_files` are identical.
 
-### Effect of using an alternative relative path
+### Effect of using different but equivalent relative paths in the same run 
+
 - If different paths are used to access the same file during a run the resulting paths in the the SQLite database can be different. 
 
 - The following is obtained if the second reference to date.txt is changed to `./date.txt`:
@@ -169,9 +170,55 @@
 	written_by_runs: [0]  
 	read_by_runs: []
 	```
-- So variations in how files are accessed potentially make it difficult to determine which paths refer to the same file.
+- So variations in how files are accessed have the potential to make it difficult to determine which paths refer to the same file.
 
-- However, the graph created by the `reprounzip graph --packages drop` command correctly shows a single file named `date.txt` being both read and written despite the differences in the paths used:
+- However, the graph created by the `reprounzip graph --packages drop` command correctly shows a single file named `date.txt` being both read and written despite the differences in the paths used (likely via conversion to canonical paths):
+
+	![enter image description here](https://lh3.googleusercontent.com/9A9w_k1pNznvdZxgDUY3tbXCiqkzFckg8qHLR_It46nOpxNT0XXbgjHD65TVCvaRgiHgP1h2aFU8=s4000)
+
+
+### Effect of running example in a directory with a path including a symbolic link
+- A similar situation can be observed running ReproZip in a clone of a the wt-prov-model repo stored on a path that traverses a symbolic link.
+
+- The `run.sh` script for the `04-date-to-file` example is:
+	```bash
+	#!/bin/bash
+	date > outputs/date.txt
+	cat `pwd`/outputs/date.txt
+	```
+- Tracing a run of this script with ReproZip followed by extraction of facts...
+	```
+	$ reprozip trace --overwrite ./run.sh
+	$ rpz2prolog -m -i .reprozip-trace > facts/rpz_facts.pl
+	```
+- Yields facts exported from the SQLite database indicating that `date.txt` is written and then read via two distinct paths:
+	```prolog
+	% FACT: rpz_opened_file(FileID, RunID, ProcessID, File, Mode, IsDirectory, Timestamp).
+	rpz_opened_file(f36, r0, p2, "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt", 2, false, nil).
+	rpz_opened_file(f59, r0, p4, "/home/tmcphill/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt", 1, false, nil).
+	```
+- The two paths above are equivalent because `/home/tmcphill/GitRepos` is a symbolic link to `/mnt/c/Users/tmcphill/OneDrive/GitRepos`.
+
+- In `config.yml` the file is listed under `inputs_outputs` with only one of these paths:
+	```yaml
+	inputs_outputs:
+	- name: date.txt
+	  path: /mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt
+	  written_by_runs: [0]
+	  read_by_runs: []
+	```
+
+- As a result the `reprounzip` graphs for the run represent `date.txt` as two distinct files:
 	
+	![enter image description here](https://lh3.googleusercontent.com/wS-Zgz2JUlkHXTwyfvwAvpZoTqZ3lOHIsFoYEtE5-gvRval3fMokVH_BmghVDWgoDEHvqBhw_m49=s4000)
 
-![enter image description here](https://lh3.googleusercontent.com/9A9w_k1pNznvdZxgDUY3tbXCiqkzFckg8qHLR_It46nOpxNT0XXbgjHD65TVCvaRgiHgP1h2aFU8=s4000)
+- And only is considered an input or output of the run:
+![enter image description here](https://lh3.googleusercontent.com/WCxRbNZavaSejcXiwPO7i1zcj0S9QXvoaaxkz8QuUI5AgL8QVGoYS24DgweDkX7YuiPKWY019Gn5=s4000)
+
+- However, resolving the paths in question to inode number seems to confirm they point to the same file:
+	```
+	04-date-to-file$ ls -il  outputs/date.txt `pwd`/outputs/date.txt  /mnt/c/Users/tmcphill/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt
+	36591746972505925 -rw-r--r-- 1 tmcphill tmcphill 29 Jan 27 22:28 /home/tmcphill/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt
+	36591746972505925 -rw-r--r-- 1 tmcphill tmcphill 29 Jan 27 22:28 /mnt/c/Users/tmcphill/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt
+	36591746972505925 -rw-r--r-- 1 tmcphill tmcphill 29 Jan 27 22:28 outputs/date.txt
+	```
