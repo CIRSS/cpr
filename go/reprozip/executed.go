@@ -45,6 +45,6 @@ func GetExecutedFiles(db *sql.DB) []ExecutedFile {
 
 // String prints one row of the executed_files table of trace.sqlite3 as a Prolog fact
 func (f *ExecutedFile) String() string {
-	return fmt.Sprintf("rpz_executed_file(e%d, r%d, p%d, %s, %s, %s, %s).",
-		f.ID, f.RunID, f.Process, dq(f.Name), dq(f.Argv), dq(f.WorkingDir), maskableInt64(f.Timestamp))
+	return fmt.Sprintf("rpz_executed_file(%s, %s, %s, %s, %s, %s, %s).",
+		E(f.ID), R(f.RunID), P(f.Process), dq(f.Name), dq(f.Argv), dq(f.WorkingDir), maskableInt64(f.Timestamp))
 }

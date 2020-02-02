@@ -35,6 +35,6 @@ func GetAccessedFiles(executed []ExecutedFile, opened []OpenedFile) []AccessedFi
 }
 
 func (f *AccessedFile) String() string {
-	return fmt.Sprintf("rpz_accessed_file(%s, %s, i%d).",
-		f.ID, dq(f.FilePath), f.FileIndex)
+	return fmt.Sprintf("rpz_accessed_file(%s, %s, %s).",
+		f.ID, dq(f.FilePath), I(f.FileIndex))
 }

@@ -28,6 +28,30 @@ func int64OrNil(prefix string, i sql.NullInt64) string {
 	return "nil"
 }
 
+func I(id int64) string {
+	return Prepend("i", id)
+}
+
+func E(id int64) string {
+	return Prepend("e", id)
+}
+
+func O(id int64) string {
+	return Prepend("o", id)
+}
+
+func P(id int64) string {
+	return Prepend("p", id)
+}
+
+func R(id int64) string {
+	return Prepend("r", id)
+}
+
+func Prepend(s string, i int64) string {
+	return s + strconv.FormatInt(i, 10)
+}
+
 func maskableInt64(value int64) string {
 	if MaskNonrepeatables {
 		return "nil"

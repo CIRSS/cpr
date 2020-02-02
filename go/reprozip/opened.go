@@ -48,6 +48,6 @@ func GetOpenedFiles(db *sql.DB) []OpenedFile {
 
 // String prints one row of the opened_files table of trace.sqlite3 as a Prolog fact
 func (f *OpenedFile) String() string {
-	return fmt.Sprintf("rpz_opened_file(o%d, r%d, p%d, %s, %d, %t, %s).",
-		f.ID, f.RunID, f.Process, dq(f.Name), f.Mode, f.IsDirectory, maskableInt64(f.Timestamp))
+	return fmt.Sprintf("rpz_opened_file(%s, %s, %s, %s, %d, %t, %s).",
+		O(f.ID), R(f.RunID), P(f.Process), dq(f.Name), f.Mode, f.IsDirectory, maskableInt64(f.Timestamp))
 }
