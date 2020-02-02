@@ -1,44 +1,53 @@
 package reprozip
 
 import (
-    "fmt"
-    "os"
-    "syscall"
+	"os"
+	"syscall"
 )
 
 var (
 	nextFileIndex = 1
-	FileIndex map[uint64]int
+	fileIndex     map[uint64]int
 )
 
 func init() {
-	FileIndex = make(map[uint64]int)
+	fileIndex = make(map[uint64]int)
 }
 
-func getFileIndex(filename string) int {
-	inode := getInode(filename)
-	index, ok := FileIndex[inode]
+func getFileIndex(filename string) (index int, ok bool) {
+
+	inodeNum, ok := inode(filename)
+	if !ok {
+		return 0, false
+	}
+
+	index, ok = fileIndex[inodeNum]
 	if !ok {
 		index = nextFileIndex
-		FileIndex[inode] = index
+		fileIndex[inodeNum] = index
 		nextFileIndex++
 	}
-	return index
+
+	return index, true
 }
 
-func getInode(filename string) uint64 {
+// inode returns the inode number for the file at the
+// given path
+func inode(filepath string) (uint64, bool) {
 
-	fileinfo, err := os.Stat(filename)
+	fileinfo, err := os.Stat(filepath)
 	if err != nil {
-		fmt.Println(err)
-		return 0
+		return 0, false
 	}
 
-    stat, conversionOk := fileinfo.Sys().(*syscall.Stat_t)
-    if !conversionOk {
-        fmt.Printf("Err or casting to Stat_t")
-        return 0
-    }
+	stat, ok := fileinfo.Sys().(*syscall.Stat_t)
+	if !ok {
+		panic("Error casting file information to Stat_t")
+	}
 
-	return stat.Ino
+	return stat.Ino, true
+}
+
+func trimWorkingDir(path string) string {
+	return path
 }

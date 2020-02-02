@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+
 	"github.com/whole-tale/wt-prov-model/reprozip"
 
 	"github.com/tmcphillips/main-wrapper/mw"

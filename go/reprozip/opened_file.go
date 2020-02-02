@@ -1,20 +1,22 @@
 package reprozip
 
 import (
-	"fmt"
 	"database/sql"
+	"fmt"
 )
 
+// OpenedFile represents a row in the opened_files table of trace.sqlite3
 type OpenedFile struct {
-	ID int
-	RunID int
-	Name string
-	Timestamp int64
-	Mode int
+	ID          int
+	RunID       int
+	Name        string
+	Timestamp   int64
+	Mode        int
 	IsDirectory bool
-	Process int32
+	Process     int32
 }
 
+// GetOpenedFiles returns all rows in the opened_files table of trace.sqlite3
 func GetOpenedFiles(db *sql.DB) []OpenedFile {
 
 	var ofs []OpenedFile
@@ -44,6 +46,7 @@ func GetOpenedFiles(db *sql.DB) []OpenedFile {
 	return ofs
 }
 
+// String prints one row of the opened_files table of trace.sqlite3 as a Prolog fact
 func (f *OpenedFile) String() string {
 	return fmt.Sprintf("rpz_opened_file(o%d, r%d, p%d, %s, %d, %t, %s).",
 		f.ID, f.RunID, f.Process, dq(f.Name), f.Mode, f.IsDirectory, maskableInt64(f.Timestamp))

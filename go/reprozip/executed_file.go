@@ -1,21 +1,23 @@
 package reprozip
 
 import (
-	"fmt"
 	"database/sql"
+	"fmt"
 )
 
+// ExecutedFile represents a row in the executed_files table of trace.sqlite3
 type ExecutedFile struct {
-	ID int
-	Name string
-	RunID int
-	Timestamp int64
-	Process int32
-	Argv string
-	Envp string
+	ID         int
+	Name       string
+	RunID      int
+	Timestamp  int64
+	Process    int32
+	Argv       string
+	Envp       string
 	WorkingDir string
 }
 
+// GetExecutedFiles returns all rows in the executed_files table of trace.sqlite3
 func GetExecutedFiles(db *sql.DB) []ExecutedFile {
 
 	var efs []ExecutedFile
@@ -41,7 +43,7 @@ func GetExecutedFiles(db *sql.DB) []ExecutedFile {
 	return efs
 }
 
-
+// String prints one row of the executed_files table of trace.sqlite3 as a Prolog fact
 func (f *ExecutedFile) String() string {
 	return fmt.Sprintf("rpz_executed_file(e%d, r%d, p%d, %s, %s, %s, %s).",
 		f.ID, f.RunID, f.Process, dq(f.Name), dq(f.Argv), dq(f.WorkingDir), maskableInt64(f.Timestamp))

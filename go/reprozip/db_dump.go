@@ -1,9 +1,9 @@
 package reprozip
 
 import (
+	"database/sql"
 	"fmt"
 	"strconv"
-	"database/sql"
 )
 
 const (

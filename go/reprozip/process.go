@@ -1,19 +1,21 @@
 package reprozip
 
 import (
-	"fmt"
 	"database/sql"
+	"fmt"
 )
 
+// Process represents a row in the processes table of trace.sqlite3
 type Process struct {
- 	ID int32
-	RunID int
-	Parent sql.NullInt32
+	ID        int32
+	RunID     int
+	Parent    sql.NullInt32
 	Timestamp int64
-	IsThread bool
-	ExitCode int
+	IsThread  bool
+	ExitCode  int
 }
 
+// GetProcesses returns all rows in the processes table of trace.sqlite3
 func GetProcesses(db *sql.DB) []Process {
 
 	var ps []Process
@@ -36,6 +38,7 @@ func GetProcesses(db *sql.DB) []Process {
 	return ps
 }
 
+// String prints one row of the processes table of trace.sqlite3 as a Prolog fact
 func (p *Process) String() string {
 	return fmt.Sprintf("rpz_process(p%d, %s, r%d, %t, %d, %s).",
 		p.ID, int32OrNil("p", p.Parent), p.RunID, p.IsThread, p.ExitCode, maskableInt64(p.Timestamp))
