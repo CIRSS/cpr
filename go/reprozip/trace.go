@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
+	// load the SQLite3 sql driver
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -18,8 +19,7 @@ func ExtractTrace(traceDir string) {
 
 	db, err := sql.Open("sqlite3", traceDir+"/trace.sqlite3")
 	if err != nil {
-		fmt.Println(err)
-		return
+		panic(err)
 	}
 
 	processes := GetProcesses(db)
@@ -32,21 +32,21 @@ func ExtractTrace(traceDir string) {
 
 	printRowHeader("rpz_process(ProcessID, ParentID, RunID, IsThread, ExitCode, TimeStamp).")
 	for _, p := range processes {
-		fmt.Println(p.String())
+		fmt.Println(p)
 	}
 
-	printRowHeader("rpz_executed_file(ExecutionID, RunID, ProcessID, FileIndex, FilePath, Argv, WorkingDir, TimeStamp).")
+	printRowHeader("rpz_executed(ExecutionID, RunID, ProcessID, FileIndex, FilePath, Argv, WorkingDir, TimeStamp).")
 	for _, f := range executed {
-		fmt.Println(f.String())
+		fmt.Println(f)
 	}
 
-	printRowHeader("rpz_opened_file(FileID, RunID, ProcessID, FileIndex, FilePath, Mode, IsDirectory, Timestamp).")
+	printRowHeader("rpz_opened(FileID, RunID, ProcessID, FileIndex, FilePath, Mode, IsDirectory, Timestamp).")
 	for _, f := range opened {
-		fmt.Println(f.String())
+		fmt.Println(f)
 	}
 
-	printRowHeader("rpz_accessed_file(ID, FilePath, FileIndex).")
+	printRowHeader("rpz_accessed(ID, FilePath, FileIndex).")
 	for _, f := range accessed {
-		fmt.Println(f.String())
+		fmt.Println(f)
 	}
 }

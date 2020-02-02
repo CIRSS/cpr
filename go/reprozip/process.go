@@ -39,7 +39,7 @@ func GetProcesses(db *sql.DB) []Process {
 }
 
 // String prints one row of the processes table of trace.sqlite3 as a Prolog fact
-func (p *Process) String() string {
+func (p Process) String() string {
 	return fmt.Sprintf("rpz_process(%s, %s, %s, %t, %d, %s).",
 		P(p.ID), int64OrNil("p", p.Parent), R(p.RunID), p.IsThread, p.ExitCode, maskableInt64(p.Timestamp))
 }
