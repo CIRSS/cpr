@@ -7,13 +7,13 @@ import (
 
 // OpenedFile represents a row in the opened_files table of trace.sqlite3
 type OpenedFile struct {
-	ID          int
-	RunID       int
+	ID          int64
+	RunID       int64
 	Name        string
 	Timestamp   int64
-	Mode        int
+	Mode        int64
 	IsDirectory bool
-	Process     int32
+	Process     int64
 }
 
 // GetOpenedFiles returns all rows in the opened_files table of trace.sqlite3

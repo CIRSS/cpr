@@ -8,7 +8,7 @@ import (
 type AccessedFile struct {
 	ID        string
 	FilePath  string
-	FileIndex int
+	FileIndex int64
 }
 
 func GetAccessedFiles(executed []ExecutedFile, opened []OpenedFile) []AccessedFile {
@@ -20,14 +20,14 @@ func GetAccessedFiles(executed []ExecutedFile, opened []OpenedFile) []AccessedFi
 	for _, e := range executed {
 		fileIndex, _ := getFileIndex(e.Name)
 		path := trimWorkingDir(e.Name)
-		f := AccessedFile{"e" + strconv.Itoa(e.ID), path, fileIndex}
+		f := AccessedFile{"e" + strconv.FormatInt(e.ID, 10), path, fileIndex}
 		efs = append(efs, f)
 	}
 
 	for _, o := range opened {
 		fileIndex, _ := getFileIndex(o.Name)
 		path := trimWorkingDir(o.Name)
-		f := AccessedFile{"o" + strconv.Itoa(o.ID), path, fileIndex}
+		f := AccessedFile{"o" + strconv.FormatInt(o.ID, 10), path, fileIndex}
 		efs = append(efs, f)
 	}
 

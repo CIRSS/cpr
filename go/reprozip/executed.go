@@ -7,11 +7,11 @@ import (
 
 // ExecutedFile represents a row in the executed_files table of trace.sqlite3
 type ExecutedFile struct {
-	ID         int
+	ID         int64
 	Name       string
-	RunID      int
+	RunID      int64
 	Timestamp  int64
-	Process    int32
+	Process    int64
 	Argv       string
 	Envp       string
 	WorkingDir string

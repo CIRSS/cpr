@@ -10,8 +10,8 @@ import (
 var (
 	MaskNonrepeatables      = true
 	IgnoreFirstProcessFiles = true
-	FirstProcessID          int32
-	WorkingDirFileIndex     int
+	FirstProcessID          int64
+	WorkingDirFileIndex     int64
 )
 
 func ExtractTrace(traceDir string) {

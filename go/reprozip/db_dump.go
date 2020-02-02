@@ -21,9 +21,9 @@ func dq(s string) string {
 	return "\"" + s + "\""
 }
 
-func int32OrNil(prefix string, i sql.NullInt32) string {
+func int64OrNil(prefix string, i sql.NullInt64) string {
 	if i.Valid {
-		return prefix + strconv.FormatInt(int64(i.Int32), 10)
+		return prefix + strconv.FormatInt(i.Int64, 10)
 	}
 	return "nil"
 }

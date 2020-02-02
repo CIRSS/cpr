@@ -6,15 +6,15 @@ import (
 )
 
 var (
-	nextFileIndex = 1
-	fileIndex     map[uint64]int
+	nextFileIndex = int64(1)
+	fileIndex     map[uint64]int64
 )
 
 func init() {
-	fileIndex = make(map[uint64]int)
+	fileIndex = make(map[uint64]int64)
 }
 
-func getFileIndex(filename string) (index int, ok bool) {
+func getFileIndex(filename string) (index int64, ok bool) {
 
 	inodeNum, ok := inode(filename)
 	if !ok {

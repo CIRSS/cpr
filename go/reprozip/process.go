@@ -7,12 +7,12 @@ import (
 
 // Process represents a row in the processes table of trace.sqlite3
 type Process struct {
-	ID        int32
-	RunID     int
-	Parent    sql.NullInt32
+	ID        int64
+	RunID     int64
+	Parent    sql.NullInt64
 	Timestamp int64
 	IsThread  bool
-	ExitCode  int
+	ExitCode  int64
 }
 
 // GetProcesses returns all rows in the processes table of trace.sqlite3
@@ -41,5 +41,5 @@ func GetProcesses(db *sql.DB) []Process {
 // String prints one row of the processes table of trace.sqlite3 as a Prolog fact
 func (p *Process) String() string {
 	return fmt.Sprintf("rpz_process(p%d, %s, r%d, %t, %d, %s).",
-		p.ID, int32OrNil("p", p.Parent), p.RunID, p.IsThread, p.ExitCode, maskableInt64(p.Timestamp))
+		p.ID, int64OrNil("p", p.Parent), p.RunID, p.IsThread, p.ExitCode, maskableInt64(p.Timestamp))
 }
