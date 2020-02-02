@@ -8,10 +8,8 @@ digraph G {
         prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/run.sh (1)"];
         prog1 [label="/bin/date (2)"];
         prog0 -> prog1 [label="fork+exec"];
-        prog2 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/run.sh (3)"];
-        prog0 -> prog2 [label="fork"];
-        prog3 [label="/bin/cat (4)"];
-        prog0 -> prog3 [label="fork+exec"];
+        prog2 [label="/bin/cat (3)"];
+        prog0 -> prog2 [label="fork+exec"];
     }
 
     node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
@@ -64,10 +62,10 @@ digraph G {
     "/lib/x86_64-linux-gnu/libc.so.6" -> prog1 [color="#8888CC"];
     "/usr/lib/locale/locale-archive" -> prog1 [color="#8888CC"];
     "/etc/localtime" -> prog1 [color="#8888CC"];
-    "/bin/cat" -> prog3 [style=bold, label="cat ..."];
-    "/lib/x86_64-linux-gnu/ld-2.24.so" -> prog3 [color="#8888CC"];
-    "/etc/ld.so.cache" -> prog3 [color="#8888CC"];
-    "/lib/x86_64-linux-gnu/libc.so.6" -> prog3 [color="#8888CC"];
-    "/usr/lib/locale/locale-archive" -> prog3 [color="#8888CC"];
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" -> prog3 [color="#8888CC"];
+    "/bin/cat" -> prog2 [style=bold, label="cat outputs/date.txt"];
+    "/lib/x86_64-linux-gnu/ld-2.24.so" -> prog2 [color="#8888CC"];
+    "/etc/ld.so.cache" -> prog2 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libc.so.6" -> prog2 [color="#8888CC"];
+    "/usr/lib/locale/locale-archive" -> prog2 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" -> prog2 [color="#8888CC"];
 }
