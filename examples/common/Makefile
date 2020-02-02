@@ -36,7 +36,7 @@ PNGS = $(GRAPHS:.dot=.png)
 	dot -Tpng $*.dot -o $*.png
 
 
-all:  build trace fact png
+all: fact png
 
 clean:
 	rm -rfv $(DIRS)
@@ -48,7 +48,7 @@ run: $(OUTPUTS_DIR)
 
 trace: $(RPZ_TRACE)
 
-fact: $(FACTS_DIR) $(FACTS)
+fact: $(FACTS)
 
 graph: $(GRAPHS)
 
