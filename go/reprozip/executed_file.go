@@ -14,7 +14,6 @@ type ExecutedFile struct {
 	Argv string
 	Envp string
 	WorkingDir string
-	FileIndex int
 }
 
 func GetExecutedFiles(db *sql.DB) []ExecutedFile {
@@ -36,9 +35,6 @@ func GetExecutedFiles(db *sql.DB) []ExecutedFile {
 			return efs
 		}
 
-		f.FileIndex = getFileIndex(f.Name)
-
-
 		efs = append(efs, f)
 	}
 
@@ -47,6 +43,6 @@ func GetExecutedFiles(db *sql.DB) []ExecutedFile {
 
 
 func (f *ExecutedFile) String() string {
-	return fmt.Sprintf("rpz_executed_file(e%d, r%d, p%d, i%d, %s, %s, %s, %s).",
-		f.ID, f.RunID, f.Process, f.FileIndex, dq(f.Name), dq(f.Argv), dq(f.WorkingDir), maskableInt64(f.Timestamp))
+	return fmt.Sprintf("rpz_executed_file(e%d, r%d, p%d, %s, %s, %s, %s).",
+		f.ID, f.RunID, f.Process, dq(f.Name), dq(f.Argv), dq(f.WorkingDir), maskableInt64(f.Timestamp))
 }

@@ -13,7 +13,6 @@ type OpenedFile struct {
 	Mode int
 	IsDirectory bool
 	Process int32
-	FileIndex int
 }
 
 func GetOpenedFiles(db *sql.DB) []OpenedFile {
@@ -39,8 +38,6 @@ func GetOpenedFiles(db *sql.DB) []OpenedFile {
 			continue
 		}
 
-		f.FileIndex = getFileIndex(f.Name)
-
 		ofs = append(ofs, f)
 	}
 
@@ -48,6 +45,6 @@ func GetOpenedFiles(db *sql.DB) []OpenedFile {
 }
 
 func (f *OpenedFile) String() string {
-	return fmt.Sprintf("rpz_opened_file(f%d, r%d, p%d, i%d, %s, %d, %t, %s).",
-		f.ID, f.RunID, f.Process, f.FileIndex, dq(f.Name), f.Mode, f.IsDirectory, maskableInt64(f.Timestamp))
+	return fmt.Sprintf("rpz_opened_file(o%d, r%d, p%d, %s, %d, %t, %s).",
+		f.ID, f.RunID, f.Process, dq(f.Name), f.Mode, f.IsDirectory, maskableInt64(f.Timestamp))
 }
