@@ -17,8 +17,8 @@ func printRowHeader(header string) {
 	fmt.Println(separator)
 }
 
-func dq(s string) string {
-	return "\"" + s + "\""
+func Q(s string) string {
+	return "'" + s + "'"
 }
 
 func int64OrNil(prefix string, i sql.NullInt64) string {

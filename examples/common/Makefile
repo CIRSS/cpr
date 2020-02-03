@@ -1,16 +1,21 @@
+RULES_DIR = ../common/rules
+SCRIPTS_DIR = ../common/scripts
+
 BIN_DIR=bin
 RPZ_TRACE_DIR=.reprozip-trace
 FACTS_DIR=facts
+VIEWS_DIR=views
 OUTPUTS_DIR=outputs
 GRAPHS_DIR=graphs
 
-DIRS=$(BIN_DIR) $(RPZ_TRACE_DIR) $(FACTS_DIR) $(OUTPUTS_DIR) $(GRAPHS_DIR)
+DIRS=$(BIN_DIR) $(OUTPUTS_DIR) $(RPZ_TRACE_DIR) $(FACTS_DIR) $(VIEWS_DIR) $(GRAPHS_DIR)
 
 RPZ_TRACE_SQLITE=$(RPZ_TRACE_DIR)/trace.sqlite3
 RPZ_TRACE_YAML=$(RPZ_TRACE_DIR)/config.yml
 RPZ_TRACE=$(RPZ_TRACE_SQLITE) $(RPZ_TRACE_YAML)
 
 RPZ_FACTS=$(FACTS_DIR)/rpz_facts.pl
+RPZ_VIEWS=$(VIEWS_DIR)/rpz_views.pl
 
 RPZ_RUN_IO_FILES=$(GRAPHS_DIR)/rpz_A_run_with_input_and_output_files
 RPZ_PROCESSES_IO_FILES=$(GRAPHS_DIR)/rpz_B_processes_with_input_and_output_files
@@ -25,9 +30,9 @@ RPZ_GRAPHS=$(RPZ_RUN_IO_FILES).dot							\
 		   $(RPZ_PROCESSES_FILES_PACKAGES).dot
 
 FACTS=$(RPZ_FACTS)
+VIEWS=$(RPZ_VIEWS)
 GRAPHS=$(RPZ_GRAPHS)
 PNGS = $(GRAPHS:.dot=.png)
-
 
 .SUFFIXES:
 .SUFFIXES: .dot .pdf .png
@@ -36,7 +41,7 @@ PNGS = $(GRAPHS:.dot=.png)
 	dot -Tpng $*.dot -o $*.png
 
 
-all: fact png
+all: fact view png
 
 clean:
 	rm -rfv $(DIRS)
@@ -49,6 +54,8 @@ run: $(OUTPUTS_DIR)
 trace: $(RPZ_TRACE)
 
 fact: $(FACTS)
+
+view: $(VIEWS)
 
 graph: $(GRAPHS)
 
@@ -63,6 +70,9 @@ $(RPZ_TRACE): build $(OUTPUTS_DIR)
 
 $(RPZ_FACTS): $(RPZ_TRACE) $(FACTS_DIR)
 	rpz2prolog -m -i $(RPZ_TRACE_DIR) > $(RPZ_FACTS)
+
+$(RPZ_VIEWS): $(RPZ_FACTS) $(VIEWS_DIR)
+	bash $(SCRIPTS_DIR)/materialize_rpz_views.sh > $(RPZ_VIEWS)
 
 $(RPZ_RUN_IO_FILES).dot: $(RPZ_TRACE) $(GRAPHS_DIR)
 	rm -fv $@
