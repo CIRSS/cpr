@@ -30,6 +30,7 @@ func ExtractTrace(traceDir string) {
 	}
 
 	executed := GetExecutedFiles(db)
+	WorkingDirFileIndex, _ = Index(executed[0].WorkingDir)
 	printRowHeader("rpz_executed(ExecutionID, RunID, ProcessID, FileIndex, FilePath, Argv, WorkingDir, TimeStamp).")
 	for _, f := range executed {
 		fmt.Println(f)

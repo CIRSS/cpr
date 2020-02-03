@@ -15,18 +15,18 @@ func GetAccessedFiles(executed []ExecutedFile, opened []OpenedFile) []AccessedFi
 
 	var accessed []AccessedFile
 
-	WorkingDirFileIndex, _ = getFileIndex(executed[0].WorkingDir)
+	WorkingDirFileIndex, _ = Index(executed[0].WorkingDir)
 
 	for _, e := range executed {
-		fileIndex, _ := getFileIndex(e.Name)
-		path := trimWorkingDir(e.Name)
+		fileIndex, _ := Index(e.Name)
+		path := TrimWorkingDir(e.Name)
 		f := AccessedFile{"e" + strconv.FormatInt(e.ID, 10), path, fileIndex}
 		accessed = append(accessed, f)
 	}
 
 	for _, o := range opened {
-		fileIndex, _ := getFileIndex(o.Name)
-		path := trimWorkingDir(o.Name)
+		fileIndex, _ := Index(o.Name)
+		path := TrimWorkingDir(o.Name)
 		f := AccessedFile{"o" + strconv.FormatInt(o.ID, 10), path, fileIndex}
 		accessed = append(accessed, f)
 	}

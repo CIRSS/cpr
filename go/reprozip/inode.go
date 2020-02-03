@@ -2,38 +2,39 @@ package reprozip
 
 import (
 	"os"
+	"strings"
 	"syscall"
 )
 
 var (
-	nextFileIndex = int64(1)
-	fileIndex     map[uint64]int64
+	NextFileIndex = int64(1)
+	FileIndex     map[uint64]int64
 )
 
 func init() {
-	fileIndex = make(map[uint64]int64)
+	FileIndex = make(map[uint64]int64)
 }
 
-func getFileIndex(filename string) (index int64, ok bool) {
+func Index(filename string) (index int64, ok bool) {
 
-	inodeNum, ok := inode(filename)
+	inodeNum, ok := Inode(filename)
 	if !ok {
 		return 0, false
 	}
 
-	index, ok = fileIndex[inodeNum]
+	index, ok = FileIndex[inodeNum]
 	if !ok {
-		index = nextFileIndex
-		fileIndex[inodeNum] = index
-		nextFileIndex++
+		index = NextFileIndex
+		FileIndex[inodeNum] = index
+		NextFileIndex++
 	}
 
 	return index, true
 }
 
-// inode returns the inode number for the file at the
+// Inode returns the inode number for the file at the
 // given path
-func inode(filepath string) (uint64, bool) {
+func Inode(filepath string) (uint64, bool) {
 
 	fileinfo, err := os.Stat(filepath)
 	if err != nil {
@@ -48,6 +49,21 @@ func inode(filepath string) (uint64, bool) {
 	return stat.Ino, true
 }
 
-func trimWorkingDir(path string) string {
+func TrimWorkingDir(path string) string {
+
+	current := path
+	currentLength := len(path)
+	for {
+		indexOfCurrent, _ := Index(current)
+		if indexOfCurrent == WorkingDirFileIndex {
+			return "." + path[currentLength:]
+		}
+		currentLength = strings.LastIndex(current, "/")
+		if currentLength == -1 {
+			break
+		}
+		current = current[:currentLength]
+	}
+
 	return path
 }
