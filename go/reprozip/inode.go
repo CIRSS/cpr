@@ -33,7 +33,7 @@ func Index(filename string) (index int64, ok bool) {
 }
 
 // Inode returns the inode number for the file at the
-// given path
+// given absolutePath
 func Inode(filepath string) (uint64, bool) {
 
 	fileinfo, err := os.Stat(filepath)
@@ -49,21 +49,28 @@ func Inode(filepath string) (uint64, bool) {
 	return stat.Ino, true
 }
 
-func TrimWorkingDir(path string) string {
+func TrimWorkingDirPrefix(absolutePath string) string {
 
-	current := path
-	currentLength := len(path)
+	prefix := absolutePath
+	prefixLength := len(absolutePath)
+
 	for {
-		indexOfCurrent, _ := Index(current)
-		if indexOfCurrent == WorkingDirFileIndex {
-			return "." + path[currentLength:]
+		prefixFileIndex, ok := Index(prefix)
+		if !ok {
+			return absolutePath
 		}
-		currentLength = strings.LastIndex(current, "/")
-		if currentLength == -1 {
+
+		if prefixFileIndex == WorkingDirFileIndex {
+			return "." + absolutePath[prefixLength:]
+		}
+
+		prefixLength = strings.LastIndex(prefix, "/")
+		if prefixLength == -1 {
 			break
 		}
-		current = current[:currentLength]
+
+		prefix = prefix[:prefixLength]
 	}
 
-	return path
+	return absolutePath
 }
