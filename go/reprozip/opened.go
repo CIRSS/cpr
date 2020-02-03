@@ -19,7 +19,7 @@ type OpenedFile struct {
 // GetOpenedFiles returns all rows in the opened_files table of trace.sqlite3
 func GetOpenedFiles(db *sql.DB) []OpenedFile {
 
-	var ofs []OpenedFile
+	var opened []OpenedFile
 
 	rows, err := db.Query("SELECT id, run_id, name, timestamp, mode, is_directory, process FROM opened_files")
 	if err != nil {
@@ -33,17 +33,17 @@ func GetOpenedFiles(db *sql.DB) []OpenedFile {
 		err := rows.Scan(&f.ID, &f.RunID, &f.Name, &f.Timestamp, &f.Mode, &f.IsDirectory, &f.Process)
 		if err != nil {
 			fmt.Println(err)
-			return ofs
+			return opened
 		}
 
 		if IgnoreFirstProcessFiles && f.Process == FirstProcessID {
 			continue
 		}
 
-		ofs = append(ofs, f)
+		opened = append(opened, f)
 	}
 
-	return ofs
+	return opened
 }
 
 // String prints one row of the opened_files table of trace.sqlite3 as a Prolog fact

@@ -13,7 +13,7 @@ type AccessedFile struct {
 
 func GetAccessedFiles(executed []ExecutedFile, opened []OpenedFile) []AccessedFile {
 
-	var efs []AccessedFile
+	var accessed []AccessedFile
 
 	WorkingDirFileIndex, _ = getFileIndex(executed[0].WorkingDir)
 
@@ -21,17 +21,17 @@ func GetAccessedFiles(executed []ExecutedFile, opened []OpenedFile) []AccessedFi
 		fileIndex, _ := getFileIndex(e.Name)
 		path := trimWorkingDir(e.Name)
 		f := AccessedFile{"e" + strconv.FormatInt(e.ID, 10), path, fileIndex}
-		efs = append(efs, f)
+		accessed = append(accessed, f)
 	}
 
 	for _, o := range opened {
 		fileIndex, _ := getFileIndex(o.Name)
 		path := trimWorkingDir(o.Name)
 		f := AccessedFile{"o" + strconv.FormatInt(o.ID, 10), path, fileIndex}
-		efs = append(efs, f)
+		accessed = append(accessed, f)
 	}
 
-	return efs
+	return accessed
 }
 
 func (f AccessedFile) String() string {

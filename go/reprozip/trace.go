@@ -24,27 +24,24 @@ func ExtractTrace(traceDir string) {
 
 	processes := GetProcesses(db)
 	FirstProcessID = processes[0].ID
-
-	executed := GetExecutedFiles(db)
-	opened := GetOpenedFiles(db)
-
-	accessed := GetAccessedFiles(executed, opened)
-
 	printRowHeader("rpz_process(ProcessID, ParentID, RunID, IsThread, ExitCode, TimeStamp).")
 	for _, p := range processes {
 		fmt.Println(p)
 	}
 
+	executed := GetExecutedFiles(db)
 	printRowHeader("rpz_executed(ExecutionID, RunID, ProcessID, FileIndex, FilePath, Argv, WorkingDir, TimeStamp).")
 	for _, f := range executed {
 		fmt.Println(f)
 	}
 
+	opened := GetOpenedFiles(db)
 	printRowHeader("rpz_opened(FileID, RunID, ProcessID, FileIndex, FilePath, Mode, IsDirectory, Timestamp).")
 	for _, f := range opened {
 		fmt.Println(f)
 	}
 
+	accessed := GetAccessedFiles(executed, opened)
 	printRowHeader("rpz_accessed(ID, FilePath, FileIndex).")
 	for _, f := range accessed {
 		fmt.Println(f)

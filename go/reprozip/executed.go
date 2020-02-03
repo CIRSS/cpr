@@ -20,7 +20,7 @@ type ExecutedFile struct {
 // GetExecutedFiles returns all rows in the executed_files table of trace.sqlite3
 func GetExecutedFiles(db *sql.DB) []ExecutedFile {
 
-	var efs []ExecutedFile
+	var executed []ExecutedFile
 
 	rows, err := db.Query("SELECT id, name, run_id, timestamp, process, argv, envp, workingdir FROM executed_files")
 	if err != nil {
@@ -34,13 +34,13 @@ func GetExecutedFiles(db *sql.DB) []ExecutedFile {
 		err := rows.Scan(&f.ID, &f.Name, &f.RunID, &f.Timestamp, &f.Process, &f.Argv, &f.Envp, &f.WorkingDir)
 		if err != nil {
 			fmt.Println(err)
-			return efs
+			return executed
 		}
 
-		efs = append(efs, f)
+		executed = append(executed, f)
 	}
 
-	return efs
+	return executed
 }
 
 // String prints one row of the executed_files table of trace.sqlite3 as a Prolog fact

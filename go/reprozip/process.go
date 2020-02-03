@@ -18,7 +18,7 @@ type Process struct {
 // GetProcesses returns all rows in the processes table of trace.sqlite3
 func GetProcesses(db *sql.DB) []Process {
 
-	var ps []Process
+	var processes []Process
 
 	rows, err := db.Query("SELECT id, run_id, parent, timestamp, is_thread, exitcode FROM processes")
 	if err != nil {
@@ -30,12 +30,12 @@ func GetProcesses(db *sql.DB) []Process {
 		err := rows.Scan(&p.ID, &p.RunID, &p.Parent, &p.Timestamp, &p.IsThread, &p.ExitCode)
 		if err != nil {
 			fmt.Println(err)
-			return ps
+			return processes
 		}
-		ps = append(ps, p)
+		processes = append(processes, p)
 	}
 
-	return ps
+	return processes
 }
 
 // String prints one row of the processes table of trace.sqlite3 as a Prolog fact
