@@ -31,13 +31,13 @@ func ExtractTrace(traceDir string) {
 
 	executed := GetExecutedFiles(db)
 	WorkingDirFileIndex, _ = Index(executed[0].WorkingDir)
-	printRowHeader("rpz_executed(ExecutionID, RunID, ProcessID, FileIndex, FilePath, Argv, WorkingDir, TimeStamp).")
+	printRowHeader("rpz_executed(ExecutionID, RunID, ProcessID, FilePath, Argv, WorkingDir, TimeStamp).")
 	for _, f := range executed {
 		fmt.Println(f)
 	}
 
 	opened := GetOpenedFiles(db)
-	printRowHeader("rpz_opened(FileID, RunID, ProcessID, FileIndex, FilePath, Mode, IsDirectory, Timestamp).")
+	printRowHeader("rpz_opened(FileID, RunID, ProcessID, FilePath, Mode, IsDirectory, Timestamp).")
 	for _, f := range opened {
 		fmt.Println(f)
 	}
