@@ -37,4 +37,4 @@ gv_record_node(Name, TopText, BottomText) :-
                args(Name, TopText, BottomText)), nl.
 
 gv_unlabeled_edge(From, To) :-
-    fmt_write('%S -> %S', args(From, To)), nl.
+    fmt_write('"%S" -> "%S"', args(From, To)), nl.

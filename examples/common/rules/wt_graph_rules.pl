@@ -30,3 +30,20 @@ wt_nodes__run_outputs() :-
     fail
     ;
     true.
+
+wt_edges__inputs_to_run() :-
+    rpz_file_read(_, _, _, FilePath),
+    wt_input_node_name(FilePath, NodeName),
+    gv_unlabeled_edge(NodeName, 'Run'),
+    fail
+    ;
+    true.
+
+wt_edges__run_to_outputs() :-
+    rpz_file_write(_, _, _, FilePath),
+    wt_output_node_name(FilePath, NodeName),
+    gv_unlabeled_edge('Run', NodeName),
+    fail
+    ;
+    true.
+

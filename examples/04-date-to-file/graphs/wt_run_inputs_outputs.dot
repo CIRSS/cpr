@@ -5,7 +5,7 @@ fontname=Courier; fontsize=18; labelloc=t
 label="Run Inputs and Outputs"
 node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
 "Run"
-subgraph cluster_inputs { label=""; color=black; penwidth=2
+subgraph cluster_inputs { label=""; color=white; penwidth=2
 subgraph cluster_inputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 "input:/lib/x86_64-linux-gnu/ld-2.24.so" [label="/lib/x86_64-linux-gnu/ld-2.24.so"]
@@ -19,10 +19,21 @@ node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname
 "input:/usr/lib/locale/locale-archive" [label="/usr/lib/locale/locale-archive"]
 "input:./outputs/date.txt" [label="./outputs/date.txt"]
 }}
-subgraph cluster_outputs { label=""; color=black; penwidth=2
+subgraph cluster_outputs { label=""; color=white; penwidth=2
 subgraph cluster_outputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 "output:./outputs/date.txt" [label="./outputs/date.txt"]
 }}
+"input:/lib/x86_64-linux-gnu/ld-2.24.so" -> "Run"
+"input:/etc/ld.so.cache" -> "Run"
+"input:/lib/x86_64-linux-gnu/libc.so.6" -> "Run"
+"input:/usr/lib/locale/locale-archive" -> "Run"
+"input:/etc/localtime" -> "Run"
+"input:/lib/x86_64-linux-gnu/ld-2.24.so" -> "Run"
+"input:/etc/ld.so.cache" -> "Run"
+"input:/lib/x86_64-linux-gnu/libc.so.6" -> "Run"
+"input:/usr/lib/locale/locale-archive" -> "Run"
+"input:./outputs/date.txt" -> "Run"
+"Run" -> "output:./outputs/date.txt"
 }
 

@@ -17,16 +17,18 @@ graph :-
         wt_nodestyle__process,
         wt_node__run(),
 
-        gv_cluster('inputs', 'black'),
+        gv_cluster('inputs', 'white'),
             wt_node_style__data,
             wt_nodes__run_inputs(),
         gv_cluster_end,
 
-        gv_cluster('outputs', 'black'),
+        gv_cluster('outputs', 'white'),
             wt_node_style__data,
             wt_nodes__run_outputs(),
         gv_cluster_end,
 
+        wt_edges__inputs_to_run(),
+        wt_edges__run_to_outputs(),
 
     gv_graph_end.
 
