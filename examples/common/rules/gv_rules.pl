@@ -24,7 +24,10 @@ gv_nodestyle(Shape, Fillcolor, Peripheries, Width) :-
                args(Shape, Fillcolor, Peripheries, Width)), nl.
 
 gv_labeled_node(Name) :-
-   write(Name), nl.
+    fmt_write('"%S"', args(Name)), nl.
+
+gv_labeled_node(Name, Label) :-
+    fmt_write('"%S" [label="%S"]', args(Name, Label)), nl.
 
 gv_unlabeled_node(Name) :-
     fmt_write('%S [label=""]', args(Name)), nl.

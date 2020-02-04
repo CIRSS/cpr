@@ -3,5 +3,26 @@ digraph wt_run {
 rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
 label="Run Inputs and Outputs"
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+"Run"
+subgraph cluster_inputs { label=""; color=black; penwidth=2
+subgraph cluster_inputs_inner { label=""; color=white
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+"input:/lib/x86_64-linux-gnu/ld-2.24.so" [label="/lib/x86_64-linux-gnu/ld-2.24.so"]
+"input:/etc/ld.so.cache" [label="/etc/ld.so.cache"]
+"input:/lib/x86_64-linux-gnu/libc.so.6" [label="/lib/x86_64-linux-gnu/libc.so.6"]
+"input:/usr/lib/locale/locale-archive" [label="/usr/lib/locale/locale-archive"]
+"input:/etc/localtime" [label="/etc/localtime"]
+"input:/lib/x86_64-linux-gnu/ld-2.24.so" [label="/lib/x86_64-linux-gnu/ld-2.24.so"]
+"input:/etc/ld.so.cache" [label="/etc/ld.so.cache"]
+"input:/lib/x86_64-linux-gnu/libc.so.6" [label="/lib/x86_64-linux-gnu/libc.so.6"]
+"input:/usr/lib/locale/locale-archive" [label="/usr/lib/locale/locale-archive"]
+"input:./outputs/date.txt" [label="./outputs/date.txt"]
+}}
+subgraph cluster_outputs { label=""; color=black; penwidth=2
+subgraph cluster_outputs_inner { label=""; color=white
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+"output:./outputs/date.txt" [label="./outputs/date.txt"]
+}}
 }
 

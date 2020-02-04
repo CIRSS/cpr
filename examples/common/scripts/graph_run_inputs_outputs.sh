@@ -13,6 +13,21 @@ set_prolog_flag(unknown, fail).
 graph :-
 
     gv_graph('wt_run', 'Run Inputs and Outputs', 'LR'),
+
+        wt_nodestyle__process,
+        wt_node__run(),
+
+        gv_cluster('inputs', 'black'),
+            wt_node_style__data,
+            wt_nodes__run_inputs(),
+        gv_cluster_end,
+
+        gv_cluster('outputs', 'black'),
+            wt_node_style__data,
+            wt_nodes__run_outputs(),
+        gv_cluster_end,
+
+
     gv_graph_end.
 
 end_of_file.

@@ -99,6 +99,6 @@ $(RPZ_PROCESSES_FILES_PACKAGES).dot: $(RPZ_TRACE) $(GRAPHS_DIR)
 	rm -fv $@
 	reprounzip graph --processes process $@
 
-$(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot: $(RPZ_FACTS) $(GRAPHS_DIR)
+$(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot: $(FACTS) $(VIEWS) $(GRAPHS_DIR)
 	bash $(SCRIPTS_DIR)/graph_run_inputs_outputs.sh > $@
 
