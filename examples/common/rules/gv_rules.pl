@@ -8,8 +8,11 @@ gv_graph(Name, Title, Layout) :-
 gv_graph_end() :-
     write('}'), nl, nl.
 
-gv_cluster(Name, Color) :-
-    fmt_write('subgraph cluster_%S { label=%S; color=%S; penwidth=%S',  args(Name, '""', Color, 2)), nl,
+gv_borderless_cluster(Name) :-
+    gv_cluster(Name, white, 0).
+
+gv_cluster(Name, Color, Penwidth) :-
+    fmt_write('subgraph cluster_%S { label=%S; color=%S; penwidth=%S',  args(Name, '""', Color, Penwidth)), nl,
     fmt_write('subgraph cluster_%S_inner { label=%S; color=white',      args(Name, '""')), nl.
 
 gv_cluster_end() :-

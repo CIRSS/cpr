@@ -3,9 +3,9 @@ digraph wt_run {
 rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
 label="Run Inputs and Outputs"
-node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
 "Run"
-subgraph cluster_inputs { label=""; color=white; penwidth=2
+subgraph cluster_inputs { label=""; color=white; penwidth=0
 subgraph cluster_inputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 "input:/usr/bin/env" [label="/usr/bin/env"]
@@ -72,7 +72,7 @@ node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname
 "input:./hello.py" [label="./hello.py"]
 "input:./hello.py" [label="./hello.py"]
 }}
-subgraph cluster_outputs { label=""; color=white; penwidth=2
+subgraph cluster_outputs { label=""; color=white; penwidth=0
 subgraph cluster_outputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 }}
