@@ -14,8 +14,10 @@ graph :-
 
     gv_graph('wt_run', 'Run Inputs and Outputs', 'LR'),
 
+        rpz_run(r0, RunName),
+
         wt_node_style__run,
-        wt_node__run(),
+        wt_node__run(RunName),
 
         gv_borderless_cluster('inputs'),
             wt_node_style__file,

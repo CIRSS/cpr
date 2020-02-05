@@ -74,7 +74,7 @@ $(RPZ_TRACE): build $(OUTPUTS_DIR)
 	reprozip trace --overwrite ./run.sh
 
 $(RPZ_FACTS): $(RPZ_TRACE) $(FACTS_DIR)
-	rpz2prolog -m -i $(RPZ_TRACE_DIR) > $(RPZ_FACTS)
+	rpz2prolog -i -n $(shell basename $(CURDIR)) -m $(RPZ_TRACE_DIR) > $(RPZ_FACTS)
 
 $(RPZ_VIEWS): $(RPZ_FACTS) $(VIEWS_DIR)
 	bash $(SCRIPTS_DIR)/materialize_rpz_views.sh > $(RPZ_VIEWS)

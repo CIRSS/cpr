@@ -18,8 +18,8 @@ wt_input_node_name(InputName, NodeName) :-
 wt_output_node_name(OutputName, NodeName) :-
     concat_atom(['output:', OutputName], NodeName).
 
-wt_node__run() :-
-    gv_labeled_node('Run').
+wt_node__run(RunName) :-
+    gv_labeled_node(RunName).
 
 wt_nodes__run_input_files() :-
     rpz_file_read(_, _, _, FilePath),
@@ -38,17 +38,19 @@ wt_nodes__run_output_files() :-
     true.
 
 wt_edges__input_files_to_run() :-
+    rpz_run(r0, RunName),
     rpz_file_read(_, _, _, FilePath),
     wt_input_node_name(FilePath, NodeName),
-    gv_unlabeled_edge(NodeName, 'Run'),
+    gv_unlabeled_edge(NodeName, RunName),
     fail
     ;
     true.
 
 wt_edges__run_to_output_files() :-
+    rpz_run(r0, RunName),
     rpz_file_write(_, _, _, FilePath),
     wt_output_node_name(FilePath, NodeName),
-    gv_unlabeled_edge('Run', NodeName),
+    gv_unlabeled_edge(RunName, NodeName),
     fail
     ;
     true.

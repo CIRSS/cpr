@@ -4,7 +4,7 @@ rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
 label="Run Inputs and Outputs"
 node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
-"Run"
+"04-date-to-file"
 subgraph cluster_inputs { label=""; color=white; penwidth=0
 subgraph cluster_inputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
@@ -24,16 +24,16 @@ subgraph cluster_outputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 "output:./outputs/date.txt" [label="./outputs/date.txt"]
 }}
-"input:/lib/x86_64-linux-gnu/ld-2.24.so" -> "Run"
-"input:/etc/ld.so.cache" -> "Run"
-"input:/lib/x86_64-linux-gnu/libc.so.6" -> "Run"
-"input:/usr/lib/locale/locale-archive" -> "Run"
-"input:/etc/localtime" -> "Run"
-"input:/lib/x86_64-linux-gnu/ld-2.24.so" -> "Run"
-"input:/etc/ld.so.cache" -> "Run"
-"input:/lib/x86_64-linux-gnu/libc.so.6" -> "Run"
-"input:/usr/lib/locale/locale-archive" -> "Run"
-"input:./outputs/date.txt" -> "Run"
-"Run" -> "output:./outputs/date.txt"
+"input:/lib/x86_64-linux-gnu/ld-2.24.so" -> "04-date-to-file"
+"input:/etc/ld.so.cache" -> "04-date-to-file"
+"input:/lib/x86_64-linux-gnu/libc.so.6" -> "04-date-to-file"
+"input:/usr/lib/locale/locale-archive" -> "04-date-to-file"
+"input:/etc/localtime" -> "04-date-to-file"
+"input:/lib/x86_64-linux-gnu/ld-2.24.so" -> "04-date-to-file"
+"input:/etc/ld.so.cache" -> "04-date-to-file"
+"input:/lib/x86_64-linux-gnu/libc.so.6" -> "04-date-to-file"
+"input:/usr/lib/locale/locale-archive" -> "04-date-to-file"
+"input:./outputs/date.txt" -> "04-date-to-file"
+"04-date-to-file" -> "output:./outputs/date.txt"
 }
 

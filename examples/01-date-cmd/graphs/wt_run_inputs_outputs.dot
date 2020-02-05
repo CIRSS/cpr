@@ -4,7 +4,7 @@ rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
 label="Run Inputs and Outputs"
 node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
-"Run"
+"01-date-cmd"
 subgraph cluster_inputs { label=""; color=white; penwidth=0
 subgraph cluster_inputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
@@ -18,10 +18,10 @@ subgraph cluster_outputs { label=""; color=white; penwidth=0
 subgraph cluster_outputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 }}
-"input:/lib/x86_64-linux-gnu/ld-2.24.so" -> "Run"
-"input:/etc/ld.so.cache" -> "Run"
-"input:/lib/x86_64-linux-gnu/libc.so.6" -> "Run"
-"input:/usr/lib/locale/locale-archive" -> "Run"
-"input:/etc/localtime" -> "Run"
+"input:/lib/x86_64-linux-gnu/ld-2.24.so" -> "01-date-cmd"
+"input:/etc/ld.so.cache" -> "01-date-cmd"
+"input:/lib/x86_64-linux-gnu/libc.so.6" -> "01-date-cmd"
+"input:/usr/lib/locale/locale-archive" -> "01-date-cmd"
+"input:/etc/localtime" -> "01-date-cmd"
 }
 

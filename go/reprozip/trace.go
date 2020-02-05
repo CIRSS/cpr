@@ -15,7 +15,7 @@ var (
 	WorkingDirFileIndex     int64
 )
 
-func ExtractTrace(traceDir string) {
+func ExtractTrace(runName string, traceDir string) {
 
 	db, err := sql.Open("sqlite3", traceDir+"/trace.sqlite3")
 	if err != nil {
@@ -23,7 +23,14 @@ func ExtractTrace(traceDir string) {
 	}
 
 	processes := GetProcesses(db)
-	FirstProcessID = processes[0].ID
+	firstProcess := processes[0]
+	FirstProcessID = firstProcess.ID
+	runId := firstProcess.RunID
+
+	run := NewRun(runId, runName)
+	printRowHeader("rpz_run(RunID, RunName).")
+	fmt.Println(run)
+
 	printRowHeader("rpz_process(ProcessID, ParentID, RunID, IsThread, ExitCode, TimeStamp).")
 	for _, p := range processes {
 		fmt.Println(p)

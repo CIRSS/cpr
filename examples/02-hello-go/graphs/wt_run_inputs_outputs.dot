@@ -4,7 +4,7 @@ rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
 label="Run Inputs and Outputs"
 node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
-"Run"
+"02-hello-go"
 subgraph cluster_inputs { label=""; color=white; penwidth=0
 subgraph cluster_inputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
@@ -15,7 +15,7 @@ subgraph cluster_outputs { label=""; color=white; penwidth=0
 subgraph cluster_outputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 }}
-"input:./bin/hello_go" -> "Run"
-"input:/sys/kernel/mm/transparent_hugepage/hpage_pmd_size" -> "Run"
+"input:./bin/hello_go" -> "02-hello-go"
+"input:/sys/kernel/mm/transparent_hugepage/hpage_pmd_size" -> "02-hello-go"
 }
 

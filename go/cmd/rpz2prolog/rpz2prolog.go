@@ -24,6 +24,7 @@ func main() {
 	var err error
 
 	flags := MW.InitFlagSet()
+	var name = flags.String("n", "", "Name of run")
 	var mask = flags.Bool("m", false, "Mask unrepeatable attributes")
 	var ignore = flags.Bool("i", false, "Ignore files written by the first process")
 
@@ -40,7 +41,7 @@ func main() {
 	switch flags.NArg() {
 	case 1:
 		traceDirectory := flags.Arg(0)
-		reprozip.ExtractTrace(traceDirectory)
+		reprozip.ExtractTrace(*name, traceDirectory)
 	default:
 		flags.Usage()
 		return
