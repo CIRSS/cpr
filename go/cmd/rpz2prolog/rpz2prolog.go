@@ -1,4 +1,4 @@
-package main
+package reprozip
 
 import (
 	"fmt"
@@ -35,13 +35,15 @@ func main() {
 		return
 	}
 
+	config := reprozip.LoadConfig("rpz2prolog.yml")
+
 	reprozip.MaskNonrepeatables = *mask
 	reprozip.IgnoreFirstProcessFiles = *ignore
 
 	switch flags.NArg() {
 	case 1:
 		traceDirectory := flags.Arg(0)
-		reprozip.ExtractTrace(*name, traceDirectory)
+		reprozip.ExtractTrace(*name, traceDirectory, config)
 	default:
 		flags.Usage()
 		return

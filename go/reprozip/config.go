@@ -1,4 +1,4 @@
-package main
+package reprozip
 
 import (
 	"io/ioutil"
@@ -27,7 +27,7 @@ func ParseConfig(data []byte) Config {
 func LoadConfig(filename string) Config {
 	data, err := ioutil.ReadFile(filename)
 	if err != nil {
-		panic(err)
+		return Config{}
 	}
 	config := ParseConfig(data)
 	return config

@@ -15,7 +15,7 @@ var (
 	WorkingDirFileIndex     int64
 )
 
-func ExtractTrace(runName string, traceDir string) {
+func ExtractTrace(runName string, traceDir string, config Config) {
 
 	db, err := sql.Open("sqlite3", traceDir+"/trace.sqlite3")
 	if err != nil {
