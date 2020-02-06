@@ -18,6 +18,6 @@ func NewRun(runId int64, runName string) Run {
 }
 
 func (r Run) String() string {
-	return fmt.Sprintf("rpz_run(%s, %s).",
+	return fmt.Sprintf("wt_run(%s, %s).",
 		R(r.RunID), Q(r.RunName))
 }

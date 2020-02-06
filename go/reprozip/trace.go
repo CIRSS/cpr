@@ -30,7 +30,7 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 	directories := GetDirectories(config, runID)
 
 	run := NewRun(runID, runName)
-	printRowHeader("rpz_run(RunID, RunName).")
+	printRowHeader("wt_run(RunID, RunName).")
 	fmt.Println(run)
 
 	printRowHeader("rpz_process(ProcessID, ParentID, RunID, IsThread, ExitCode, TimeStamp).")

@@ -38,7 +38,7 @@ wt_nodes__run_output_files() :-
     true.
 
 wt_edges__input_files_to_run() :-
-    rpz_run(r0, RunName),
+    wt_run(r0, RunName),
     rpz_file_read(_, _, _, FilePath),
     wt_input_node_name(FilePath, NodeName),
     gv_unlabeled_edge(NodeName, RunName),
@@ -47,7 +47,7 @@ wt_edges__input_files_to_run() :-
     true.
 
 wt_edges__run_to_output_files() :-
-    rpz_run(r0, RunName),
+    wt_run(r0, RunName),
     rpz_file_write(_, _, _, FilePath),
     wt_output_node_name(FilePath, NodeName),
     gv_unlabeled_edge(RunName, NodeName),
