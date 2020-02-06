@@ -9,10 +9,20 @@ import (
 var (
 	nextFileIndex = int64(1)
 	index         map[uint64]int64
+	directoryRole map[int64]string
 )
 
 func init() {
 	index = make(map[uint64]int64)
+	directoryRole = make(map[int64]string)
+}
+
+func RegisterDirectory(path string, dirType string) (fileIndex int64, ok bool) {
+	fileIndex, ok = FileIndex(path)
+	if ok {
+		directoryRole[fileIndex] = dirType
+	}
+	return fileIndex, ok
 }
 
 func FileIndex(filename string) (fileIndex int64, ok bool) {
@@ -47,6 +57,29 @@ func Inode(filepath string) (uint64, bool) {
 	}
 
 	return stat.Ino, true
+}
+
+func FileRole(path string) string {
+
+	prefix := path
+	prefixLength := len(path)
+
+	for {
+		prefixFileIndex, ok := FileIndex(prefix)
+		t, ok := directoryRole[prefixFileIndex]
+		if ok {
+			return t
+		}
+
+		prefixLength = strings.LastIndex(prefix, "/")
+		if prefixLength == -1 {
+			break
+		}
+
+		prefix = prefix[:prefixLength]
+	}
+
+	return "nil"
 }
 
 func TrimWorkingDirPrefix(absolutePath string) string {

@@ -22,7 +22,7 @@ wt_node__run(RunName) :-
     gv_labeled_node(RunName).
 
 wt_nodes__run_input_files() :-
-    wt_file_read(_, _, _, FilePath),
+    wt_file_read(_, _, _, FilePath, _),
     wt_input_node_name(FilePath, NodeName),
     gv_labeled_node(NodeName, FilePath),
     fail
@@ -30,7 +30,7 @@ wt_nodes__run_input_files() :-
     true.
 
 wt_nodes__run_output_files() :-
-    wt_file_write(_, _, _, FilePath),
+    wt_file_write(_, _, _, FilePath, _),
     wt_output_node_name(FilePath, NodeName),
     gv_labeled_node(NodeName, FilePath),
     fail
@@ -39,7 +39,7 @@ wt_nodes__run_output_files() :-
 
 wt_edges__input_files_to_run() :-
     wt_run(r0, RunName),
-    wt_file_read(_, _, _, FilePath),
+    wt_file_read(_, _, _, FilePath, _),
     wt_input_node_name(FilePath, NodeName),
     gv_unlabeled_edge(NodeName, RunName),
     fail
@@ -48,7 +48,7 @@ wt_edges__input_files_to_run() :-
 
 wt_edges__run_to_output_files() :-
     wt_run(r0, RunName),
-    wt_file_write(_, _, _, FilePath),
+    wt_file_write(_, _, _, FilePath, _),
     wt_output_node_name(FilePath, NodeName),
     gv_unlabeled_edge(RunName, NodeName),
     fail

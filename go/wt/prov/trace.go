@@ -43,6 +43,6 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 	WriteOpenedFacts(RPZFactsFile, opened)
 
 	WriteRunFacts(WTFactsFile, run)
-	WriteAccessedFacts(WTFactsFile, accessed)
 	WriteDirectoryFacts(WTFactsFile, directories)
+	WriteAccessedFacts(WTFactsFile, accessed)
 }

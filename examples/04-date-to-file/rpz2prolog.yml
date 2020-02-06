@@ -8,3 +8,4 @@ dirs:
     - outputs
     sw:
     - .
+    - /bin
