@@ -51,7 +51,7 @@ func main() {
 		}
 	}
 
-	config := prov.LoadConfig("rpz2prolog.yml")
+	config := prov.LoadConfig("trace2facts.yml")
 
 	prov.MaskNonrepeatables = *mask
 	prov.IgnoreFirstProcessFiles = *ignore

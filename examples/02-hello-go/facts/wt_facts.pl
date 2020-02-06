@@ -23,5 +23,4 @@ wt_accessed(o21, '.', i2, sw).
 wt_accessed(o22, '.', i2, sw).
 wt_accessed(o23, '.', i2, sw).
 wt_accessed(o24, '.', i2, sw).
-wt_accessed(o25, '.', i2, sw).
-wt_accessed(o26, '/proc/self/exe', i10, os).
+wt_accessed(o25, '/proc/self/exe', i10, os).
