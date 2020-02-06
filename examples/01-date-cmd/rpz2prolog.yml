@@ -1,0 +1,9 @@
+---
+dirs:
+    os:
+    - /lib
+    - /etc
+    - /usr/lib
+    sw:
+    - /bin
+    - .

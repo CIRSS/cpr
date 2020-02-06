@@ -3,8 +3,8 @@
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_file_read(AccessID, ProcessID, FileIndex, FilePath).
 %...................................................................................................
-rpz_file_read(o19,p2,i3,'./bin/hello_go').
-rpz_file_read(o20,p2,i5,'/sys/kernel/mm/transparent_hugepage/hpage_pmd_size').
+rpz_file_read(o19,p2,i4,'./bin/hello_go').
+rpz_file_read(o20,p2,i6,'/sys/kernel/mm/transparent_hugepage/hpage_pmd_size').
 
 
 %---------------------------------------------------------------------------------------------------

@@ -1,0 +1,13 @@
+---
+dirs:
+    os:
+    - /lib
+    - /etc
+    - /usr/lib
+    sw:
+    - .
+    - /bin
+    in:
+    - ./inputs
+    out:
+    - ./outputs

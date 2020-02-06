@@ -8,10 +8,10 @@ import (
 
 type Config struct {
 	Dirs struct {
-		Os       []string
-		Software []string
-		Input    []string
-		Output   []string
+		Os  []string
+		Sw  []string
+		In  []string
+		Out []string
 	}
 }
 

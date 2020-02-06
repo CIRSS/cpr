@@ -28,12 +28,16 @@ func int64OrNil(prefix string, i sql.NullInt64) string {
 	return "nil"
 }
 
-func I(id int64) string {
-	return Prepend("i", id)
+func D(id int64) string {
+	return Prepend("d", id)
 }
 
 func E(id int64) string {
 	return Prepend("e", id)
+}
+
+func I(id int64) string {
+	return Prepend("i", id)
 }
 
 func O(id int64) string {

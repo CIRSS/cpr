@@ -25,9 +25,11 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 	processes := GetProcesses(db)
 	firstProcess := processes[0]
 	FirstProcessID = firstProcess.ID
-	runId := firstProcess.RunID
+	runID := firstProcess.RunID
 
-	run := NewRun(runId, runName)
+	directories := GetDirectories(config, runID)
+
+	run := NewRun(runID, runName)
 	printRowHeader("rpz_run(RunID, RunName).")
 	fmt.Println(run)
 
@@ -54,4 +56,10 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 	for _, f := range accessed {
 		fmt.Println(f)
 	}
+
+	printRowHeader("wt_directory(DirID, RunID, DirType, FilePath, FileIndex).")
+	for _, d := range directories {
+		fmt.Println(d)
+	}
+
 }

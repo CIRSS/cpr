@@ -1,0 +1,10 @@
+---
+dirs:
+    os:
+    - /lib
+    - /etc
+    - /usr/lib
+    out:
+    - outputs
+    sw:
+    - .
