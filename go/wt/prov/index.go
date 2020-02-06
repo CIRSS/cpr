@@ -7,29 +7,29 @@ import (
 )
 
 var (
-	NextFileIndex = int64(1)
-	FileIndex     map[uint64]int64
+	nextFileIndex = int64(1)
+	index         map[uint64]int64
 )
 
 func init() {
-	FileIndex = make(map[uint64]int64)
+	index = make(map[uint64]int64)
 }
 
-func Index(filename string) (index int64, ok bool) {
+func FileIndex(filename string) (fileIndex int64, ok bool) {
 
 	inodeNum, ok := Inode(filename)
 	if !ok {
 		return 0, false
 	}
 
-	index, ok = FileIndex[inodeNum]
+	fileIndex, ok = index[inodeNum]
 	if !ok {
-		index = NextFileIndex
-		FileIndex[inodeNum] = index
-		NextFileIndex++
+		fileIndex = nextFileIndex
+		index[inodeNum] = fileIndex
+		nextFileIndex++
 	}
 
-	return index, true
+	return fileIndex, true
 }
 
 // Inode returns the inode number for the file at the
@@ -55,7 +55,7 @@ func TrimWorkingDirPrefix(absolutePath string) string {
 	prefixLength := len(absolutePath)
 
 	for {
-		prefixFileIndex, ok := Index(prefix)
+		prefixFileIndex, ok := FileIndex(prefix)
 		if !ok {
 			return absolutePath
 		}

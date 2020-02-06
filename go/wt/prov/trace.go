@@ -33,7 +33,7 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 	run := NewRun(runID, runName)
 
 	executed := GetExecutedFiles(db)
-	WorkingDirFileIndex, _ = Index(executed[0].WorkingDir)
+	WorkingDirFileIndex, _ = FileIndex(executed[0].WorkingDir)
 
 	opened := GetOpenedFiles(db)
 	accessed := GetAccessedFiles(executed, opened)

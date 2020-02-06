@@ -19,7 +19,7 @@ type Directory struct {
 
 func addDirectories(allDirs *[]Directory, runID int64, dirType string, dirsOfType []string) {
 	for _, dir := range dirsOfType {
-		fileIndex, _ := Index(dir)
+		fileIndex, _ := FileIndex(dir)
 		d := Directory{nextDirID, runID, dir, fileIndex, dirType}
 		*allDirs = append(*allDirs, d)
 		nextDirID++
