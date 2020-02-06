@@ -15,7 +15,7 @@ import (
 var MW mw.MainWrapper
 
 func init() {
-	MW = mw.NewMainWrapper("reprozip2prolog", main)
+	MW = mw.NewMainWrapper("trace2facts", main)
 }
 
 // Extracts provenance information from the specified ReproZip trace directory
@@ -27,12 +27,28 @@ func main() {
 	var name = flags.String("n", "", "Name of run")
 	var mask = flags.Bool("m", false, "Mask unrepeatable attributes")
 	var ignore = flags.Bool("i", false, "Ignore files written by the first process")
+	var rpz = flags.String("rpz", "-", "File for saving ReproZip facts")
+	var wt = flags.String("wt", "-", "File for saving WT facts")
 
 	err = flags.Parse(os.Args[1:])
 	if err != nil {
 		fmt.Println(err)
 		flags.Usage()
 		return
+	}
+
+	if *rpz != "-" {
+		prov.RPZFactsFile, err = os.Create(*rpz)
+		if err != nil {
+			panic(err)
+		}
+	}
+
+	if *wt != "-" {
+		prov.WTFactsFile, err = os.Create(*wt)
+		if err != nil {
+			panic(err)
+		}
 	}
 
 	config := prov.LoadConfig("rpz2prolog.yml")

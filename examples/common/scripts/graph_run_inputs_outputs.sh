@@ -4,6 +4,7 @@ xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 
 set_prolog_flag(unknown, fail).
 
+['facts/wt_facts'].
 ['facts/rpz_facts'].
 ['views/rpz_views'].
 ['../common/rules/gv_rules'].

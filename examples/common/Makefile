@@ -29,12 +29,13 @@ RPZ_GRAPHS=$(RPZ_RUN_IO_FILES).dot							\
 		   $(RPZ_PROCESSES_NONPACKAGE_FILES_PACKAGES).dot	\
 		   $(RPZ_PROCESSES_FILES_PACKAGES).dot
 
+WT_FACTS=$(FACTS_DIR)/wt_facts.pl
+
 WT_GRAPH_RUN_INPUTS_OUTPUTS=$(GRAPHS_DIR)/wt_run_inputs_outputs
 
 WT_GRAPHS=$(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot
 
-
-FACTS=$(RPZ_FACTS)
+FACTS=$(RPZ_FACTS) $(WT_FACTS)
 VIEWS=$(RPZ_VIEWS)
 GRAPHS=$(RPZ_GRAPHS) $(WT_GRAPHS)
 PNGS = $(GRAPHS:.dot=.png)
@@ -73,8 +74,8 @@ $(DIRS):
 $(RPZ_TRACE): build $(OUTPUTS_DIR)
 	reprozip trace --overwrite ./run.sh
 
-$(RPZ_FACTS): $(RPZ_TRACE) $(FACTS_DIR)
-	trace2facts -i -n $(shell basename $(CURDIR)) -m $(RPZ_TRACE_DIR) > $(RPZ_FACTS)
+$(FACTS): $(RPZ_TRACE) $(FACTS_DIR)
+	trace2facts -i -n=$(shell basename $(CURDIR)) -rpz=$(RPZ_FACTS) -wt=$(WT_FACTS) -m $(RPZ_TRACE_DIR)
 
 $(RPZ_VIEWS): $(RPZ_FACTS) $(VIEWS_DIR)
 	bash $(SCRIPTS_DIR)/materialize_rpz_views.sh > $(RPZ_VIEWS)
