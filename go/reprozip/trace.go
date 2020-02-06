@@ -52,7 +52,7 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 	}
 
 	accessed := GetAccessedFiles(executed, opened)
-	printRowHeader("rpz_accessed(ID, FilePath, FileIndex).")
+	printRowHeader("wt_accessed(ID, FilePath, FileIndex).")
 	for _, f := range accessed {
 		fmt.Println(f)
 	}

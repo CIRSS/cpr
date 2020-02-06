@@ -6,11 +6,11 @@ file_mode_write(2).
 file_mode_write(3).
 
 rpz_file_read(AccessID, ProcessID, FileIndex, FilePath) :-
-    rpz_accessed(AccessID, FilePath, FileIndex),
+    wt_accessed(AccessID, FilePath, FileIndex),
     rpz_opened(AccessID, _, ProcessID, _, FileMode, false, _),
     file_mode_read(FileMode).
 
 rpz_file_write(AccessID, ProcessID, FileIndex, FilePath) :-
-    rpz_accessed(AccessID, FilePath, FileIndex),
+    wt_accessed(AccessID, FilePath, FileIndex),
     rpz_opened(AccessID, _, ProcessID, _, FileMode, false, _),
     file_mode_write(FileMode).
