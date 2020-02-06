@@ -1,14 +1,14 @@
 
 
 %---------------------------------------------------------------------------------------------------
-% FACT: rpz_file_read(AccessID, ProcessID, FileIndex, FilePath).
+% FACT: wt_file_read(AccessID, ProcessID, FileIndex, FilePath).
 %...................................................................................................
-rpz_file_read(o19,p2,i5,'./bin/hello_c').
-rpz_file_read(o20,p2,i7,'/lib/x86_64-linux-gnu/ld-2.24.so').
-rpz_file_read(o21,p2,i9,'/etc/ld.so.cache').
-rpz_file_read(o22,p2,i10,'/lib/x86_64-linux-gnu/libc.so.6').
+wt_file_read(o19,p2,i5,'./bin/hello_c').
+wt_file_read(o20,p2,i7,'/lib/x86_64-linux-gnu/ld-2.24.so').
+wt_file_read(o21,p2,i9,'/etc/ld.so.cache').
+wt_file_read(o22,p2,i10,'/lib/x86_64-linux-gnu/libc.so.6').
 
 
 %---------------------------------------------------------------------------------------------------
-% FACT: rpz_file_write(AccessID, ProcessID, FileIndex, FilePath).
+% FACT: wt_file_write(AccessID, ProcessID, FileIndex, FilePath).
 %...................................................................................................

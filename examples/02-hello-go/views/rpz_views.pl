@@ -1,12 +1,12 @@
 
 
 %---------------------------------------------------------------------------------------------------
-% FACT: rpz_file_read(AccessID, ProcessID, FileIndex, FilePath).
+% FACT: wt_file_read(AccessID, ProcessID, FileIndex, FilePath).
 %...................................................................................................
-rpz_file_read(o19,p2,i4,'./bin/hello_go').
-rpz_file_read(o20,p2,i6,'/sys/kernel/mm/transparent_hugepage/hpage_pmd_size').
+wt_file_read(o19,p2,i4,'./bin/hello_go').
+wt_file_read(o20,p2,i6,'/sys/kernel/mm/transparent_hugepage/hpage_pmd_size').
 
 
 %---------------------------------------------------------------------------------------------------
-% FACT: rpz_file_write(AccessID, ProcessID, FileIndex, FilePath).
+% FACT: wt_file_write(AccessID, ProcessID, FileIndex, FilePath).
 %...................................................................................................

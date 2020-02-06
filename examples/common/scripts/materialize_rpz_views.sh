@@ -8,11 +8,11 @@ xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 
 set_prolog_flag(unknown, fail).
 
-rule_banner('rpz_file_read(AccessID, ProcessID, FileIndex, FilePath).').
-printall(rpz_file_read(_,_,_,_)).
+rule_banner('wt_file_read(AccessID, ProcessID, FileIndex, FilePath).').
+printall(wt_file_read(_,_,_,_)).
 
-rule_banner('rpz_file_write(AccessID, ProcessID, FileIndex, FilePath).').
-printall(rpz_file_write(_,_,_,_)).
+rule_banner('wt_file_write(AccessID, ProcessID, FileIndex, FilePath).').
+printall(wt_file_write(_,_,_,_)).
 
 
 END_XSB_STDIN
