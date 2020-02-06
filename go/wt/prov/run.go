@@ -2,6 +2,7 @@ package prov
 
 import (
 	"fmt"
+	"io"
 	"strconv"
 )
 
@@ -15,6 +16,11 @@ func NewRun(runId int64, runName string) Run {
 		runName = "run" + strconv.FormatInt(runId, 10)
 	}
 	return Run{runId, runName}
+}
+
+func WriteRunFacts(writer io.Writer, run Run) {
+	printRowHeader(writer, "wt_run(RunID, RunName).")
+	fmt.Fprintln(writer, run)
 }
 
 func (r Run) String() string {

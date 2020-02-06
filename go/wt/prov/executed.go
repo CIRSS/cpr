@@ -3,6 +3,7 @@ package prov
 import (
 	"database/sql"
 	"fmt"
+	"io"
 )
 
 // ExecutedFile represents a row in the executed_files table of trace.sqlite3
@@ -41,6 +42,13 @@ func GetExecutedFiles(db *sql.DB) []ExecutedFile {
 	}
 
 	return executed
+}
+
+func WriteExecutedFacts(w io.Writer, executed []ExecutedFile) {
+	printRowHeader(w, "rpz_executed(ExecutionID, RunID, ProcessID, FilePath, Argv, WorkingDir, TimeStamp).")
+	for _, f := range executed {
+		fmt.Fprintln(w, f)
+	}
 }
 
 // String prints one row of the executed_files table of trace.sqlite3 as a Prolog fact

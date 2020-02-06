@@ -2,6 +2,7 @@ package prov
 
 import (
 	"fmt"
+	"io"
 )
 
 type AccessedFile struct {
@@ -31,6 +32,13 @@ func GetAccessedFiles(executed []ExecutedFile, opened []OpenedFile) []AccessedFi
 	}
 
 	return accessed
+}
+
+func WriteAccessedFacts(w io.Writer, accessed []AccessedFile) {
+	printRowHeader(w, "wt_accessed(ID, FilePath, FileIndex).")
+	for _, f := range accessed {
+		fmt.Fprintln(w, f)
+	}
 }
 
 func (f AccessedFile) String() string {

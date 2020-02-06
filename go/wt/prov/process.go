@@ -3,6 +3,7 @@ package prov
 import (
 	"database/sql"
 	"fmt"
+	"io"
 )
 
 // Process represents a row in the processes table of trace.sqlite3
@@ -36,6 +37,13 @@ func GetProcesses(db *sql.DB) []Process {
 	}
 
 	return processes
+}
+
+func WriteProcessFacts(writer io.Writer, processes []Process) {
+	printRowHeader(writer, "rpz_process(ProcessID, ParentID, RunID, IsThread, ExitCode, TimeStamp).")
+	for _, p := range processes {
+		fmt.Fprintln(writer, p)
+	}
 }
 
 // String prints one row of the processes table of trace.sqlite3 as a Prolog fact

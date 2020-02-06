@@ -3,6 +3,7 @@ package prov
 import (
 	"database/sql"
 	"fmt"
+	"io"
 	"strconv"
 )
 
@@ -10,11 +11,11 @@ const (
 	separator = "%---------------------------------------------------------------------------------------------------"
 )
 
-func printRowHeader(header string) {
-	fmt.Println()
-	fmt.Println(separator)
-	fmt.Println("% FACT:", header)
-	fmt.Println(separator)
+func printRowHeader(writer io.Writer, header string) {
+	fmt.Fprintln(writer)
+	fmt.Fprintln(writer, separator)
+	fmt.Fprintln(writer, "% FACT:", header)
+	fmt.Fprintln(writer, separator)
 }
 
 func Q(s string) string {

@@ -3,6 +3,7 @@ package prov
 import (
 	"database/sql"
 	"fmt"
+	"io"
 )
 
 // OpenedFile represents a row in the opened_files table of trace.sqlite3
@@ -44,6 +45,13 @@ func GetOpenedFiles(db *sql.DB) []OpenedFile {
 	}
 
 	return opened
+}
+
+func WriteOpenedFacts(w io.Writer, opened []OpenedFile) {
+	printRowHeader(w, "rpz_opened(FileID, RunID, ProcessID, FilePath, Mode, IsDirectory, Timestamp).")
+	for _, f := range opened {
+		fmt.Fprintln(w, f)
+	}
 }
 
 // String prints one row of the opened_files table of trace.sqlite3 as a Prolog fact

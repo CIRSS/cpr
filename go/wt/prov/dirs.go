@@ -2,6 +2,7 @@ package prov
 
 import (
 	"fmt"
+	"io"
 )
 
 var (
@@ -32,6 +33,13 @@ func GetDirectories(config Config, runID int64) []Directory {
 	addDirectories(&allDirs, runID, "in", config.Dirs.In)
 	addDirectories(&allDirs, runID, "out", config.Dirs.Out)
 	return allDirs
+}
+
+func WriteDirectoryFacts(w io.Writer, directories []Directory) {
+	printRowHeader(w, "wt_directory(DirID, RunID, DirType, FilePath, FileIndex).")
+	for _, d := range directories {
+		fmt.Fprintln(w, d)
+	}
 }
 
 func (d Directory) String() string {
