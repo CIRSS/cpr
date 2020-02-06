@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/whole-tale/wt-prov-model/reprozip"
+	"github.com/whole-tale/wt-prov-model/wt/prov"
 
 	"github.com/tmcphillips/main-wrapper/mw"
 )
@@ -35,15 +35,15 @@ func main() {
 		return
 	}
 
-	config := reprozip.LoadConfig("rpz2prolog.yml")
+	config := prov.LoadConfig("rpz2prolog.yml")
 
-	reprozip.MaskNonrepeatables = *mask
-	reprozip.IgnoreFirstProcessFiles = *ignore
+	prov.MaskNonrepeatables = *mask
+	prov.IgnoreFirstProcessFiles = *ignore
 
 	switch flags.NArg() {
 	case 1:
 		traceDirectory := flags.Arg(0)
-		reprozip.ExtractTrace(*name, traceDirectory, config)
+		prov.ExtractTrace(*name, traceDirectory, config)
 	default:
 		flags.Usage()
 		return

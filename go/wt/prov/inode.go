@@ -1,4 +1,4 @@
-package reprozip
+package prov
 
 import (
 	"os"
