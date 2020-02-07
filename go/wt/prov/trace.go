@@ -14,7 +14,7 @@ var (
 	MaskNonrepeatables      = true
 	IgnoreFirstProcessFiles = true
 	FirstProcessID          int64
-	WorkingDirFileIndex     int64
+	WorkingDirPathIndex     int64
 )
 
 func ExtractTrace(runName string, traceDir string, config Config) {
@@ -33,7 +33,7 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 	run := NewRun(runID, runName)
 
 	executed := GetExecutedFiles(db)
-	WorkingDirFileIndex, _ = FileIndex(executed[0].WorkingDir)
+	WorkingDirPathIndex, _ = PathIndex(executed[0].WorkingDir)
 
 	opened := GetOpenedFiles(db)
 	accessed := GetAccessedPaths(executed, opened)

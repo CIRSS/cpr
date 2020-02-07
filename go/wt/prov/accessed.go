@@ -16,10 +16,8 @@ func GetAccessedPaths(executed []ExecutedFile, opened []OpenedFile) []AccessedPa
 
 	var accessed []AccessedPath
 
-	WorkingDirFileIndex, _ = FileIndex(executed[0].WorkingDir)
-
 	for _, e := range executed {
-		fileIndex, _ := FileIndex(e.Name)
+		fileIndex, _ := PathIndex(e.Name)
 		path := TrimWorkingDirPrefix(e.Name)
 		role := Role(path)
 		f := AccessedPath{E(e.ID), path, fileIndex, role}
@@ -27,7 +25,7 @@ func GetAccessedPaths(executed []ExecutedFile, opened []OpenedFile) []AccessedPa
 	}
 
 	for _, o := range opened {
-		fileIndex, _ := FileIndex(o.Name)
+		fileIndex, _ := PathIndex(o.Name)
 		path := TrimWorkingDirPrefix(o.Name)
 		role := Role(path)
 		f := AccessedPath{O(o.ID), path, fileIndex, role}

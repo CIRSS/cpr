@@ -46,7 +46,7 @@ func Role(path string) string {
 	prefix := path
 	prefixLength := len(path)
 	for {
-		prefixPathIndex, ok := FileIndex(prefix)
+		prefixPathIndex, ok := PathIndex(prefix)
 		t, ok := roleForPathIndex[prefixPathIndex]
 		if ok {
 			return t
@@ -69,7 +69,7 @@ func addPathsWithRole(allRoles *[]PathRole, runID int64, role string, pathsWithR
 }
 
 func registerPathRole(path string, role string) (pathIndex int64, ok bool) {
-	pathIndex, ok = FileIndex(path)
+	pathIndex, ok = PathIndex(path)
 	if ok {
 		roleForPathIndex[pathIndex] = role
 	}
