@@ -8,32 +8,12 @@ node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier
 subgraph cluster_inputs { label=""; color=white; penwidth=0
 subgraph cluster_inputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-"input:/lib/x86_64-linux-gnu/ld-2.24.so" [label="/lib/x86_64-linux-gnu/ld-2.24.so"]
-"input:/etc/ld.so.cache" [label="/etc/ld.so.cache"]
-"input:/lib/x86_64-linux-gnu/libc.so.6" [label="/lib/x86_64-linux-gnu/libc.so.6"]
-"input:/usr/lib/locale/locale-archive" [label="/usr/lib/locale/locale-archive"]
-"input:/etc/localtime" [label="/etc/localtime"]
-"input:/lib/x86_64-linux-gnu/ld-2.24.so" [label="/lib/x86_64-linux-gnu/ld-2.24.so"]
-"input:/etc/ld.so.cache" [label="/etc/ld.so.cache"]
-"input:/lib/x86_64-linux-gnu/libc.so.6" [label="/lib/x86_64-linux-gnu/libc.so.6"]
-"input:/usr/lib/locale/locale-archive" [label="/usr/lib/locale/locale-archive"]
-"input:./outputs/date.txt" [label="./outputs/date.txt"]
 }}
 subgraph cluster_outputs { label=""; color=white; penwidth=0
 subgraph cluster_outputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 "output:./outputs/date.txt" [label="./outputs/date.txt"]
 }}
-"input:/lib/x86_64-linux-gnu/ld-2.24.so" -> "04-date-to-file"
-"input:/etc/ld.so.cache" -> "04-date-to-file"
-"input:/lib/x86_64-linux-gnu/libc.so.6" -> "04-date-to-file"
-"input:/usr/lib/locale/locale-archive" -> "04-date-to-file"
-"input:/etc/localtime" -> "04-date-to-file"
-"input:/lib/x86_64-linux-gnu/ld-2.24.so" -> "04-date-to-file"
-"input:/etc/ld.so.cache" -> "04-date-to-file"
-"input:/lib/x86_64-linux-gnu/libc.so.6" -> "04-date-to-file"
-"input:/usr/lib/locale/locale-archive" -> "04-date-to-file"
-"input:./outputs/date.txt" -> "04-date-to-file"
 "04-date-to-file" -> "output:./outputs/date.txt"
 }
 

@@ -8,10 +8,6 @@ node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier
 subgraph cluster_inputs { label=""; color=white; penwidth=0
 subgraph cluster_inputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-"input:/lib/x86_64-linux-gnu/ld-2.24.so" [label="/lib/x86_64-linux-gnu/ld-2.24.so"]
-"input:/etc/ld.so.cache" [label="/etc/ld.so.cache"]
-"input:/lib/x86_64-linux-gnu/libc.so.6" [label="/lib/x86_64-linux-gnu/libc.so.6"]
-"input:/usr/lib/locale/locale-archive" [label="/usr/lib/locale/locale-archive"]
 "input:./inputs/input.txt" [label="./inputs/input.txt"]
 }}
 subgraph cluster_outputs { label=""; color=white; penwidth=0
@@ -19,10 +15,6 @@ subgraph cluster_outputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 "output:./outputs/output.txt" [label="./outputs/output.txt"]
 }}
-"input:/lib/x86_64-linux-gnu/ld-2.24.so" -> "05-cat-file-to-file"
-"input:/etc/ld.so.cache" -> "05-cat-file-to-file"
-"input:/lib/x86_64-linux-gnu/libc.so.6" -> "05-cat-file-to-file"
-"input:/usr/lib/locale/locale-archive" -> "05-cat-file-to-file"
 "input:./inputs/input.txt" -> "05-cat-file-to-file"
 "05-cat-file-to-file" -> "output:./outputs/output.txt"
 }
