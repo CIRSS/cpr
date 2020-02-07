@@ -29,20 +29,20 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 	FirstProcessID = firstProcess.ID
 	runID := firstProcess.RunID
 
-	directories := GetDirectories(config, runID)
+	pathRoles := GetPathRoleFacts(config, runID)
 	run := NewRun(runID, runName)
 
 	executed := GetExecutedFiles(db)
 	WorkingDirFileIndex, _ = FileIndex(executed[0].WorkingDir)
 
 	opened := GetOpenedFiles(db)
-	accessed := GetAccessedFiles(executed, opened)
+	accessed := GetAccessedPaths(executed, opened)
 
 	WriteProcessFacts(RPZFactsFile, processes)
 	WriteExecutedFacts(RPZFactsFile, executed)
 	WriteOpenedFacts(RPZFactsFile, opened)
 
 	WriteRunFacts(WTFactsFile, run)
-	WriteDirectoryFacts(WTFactsFile, directories)
-	WriteAccessedFacts(WTFactsFile, accessed)
+	WritePathRoleFacts(WTFactsFile, pathRoles)
+	WriteAccessedPathFacts(WTFactsFile, accessed)
 }

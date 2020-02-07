@@ -5,22 +5,22 @@
 wt_run(r0, '02-hello-go').
 
 %---------------------------------------------------------------------------------------------------
-% FACT: wt_directory(DirID, RunID, FilePath, FileIndex, DirRole).
+% FACT: wt_path_role(RunID, Path, PathIndex, Role).
 %---------------------------------------------------------------------------------------------------
-wt_directory(d1, r0, '/proc', i1, os).
-wt_directory(d2, r0, '/sys', i1, os).
-wt_directory(d3, r0, '.', i2, sw).
+wt_path_role(r0, '/proc', i1, os).
+wt_path_role(r0, '/sys', i1, os).
+wt_path_role(r0, '.', i2, sw).
 
 %---------------------------------------------------------------------------------------------------
-% FACT: wt_accessed(ID, FilePath, FileIndex, FileRole).
+% FACT: wt_accessed_path(ID, Path, PathIndex, PathRole).
 %---------------------------------------------------------------------------------------------------
-wt_accessed(e1, './run.sh', i3, sw).
-wt_accessed(e2, './bin/hello_go', i4, sw).
-wt_accessed(o18, '.', i2, sw).
-wt_accessed(o19, './bin/hello_go', i4, sw).
-wt_accessed(o20, '/sys/kernel/mm/transparent_hugepage/hpage_pmd_size', i6, os).
-wt_accessed(o21, '.', i2, sw).
-wt_accessed(o22, '.', i2, sw).
-wt_accessed(o23, '.', i2, sw).
-wt_accessed(o24, '.', i2, sw).
-wt_accessed(o25, '/proc/self/exe', i10, os).
+wt_accessed_path(e1, './run.sh', i3, sw).
+wt_accessed_path(e2, './bin/hello_go', i4, sw).
+wt_accessed_path(o18, '.', i2, sw).
+wt_accessed_path(o19, './bin/hello_go', i4, sw).
+wt_accessed_path(o20, '/sys/kernel/mm/transparent_hugepage/hpage_pmd_size', i6, os).
+wt_accessed_path(o21, '.', i2, sw).
+wt_accessed_path(o22, '.', i2, sw).
+wt_accessed_path(o23, '.', i2, sw).
+wt_accessed_path(o24, '.', i2, sw).
+wt_accessed_path(o25, '/proc/self/exe', i10, os).

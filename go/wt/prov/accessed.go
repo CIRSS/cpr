@@ -5,46 +5,46 @@ import (
 	"io"
 )
 
-type AccessedFile struct {
+type AccessedPath struct {
 	ID        string
-	FilePath  string
-	FileIndex int64
-	FileRole  string
+	Path      string
+	PathIndex int64
+	PathRole  string
 }
 
-func GetAccessedFiles(executed []ExecutedFile, opened []OpenedFile) []AccessedFile {
+func GetAccessedPaths(executed []ExecutedFile, opened []OpenedFile) []AccessedPath {
 
-	var accessed []AccessedFile
+	var accessed []AccessedPath
 
 	WorkingDirFileIndex, _ = FileIndex(executed[0].WorkingDir)
 
 	for _, e := range executed {
 		fileIndex, _ := FileIndex(e.Name)
 		path := TrimWorkingDirPrefix(e.Name)
-		role := FileRole(path)
-		f := AccessedFile{E(e.ID), path, fileIndex, role}
+		role := Role(path)
+		f := AccessedPath{E(e.ID), path, fileIndex, role}
 		accessed = append(accessed, f)
 	}
 
 	for _, o := range opened {
 		fileIndex, _ := FileIndex(o.Name)
 		path := TrimWorkingDirPrefix(o.Name)
-		role := FileRole(path)
-		f := AccessedFile{O(o.ID), path, fileIndex, role}
+		role := Role(path)
+		f := AccessedPath{O(o.ID), path, fileIndex, role}
 		accessed = append(accessed, f)
 	}
 
 	return accessed
 }
 
-func WriteAccessedFacts(w io.Writer, accessed []AccessedFile) {
-	printRowHeader(w, "wt_accessed(ID, FilePath, FileIndex, FileRole).")
+func WriteAccessedPathFacts(w io.Writer, accessed []AccessedPath) {
+	printRowHeader(w, "wt_accessed_path(ID, Path, PathIndex, PathRole).")
 	for _, f := range accessed {
 		fmt.Fprintln(w, f)
 	}
 }
 
-func (f AccessedFile) String() string {
-	return fmt.Sprintf("wt_accessed(%s, %s, %s, %s).",
-		f.ID, Q(f.FilePath), I(f.FileIndex), f.FileRole)
+func (f AccessedPath) String() string {
+	return fmt.Sprintf("wt_accessed_path(%s, %s, %s, %s).",
+		f.ID, Q(f.Path), I(f.PathIndex), f.PathRole)
 }
