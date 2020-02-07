@@ -9,5 +9,7 @@ node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier
 "exe:e1" [label="./run.sh"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 "access:i10" [label="./outputs/date.txt"]
+"exe:e2" -> "access:i10"
+"access:i10" -> "exe:e3"
 }
 

@@ -11,5 +11,9 @@ node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname
 "access:i20" [label="./outputs/file3.txt"]
 "access:i19" [label="./inputs/file1.txt"]
 "access:i11" [label="./temp/file2.txt"]
+"exe:e3" -> "access:i20"
+"exe:e2" -> "access:i11"
+"access:i11" -> "exe:e3"
+"access:i19" -> "exe:e2"
 }
 

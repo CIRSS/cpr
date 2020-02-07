@@ -78,9 +78,23 @@ wt_nodes__data_files() :-
     true.
 
 wt_edges__processes_to_data_files() :-
-    wt_file_read(_, _, _, _, FilePath, in),
-    wt_input_node_name(FilePath, NodeName),
-    gv_unlabeled_edge(NodeName, RunName),
+    wt_process(ProcessID, ExecutionID, _),
+    wt_file_write(_, _, ProcessID, PathIndex, _, _),
+    wt_data_file(PathIndex, _, _),
+    wt_executable_node_name(ExecutionID, ProcessNodeName),
+    wt_file_node_name(PathIndex, DataFileNodeName),
+    gv_unlabeled_edge(ProcessNodeName, DataFileNodeName),
+    fail
+    ;
+    true.
+
+wt_edges__data_files_to_processes() :-
+    wt_process(ProcessID, ExecutionID, _),
+    wt_file_read(_, _, ProcessID, PathIndex, _, _),
+    wt_data_file(PathIndex, _, _),
+    wt_executable_node_name(ExecutionID, ProcessNodeName),
+    wt_file_node_name(PathIndex, DataFileNodeName),
+    gv_unlabeled_edge(DataFileNodeName, ProcessNodeName),
     fail
     ;
     true.

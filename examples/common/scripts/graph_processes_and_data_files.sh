@@ -14,15 +14,12 @@ set_prolog_flag(unknown, fail).
 graph :-
 
     gv_graph('wt_run', 'Processes and Data Files', 'LR'),
-
         wt_node_style__process(),
         wt_nodes__processes(),
-
         wt_node_style__file(),
         wt_nodes__data_files(),
-
-        % wt_edges__processes_to_data_files(),
-
+        wt_edges__processes_to_data_files(),
+        wt_edges__data_files_to_processes(),
     gv_graph_end.
 
 end_of_file.
