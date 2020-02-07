@@ -23,10 +23,10 @@ func init() {
 
 func GetPathRoleFacts(config Config, runID int64) []PathRole {
 	var allRoles []PathRole
-	addPathsWithRole(&allRoles, runID, "os", config.Dirs.Os)
-	addPathsWithRole(&allRoles, runID, "sw", config.Dirs.Sw)
-	addPathsWithRole(&allRoles, runID, "in", config.Dirs.In)
-	addPathsWithRole(&allRoles, runID, "out", config.Dirs.Out)
+	addPathsWithRole(&allRoles, runID, "os", config.Roles.Os)
+	addPathsWithRole(&allRoles, runID, "sw", config.Roles.Sw)
+	addPathsWithRole(&allRoles, runID, "in", config.Roles.In)
+	addPathsWithRole(&allRoles, runID, "out", config.Roles.Out)
 	return allRoles
 }
 

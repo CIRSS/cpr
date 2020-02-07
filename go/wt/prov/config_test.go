@@ -22,55 +22,55 @@ func parseConfigString(s string) Config {
 
 func TestConfig_empty_config(t *testing.T) {
 	config := parseConfigString("")
-	assertLength(t, config.Dirs.Os, 0)
+	assertLength(t, config.Roles.Os, 0)
 }
 
 func TestConfig_two_os_dirs(t *testing.T) {
 	config := parseConfigString(`---
-dirs:
+roles:
   os:
   - /etc
   - /bin
 `)
-	assertLength(t, config.Dirs.Software, 0)
-	assertLength(t, config.Dirs.Input, 0)
-	assertLength(t, config.Dirs.Output, 0)
+	assertLength(t, config.Roles.Sw, 0)
+	assertLength(t, config.Roles.In, 0)
+	assertLength(t, config.Roles.Out, 0)
 
-	assertLength(t, config.Dirs.Os, 2)
-	assertEquals(t, "/etc", config.Dirs.Os[0])
-	assertEquals(t, "/bin", config.Dirs.Os[1])
+	assertLength(t, config.Roles.Os, 2)
+	assertEquals(t, "/etc", config.Roles.Os[0])
+	assertEquals(t, "/bin", config.Roles.Os[1])
 }
 
 func TestConfig_one_software_dir(t *testing.T) {
 	config := parseConfigString(`---
-dirs:
-  software:
+roles:
+  sw:
   - /opt
 `)
-	assertLength(t, config.Dirs.Os, 0)
-	assertLength(t, config.Dirs.Input, 0)
-	assertLength(t, config.Dirs.Output, 0)
+	assertLength(t, config.Roles.Os, 0)
+	assertLength(t, config.Roles.In, 0)
+	assertLength(t, config.Roles.Out, 0)
 
-	assertLength(t, config.Dirs.Software, 1)
-	assertEquals(t, "/opt", config.Dirs.Software[0])
+	assertLength(t, config.Roles.Sw, 1)
+	assertEquals(t, "/opt", config.Roles.Sw[0])
 }
 
 func TestConfig_two_input_one_output_dirs(t *testing.T) {
 	config := parseConfigString(`---
-dirs:
-  input:
+roles:
+  in:
   - /data
   - ./input
-  output:
+  out:
   - output
 `)
-	assertLength(t, config.Dirs.Os, 0)
-	assertLength(t, config.Dirs.Software, 0)
+	assertLength(t, config.Roles.Os, 0)
+	assertLength(t, config.Roles.Sw, 0)
 
-	assertLength(t, config.Dirs.Input, 2)
-	assertEquals(t, "/data", config.Dirs.Input[0])
+	assertLength(t, config.Roles.In, 2)
+	assertEquals(t, "/data", config.Roles.In[0])
 
-	assertLength(t, config.Dirs.Output, 1)
-	assertEquals(t, "./input", config.Dirs.Input[1])
-	assertEquals(t, "output", config.Dirs.Output[0])
+	assertLength(t, config.Roles.Out, 1)
+	assertEquals(t, "./input", config.Roles.In[1])
+	assertEquals(t, "output", config.Roles.Out[0])
 }

@@ -7,7 +7,7 @@ import (
 )
 
 type Config struct {
-	Dirs struct {
+	Roles struct {
 		Os  []string
 		Sw  []string
 		In  []string

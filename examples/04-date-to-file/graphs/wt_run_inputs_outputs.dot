@@ -12,8 +12,6 @@ node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname
 subgraph cluster_outputs { label=""; color=white; penwidth=0
 subgraph cluster_outputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-"output:./outputs/date.txt" [label="./outputs/date.txt"]
 }}
-"04-date-to-file" -> "output:./outputs/date.txt"
 }
 
