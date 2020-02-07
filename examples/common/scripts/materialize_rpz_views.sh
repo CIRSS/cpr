@@ -9,11 +9,11 @@ xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 
 set_prolog_flag(unknown, fail).
 
-rule_banner('wt_file_read(AccessID, ProcessID, FileIndex, FilePath, FileRole).').
-printall(wt_file_read(_,_,_,_,_)).
+rule_banner('wt_file_read(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).').
+printall(wt_file_read(_,_,_,_,_,_)).
 
-rule_banner('wt_file_write(AccessID, ProcessID, FileIndex, FilePath, FileRole).').
-printall(wt_file_write(_,_,_,_,_)).
+rule_banner('wt_file_write(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).').
+printall(wt_file_write(_,_,_,_,_,_)).
 
 
 END_XSB_STDIN

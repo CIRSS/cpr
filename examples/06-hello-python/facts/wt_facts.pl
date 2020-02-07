@@ -18,266 +18,266 @@ wt_path_role(r0, './inputs', i0, in).
 wt_path_role(r0, './outputs', i8, out).
 
 %---------------------------------------------------------------------------------------------------
-% FACT: wt_accessed_path(ID, Path, PathIndex, PathRole).
+% FACT: wt_accessed_path(AccessID, RunId, Path, PathIndex, PathRole).
 %---------------------------------------------------------------------------------------------------
-wt_accessed_path(e1, './run.sh', i9, sw).
-wt_accessed_path(e2, './hello.py', i10, sw).
-wt_accessed_path(e3, '/home/tmcphill/.venv/reprozip/bin/python', i11, sw).
-wt_accessed_path(o18, '.', i4, sw).
-wt_accessed_path(o19, '/usr/bin/env', i16, sw).
-wt_accessed_path(o20, '/usr/bin/env', i16, sw).
-wt_accessed_path(o21, '/lib/x86_64-linux-gnu/ld-2.24.so', i18, os).
-wt_accessed_path(o22, '/etc/ld.so.cache', i20, os).
-wt_accessed_path(o23, '/lib/x86_64-linux-gnu/libc.so.6', i21, os).
-wt_accessed_path(o24, '/usr/lib/locale/locale-archive', i22, os).
-wt_accessed_path(o25, '/usr/bin/python3.5', i11, sw).
-wt_accessed_path(o26, '/lib/x86_64-linux-gnu/ld-2.24.so', i18, os).
-wt_accessed_path(o27, '/etc/ld.so.cache', i20, os).
-wt_accessed_path(o28, '/lib/x86_64-linux-gnu/libpthread.so.0', i24, os).
-wt_accessed_path(o29, '/lib/x86_64-linux-gnu/libdl.so.2', i25, os).
-wt_accessed_path(o30, '/lib/x86_64-linux-gnu/libutil.so.1', i26, os).
-wt_accessed_path(o31, '/lib/x86_64-linux-gnu/libexpat.so.1', i27, os).
-wt_accessed_path(o32, '/lib/x86_64-linux-gnu/libz.so.1', i28, os).
-wt_accessed_path(o33, '/lib/x86_64-linux-gnu/libm.so.6', i29, os).
-wt_accessed_path(o34, '/lib/x86_64-linux-gnu/libc.so.6', i21, os).
-wt_accessed_path(o35, '/usr/lib/locale/locale-archive', i22, os).
-wt_accessed_path(o36, '/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache', i30, os).
-wt_accessed_path(o37, '/home/tmcphill/.venv/reprozip/bin/python', i11, sw).
-wt_accessed_path(o38, '/home/tmcphill/.venv/reprozip/bin/python', i11, sw).
-wt_accessed_path(o39, '/home/tmcphill/.venv/reprozip/bin/python3', i11, sw).
-wt_accessed_path(o40, '/usr/bin/python3', i11, sw).
-wt_accessed_path(o41, '/usr/lib/python3.5/os.py', i33, sw).
-wt_accessed_path(o42, '/usr/lib/python3.5/lib-dynload', i34, sw).
-wt_accessed_path(o43, '/usr/lib', i3, os).
-wt_accessed_path(o44, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o45, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o46, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o47, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o48, '/usr/lib/python3.5/encodings/__init__.py', i35, sw).
-wt_accessed_path(o49, '/usr/lib/python3.5/encodings/__init__.py', i35, sw).
-wt_accessed_path(o50, '/usr/lib/python3.5/encodings/__pycache__/__init__.cpython-35.pyc', i37, sw).
-wt_accessed_path(o51, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o52, '/usr/lib/python3.5/codecs.py', i39, sw).
-wt_accessed_path(o53, '/usr/lib/python3.5/codecs.py', i39, sw).
-wt_accessed_path(o54, '/usr/lib/python3.5/__pycache__/codecs.cpython-35.pyc', i40, sw).
-wt_accessed_path(o55, '/usr/lib/python3.5/encodings', i36, sw).
-wt_accessed_path(o56, '/usr/lib/python3.5/encodings', i36, sw).
-wt_accessed_path(o57, '/usr/lib/python3.5/encodings', i36, sw).
-wt_accessed_path(o58, '/usr/lib/python3.5/encodings', i36, sw).
-wt_accessed_path(o59, '/usr/lib/python3.5/encodings/aliases.py', i42, sw).
-wt_accessed_path(o60, '/usr/lib/python3.5/encodings/aliases.py', i42, sw).
-wt_accessed_path(o61, '/usr/lib/python3.5/encodings/__pycache__/aliases.cpython-35.pyc', i43, sw).
-wt_accessed_path(o62, '/usr/lib/python3.5/encodings', i36, sw).
-wt_accessed_path(o63, '/usr/lib/python3.5/encodings/utf_8.py', i44, sw).
-wt_accessed_path(o64, '/usr/lib/python3.5/encodings/utf_8.py', i44, sw).
-wt_accessed_path(o65, '/usr/lib/python3.5/encodings/__pycache__/utf_8.cpython-35.pyc', i45, sw).
-wt_accessed_path(o66, '/usr/lib/python3.5/encodings', i36, sw).
-wt_accessed_path(o67, '/usr/lib/python3.5/encodings/latin_1.py', i46, sw).
-wt_accessed_path(o68, '/usr/lib/python3.5/encodings/latin_1.py', i46, sw).
-wt_accessed_path(o69, '/usr/lib/python3.5/encodings/__pycache__/latin_1.cpython-35.pyc', i47, sw).
-wt_accessed_path(o70, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o71, '/usr/lib/python3.5/io.py', i48, sw).
-wt_accessed_path(o72, '/usr/lib/python3.5/io.py', i48, sw).
-wt_accessed_path(o73, '/usr/lib/python3.5/__pycache__/io.cpython-35.pyc', i49, sw).
-wt_accessed_path(o74, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o75, '/usr/lib/python3.5/abc.py', i50, sw).
-wt_accessed_path(o76, '/usr/lib/python3.5/abc.py', i50, sw).
-wt_accessed_path(o77, '/usr/lib/python3.5/__pycache__/abc.cpython-35.pyc', i51, sw).
-wt_accessed_path(o78, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o79, '/usr/lib/python3.5/_weakrefset.py', i52, sw).
-wt_accessed_path(o80, '/usr/lib/python3.5/_weakrefset.py', i52, sw).
-wt_accessed_path(o81, '/usr/lib/python3.5/__pycache__/_weakrefset.cpython-35.pyc', i53, sw).
-wt_accessed_path(o82, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o83, '/usr/lib/python3.5/site.py', i54, sw).
-wt_accessed_path(o84, '/usr/lib/python3.5/site.py', i54, sw).
-wt_accessed_path(o85, '/usr/lib/python3.5/__pycache__/site.cpython-35.pyc', i55, sw).
-wt_accessed_path(o86, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o87, '/usr/lib/python3.5/os.py', i33, sw).
-wt_accessed_path(o88, '/usr/lib/python3.5/os.py', i33, sw).
-wt_accessed_path(o89, '/usr/lib/python3.5/__pycache__/os.cpython-35.pyc', i56, sw).
-wt_accessed_path(o90, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o91, '/usr/lib/python3.5/stat.py', i57, sw).
-wt_accessed_path(o92, '/usr/lib/python3.5/stat.py', i57, sw).
-wt_accessed_path(o93, '/usr/lib/python3.5/__pycache__/stat.cpython-35.pyc', i58, sw).
-wt_accessed_path(o94, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o95, '/usr/lib/python3.5/posixpath.py', i59, sw).
-wt_accessed_path(o96, '/usr/lib/python3.5/posixpath.py', i59, sw).
-wt_accessed_path(o97, '/usr/lib/python3.5/__pycache__/posixpath.cpython-35.pyc', i60, sw).
-wt_accessed_path(o98, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o99, '/usr/lib/python3.5/genericpath.py', i61, sw).
-wt_accessed_path(o100, '/usr/lib/python3.5/genericpath.py', i61, sw).
-wt_accessed_path(o101, '/usr/lib/python3.5/__pycache__/genericpath.cpython-35.pyc', i62, sw).
-wt_accessed_path(o102, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o103, '/usr/lib/python3.5/_collections_abc.py', i63, sw).
-wt_accessed_path(o104, '/usr/lib/python3.5/_collections_abc.py', i63, sw).
-wt_accessed_path(o105, '/usr/lib/python3.5/__pycache__/_collections_abc.cpython-35.pyc', i64, sw).
-wt_accessed_path(o106, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o107, '/usr/lib/python3.5/_sitebuiltins.py', i65, sw).
-wt_accessed_path(o108, '/usr/lib/python3.5/_sitebuiltins.py', i65, sw).
-wt_accessed_path(o109, '/usr/lib/python3.5/__pycache__/_sitebuiltins.cpython-35.pyc', i66, sw).
-wt_accessed_path(o110, '/home/tmcphill/.venv/reprozip/pyvenv.cfg', i67, sw).
-wt_accessed_path(o111, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o112, '/usr/lib/python3.5/re.py', i68, sw).
-wt_accessed_path(o113, '/usr/lib/python3.5/re.py', i68, sw).
-wt_accessed_path(o114, '/usr/lib/python3.5/__pycache__/re.cpython-35.pyc', i69, sw).
-wt_accessed_path(o115, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o116, '/usr/lib/python3.5/sre_compile.py', i70, sw).
-wt_accessed_path(o117, '/usr/lib/python3.5/sre_compile.py', i70, sw).
-wt_accessed_path(o118, '/usr/lib/python3.5/__pycache__/sre_compile.cpython-35.pyc', i71, sw).
-wt_accessed_path(o119, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o120, '/usr/lib/python3.5/sre_parse.py', i72, sw).
-wt_accessed_path(o121, '/usr/lib/python3.5/sre_parse.py', i72, sw).
-wt_accessed_path(o122, '/usr/lib/python3.5/__pycache__/sre_parse.cpython-35.pyc', i73, sw).
-wt_accessed_path(o123, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o124, '/usr/lib/python3.5/sre_constants.py', i74, sw).
-wt_accessed_path(o125, '/usr/lib/python3.5/sre_constants.py', i74, sw).
-wt_accessed_path(o126, '/usr/lib/python3.5/__pycache__/sre_constants.cpython-35.pyc', i75, sw).
-wt_accessed_path(o127, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o128, '/usr/lib/python3.5/copyreg.py', i76, sw).
-wt_accessed_path(o129, '/usr/lib/python3.5/copyreg.py', i76, sw).
-wt_accessed_path(o130, '/usr/lib/python3.5/__pycache__/copyreg.cpython-35.pyc', i77, sw).
-wt_accessed_path(o131, '/home/tmcphill/.venv/reprozip/pyvenv.cfg', i67, sw).
-wt_accessed_path(o132, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
-wt_accessed_path(o133, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
-wt_accessed_path(o134, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth', i81, sw).
-wt_accessed_path(o135, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o136, '/usr/lib/python3.5/_bootlocale.py', i82, sw).
-wt_accessed_path(o137, '/usr/lib/python3.5/_bootlocale.py', i82, sw).
-wt_accessed_path(o138, '/usr/lib/python3.5/__pycache__/_bootlocale.cpython-35.pyc', i83, sw).
-wt_accessed_path(o139, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o140, '/usr/lib/python3.5/types.py', i84, sw).
-wt_accessed_path(o141, '/usr/lib/python3.5/types.py', i84, sw).
-wt_accessed_path(o142, '/usr/lib/python3.5/__pycache__/types.cpython-35.pyc', i85, sw).
-wt_accessed_path(o143, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o144, '/usr/lib/python3.5/functools.py', i86, sw).
-wt_accessed_path(o145, '/usr/lib/python3.5/functools.py', i86, sw).
-wt_accessed_path(o146, '/usr/lib/python3.5/__pycache__/functools.cpython-35.pyc', i87, sw).
-wt_accessed_path(o147, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o148, '/usr/lib/python3.5/collections/__init__.py', i88, sw).
-wt_accessed_path(o149, '/usr/lib/python3.5/collections/__init__.py', i88, sw).
-wt_accessed_path(o150, '/usr/lib/python3.5/collections/__pycache__/__init__.cpython-35.pyc', i90, sw).
-wt_accessed_path(o151, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o152, '/usr/lib/python3.5/operator.py', i92, sw).
-wt_accessed_path(o153, '/usr/lib/python3.5/operator.py', i92, sw).
-wt_accessed_path(o154, '/usr/lib/python3.5/__pycache__/operator.cpython-35.pyc', i93, sw).
-wt_accessed_path(o155, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o156, '/usr/lib/python3.5/keyword.py', i94, sw).
-wt_accessed_path(o157, '/usr/lib/python3.5/keyword.py', i94, sw).
-wt_accessed_path(o158, '/usr/lib/python3.5/__pycache__/keyword.cpython-35.pyc', i95, sw).
-wt_accessed_path(o159, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o160, '/usr/lib/python3.5/heapq.py', i96, sw).
-wt_accessed_path(o161, '/usr/lib/python3.5/heapq.py', i96, sw).
-wt_accessed_path(o162, '/usr/lib/python3.5/__pycache__/heapq.cpython-35.pyc', i97, sw).
-wt_accessed_path(o163, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o164, '/usr/lib/python3.5/reprlib.py', i98, sw).
-wt_accessed_path(o165, '/usr/lib/python3.5/reprlib.py', i98, sw).
-wt_accessed_path(o166, '/usr/lib/python3.5/__pycache__/reprlib.cpython-35.pyc', i99, sw).
-wt_accessed_path(o167, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o168, '/usr/lib/python3.5/weakref.py', i100, sw).
-wt_accessed_path(o169, '/usr/lib/python3.5/weakref.py', i100, sw).
-wt_accessed_path(o170, '/usr/lib/python3.5/__pycache__/weakref.cpython-35.pyc', i101, sw).
-wt_accessed_path(o171, '/usr/lib/python3.5/collections', i89, sw).
-wt_accessed_path(o172, '/usr/lib/python3.5/collections', i89, sw).
-wt_accessed_path(o173, '/usr/lib/python3.5/collections', i89, sw).
-wt_accessed_path(o174, '/usr/lib/python3.5/collections', i89, sw).
-wt_accessed_path(o175, '/usr/lib/python3.5/collections/abc.py', i102, sw).
-wt_accessed_path(o176, '/usr/lib/python3.5/collections/abc.py', i102, sw).
-wt_accessed_path(o177, '/usr/lib/python3.5/collections/__pycache__/abc.cpython-35.pyc', i103, sw).
-wt_accessed_path(o178, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o179, '/usr/lib/python3.5/importlib/__init__.py', i104, sw).
-wt_accessed_path(o180, '/usr/lib/python3.5/importlib/__init__.py', i104, sw).
-wt_accessed_path(o181, '/usr/lib/python3.5/importlib/__pycache__/__init__.cpython-35.pyc', i106, sw).
-wt_accessed_path(o182, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o183, '/usr/lib/python3.5/warnings.py', i108, sw).
-wt_accessed_path(o184, '/usr/lib/python3.5/warnings.py', i108, sw).
-wt_accessed_path(o185, '/usr/lib/python3.5/__pycache__/warnings.cpython-35.pyc', i109, sw).
-wt_accessed_path(o186, '/usr/lib/python3.5/importlib', i105, sw).
-wt_accessed_path(o187, '/usr/lib/python3.5/importlib', i105, sw).
-wt_accessed_path(o188, '/usr/lib/python3.5/importlib', i105, sw).
-wt_accessed_path(o189, '/usr/lib/python3.5/importlib', i105, sw).
-wt_accessed_path(o190, '/usr/lib/python3.5/importlib/util.py', i110, sw).
-wt_accessed_path(o191, '/usr/lib/python3.5/importlib/util.py', i110, sw).
-wt_accessed_path(o192, '/usr/lib/python3.5/importlib/__pycache__/util.cpython-35.pyc', i111, sw).
-wt_accessed_path(o193, '/usr/lib/python3.5/importlib', i105, sw).
-wt_accessed_path(o194, '/usr/lib/python3.5/importlib/abc.py', i112, sw).
-wt_accessed_path(o195, '/usr/lib/python3.5/importlib/abc.py', i112, sw).
-wt_accessed_path(o196, '/usr/lib/python3.5/importlib/__pycache__/abc.cpython-35.pyc', i113, sw).
-wt_accessed_path(o197, '/usr/lib/python3.5/importlib', i105, sw).
-wt_accessed_path(o198, '/usr/lib/python3.5/importlib/machinery.py', i114, sw).
-wt_accessed_path(o199, '/usr/lib/python3.5/importlib/machinery.py', i114, sw).
-wt_accessed_path(o200, '/usr/lib/python3.5/importlib/__pycache__/machinery.cpython-35.pyc', i115, sw).
-wt_accessed_path(o201, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o202, '/usr/lib/python3.5/contextlib.py', i116, sw).
-wt_accessed_path(o203, '/usr/lib/python3.5/contextlib.py', i116, sw).
-wt_accessed_path(o204, '/usr/lib/python3.5/__pycache__/contextlib.cpython-35.pyc', i117, sw).
-wt_accessed_path(o205, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
-wt_accessed_path(o206, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
-wt_accessed_path(o207, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
-wt_accessed_path(o208, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
-wt_accessed_path(o209, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
-wt_accessed_path(o210, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
-wt_accessed_path(o211, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
-wt_accessed_path(o212, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
-wt_accessed_path(o213, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
-wt_accessed_path(o214, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
-wt_accessed_path(o215, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
-wt_accessed_path(o216, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip/unpackers', i119, sw).
-wt_accessed_path(o217, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o218, '/usr/lib/python3.5/sysconfig.py', i120, sw).
-wt_accessed_path(o219, '/usr/lib/python3.5/sysconfig.py', i120, sw).
-wt_accessed_path(o220, '/usr/lib/python3.5/__pycache__/sysconfig.cpython-35.pyc', i121, sw).
-wt_accessed_path(o221, '/home', i15, nil).
-wt_accessed_path(o222, '/home/tmcphill', i14, nil).
-wt_accessed_path(o223, '/home/tmcphill/.venv', i7, sw).
-wt_accessed_path(o224, '/home/tmcphill/.venv/reprozip', i13, sw).
-wt_accessed_path(o225, '/home/tmcphill/.venv/reprozip/bin', i12, sw).
-wt_accessed_path(o226, '/home/tmcphill/.venv/reprozip/bin/python', i11, sw).
-wt_accessed_path(o227, '/home/tmcphill/.venv/reprozip/bin/python', i11, sw).
-wt_accessed_path(o228, '/home/tmcphill/.venv/reprozip/bin/python3', i11, sw).
-wt_accessed_path(o229, '/home/tmcphill/.venv/reprozip/bin/python3', i11, sw).
-wt_accessed_path(o230, '/usr', i17, nil).
-wt_accessed_path(o231, '/usr/bin', i5, sw).
-wt_accessed_path(o232, '/usr/bin/python3', i11, sw).
-wt_accessed_path(o233, '/usr/bin/python3', i11, sw).
-wt_accessed_path(o234, '/usr/bin/python3.5', i11, sw).
-wt_accessed_path(o235, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o236, '/usr/lib/python3.5/_sysconfigdata.py', i122, sw).
-wt_accessed_path(o237, '/usr/lib/python3.5/_sysconfigdata.py', i122, sw).
-wt_accessed_path(o238, '/usr/lib/python3.5/__pycache__/_sysconfigdata.cpython-35.pyc', i123, sw).
-wt_accessed_path(o239, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o240, '/usr/lib/python3.5/plat-x86_64-linux-gnu', i124, sw).
-wt_accessed_path(o241, '/usr/lib/python3.5/plat-x86_64-linux-gnu', i124, sw).
-wt_accessed_path(o242, '/usr/lib/python3.5/plat-x86_64-linux-gnu', i124, sw).
-wt_accessed_path(o243, '/usr/lib/python3.5/plat-x86_64-linux-gnu', i124, sw).
-wt_accessed_path(o244, '/usr/lib/python3.5/plat-x86_64-linux-gnu/_sysconfigdata_m.py', i125, sw).
-wt_accessed_path(o245, '/usr/lib/python3.5/plat-x86_64-linux-gnu/_sysconfigdata_m.py', i125, sw).
-wt_accessed_path(o246, '/usr/lib/python3.5/plat-x86_64-linux-gnu/__pycache__/_sysconfigdata_m.cpython-35.pyc', i126, sw).
-wt_accessed_path(o247, '/usr', i17, nil).
-wt_accessed_path(o248, '/usr/lib', i3, os).
-wt_accessed_path(o249, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o250, '/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu', i128, sw).
-wt_accessed_path(o251, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
-wt_accessed_path(o252, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
-wt_accessed_path(o253, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth', i81, sw).
-wt_accessed_path(o254, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
-wt_accessed_path(o255, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
-wt_accessed_path(o256, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
-wt_accessed_path(o257, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
-wt_accessed_path(o258, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
-wt_accessed_path(o259, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip/unpackers', i119, sw).
-wt_accessed_path(o260, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o261, '/usr/lib/python3.5/sitecustomize.py', i129, sw).
-wt_accessed_path(o262, '/usr/lib/python3.5/sitecustomize.py', i129, sw).
-wt_accessed_path(o263, '/usr/lib/python3.5/__pycache__/sitecustomize.cpython-35.pyc', i130, sw).
-wt_accessed_path(o264, '/usr/lib/python3.5', i6, sw).
-wt_accessed_path(o265, '/usr/lib/python3.5/plat-x86_64-linux-gnu', i124, sw).
-wt_accessed_path(o266, '/usr/lib/python3.5/lib-dynload', i34, sw).
-wt_accessed_path(o267, '/usr/lib/python3.5/lib-dynload', i34, sw).
-wt_accessed_path(o268, '/usr/lib/python3.5/lib-dynload', i34, sw).
-wt_accessed_path(o269, '/usr/lib/python3.5/lib-dynload', i34, sw).
-wt_accessed_path(o270, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
-wt_accessed_path(o271, './hello.py', i10, sw).
-wt_accessed_path(o272, './hello.py', i10, sw).
-wt_accessed_path(o273, './hello.py', i10, sw).
-wt_accessed_path(o274, './hello.py', i10, sw).
-wt_accessed_path(o275, './hello.py', i10, sw).
+wt_accessed_path(e1, r0, './run.sh', i9, sw).
+wt_accessed_path(e2, r0, './hello.py', i10, sw).
+wt_accessed_path(e3, r0, '/home/tmcphill/.venv/reprozip/bin/python', i11, sw).
+wt_accessed_path(o18, r0, '.', i4, sw).
+wt_accessed_path(o19, r0, '/usr/bin/env', i16, sw).
+wt_accessed_path(o20, r0, '/usr/bin/env', i16, sw).
+wt_accessed_path(o21, r0, '/lib/x86_64-linux-gnu/ld-2.24.so', i18, os).
+wt_accessed_path(o22, r0, '/etc/ld.so.cache', i20, os).
+wt_accessed_path(o23, r0, '/lib/x86_64-linux-gnu/libc.so.6', i21, os).
+wt_accessed_path(o24, r0, '/usr/lib/locale/locale-archive', i22, os).
+wt_accessed_path(o25, r0, '/usr/bin/python3.5', i11, sw).
+wt_accessed_path(o26, r0, '/lib/x86_64-linux-gnu/ld-2.24.so', i18, os).
+wt_accessed_path(o27, r0, '/etc/ld.so.cache', i20, os).
+wt_accessed_path(o28, r0, '/lib/x86_64-linux-gnu/libpthread.so.0', i24, os).
+wt_accessed_path(o29, r0, '/lib/x86_64-linux-gnu/libdl.so.2', i25, os).
+wt_accessed_path(o30, r0, '/lib/x86_64-linux-gnu/libutil.so.1', i26, os).
+wt_accessed_path(o31, r0, '/lib/x86_64-linux-gnu/libexpat.so.1', i27, os).
+wt_accessed_path(o32, r0, '/lib/x86_64-linux-gnu/libz.so.1', i28, os).
+wt_accessed_path(o33, r0, '/lib/x86_64-linux-gnu/libm.so.6', i29, os).
+wt_accessed_path(o34, r0, '/lib/x86_64-linux-gnu/libc.so.6', i21, os).
+wt_accessed_path(o35, r0, '/usr/lib/locale/locale-archive', i22, os).
+wt_accessed_path(o36, r0, '/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache', i30, os).
+wt_accessed_path(o37, r0, '/home/tmcphill/.venv/reprozip/bin/python', i11, sw).
+wt_accessed_path(o38, r0, '/home/tmcphill/.venv/reprozip/bin/python', i11, sw).
+wt_accessed_path(o39, r0, '/home/tmcphill/.venv/reprozip/bin/python3', i11, sw).
+wt_accessed_path(o40, r0, '/usr/bin/python3', i11, sw).
+wt_accessed_path(o41, r0, '/usr/lib/python3.5/os.py', i33, sw).
+wt_accessed_path(o42, r0, '/usr/lib/python3.5/lib-dynload', i34, sw).
+wt_accessed_path(o43, r0, '/usr/lib', i3, os).
+wt_accessed_path(o44, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o45, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o46, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o47, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o48, r0, '/usr/lib/python3.5/encodings/__init__.py', i35, sw).
+wt_accessed_path(o49, r0, '/usr/lib/python3.5/encodings/__init__.py', i35, sw).
+wt_accessed_path(o50, r0, '/usr/lib/python3.5/encodings/__pycache__/__init__.cpython-35.pyc', i37, sw).
+wt_accessed_path(o51, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o52, r0, '/usr/lib/python3.5/codecs.py', i39, sw).
+wt_accessed_path(o53, r0, '/usr/lib/python3.5/codecs.py', i39, sw).
+wt_accessed_path(o54, r0, '/usr/lib/python3.5/__pycache__/codecs.cpython-35.pyc', i40, sw).
+wt_accessed_path(o55, r0, '/usr/lib/python3.5/encodings', i36, sw).
+wt_accessed_path(o56, r0, '/usr/lib/python3.5/encodings', i36, sw).
+wt_accessed_path(o57, r0, '/usr/lib/python3.5/encodings', i36, sw).
+wt_accessed_path(o58, r0, '/usr/lib/python3.5/encodings', i36, sw).
+wt_accessed_path(o59, r0, '/usr/lib/python3.5/encodings/aliases.py', i42, sw).
+wt_accessed_path(o60, r0, '/usr/lib/python3.5/encodings/aliases.py', i42, sw).
+wt_accessed_path(o61, r0, '/usr/lib/python3.5/encodings/__pycache__/aliases.cpython-35.pyc', i43, sw).
+wt_accessed_path(o62, r0, '/usr/lib/python3.5/encodings', i36, sw).
+wt_accessed_path(o63, r0, '/usr/lib/python3.5/encodings/utf_8.py', i44, sw).
+wt_accessed_path(o64, r0, '/usr/lib/python3.5/encodings/utf_8.py', i44, sw).
+wt_accessed_path(o65, r0, '/usr/lib/python3.5/encodings/__pycache__/utf_8.cpython-35.pyc', i45, sw).
+wt_accessed_path(o66, r0, '/usr/lib/python3.5/encodings', i36, sw).
+wt_accessed_path(o67, r0, '/usr/lib/python3.5/encodings/latin_1.py', i46, sw).
+wt_accessed_path(o68, r0, '/usr/lib/python3.5/encodings/latin_1.py', i46, sw).
+wt_accessed_path(o69, r0, '/usr/lib/python3.5/encodings/__pycache__/latin_1.cpython-35.pyc', i47, sw).
+wt_accessed_path(o70, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o71, r0, '/usr/lib/python3.5/io.py', i48, sw).
+wt_accessed_path(o72, r0, '/usr/lib/python3.5/io.py', i48, sw).
+wt_accessed_path(o73, r0, '/usr/lib/python3.5/__pycache__/io.cpython-35.pyc', i49, sw).
+wt_accessed_path(o74, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o75, r0, '/usr/lib/python3.5/abc.py', i50, sw).
+wt_accessed_path(o76, r0, '/usr/lib/python3.5/abc.py', i50, sw).
+wt_accessed_path(o77, r0, '/usr/lib/python3.5/__pycache__/abc.cpython-35.pyc', i51, sw).
+wt_accessed_path(o78, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o79, r0, '/usr/lib/python3.5/_weakrefset.py', i52, sw).
+wt_accessed_path(o80, r0, '/usr/lib/python3.5/_weakrefset.py', i52, sw).
+wt_accessed_path(o81, r0, '/usr/lib/python3.5/__pycache__/_weakrefset.cpython-35.pyc', i53, sw).
+wt_accessed_path(o82, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o83, r0, '/usr/lib/python3.5/site.py', i54, sw).
+wt_accessed_path(o84, r0, '/usr/lib/python3.5/site.py', i54, sw).
+wt_accessed_path(o85, r0, '/usr/lib/python3.5/__pycache__/site.cpython-35.pyc', i55, sw).
+wt_accessed_path(o86, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o87, r0, '/usr/lib/python3.5/os.py', i33, sw).
+wt_accessed_path(o88, r0, '/usr/lib/python3.5/os.py', i33, sw).
+wt_accessed_path(o89, r0, '/usr/lib/python3.5/__pycache__/os.cpython-35.pyc', i56, sw).
+wt_accessed_path(o90, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o91, r0, '/usr/lib/python3.5/stat.py', i57, sw).
+wt_accessed_path(o92, r0, '/usr/lib/python3.5/stat.py', i57, sw).
+wt_accessed_path(o93, r0, '/usr/lib/python3.5/__pycache__/stat.cpython-35.pyc', i58, sw).
+wt_accessed_path(o94, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o95, r0, '/usr/lib/python3.5/posixpath.py', i59, sw).
+wt_accessed_path(o96, r0, '/usr/lib/python3.5/posixpath.py', i59, sw).
+wt_accessed_path(o97, r0, '/usr/lib/python3.5/__pycache__/posixpath.cpython-35.pyc', i60, sw).
+wt_accessed_path(o98, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o99, r0, '/usr/lib/python3.5/genericpath.py', i61, sw).
+wt_accessed_path(o100, r0, '/usr/lib/python3.5/genericpath.py', i61, sw).
+wt_accessed_path(o101, r0, '/usr/lib/python3.5/__pycache__/genericpath.cpython-35.pyc', i62, sw).
+wt_accessed_path(o102, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o103, r0, '/usr/lib/python3.5/_collections_abc.py', i63, sw).
+wt_accessed_path(o104, r0, '/usr/lib/python3.5/_collections_abc.py', i63, sw).
+wt_accessed_path(o105, r0, '/usr/lib/python3.5/__pycache__/_collections_abc.cpython-35.pyc', i64, sw).
+wt_accessed_path(o106, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o107, r0, '/usr/lib/python3.5/_sitebuiltins.py', i65, sw).
+wt_accessed_path(o108, r0, '/usr/lib/python3.5/_sitebuiltins.py', i65, sw).
+wt_accessed_path(o109, r0, '/usr/lib/python3.5/__pycache__/_sitebuiltins.cpython-35.pyc', i66, sw).
+wt_accessed_path(o110, r0, '/home/tmcphill/.venv/reprozip/pyvenv.cfg', i67, sw).
+wt_accessed_path(o111, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o112, r0, '/usr/lib/python3.5/re.py', i68, sw).
+wt_accessed_path(o113, r0, '/usr/lib/python3.5/re.py', i68, sw).
+wt_accessed_path(o114, r0, '/usr/lib/python3.5/__pycache__/re.cpython-35.pyc', i69, sw).
+wt_accessed_path(o115, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o116, r0, '/usr/lib/python3.5/sre_compile.py', i70, sw).
+wt_accessed_path(o117, r0, '/usr/lib/python3.5/sre_compile.py', i70, sw).
+wt_accessed_path(o118, r0, '/usr/lib/python3.5/__pycache__/sre_compile.cpython-35.pyc', i71, sw).
+wt_accessed_path(o119, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o120, r0, '/usr/lib/python3.5/sre_parse.py', i72, sw).
+wt_accessed_path(o121, r0, '/usr/lib/python3.5/sre_parse.py', i72, sw).
+wt_accessed_path(o122, r0, '/usr/lib/python3.5/__pycache__/sre_parse.cpython-35.pyc', i73, sw).
+wt_accessed_path(o123, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o124, r0, '/usr/lib/python3.5/sre_constants.py', i74, sw).
+wt_accessed_path(o125, r0, '/usr/lib/python3.5/sre_constants.py', i74, sw).
+wt_accessed_path(o126, r0, '/usr/lib/python3.5/__pycache__/sre_constants.cpython-35.pyc', i75, sw).
+wt_accessed_path(o127, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o128, r0, '/usr/lib/python3.5/copyreg.py', i76, sw).
+wt_accessed_path(o129, r0, '/usr/lib/python3.5/copyreg.py', i76, sw).
+wt_accessed_path(o130, r0, '/usr/lib/python3.5/__pycache__/copyreg.cpython-35.pyc', i77, sw).
+wt_accessed_path(o131, r0, '/home/tmcphill/.venv/reprozip/pyvenv.cfg', i67, sw).
+wt_accessed_path(o132, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
+wt_accessed_path(o133, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
+wt_accessed_path(o134, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth', i81, sw).
+wt_accessed_path(o135, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o136, r0, '/usr/lib/python3.5/_bootlocale.py', i82, sw).
+wt_accessed_path(o137, r0, '/usr/lib/python3.5/_bootlocale.py', i82, sw).
+wt_accessed_path(o138, r0, '/usr/lib/python3.5/__pycache__/_bootlocale.cpython-35.pyc', i83, sw).
+wt_accessed_path(o139, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o140, r0, '/usr/lib/python3.5/types.py', i84, sw).
+wt_accessed_path(o141, r0, '/usr/lib/python3.5/types.py', i84, sw).
+wt_accessed_path(o142, r0, '/usr/lib/python3.5/__pycache__/types.cpython-35.pyc', i85, sw).
+wt_accessed_path(o143, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o144, r0, '/usr/lib/python3.5/functools.py', i86, sw).
+wt_accessed_path(o145, r0, '/usr/lib/python3.5/functools.py', i86, sw).
+wt_accessed_path(o146, r0, '/usr/lib/python3.5/__pycache__/functools.cpython-35.pyc', i87, sw).
+wt_accessed_path(o147, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o148, r0, '/usr/lib/python3.5/collections/__init__.py', i88, sw).
+wt_accessed_path(o149, r0, '/usr/lib/python3.5/collections/__init__.py', i88, sw).
+wt_accessed_path(o150, r0, '/usr/lib/python3.5/collections/__pycache__/__init__.cpython-35.pyc', i90, sw).
+wt_accessed_path(o151, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o152, r0, '/usr/lib/python3.5/operator.py', i92, sw).
+wt_accessed_path(o153, r0, '/usr/lib/python3.5/operator.py', i92, sw).
+wt_accessed_path(o154, r0, '/usr/lib/python3.5/__pycache__/operator.cpython-35.pyc', i93, sw).
+wt_accessed_path(o155, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o156, r0, '/usr/lib/python3.5/keyword.py', i94, sw).
+wt_accessed_path(o157, r0, '/usr/lib/python3.5/keyword.py', i94, sw).
+wt_accessed_path(o158, r0, '/usr/lib/python3.5/__pycache__/keyword.cpython-35.pyc', i95, sw).
+wt_accessed_path(o159, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o160, r0, '/usr/lib/python3.5/heapq.py', i96, sw).
+wt_accessed_path(o161, r0, '/usr/lib/python3.5/heapq.py', i96, sw).
+wt_accessed_path(o162, r0, '/usr/lib/python3.5/__pycache__/heapq.cpython-35.pyc', i97, sw).
+wt_accessed_path(o163, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o164, r0, '/usr/lib/python3.5/reprlib.py', i98, sw).
+wt_accessed_path(o165, r0, '/usr/lib/python3.5/reprlib.py', i98, sw).
+wt_accessed_path(o166, r0, '/usr/lib/python3.5/__pycache__/reprlib.cpython-35.pyc', i99, sw).
+wt_accessed_path(o167, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o168, r0, '/usr/lib/python3.5/weakref.py', i100, sw).
+wt_accessed_path(o169, r0, '/usr/lib/python3.5/weakref.py', i100, sw).
+wt_accessed_path(o170, r0, '/usr/lib/python3.5/__pycache__/weakref.cpython-35.pyc', i101, sw).
+wt_accessed_path(o171, r0, '/usr/lib/python3.5/collections', i89, sw).
+wt_accessed_path(o172, r0, '/usr/lib/python3.5/collections', i89, sw).
+wt_accessed_path(o173, r0, '/usr/lib/python3.5/collections', i89, sw).
+wt_accessed_path(o174, r0, '/usr/lib/python3.5/collections', i89, sw).
+wt_accessed_path(o175, r0, '/usr/lib/python3.5/collections/abc.py', i102, sw).
+wt_accessed_path(o176, r0, '/usr/lib/python3.5/collections/abc.py', i102, sw).
+wt_accessed_path(o177, r0, '/usr/lib/python3.5/collections/__pycache__/abc.cpython-35.pyc', i103, sw).
+wt_accessed_path(o178, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o179, r0, '/usr/lib/python3.5/importlib/__init__.py', i104, sw).
+wt_accessed_path(o180, r0, '/usr/lib/python3.5/importlib/__init__.py', i104, sw).
+wt_accessed_path(o181, r0, '/usr/lib/python3.5/importlib/__pycache__/__init__.cpython-35.pyc', i106, sw).
+wt_accessed_path(o182, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o183, r0, '/usr/lib/python3.5/warnings.py', i108, sw).
+wt_accessed_path(o184, r0, '/usr/lib/python3.5/warnings.py', i108, sw).
+wt_accessed_path(o185, r0, '/usr/lib/python3.5/__pycache__/warnings.cpython-35.pyc', i109, sw).
+wt_accessed_path(o186, r0, '/usr/lib/python3.5/importlib', i105, sw).
+wt_accessed_path(o187, r0, '/usr/lib/python3.5/importlib', i105, sw).
+wt_accessed_path(o188, r0, '/usr/lib/python3.5/importlib', i105, sw).
+wt_accessed_path(o189, r0, '/usr/lib/python3.5/importlib', i105, sw).
+wt_accessed_path(o190, r0, '/usr/lib/python3.5/importlib/util.py', i110, sw).
+wt_accessed_path(o191, r0, '/usr/lib/python3.5/importlib/util.py', i110, sw).
+wt_accessed_path(o192, r0, '/usr/lib/python3.5/importlib/__pycache__/util.cpython-35.pyc', i111, sw).
+wt_accessed_path(o193, r0, '/usr/lib/python3.5/importlib', i105, sw).
+wt_accessed_path(o194, r0, '/usr/lib/python3.5/importlib/abc.py', i112, sw).
+wt_accessed_path(o195, r0, '/usr/lib/python3.5/importlib/abc.py', i112, sw).
+wt_accessed_path(o196, r0, '/usr/lib/python3.5/importlib/__pycache__/abc.cpython-35.pyc', i113, sw).
+wt_accessed_path(o197, r0, '/usr/lib/python3.5/importlib', i105, sw).
+wt_accessed_path(o198, r0, '/usr/lib/python3.5/importlib/machinery.py', i114, sw).
+wt_accessed_path(o199, r0, '/usr/lib/python3.5/importlib/machinery.py', i114, sw).
+wt_accessed_path(o200, r0, '/usr/lib/python3.5/importlib/__pycache__/machinery.cpython-35.pyc', i115, sw).
+wt_accessed_path(o201, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o202, r0, '/usr/lib/python3.5/contextlib.py', i116, sw).
+wt_accessed_path(o203, r0, '/usr/lib/python3.5/contextlib.py', i116, sw).
+wt_accessed_path(o204, r0, '/usr/lib/python3.5/__pycache__/contextlib.cpython-35.pyc', i117, sw).
+wt_accessed_path(o205, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
+wt_accessed_path(o206, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
+wt_accessed_path(o207, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
+wt_accessed_path(o208, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
+wt_accessed_path(o209, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
+wt_accessed_path(o210, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
+wt_accessed_path(o211, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
+wt_accessed_path(o212, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
+wt_accessed_path(o213, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
+wt_accessed_path(o214, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
+wt_accessed_path(o215, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
+wt_accessed_path(o216, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip/unpackers', i119, sw).
+wt_accessed_path(o217, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o218, r0, '/usr/lib/python3.5/sysconfig.py', i120, sw).
+wt_accessed_path(o219, r0, '/usr/lib/python3.5/sysconfig.py', i120, sw).
+wt_accessed_path(o220, r0, '/usr/lib/python3.5/__pycache__/sysconfig.cpython-35.pyc', i121, sw).
+wt_accessed_path(o221, r0, '/home', i15, nil).
+wt_accessed_path(o222, r0, '/home/tmcphill', i14, nil).
+wt_accessed_path(o223, r0, '/home/tmcphill/.venv', i7, sw).
+wt_accessed_path(o224, r0, '/home/tmcphill/.venv/reprozip', i13, sw).
+wt_accessed_path(o225, r0, '/home/tmcphill/.venv/reprozip/bin', i12, sw).
+wt_accessed_path(o226, r0, '/home/tmcphill/.venv/reprozip/bin/python', i11, sw).
+wt_accessed_path(o227, r0, '/home/tmcphill/.venv/reprozip/bin/python', i11, sw).
+wt_accessed_path(o228, r0, '/home/tmcphill/.venv/reprozip/bin/python3', i11, sw).
+wt_accessed_path(o229, r0, '/home/tmcphill/.venv/reprozip/bin/python3', i11, sw).
+wt_accessed_path(o230, r0, '/usr', i17, nil).
+wt_accessed_path(o231, r0, '/usr/bin', i5, sw).
+wt_accessed_path(o232, r0, '/usr/bin/python3', i11, sw).
+wt_accessed_path(o233, r0, '/usr/bin/python3', i11, sw).
+wt_accessed_path(o234, r0, '/usr/bin/python3.5', i11, sw).
+wt_accessed_path(o235, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o236, r0, '/usr/lib/python3.5/_sysconfigdata.py', i122, sw).
+wt_accessed_path(o237, r0, '/usr/lib/python3.5/_sysconfigdata.py', i122, sw).
+wt_accessed_path(o238, r0, '/usr/lib/python3.5/__pycache__/_sysconfigdata.cpython-35.pyc', i123, sw).
+wt_accessed_path(o239, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o240, r0, '/usr/lib/python3.5/plat-x86_64-linux-gnu', i124, sw).
+wt_accessed_path(o241, r0, '/usr/lib/python3.5/plat-x86_64-linux-gnu', i124, sw).
+wt_accessed_path(o242, r0, '/usr/lib/python3.5/plat-x86_64-linux-gnu', i124, sw).
+wt_accessed_path(o243, r0, '/usr/lib/python3.5/plat-x86_64-linux-gnu', i124, sw).
+wt_accessed_path(o244, r0, '/usr/lib/python3.5/plat-x86_64-linux-gnu/_sysconfigdata_m.py', i125, sw).
+wt_accessed_path(o245, r0, '/usr/lib/python3.5/plat-x86_64-linux-gnu/_sysconfigdata_m.py', i125, sw).
+wt_accessed_path(o246, r0, '/usr/lib/python3.5/plat-x86_64-linux-gnu/__pycache__/_sysconfigdata_m.cpython-35.pyc', i126, sw).
+wt_accessed_path(o247, r0, '/usr', i17, nil).
+wt_accessed_path(o248, r0, '/usr/lib', i3, os).
+wt_accessed_path(o249, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o250, r0, '/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu', i128, sw).
+wt_accessed_path(o251, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
+wt_accessed_path(o252, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
+wt_accessed_path(o253, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth', i81, sw).
+wt_accessed_path(o254, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
+wt_accessed_path(o255, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
+wt_accessed_path(o256, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
+wt_accessed_path(o257, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
+wt_accessed_path(o258, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip', i118, sw).
+wt_accessed_path(o259, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages/reprounzip/unpackers', i119, sw).
+wt_accessed_path(o260, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o261, r0, '/usr/lib/python3.5/sitecustomize.py', i129, sw).
+wt_accessed_path(o262, r0, '/usr/lib/python3.5/sitecustomize.py', i129, sw).
+wt_accessed_path(o263, r0, '/usr/lib/python3.5/__pycache__/sitecustomize.cpython-35.pyc', i130, sw).
+wt_accessed_path(o264, r0, '/usr/lib/python3.5', i6, sw).
+wt_accessed_path(o265, r0, '/usr/lib/python3.5/plat-x86_64-linux-gnu', i124, sw).
+wt_accessed_path(o266, r0, '/usr/lib/python3.5/lib-dynload', i34, sw).
+wt_accessed_path(o267, r0, '/usr/lib/python3.5/lib-dynload', i34, sw).
+wt_accessed_path(o268, r0, '/usr/lib/python3.5/lib-dynload', i34, sw).
+wt_accessed_path(o269, r0, '/usr/lib/python3.5/lib-dynload', i34, sw).
+wt_accessed_path(o270, r0, '/home/tmcphill/.venv/reprozip/lib/python3.5/site-packages', i78, sw).
+wt_accessed_path(o271, r0, './hello.py', i10, sw).
+wt_accessed_path(o272, r0, './hello.py', i10, sw).
+wt_accessed_path(o273, r0, './hello.py', i10, sw).
+wt_accessed_path(o274, r0, './hello.py', i10, sw).
+wt_accessed_path(o275, r0, './hello.py', i10, sw).
