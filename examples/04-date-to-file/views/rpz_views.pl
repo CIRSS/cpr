@@ -25,3 +25,11 @@ wt_file_write(o30,r0,p2,i10,'./outputs/date.txt',out).
 % FACT: wt_data_file(PathIndex, Path, PathRole).
 %...................................................................................................
 wt_data_file(i10,'./outputs/date.txt',out).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: wt_process(ProcessID, ExecutionID, Path).
+%...................................................................................................
+wt_process(p4,e3,'/bin/cat').
+wt_process(p2,e2,'/bin/date').
+wt_process(p1,e1,'./run.sh').

@@ -18,4 +18,7 @@ printall(wt_file_write(_,_,_,_,_,_)).
 rule_banner('wt_data_file(PathIndex, Path, PathRole).').
 printall(wt_data_file(_,_,_)).
 
+rule_banner('wt_process(ProcessID, ExecutionID, Path).').
+printall(wt_process(_,_,_)).
+
 END_XSB_STDIN

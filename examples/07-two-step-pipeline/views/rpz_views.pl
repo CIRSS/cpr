@@ -28,3 +28,11 @@ wt_file_write(o37,r0,p3,i20,'./outputs/file3.txt',out).
 wt_data_file(i20,'./outputs/file3.txt',out).
 wt_data_file(i19,'./inputs/file1.txt',in).
 wt_data_file(i11,'./temp/file2.txt',tmp).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: wt_process(ProcessID, ExecutionID, Path).
+%...................................................................................................
+wt_process(p3,e3,'/bin/cat').
+wt_process(p2,e2,'/bin/cat').
+wt_process(p1,e1,'./run.sh').

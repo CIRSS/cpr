@@ -62,19 +62,17 @@ wt_edges__run_to_output_files() :-
     true.
 
 wt_nodes__processes() :-
-    rpz_process(ProcessID, _, _, false, _, _),
-    rpz_executed(ExecutionID, _, ProcessID, _, _, _, _),
-    wt_accessed_path(ExecutionID, _, Path, _, _),
-    wt_executable_node_name(ExecutionID, NodeName),
-    gv_labeled_node(NodeName, Path),
+    wt_process(_, ExecutionID, Path),
+    wt_executable_node_name(ExecutionID, ProcessNodeName),
+    gv_labeled_node(ProcessNodeName, Path),
     fail
     ;
     true.
 
 wt_nodes__data_files() :-
     wt_data_file(PathIndex, Path, _),
-    wt_file_node_name(PathIndex, NodeName),
-    gv_labeled_node(NodeName, Path),
+    wt_file_node_name(PathIndex, DataFileNodeName),
+    gv_labeled_node(DataFileNodeName, Path),
     fail
     ;
     true.

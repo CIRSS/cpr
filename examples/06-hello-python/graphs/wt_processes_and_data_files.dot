@@ -4,9 +4,9 @@ rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
 label="Processes and Data Files"
 node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
-"exe:e1" [label="./run.sh"]
-"exe:e2" [label="./hello.py"]
 "exe:e3" [label="/home/tmcphill/.venv/reprozip/bin/python"]
+"exe:e2" [label="./hello.py"]
+"exe:e1" [label="./run.sh"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 }
 
