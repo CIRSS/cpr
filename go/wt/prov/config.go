@@ -12,6 +12,7 @@ type Config struct {
 		Sw  []string
 		In  []string
 		Out []string
+		Tmp []string
 	}
 }
 

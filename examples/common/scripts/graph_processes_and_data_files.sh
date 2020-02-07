@@ -18,6 +18,8 @@ graph :-
         wt_node_style__process(),
         wt_nodes__processes(),
 
+        wt_node_style__file(),
+
     gv_graph_end.
 
 end_of_file.

@@ -27,6 +27,7 @@ func GetPathRoleFacts(config Config, runID int64) []PathRole {
 	addPathsWithRole(&allRoles, runID, "sw", config.Roles.Sw)
 	addPathsWithRole(&allRoles, runID, "in", config.Roles.In)
 	addPathsWithRole(&allRoles, runID, "out", config.Roles.Out)
+	addPathsWithRole(&allRoles, runID, "tmp", config.Roles.Tmp)
 	return allRoles
 }
 

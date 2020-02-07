@@ -6,5 +6,6 @@ label="Processes and Data Files"
 node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
 "exe:e1" [label="./run.sh"]
 "exe:e2" [label="./bin/hello_c"]
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 }
 

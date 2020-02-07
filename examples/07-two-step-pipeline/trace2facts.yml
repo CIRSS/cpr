@@ -11,3 +11,5 @@ roles:
     - ./inputs
     out:
     - ./outputs
+    tmp:
+    - ./temp
