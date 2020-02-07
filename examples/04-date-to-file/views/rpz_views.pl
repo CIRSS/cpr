@@ -19,3 +19,9 @@ wt_file_read(o53,r0,p4,i10,'./outputs/date.txt',out).
 % FACT: wt_file_write(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).
 %...................................................................................................
 wt_file_write(o30,r0,p2,i10,'./outputs/date.txt',out).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: wt_data_file(PathIndex, Path, PathRole).
+%...................................................................................................
+wt_data_file(i10,'./outputs/date.txt',out).

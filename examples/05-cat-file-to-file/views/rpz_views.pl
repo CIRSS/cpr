@@ -14,3 +14,10 @@ wt_file_read(o35,r0,p2,i18,'./inputs/input.txt',in).
 % FACT: wt_file_write(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).
 %...................................................................................................
 wt_file_write(o30,r0,p2,i10,'./outputs/output.txt',out).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: wt_data_file(PathIndex, Path, PathRole).
+%...................................................................................................
+wt_data_file(i18,'./inputs/input.txt',in).
+wt_data_file(i10,'./outputs/output.txt',out).

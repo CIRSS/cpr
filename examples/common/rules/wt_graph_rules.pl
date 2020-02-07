@@ -71,17 +71,18 @@ wt_nodes__processes() :-
     ;
     true.
 
-wt_data_file_role(in).
-wt_data_file_role(out).
-wt_data_file_role(tmp).
-
 wt_nodes__data_files() :-
-    wt_accessed_path(AccessID, _, Path, PathIndex, PathRole),
-    wt_data_file_role(PathRole),
+    wt_data_file(PathIndex, Path, _),
     wt_file_node_name(PathIndex, NodeName),
     gv_labeled_node(NodeName, Path),
     fail
     ;
     true.
 
-
+wt_edges__processes_to_data_files() :-
+    wt_file_read(_, _, _, _, FilePath, in),
+    wt_input_node_name(FilePath, NodeName),
+    gv_unlabeled_edge(NodeName, RunName),
+    fail
+    ;
+    true.

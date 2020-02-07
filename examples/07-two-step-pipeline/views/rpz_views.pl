@@ -20,3 +20,11 @@ wt_file_read(o42,r0,p3,i11,'./temp/file2.txt',tmp).
 %...................................................................................................
 wt_file_write(o30,r0,p2,i11,'./temp/file2.txt',tmp).
 wt_file_write(o37,r0,p3,i20,'./outputs/file3.txt',out).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: wt_data_file(PathIndex, Path, PathRole).
+%...................................................................................................
+wt_data_file(i20,'./outputs/file3.txt',out).
+wt_data_file(i19,'./inputs/file1.txt',in).
+wt_data_file(i11,'./temp/file2.txt',tmp).
