@@ -18,6 +18,9 @@ wt_input_node_name(InputName, NodeName) :-
 wt_output_node_name(OutputName, NodeName) :-
     concat_atom(['output:', OutputName], NodeName).
 
+wt_executable_node_name(ExeName, NodeName) :-
+    concat_atom(['exe:', ExeName], NodeName).
+
 wt_node__run(RunName) :-
     gv_labeled_node(RunName).
 
@@ -55,3 +58,12 @@ wt_edges__run_to_output_files() :-
     ;
     true.
 
+wt_nodes__processes() :-
+    rpz_process(ProcessID, _, _, false, _, _),
+    rpz_executed(ExecutionID, _, ProcessID, _, _, _, _),
+    wt_accessed_path(ExecutionID, _, Path, _, _),
+    wt_executable_node_name(ExecutionID, NodeName),
+    gv_labeled_node(NodeName, Path),
+    fail
+    ;
+    true.

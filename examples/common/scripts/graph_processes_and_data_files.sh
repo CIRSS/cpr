@@ -15,7 +15,8 @@ graph :-
 
     gv_graph('wt_run', 'Processes and Data Files', 'LR'),
 
-        wt_run(r0, RunName),
+        wt_node_style__process(),
+        wt_nodes__processes(),
 
     gv_graph_end.
 
