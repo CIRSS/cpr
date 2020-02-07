@@ -19,6 +19,7 @@ graph :-
         wt_nodes__processes(),
 
         wt_node_style__file(),
+        wt_nodes__data_files(),
 
     gv_graph_end.
 

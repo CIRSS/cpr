@@ -21,6 +21,9 @@ wt_output_node_name(OutputName, NodeName) :-
 wt_executable_node_name(ExeName, NodeName) :-
     concat_atom(['exe:', ExeName], NodeName).
 
+wt_file_node_name(AccessID, NodeName) :-
+    concat_atom(['access:', AccessID], NodeName).
+
 wt_node__run(RunName) :-
     gv_labeled_node(RunName).
 
@@ -67,3 +70,18 @@ wt_nodes__processes() :-
     fail
     ;
     true.
+
+wt_data_file_role(in).
+wt_data_file_role(out).
+wt_data_file_role(tmp).
+
+wt_nodes__data_files() :-
+    wt_accessed_path(AccessID, _, Path, PathIndex, PathRole),
+    wt_data_file_role(PathRole),
+    wt_file_node_name(PathIndex, NodeName),
+    gv_labeled_node(NodeName, Path),
+    fail
+    ;
+    true.
+
+

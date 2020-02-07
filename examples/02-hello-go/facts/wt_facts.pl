@@ -23,4 +23,5 @@ wt_accessed_path(o21, r0, '.', i2, sw).
 wt_accessed_path(o22, r0, '.', i2, sw).
 wt_accessed_path(o23, r0, '.', i2, sw).
 wt_accessed_path(o24, r0, '.', i2, sw).
-wt_accessed_path(o25, r0, '/proc/self/exe', i10, os).
+wt_accessed_path(o25, r0, '.', i2, sw).
+wt_accessed_path(o26, r0, '/proc/self/exe', i10, os).

@@ -7,5 +7,7 @@ node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier
 "exe:e1" [label="./run.sh"]
 "exe:e2" [label="/bin/cat"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+"access:i10" [label="./outputs/output.txt"]
+"access:i18" [label="./inputs/input.txt"]
 }
 
