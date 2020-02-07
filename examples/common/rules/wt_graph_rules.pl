@@ -61,8 +61,17 @@ wt_edges__run_to_output_files() :-
     ;
     true.
 
+:- table wt_process_uses_data/1.
+wt_process_uses_data(ProcessID) :-
+    wt_process(ProcessID, _, _),
+    wt_file_read(_, _, ProcessID, _, _, _).
+wt_process_uses_data(ProcessID) :-
+    wt_process(ProcessID, _, _),
+    wt_file_write(_, _, ProcessID, _, _, _).
+
 wt_nodes__processes() :-
-    wt_process(_, ExecutionID, Path),
+    wt_process(ProcessID, ExecutionID, Path),
+    wt_process_uses_data(ProcessID),
     wt_executable_node_name(ExecutionID, ProcessNodeName),
     gv_labeled_node(ProcessNodeName, Path),
     fail

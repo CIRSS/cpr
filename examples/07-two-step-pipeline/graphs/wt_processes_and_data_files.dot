@@ -6,7 +6,6 @@ label="Processes and Data Files"
 node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
 "exe:e3" [label="/bin/cat"]
 "exe:e2" [label="/bin/cat"]
-"exe:e1" [label="./run.sh"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 "access:i20" [label="./outputs/file3.txt"]
 "access:i19" [label="./inputs/file1.txt"]
