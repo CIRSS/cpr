@@ -4,18 +4,18 @@ rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
 label="Run Inputs and Outputs"
 node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
-"05-cat-file-to-file"
+"07-two-step-pipeline"
 subgraph cluster_inputs { label=""; color=white; penwidth=0
 subgraph cluster_inputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-"input:./inputs/input.txt" [label="./inputs/input.txt"]
+"input:./inputs/file1.txt" [label="./inputs/file1.txt"]
 }}
 subgraph cluster_outputs { label=""; color=white; penwidth=0
 subgraph cluster_outputs_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-"output:./outputs/output.txt" [label="./outputs/output.txt"]
+"output:./outputs/file3.txt" [label="./outputs/file3.txt"]
 }}
-"input:./inputs/input.txt" -> "05-cat-file-to-file"
-"05-cat-file-to-file" -> "output:./outputs/output.txt"
+"input:./inputs/file1.txt" -> "07-two-step-pipeline"
+"07-two-step-pipeline" -> "output:./outputs/file3.txt"
 }
 

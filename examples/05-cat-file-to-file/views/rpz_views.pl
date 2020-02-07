@@ -3,14 +3,14 @@
 %---------------------------------------------------------------------------------------------------
 % FACT: wt_file_read(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).
 %...................................................................................................
-wt_file_read(o31,r0,p2,i7,'/lib/x86_64-linux-gnu/ld-2.24.so',nil).
-wt_file_read(o32,r0,p2,i10,'/etc/ld.so.cache',nil).
-wt_file_read(o33,r0,p2,i12,'/lib/x86_64-linux-gnu/libc.so.6',nil).
-wt_file_read(o34,r0,p2,i13,'/usr/lib/locale/locale-archive',nil).
-wt_file_read(o35,r0,p2,i17,'./inputs/input.txt',nil).
+wt_file_read(o31,r0,p2,i11,'/lib/x86_64-linux-gnu/ld-2.24.so',os).
+wt_file_read(o32,r0,p2,i13,'/etc/ld.so.cache',os).
+wt_file_read(o33,r0,p2,i14,'/lib/x86_64-linux-gnu/libc.so.6',os).
+wt_file_read(o34,r0,p2,i15,'/usr/lib/locale/locale-archive',os).
+wt_file_read(o35,r0,p2,i18,'./inputs/input.txt',in).
 
 
 %---------------------------------------------------------------------------------------------------
 % FACT: wt_file_write(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).
 %...................................................................................................
-wt_file_write(o30,r0,p2,i5,'./outputs/output.txt',nil).
+wt_file_write(o30,r0,p2,i10,'./outputs/output.txt',out).

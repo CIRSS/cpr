@@ -1,0 +1,95 @@
+digraph G {
+    rankdir=LR;
+
+    /* programs */
+    node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
+    subgraph cluster_run0 {
+        label="run0";
+        prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/run.sh (1)"];
+        prog1 [label="/bin/mkdir (2)"];
+        prog0 -> prog1 [label="fork+exec"];
+        prog2 [label="/bin/cat (3)"];
+        prog0 -> prog2 [label="fork+exec"];
+        prog3 [label="/bin/cat (4)"];
+        prog0 -> prog3 [label="fork+exec"];
+    }
+
+    node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
+
+    /* system packages */
+    subgraph cluster_pkg0 {
+        label="bash 4.4-5";
+        "/bin/bash";
+    }
+    subgraph cluster_pkg1 {
+        label="coreutils 8.26-3";
+        "/bin/cat";
+        "/bin/mkdir";
+    }
+    subgraph cluster_pkg2 {
+        label="libc6 2.24-11+deb9u4";
+        "/lib/x86_64-linux-gnu/ld-2.24.so";
+        "/lib/x86_64-linux-gnu/libc.so.6";
+        "/lib/x86_64-linux-gnu/libdl.so.2";
+        "/lib/x86_64-linux-gnu/libpthread.so.0";
+        "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache";
+    }
+    subgraph cluster_pkg3 {
+        label="libpcre3 2:8.39-3";
+        "/lib/x86_64-linux-gnu/libpcre.so.3";
+    }
+    subgraph cluster_pkg4 {
+        label="libselinux1 2.6-3+b3";
+        "/lib/x86_64-linux-gnu/libselinux.so.1";
+    }
+    subgraph cluster_pkg5 {
+        label="libtinfo5 6.0+20161126-1+deb9u2";
+        "/lib/x86_64-linux-gnu/libtinfo.so.5";
+    }
+
+    /* other files */
+    "/dev/tty";
+    "/etc/ld.so.cache";
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/inputs/file1.txt" [fillcolor="#A3B4E0", label="file1.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/inputs/file1.txt"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/outputs/file3.txt" [fillcolor="#A3B4E0", label="file3.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/outputs/file3.txt"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/run.sh";
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt" [fillcolor="#A3B4E0", label="file2.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt"];
+    "/proc/filesystems";
+    "/usr/lib/locale/locale-archive";
+
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/run.sh" -> prog0 [style=bold, label="./run.sh"];
+    "/bin/bash" -> prog0 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/ld-2.24.so" -> prog0 [color="#8888CC"];
+    "/etc/ld.so.cache" -> prog0 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libtinfo.so.5" -> prog0 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libdl.so.2" -> prog0 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libc.so.6" -> prog0 [color="#8888CC"];
+    prog0 -> "/dev/tty" [color="#000088"];
+    "/usr/lib/locale/locale-archive" -> prog0 [color="#8888CC"];
+    "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache" -> prog0 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/run.sh" -> prog0 [color="#8888CC"];
+    "/bin/mkdir" -> prog1 [style=bold, label="mkdir -p temp"];
+    "/lib/x86_64-linux-gnu/ld-2.24.so" -> prog1 [color="#8888CC"];
+    "/etc/ld.so.cache" -> prog1 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libselinux.so.1" -> prog1 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libc.so.6" -> prog1 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libpcre.so.3" -> prog1 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libdl.so.2" -> prog1 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libpthread.so.0" -> prog1 [color="#8888CC"];
+    "/proc/filesystems" -> prog1 [color="#8888CC"];
+    "/usr/lib/locale/locale-archive" -> prog1 [color="#8888CC"];
+    prog2 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt" [color="#000088"];
+    "/bin/cat" -> prog2 [style=bold, label="cat inputs/file1.txt"];
+    "/lib/x86_64-linux-gnu/ld-2.24.so" -> prog2 [color="#8888CC"];
+    "/etc/ld.so.cache" -> prog2 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libc.so.6" -> prog2 [color="#8888CC"];
+    "/usr/lib/locale/locale-archive" -> prog2 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/inputs/file1.txt" -> prog2 [color="#8888CC"];
+    prog3 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/outputs/file3.txt" [color="#000088"];
+    "/bin/cat" -> prog3 [style=bold, label="cat temp/file2.txt"];
+    "/lib/x86_64-linux-gnu/ld-2.24.so" -> prog3 [color="#8888CC"];
+    "/etc/ld.so.cache" -> prog3 [color="#8888CC"];
+    "/lib/x86_64-linux-gnu/libc.so.6" -> prog3 [color="#8888CC"];
+    "/usr/lib/locale/locale-archive" -> prog3 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt" -> prog3 [color="#8888CC"];
+}

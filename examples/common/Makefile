@@ -50,7 +50,7 @@ PNGS = $(GRAPHS:.dot=.png)
 all: fact view png
 
 clean:
-	rm -rfv $(DIRS)
+	rm -rfv $(DIRS) temp
 
 build: $(BIN_DIR)
 
