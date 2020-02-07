@@ -3,6 +3,8 @@ digraph wt_run {
 rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
 label="Processes and Data Files"
+subgraph cluster_inputs { label=""; color=white; penwidth=0
+subgraph cluster_inputs_inner { label=""; color=white
 node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
 "exe:e3" [label="/bin/cat"]
 "exe:e2" [label="/bin/date"]
@@ -10,5 +12,6 @@ node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname
 "access:i10" [label="./outputs/date.txt"]
 "exe:e2" -> "access:i10"
 "access:i10" -> "exe:e3"
+}}
 }
 
