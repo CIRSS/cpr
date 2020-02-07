@@ -7,8 +7,9 @@ FACTS_DIR=facts
 VIEWS_DIR=views
 OUTPUTS_DIR=outputs
 GRAPHS_DIR=graphs
+TEMP_DIR=temp
 
-DIRS=$(BIN_DIR) $(OUTPUTS_DIR) $(RPZ_TRACE_DIR) $(FACTS_DIR) $(VIEWS_DIR) $(GRAPHS_DIR)
+DIRS=$(BIN_DIR) $(OUTPUTS_DIR) $(RPZ_TRACE_DIR) $(FACTS_DIR) $(VIEWS_DIR) $(GRAPHS_DIR) $(TEMP_DIR)
 
 RPZ_TRACE_SQLITE=$(RPZ_TRACE_DIR)/trace.sqlite3
 RPZ_TRACE_YAML=$(RPZ_TRACE_DIR)/config.yml
@@ -32,8 +33,10 @@ RPZ_GRAPHS=$(RPZ_RUN_IO_FILES).dot							\
 WT_FACTS=$(FACTS_DIR)/wt_facts.pl
 
 WT_GRAPH_RUN_INPUTS_OUTPUTS=$(GRAPHS_DIR)/wt_run_inputs_outputs
+WT_GRAPH_PROCESS_AND_DATA_FILES=$(GRAPHS_DIR)/wt_processes_and_data_files
 
-WT_GRAPHS=$(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot
+WT_GRAPHS=$(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot		\
+		  $(WT_GRAPH_PROCESS_AND_DATA_FILES).dot
 
 FACTS=$(RPZ_FACTS) $(WT_FACTS)
 VIEWS=$(RPZ_VIEWS)
@@ -50,7 +53,7 @@ PNGS = $(GRAPHS:.dot=.png)
 all: fact view png
 
 clean:
-	rm -rfv $(DIRS) temp
+	rm -rfv $(DIRS)
 
 build: $(BIN_DIR)
 
@@ -71,7 +74,7 @@ png: $(PNGS)
 $(DIRS):
 	mkdir -p $@
 
-$(RPZ_TRACE): build $(OUTPUTS_DIR)
+$(RPZ_TRACE): build $(OUTPUTS_DIR) $(TEMP_DIR)
 	reprozip trace --overwrite ./run.sh
 
 $(FACTS): $(RPZ_TRACE) $(FACTS_DIR)
@@ -103,3 +106,5 @@ $(RPZ_PROCESSES_FILES_PACKAGES).dot: $(RPZ_TRACE) $(GRAPHS_DIR)
 $(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot: $(FACTS) $(VIEWS) $(GRAPHS_DIR)
 	bash $(SCRIPTS_DIR)/graph_run_inputs_outputs.sh > $@
 
+$(WT_GRAPH_PROCESS_AND_DATA_FILES).dot: $(FACTS) $(VIEWS) $(GRAPHS_DIR)
+	bash $(SCRIPTS_DIR)/graph_processes_and_data_files.sh > $@
