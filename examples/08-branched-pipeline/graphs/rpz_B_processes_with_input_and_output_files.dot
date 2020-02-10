@@ -1,0 +1,53 @@
+digraph G {
+    rankdir=LR;
+
+    /* programs */
+    node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
+    subgraph cluster_run0 {
+        label="run0";
+        prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/run.sh (1)"];
+        prog1 [label="/bin/cat (2)"];
+        prog0 -> prog1 [label="fork+exec"];
+        prog2 [label="/bin/cat (3)"];
+        prog0 -> prog2 [label="fork+exec"];
+        prog3 [label="/bin/cat (4)"];
+        prog0 -> prog3 [label="fork+exec"];
+        prog4 [label="/bin/cat (5)"];
+        prog0 -> prog4 [label="fork+exec"];
+        prog5 [label="/bin/cat (6)"];
+        prog0 -> prog5 [label="fork+exec"];
+        prog6 [label="/bin/cat (7)"];
+        prog0 -> prog6 [label="fork+exec"];
+    }
+
+    node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
+
+    /* other files */
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i1.txt" [fillcolor="#A3B4E0", label="i1.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i1.txt"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i2.txt" [fillcolor="#A3B4E0", label="i2.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i2.txt"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i3.txt" [fillcolor="#A3B4E0", label="i3.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i3.txt"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i4.txt" [fillcolor="#A3B4E0", label="i4.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i4.txt"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/outputs/o12.txt" [fillcolor="#A3B4E0", label="o12.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/outputs/o12.txt"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/outputs/o1234.txt" [fillcolor="#A3B4E0", label="o1234.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/outputs/o1234.txt"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/outputs/o4.txt" [fillcolor="#A3B4E0", label="o4.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/outputs/o4.txt"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t12.txt" [fillcolor="#A3B4E0", label="t12.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t12.txt"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t123.txt" [fillcolor="#A3B4E0", label="t123.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t123.txt"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t4.txt" [fillcolor="#A3B4E0", label="t4.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t4.txt"];
+
+    prog1 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t12.txt" [color="#000088"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i1.txt" -> prog1 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i2.txt" -> prog1 [color="#8888CC"];
+    prog2 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t123.txt" [color="#000088"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i1.txt" -> prog2 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i2.txt" -> prog2 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i3.txt" -> prog2 [color="#8888CC"];
+    prog3 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t4.txt" [color="#000088"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i4.txt" -> prog3 [color="#8888CC"];
+    prog4 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/outputs/o12.txt" [color="#000088"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t12.txt" -> prog4 [color="#8888CC"];
+    prog5 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/outputs/o1234.txt" [color="#000088"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t123.txt" -> prog5 [color="#8888CC"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t4.txt" -> prog5 [color="#8888CC"];
+    prog6 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/outputs/o4.txt" [color="#000088"];
+    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/temp/t4.txt" -> prog6 [color="#8888CC"];
+}

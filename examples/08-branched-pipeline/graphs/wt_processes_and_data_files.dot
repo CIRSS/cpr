@@ -1,0 +1,44 @@
+
+digraph wt_run {
+rankdir=LR
+fontname=Courier; fontsize=18; labelloc=t
+label="Processes and Data Files"
+subgraph cluster_inputs { label=""; color=white; penwidth=0
+subgraph cluster_inputs_inner { label=""; color=white
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+"exe:e7" [label="/bin/cat"]
+"exe:e6" [label="/bin/cat"]
+"exe:e5" [label="/bin/cat"]
+"exe:e4" [label="/bin/cat"]
+"exe:e3" [label="/bin/cat"]
+"exe:e2" [label="/bin/cat"]
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+"access:i27" [label="./outputs/o4.txt"]
+"access:i23" [label="./temp/t4.txt"]
+"access:i20" [label="./inputs/i2.txt"]
+"access:i21" [label="./temp/t123.txt"]
+"access:i26" [label="./outputs/o1234.txt"]
+"access:i24" [label="./inputs/i4.txt"]
+"access:i11" [label="./temp/t12.txt"]
+"access:i19" [label="./inputs/i1.txt"]
+"access:i25" [label="./outputs/o12.txt"]
+"access:i22" [label="./inputs/i3.txt"]
+"exe:e7" -> "access:i27"
+"exe:e6" -> "access:i26"
+"exe:e5" -> "access:i25"
+"exe:e4" -> "access:i23"
+"exe:e3" -> "access:i21"
+"exe:e2" -> "access:i11"
+"access:i23" -> "exe:e7"
+"access:i21" -> "exe:e6"
+"access:i23" -> "exe:e6"
+"access:i11" -> "exe:e5"
+"access:i24" -> "exe:e4"
+"access:i19" -> "exe:e3"
+"access:i20" -> "exe:e3"
+"access:i22" -> "exe:e3"
+"access:i19" -> "exe:e2"
+"access:i20" -> "exe:e2"
+}}
+}
+
