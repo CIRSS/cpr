@@ -180,7 +180,7 @@
 	      distribution:
 			  - ubuntu				# NOT IN DATABASE
 			  - '18.04'				# NOT IN DATABASE
-		  environ:					# NOT COMPLETE IN DATABASE (only first 1516 characters of env string)
+		  environ:
 			DISPLAY: localhost:10.0
 		    HOME: /home/tmcphill
             . . .
