@@ -7,11 +7,11 @@ rpz_process(p2, p1, r0, false, 0, nil).
 rpz_process(p3, p1, r0, false, 0, nil).
 
 %---------------------------------------------------------------------------------------------------
-% FACT: rpz_executed(ExecutionID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
+% FACT: rpz_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
 %---------------------------------------------------------------------------------------------------
-rpz_executed(e1, r0, p1, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/./run.sh', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline', nil).
-rpz_executed(e2, r0, p2, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline', nil).
-rpz_executed(e3, r0, p3, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline', nil).
+rpz_execution(e1, r0, p1, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/./run.sh', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline', nil).
+rpz_execution(e2, r0, p2, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline', nil).
+rpz_execution(e3, r0, p3, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline', nil).
 
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_argument(ExecID, ArgIndex, ArgValue).

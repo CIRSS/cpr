@@ -6,15 +6,15 @@ rpz_process(p1, nil, r0, false, 0, nil).
 rpz_process(p2, p1, r0, false, 0, nil).
 rpz_process(p3, p2, r0, true, 0, nil).
 rpz_process(p4, p2, r0, true, 0, nil).
-rpz_process(p5, p2, r0, true, 0, nil).
-rpz_process(p6, p4, r0, true, 0, nil).
-rpz_process(p7, p6, r0, true, 0, nil).
+rpz_process(p5, p4, r0, true, 0, nil).
+rpz_process(p6, p2, r0, true, 0, nil).
+rpz_process(p7, p5, r0, true, 0, nil).
 
 %---------------------------------------------------------------------------------------------------
-% FACT: rpz_executed(ExecutionID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
+% FACT: rpz_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
 %---------------------------------------------------------------------------------------------------
-rpz_executed(e1, r0, p1, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/./run.sh', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go', nil).
-rpz_executed(e2, r0, p2, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/./bin/hello_go', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go', nil).
+rpz_execution(e1, r0, p1, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/./run.sh', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go', nil).
+rpz_execution(e2, r0, p2, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/./bin/hello_go', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go', nil).
 
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_argument(ExecID, ArgIndex, ArgValue).

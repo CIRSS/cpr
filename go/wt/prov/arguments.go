@@ -14,7 +14,7 @@ type Argument struct {
 }
 
 // GetArguments returns all arguments pass to execution recorded in thee executed_files table of trace.sqlite3
-func GetArguments(executions []ExecutedFile) []Argument {
+func GetArguments(executions []Execution) []Argument {
 	var arguments []Argument
 	for _, e := range executions {
 		argsLen := len(e.Argv)

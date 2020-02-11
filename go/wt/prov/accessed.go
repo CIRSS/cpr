@@ -13,7 +13,7 @@ type AccessedPath struct {
 	PathRole  string
 }
 
-func GetAccessedPaths(executed []ExecutedFile, opened []OpenedFile) []AccessedPath {
+func GetAccessedPaths(executed []Execution, opened []OpenedFile) []AccessedPath {
 
 	var accessed []AccessedPath
 

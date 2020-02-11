@@ -6,11 +6,11 @@ rpz_process(p1, nil, r0, false, 0, nil).
 rpz_process(p2, p1, r0, false, 0, nil).
 
 %---------------------------------------------------------------------------------------------------
-% FACT: rpz_executed(ExecutionID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
+% FACT: rpz_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
 %---------------------------------------------------------------------------------------------------
-rpz_executed(e1, r0, p1, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/./run.sh', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python', nil).
-rpz_executed(e2, r0, p2, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/./hello.py', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python', nil).
-rpz_executed(e3, r0, p2, '/home/tmcphill/.venv/reprozip/bin/python', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python', nil).
+rpz_execution(e1, r0, p1, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/./run.sh', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python', nil).
+rpz_execution(e2, r0, p2, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python/./hello.py', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python', nil).
+rpz_execution(e3, r0, p2, '/home/tmcphill/.venv/reprozip/bin/python', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/06-hello-python', nil).
 
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_argument(ExecID, ArgIndex, ArgValue).

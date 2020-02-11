@@ -6,8 +6,8 @@ import (
 	"io"
 )
 
-// ExecutedFile represents a row in the executed_files table of trace.sqlite3
-type ExecutedFile struct {
+// Execution represents a row in the executed_files table of trace.sqlite3
+type Execution struct {
 	ExecID     int64
 	Name       string
 	RunID      int64
@@ -19,9 +19,9 @@ type ExecutedFile struct {
 }
 
 // GetExecutedFiles returns all rows in the executed_files table of trace.sqlite3
-func GetExecutedFiles(db *sql.DB) []ExecutedFile {
+func GetExecutions(db *sql.DB) []Execution {
 
-	var executed []ExecutedFile
+	var executed []Execution
 
 	rows, err := db.Query("SELECT id, name, run_id, timestamp, process, argv, envp, workingdir FROM executed_files")
 	if err != nil {
@@ -30,7 +30,7 @@ func GetExecutedFiles(db *sql.DB) []ExecutedFile {
 
 	for rows.Next() {
 
-		var f ExecutedFile
+		var f Execution
 
 		err := rows.Scan(&f.ExecID, &f.Name, &f.RunID, &f.Timestamp, &f.Process, &f.Argv, &f.Envp, &f.WorkingDir)
 		if err != nil {
@@ -44,15 +44,15 @@ func GetExecutedFiles(db *sql.DB) []ExecutedFile {
 	return executed
 }
 
-func WriteExecutedFacts(w io.Writer, executed []ExecutedFile) {
-	printRowHeader(w, "rpz_executed(ExecutionID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).")
+func WriteExecutionFacts(w io.Writer, executed []Execution) {
+	printRowHeader(w, "rpz_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).")
 	for _, f := range executed {
 		fmt.Fprintln(w, f)
 	}
 }
 
 // String prints one row of the executed_files table of trace.sqlite3 as a Prolog fact
-func (f ExecutedFile) String() string {
-	return fmt.Sprintf("rpz_executed(%s, %s, %s, %s, %s, %s).",
+func (f Execution) String() string {
+	return fmt.Sprintf("rpz_execution(%s, %s, %s, %s, %s, %s).",
 		E(f.ExecID), R(f.RunID), P(f.Process), Q(f.Name), Q(f.WorkingDir), maskableInt64(f.Timestamp))
 }

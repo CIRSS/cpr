@@ -11,15 +11,15 @@ rpz_process(p6, p1, r0, false, 0, nil).
 rpz_process(p7, p1, r0, false, 0, nil).
 
 %---------------------------------------------------------------------------------------------------
-% FACT: rpz_executed(ExecutionID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
+% FACT: rpz_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
 %---------------------------------------------------------------------------------------------------
-rpz_executed(e1, r0, p1, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/./run.sh', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
-rpz_executed(e2, r0, p2, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
-rpz_executed(e3, r0, p3, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
-rpz_executed(e4, r0, p4, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
-rpz_executed(e5, r0, p5, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
-rpz_executed(e6, r0, p6, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
-rpz_executed(e7, r0, p7, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
+rpz_execution(e1, r0, p1, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/./run.sh', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
+rpz_execution(e2, r0, p2, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
+rpz_execution(e3, r0, p3, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
+rpz_execution(e4, r0, p4, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
+rpz_execution(e5, r0, p5, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
+rpz_execution(e6, r0, p6, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
+rpz_execution(e7, r0, p7, '/bin/cat', '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline', nil).
 
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_argument(ExecID, ArgIndex, ArgValue).
