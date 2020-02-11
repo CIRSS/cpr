@@ -1,6 +1,18 @@
 
 
 %---------------------------------------------------------------------------------------------------
+% FACT: wt_process(ProcessID, ExecID, ExecPath).
+%...................................................................................................
+wt_process(p7,e7,'/bin/cat').
+wt_process(p6,e6,'/bin/cat').
+wt_process(p5,e5,'/bin/cat').
+wt_process(p4,e4,'/bin/cat').
+wt_process(p3,e3,'/bin/cat').
+wt_process(p2,e2,'/bin/cat').
+wt_process(p1,e1,'./run.sh').
+
+
+%---------------------------------------------------------------------------------------------------
 % FACT: wt_file_read(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).
 %...................................................................................................
 wt_file_read(o31,r0,p2,i12,'/lib/x86_64-linux-gnu/ld-2.24.so',os).
@@ -51,27 +63,15 @@ wt_file_write(o69,r0,p7,i27,'./outputs/o4.txt',out).
 
 
 %---------------------------------------------------------------------------------------------------
-% FACT: wt_data_file(PathIndex, Path, PathRole).
+% FACT: wt_data_file(PathIndex, FilePath, PathRole).
 %...................................................................................................
-wt_data_file(i21,'./temp/t123.txt',tmp).
-wt_data_file(i26,'./outputs/o1234.txt',out).
-wt_data_file(i24,'./inputs/i4.txt',in).
 wt_data_file(i25,'./outputs/o12.txt',out).
 wt_data_file(i22,'./inputs/i3.txt',in).
-wt_data_file(i11,'./temp/t12.txt',tmp).
 wt_data_file(i20,'./inputs/i2.txt',in).
 wt_data_file(i27,'./outputs/o4.txt',out).
-wt_data_file(i19,'./inputs/i1.txt',in).
 wt_data_file(i23,'./temp/t4.txt',tmp).
-
-
-%---------------------------------------------------------------------------------------------------
-% FACT: wt_process(ProcessID, ExecutionID, Path).
-%...................................................................................................
-wt_process(p7,e7,'/bin/cat').
-wt_process(p6,e6,'/bin/cat').
-wt_process(p5,e5,'/bin/cat').
-wt_process(p4,e4,'/bin/cat').
-wt_process(p3,e3,'/bin/cat').
-wt_process(p2,e2,'/bin/cat').
-wt_process(p1,e1,'./run.sh').
+wt_data_file(i21,'./temp/t123.txt',tmp).
+wt_data_file(i11,'./temp/t12.txt',tmp).
+wt_data_file(i26,'./outputs/o1234.txt',out).
+wt_data_file(i19,'./inputs/i1.txt',in).
+wt_data_file(i24,'./inputs/i4.txt',in).

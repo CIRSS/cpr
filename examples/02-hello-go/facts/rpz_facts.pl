@@ -8,7 +8,6 @@ rpz_process(p3, p2, r0, true, 0, nil).
 rpz_process(p4, p2, r0, true, 0, nil).
 rpz_process(p5, p2, r0, true, 0, nil).
 rpz_process(p6, p4, r0, true, 0, nil).
-rpz_process(p7, p6, r0, true, 0, nil).
 
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
@@ -32,5 +31,4 @@ rpz_file_open(o21, r0, p3, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-mode
 rpz_file_open(o22, r0, p4, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go', 4, true, nil).
 rpz_file_open(o23, r0, p5, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go', 4, true, nil).
 rpz_file_open(o24, r0, p6, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go', 4, true, nil).
-rpz_file_open(o25, r0, p7, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go', 4, true, nil).
-rpz_file_open(o26, r0, p2, '/proc/self/exe', 24, false, nil).
+rpz_file_open(o25, r0, p2, '/proc/self/exe', 24, false, nil).
