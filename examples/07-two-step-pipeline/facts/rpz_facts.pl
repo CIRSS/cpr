@@ -23,19 +23,19 @@ rpz_argument(e3, 0, 'cat').
 rpz_argument(e3, 1, 'temp/file2.txt').
 
 %---------------------------------------------------------------------------------------------------
-% FACT: rpz_opened(FileID, RunID, ProcessID, FilePath, Mode, IsDirectory, Timestamp).
+% FACT: rpz_file_open(OpenID, RunID, ProcessID, FilePath, Mode, IsDirectory, Timestamp).
 %---------------------------------------------------------------------------------------------------
-rpz_opened(o29, r0, p2, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline', 4, true, nil).
-rpz_opened(o30, r0, p2, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt', 2, false, nil).
-rpz_opened(o31, r0, p2, '/lib/x86_64-linux-gnu/ld-2.24.so', 1, false, nil).
-rpz_opened(o32, r0, p2, '/etc/ld.so.cache', 1, false, nil).
-rpz_opened(o33, r0, p2, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
-rpz_opened(o34, r0, p2, '/usr/lib/locale/locale-archive', 1, false, nil).
-rpz_opened(o35, r0, p2, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/inputs/file1.txt', 1, false, nil).
-rpz_opened(o36, r0, p3, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline', 4, true, nil).
-rpz_opened(o37, r0, p3, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/outputs/file3.txt', 2, false, nil).
-rpz_opened(o38, r0, p3, '/lib/x86_64-linux-gnu/ld-2.24.so', 1, false, nil).
-rpz_opened(o39, r0, p3, '/etc/ld.so.cache', 1, false, nil).
-rpz_opened(o40, r0, p3, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
-rpz_opened(o41, r0, p3, '/usr/lib/locale/locale-archive', 1, false, nil).
-rpz_opened(o42, r0, p3, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt', 1, false, nil).
+rpz_file_open(o29, r0, p2, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline', 4, true, nil).
+rpz_file_open(o30, r0, p2, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt', 2, false, nil).
+rpz_file_open(o31, r0, p2, '/lib/x86_64-linux-gnu/ld-2.24.so', 1, false, nil).
+rpz_file_open(o32, r0, p2, '/etc/ld.so.cache', 1, false, nil).
+rpz_file_open(o33, r0, p2, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
+rpz_file_open(o34, r0, p2, '/usr/lib/locale/locale-archive', 1, false, nil).
+rpz_file_open(o35, r0, p2, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/inputs/file1.txt', 1, false, nil).
+rpz_file_open(o36, r0, p3, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline', 4, true, nil).
+rpz_file_open(o37, r0, p3, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/outputs/file3.txt', 2, false, nil).
+rpz_file_open(o38, r0, p3, '/lib/x86_64-linux-gnu/ld-2.24.so', 1, false, nil).
+rpz_file_open(o39, r0, p3, '/etc/ld.so.cache', 1, false, nil).
+rpz_file_open(o40, r0, p3, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
+rpz_file_open(o41, r0, p3, '/usr/lib/locale/locale-archive', 1, false, nil).
+rpz_file_open(o42, r0, p3, '/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt', 1, false, nil).

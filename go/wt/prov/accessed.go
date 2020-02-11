@@ -13,7 +13,7 @@ type AccessedPath struct {
 	PathRole  string
 }
 
-func GetAccessedPaths(executed []Execution, opened []OpenedFile) []AccessedPath {
+func GetAccessedPaths(executed []Execution, opens []FileOpen) []AccessedPath {
 
 	var accessed []AccessedPath
 
@@ -26,12 +26,12 @@ func GetAccessedPaths(executed []Execution, opened []OpenedFile) []AccessedPath 
 		accessed = append(accessed, f)
 	}
 
-	for _, o := range opened {
+	for _, o := range opens {
 		fileIndex, _ := PathIndex(o.Name)
 		runID := o.RunID
 		path := TrimWorkingDirPrefix(o.Name)
 		role := Role(path)
-		f := AccessedPath{O(o.ID), runID, path, fileIndex, role}
+		f := AccessedPath{O(o.OpenID), runID, path, fileIndex, role}
 		accessed = append(accessed, f)
 	}
 

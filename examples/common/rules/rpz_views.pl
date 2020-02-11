@@ -7,12 +7,12 @@ file_mode_write(3).
 
 wt_file_read(AccessID, RunID, ProcessID, PathIndex, Path, PathRole) :-
     wt_accessed_path(AccessID, RunID, Path, PathIndex, PathRole),
-    rpz_opened(AccessID, _, ProcessID, _, FileMode, false, _),
+    rpz_file_open(AccessID, _, ProcessID, _, FileMode, false, _),
     file_mode_read(FileMode).
 
 wt_file_write(AccessID, RunID, ProcessID, PathIndex, Path, PathRole) :-
     wt_accessed_path(AccessID, RunID, Path, PathIndex, PathRole),
-    rpz_opened(AccessID, _, ProcessID, _, FileMode, false, _),
+    rpz_file_open(AccessID, _, ProcessID, _, FileMode, false, _),
     file_mode_write(FileMode).
 
 wt_data_file_role(in).
