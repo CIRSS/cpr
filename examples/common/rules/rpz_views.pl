@@ -27,5 +27,5 @@ wt_data_file(PathIndex, Path, PathRole) :-
 :- table wt_process/3.
 wt_process(ProcessID, ExecutionID, Path) :-
     rpz_process(ProcessID, _, _, false, _, _),
-    rpz_executed(ExecutionID, _, ProcessID, _, _, _, _),
+    rpz_executed(ExecutionID, _, ProcessID, _, _, _),
     wt_accessed_path(ExecutionID, _, Path, _, _).

@@ -8,7 +8,7 @@ import (
 
 // ExecutedFile represents a row in the executed_files table of trace.sqlite3
 type ExecutedFile struct {
-	ID         int64
+	ExecID     int64
 	Name       string
 	RunID      int64
 	Timestamp  int64
@@ -32,7 +32,7 @@ func GetExecutedFiles(db *sql.DB) []ExecutedFile {
 
 		var f ExecutedFile
 
-		err := rows.Scan(&f.ID, &f.Name, &f.RunID, &f.Timestamp, &f.Process, &f.Argv, &f.Envp, &f.WorkingDir)
+		err := rows.Scan(&f.ExecID, &f.Name, &f.RunID, &f.Timestamp, &f.Process, &f.Argv, &f.Envp, &f.WorkingDir)
 		if err != nil {
 			fmt.Println(err)
 			return executed
@@ -45,7 +45,7 @@ func GetExecutedFiles(db *sql.DB) []ExecutedFile {
 }
 
 func WriteExecutedFacts(w io.Writer, executed []ExecutedFile) {
-	printRowHeader(w, "rpz_executed(ExecutionID, RunID, ProcessID, FilePath, Argv, WorkingDir, TimeStamp).")
+	printRowHeader(w, "rpz_executed(ExecutionID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).")
 	for _, f := range executed {
 		fmt.Fprintln(w, f)
 	}
@@ -53,6 +53,6 @@ func WriteExecutedFacts(w io.Writer, executed []ExecutedFile) {
 
 // String prints one row of the executed_files table of trace.sqlite3 as a Prolog fact
 func (f ExecutedFile) String() string {
-	return fmt.Sprintf("rpz_executed(%s, %s, %s, %s, %s, %s, %s).",
-		E(f.ID), R(f.RunID), P(f.Process), Q(f.Name), Q(f.Argv), Q(f.WorkingDir), maskableInt64(f.Timestamp))
+	return fmt.Sprintf("rpz_executed(%s, %s, %s, %s, %s, %s).",
+		E(f.ExecID), R(f.RunID), P(f.Process), Q(f.Name), Q(f.WorkingDir), maskableInt64(f.Timestamp))
 }
