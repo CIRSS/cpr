@@ -6,7 +6,7 @@ set_prolog_flag(unknown, fail).
 
 ['facts/wt_facts'].
 ['facts/rpz_facts'].
-['views/rpz_views'].
+['facts/rpz_views'].
 ['../common/rules/gv_rules'].
 ['../common/rules/wt_graph_rules'].
 

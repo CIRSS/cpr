@@ -31,7 +31,6 @@ digraph G {
     /* other files */
     "/dev/tty";
     "/etc/ld.so.cache";
-    "/home/tmcphill/GitRepos";
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i1.txt" [fillcolor="#A3B4E0", label="i1.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i1.txt"];
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i2.txt" [fillcolor="#A3B4E0", label="i2.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i2.txt"];
     "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i3.txt" [fillcolor="#A3B4E0", label="i3.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/08-branched-pipeline/inputs/i3.txt"];

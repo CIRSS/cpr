@@ -4,19 +4,18 @@ SCRIPTS_DIR = ../common/scripts
 BIN_DIR=bin
 RPZ_TRACE_DIR=.reprozip-trace
 FACTS_DIR=facts
-VIEWS_DIR=views
 OUTPUTS_DIR=outputs
 GRAPHS_DIR=graphs
 TEMP_DIR=temp
 
-DIRS=$(BIN_DIR) $(OUTPUTS_DIR) $(RPZ_TRACE_DIR) $(FACTS_DIR) $(VIEWS_DIR) $(GRAPHS_DIR) $(TEMP_DIR)
+DIRS=$(BIN_DIR) $(OUTPUTS_DIR) $(RPZ_TRACE_DIR) $(FACTS_DIR) $(GRAPHS_DIR) $(TEMP_DIR)
 
 RPZ_TRACE_SQLITE=$(RPZ_TRACE_DIR)/trace.sqlite3
 RPZ_TRACE_YAML=$(RPZ_TRACE_DIR)/config.yml
 RPZ_TRACE=$(RPZ_TRACE_SQLITE) $(RPZ_TRACE_YAML)
 
 RPZ_FACTS=$(FACTS_DIR)/rpz_facts.pl
-RPZ_VIEWS=$(VIEWS_DIR)/rpz_views.pl
+RPZ_VIEWS=$(FACTS_DIR)/rpz_views.pl
 
 RPZ_RUN_IO_FILES=$(GRAPHS_DIR)/rpz_A_run_with_input_and_output_files
 RPZ_PROCESSES_IO_FILES=$(GRAPHS_DIR)/rpz_B_processes_with_input_and_output_files
@@ -38,9 +37,9 @@ WT_GRAPH_PROCESS_AND_DATA_FILES=$(GRAPHS_DIR)/wt_processes_and_data_files
 WT_GRAPHS=$(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot		\
 		  $(WT_GRAPH_PROCESS_AND_DATA_FILES).dot
 
-FACTS=$(RPZ_FACTS) $(WT_FACTS)
+FACTS=$(WT_FACTS) $(RPZ_FACTS)
 VIEWS=$(RPZ_VIEWS)
-GRAPHS=$(RPZ_GRAPHS) $(WT_GRAPHS)
+GRAPHS=$(WT_GRAPHS) $(RPZ_GRAPHS)
 PNGS = $(GRAPHS:.dot=.png)
 
 .SUFFIXES:
@@ -48,7 +47,6 @@ PNGS = $(GRAPHS:.dot=.png)
 
 .dot.png:
 	dot -Tpng $*.dot -o $*.png
-
 
 all: fact view png
 
@@ -80,8 +78,8 @@ $(RPZ_TRACE): build $(OUTPUTS_DIR) $(TEMP_DIR)
 $(FACTS): $(RPZ_TRACE) $(FACTS_DIR)
 	trace2facts -i -n=$(shell basename $(CURDIR)) -rpz=$(RPZ_FACTS) -wt=$(WT_FACTS) -m $(RPZ_TRACE_DIR)
 
-$(RPZ_VIEWS): $(RPZ_FACTS) $(VIEWS_DIR)
-	bash $(SCRIPTS_DIR)/materialize_rpz_views.sh > $(RPZ_VIEWS)
+$(RPZ_VIEWS): $(WT_FACTS) $(RPZ_FACTS)
+	bash $(SCRIPTS_DIR)/materialize_rpz_views.sh > $@
 
 $(RPZ_RUN_IO_FILES).dot: $(RPZ_TRACE) $(GRAPHS_DIR)
 	rm -fv $@
