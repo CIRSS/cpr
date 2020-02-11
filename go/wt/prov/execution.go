@@ -18,29 +18,22 @@ type Execution struct {
 	WorkingDir string
 }
 
-// GetExecutedFiles returns all rows in the executed_files table of trace.sqlite3
+// GetExecutions returns all rows in the executed_files table of trace.sqlite3
 func GetExecutions(db *sql.DB) []Execution {
-
 	var executed []Execution
-
 	rows, err := db.Query("SELECT id, name, run_id, timestamp, process, argv, envp, workingdir FROM executed_files")
 	if err != nil {
 		panic(err)
 	}
-
 	for rows.Next() {
-
 		var f Execution
-
 		err := rows.Scan(&f.ExecID, &f.Name, &f.RunID, &f.Timestamp, &f.Process, &f.Argv, &f.Envp, &f.WorkingDir)
 		if err != nil {
 			fmt.Println(err)
 			return executed
 		}
-
 		executed = append(executed, f)
 	}
-
 	return executed
 }
 

@@ -15,13 +15,13 @@ node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 "access:i25" [label="./outputs/o12.txt"]
 "access:i22" [label="./inputs/i3.txt"]
-"access:i20" [label="./inputs/i2.txt"]
 "access:i27" [label="./outputs/o4.txt"]
 "access:i23" [label="./temp/t4.txt"]
 "access:i21" [label="./temp/t123.txt"]
+"access:i20" [label="./inputs/i2.txt"]
 "access:i11" [label="./temp/t12.txt"]
-"access:i26" [label="./outputs/o1234.txt"]
 "access:i19" [label="./inputs/i1.txt"]
+"access:i26" [label="./outputs/o1234.txt"]
 "access:i24" [label="./inputs/i4.txt"]
 "exe:e7" -> "access:i27"
 "exe:e6" -> "access:i26"

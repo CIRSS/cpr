@@ -18,14 +18,11 @@ type Process struct {
 
 // GetProcesses returns all rows in the processes table of trace.sqlite3
 func GetProcesses(db *sql.DB) []Process {
-
 	var processes []Process
-
 	rows, err := db.Query("SELECT id, run_id, parent, timestamp, is_thread, exitcode FROM processes")
 	if err != nil {
 		panic(err)
 	}
-
 	for rows.Next() {
 		var p Process
 		err := rows.Scan(&p.ID, &p.RunID, &p.Parent, &p.Timestamp, &p.IsThread, &p.ExitCode)
@@ -35,7 +32,6 @@ func GetProcesses(db *sql.DB) []Process {
 		}
 		processes = append(processes, p)
 	}
-
 	return processes
 }
 
