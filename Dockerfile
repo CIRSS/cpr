@@ -11,18 +11,35 @@ RUN echo '***** Update packages *****'                                      \
     && apt -y install graphviz                                              \
                                                                             \
     && echo '***** Install command-line utility packages *****'             \
-    && apt-get -y install sudo man less file tree
+    && apt -y install sudo man less file tree
 
-RUN echo '***** Create the yw user *****'                       \
-    && useradd yw --gid sudo                                    \
-                  --shell /bin/bash                             \
-                  --create-home                                 \
-    && echo "yw ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/yw    \
-    && chmod 0440 /etc/sudoers.d/yw
+RUN echo '****** Install ReproZip prerequisites *****'                      \
+    && apt -y install libssl-dev libffi-dev libsqlite3-dev                  \
+    && apt -y install python3 python3-pip python3-venv                      \
+    && pip3 install -U pip
 
-ENV HOME /home/yw
-USER  yw
+RUN echo '***** Create the wt user *****'                                   \
+    && useradd wt --gid sudo                                                \
+                  --shell /bin/bash                                         \
+                  --create-home                                             \
+    && echo "wt ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/wt                \
+    && chmod 0440 /etc/sudoers.d/wt
+
+ENV HOME /home/wt
+USER  wt
 WORKDIR $HOME
+
+ENV VENV_DIR ${HOME}/.venv
+ENV REPROZIP_VENV ${VENV_DIR}/reprozip
+
+RUN echo '***** install reprozip in python virtual environment *****'       \
+    && mkdir ${VENV_DIR}                                                    \
+    && python3 -m venv ${REPROZIP_VENV}                                     \
+    && . ${REPROZIP_VENV}/bin/activate                                      \
+    && pip install wheel                                                    \
+    && pip install reprozip reprounzip                                      \
+    && reprozip usage_report --disable                                      \
+    && deactivate
 
 ENV YW_VERSION 0.2.1.2
 ENV YW_RELEASES https://github.com/yesworkflow-org/yw-prototypes/releases
@@ -30,23 +47,25 @@ ENV YW_RELEASE_DIR ${YW_RELEASES}/download/v${YW_VERSION}/
 ENV YW_RELEASE_JAR yesworkflow-${YW_VERSION}-jar-with-dependencies.jar
 ENV YW_JAR $HOME/bin/yesworkflow-${YW_VERSION}.jar
 
-RUN echo '***** Download yw-prototypes executable jar and create alias *****'   \
-    && mkdir $HOME/bin                                                          \
-    && wget -O $YW_JAR ${YW_RELEASE_DIR}/${YW_RELEASE_JAR}                      \
+RUN echo '***** Download yw-prototypes jar and create alias *****'          \
+    && mkdir $HOME/bin                                                      \
+    && wget -O $YW_JAR ${YW_RELEASE_DIR}/${YW_RELEASE_JAR}                  \
     && echo "alias yw='java -jar $YW_JAR'"  >> $HOME/.bash_aliases
 
 
+ENV XSB_REPO https://downloads.sourceforge.net/project/xsb
 ENV XSB_VERSION 3.8%20%28Three-Buck%20Chuck%29
-ENV XSB_RELEASE_DIR https://downloads.sourceforge.net/project/xsb/xsb/${XSB_VERSION}
+ENV XSB_RELEASE_DIR ${XSB_REPO}/xsb/${XSB_VERSION}
 
-RUN echo '***** Download and build XSB 3.8 *****'               \
-    && wget -O XSB3.8.tar.gz ${XSB_RELEASE_DIR}/XSB38.tar.gz    \
-    && tar -xf XSB3.8.tar.gz                                    \
-    && cd XSB/build                                             \
-    && ./configure                                              \
+RUN echo '***** Download and build XSB 3.8 *****'                           \
+    && wget -O XSB3.8.tar.gz ${XSB_RELEASE_DIR}/XSB38.tar.gz                \
+    && tar -xf XSB3.8.tar.gz                                                \
+    && rm XSB3.8.tar.gz                                                     \
+    && cd XSB/build                                                         \
+    && ./configure                                                          \
     && ./makexsb
 
 
-RUN echo 'PATH=/home/yw/XSB/bin:$PATH' >> .bashrc
+RUN echo 'PATH=/home/wt/XSB/bin:$PATH' >> .bashrc
 
 CMD  /bin/bash -il
