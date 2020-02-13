@@ -5,7 +5,7 @@ digraph G {
     node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
     subgraph cluster_run0 {
         label="run0";
-        prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/run.sh (1)"];
+        prog0 [label="/mnt/examples/05-cat-file-to-file/run.sh (1)"];
         prog1 [label="/bin/cat (2)"];
         prog0 -> prog1 [label="fork+exec"];
     }
@@ -15,18 +15,19 @@ digraph G {
     /* other files */
     "/dev/tty";
     "/etc/ld.so.cache";
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/inputs/input.txt" [fillcolor="#A3B4E0", label="input.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/inputs/input.txt"];
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/outputs/output.txt" [fillcolor="#A3B4E0", label="output.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/outputs/output.txt"];
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/run.sh";
-    "/usr/lib/locale/locale-archive";
+    "/etc/nsswitch.conf";
+    "/etc/passwd";
+    "/mnt/examples/05-cat-file-to-file/inputs/input.txt" [fillcolor="#A3B4E0", label="input.txt\n/mnt/examples/05-cat-file-to-file/inputs/input.txt"];
+    "/mnt/examples/05-cat-file-to-file/outputs/output.txt" [fillcolor="#A3B4E0", label="output.txt\n/mnt/examples/05-cat-file-to-file/outputs/output.txt"];
+    "/mnt/examples/05-cat-file-to-file/run.sh";
 
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/run.sh" -> prog0 [style=bold, label="./run.sh"];
+    "/mnt/examples/05-cat-file-to-file/run.sh" -> prog0 [style=bold, label="./run.sh"];
     "/etc/ld.so.cache" -> prog0 [color="#8888CC"];
     prog0 -> "/dev/tty" [color="#000088"];
-    "/usr/lib/locale/locale-archive" -> prog0 [color="#8888CC"];
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/run.sh" -> prog0 [color="#8888CC"];
-    prog1 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/outputs/output.txt" [color="#000088"];
+    "/etc/nsswitch.conf" -> prog0 [color="#8888CC"];
+    "/etc/passwd" -> prog0 [color="#8888CC"];
+    "/mnt/examples/05-cat-file-to-file/run.sh" -> prog0 [color="#8888CC"];
+    prog1 -> "/mnt/examples/05-cat-file-to-file/outputs/output.txt" [color="#000088"];
     "/etc/ld.so.cache" -> prog1 [color="#8888CC"];
-    "/usr/lib/locale/locale-archive" -> prog1 [color="#8888CC"];
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/inputs/input.txt" -> prog1 [color="#8888CC"];
+    "/mnt/examples/05-cat-file-to-file/inputs/input.txt" -> prog1 [color="#8888CC"];
 }

@@ -5,8 +5,8 @@ digraph G {
     node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
     subgraph cluster_run0 {
         label="run0";
-        prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/run.sh (1)"];
-        prog1 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/bin/hello_go (2)"];
+        prog0 [label="/mnt/examples/02-hello-go/run.sh (1)"];
+        prog1 [label="/mnt/examples/02-hello-go/bin/hello_go (2)"];
         prog0 -> prog1 [label="fork+exec"];
     }
 

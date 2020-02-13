@@ -3,8 +3,8 @@ FROM debian:10.2
 RUN echo '***** Update packages *****'                                      \
     && apt-get -y update                                                    \
                                                                             \
-    && echo '***** Install packages REQUIRED for creating this image *****' \
-    && apt-get -y install apt-utils wget curl makepasswd gcc make           \
+    && echo '***** Install packages required for creating this image *****' \
+    && apt-get -y install apt-utils wget curl makepasswd gcc make git       \
                                                                             \
     && echo '***** Install packages required by YesWorkflow *****'          \
     && apt -y install default-jdk                                           \
@@ -17,6 +17,14 @@ RUN echo '****** Install ReproZip prerequisites *****'                      \
     && apt -y install libssl-dev libffi-dev libsqlite3-dev                  \
     && apt -y install python3 python3-pip python3-venv                      \
     && pip3 install -U pip
+
+ENV GO_VERSION       1.13.5
+ENV GO_DOWNLOADS_URL https://dl.google.com/go
+ENV GO_ARCHIVE       go${GO_VERSION}.linux-amd64.tar.gz
+
+RUN echo '****** Install Go development tools *****'                        \
+    && wget ${GO_DOWNLOADS_URL}/${GO_ARCHIVE} -O /tmp/${GO_ARCHIVE}         \
+    && tar -xzf /tmp/${GO_ARCHIVE} -C /usr/local
 
 RUN echo '***** Create the wt user *****'                                   \
     && useradd wt --gid sudo                                                \
@@ -65,7 +73,13 @@ RUN echo '***** Download and build XSB 3.8 *****'                           \
     && ./configure                                                          \
     && ./makexsb
 
+COPY go src
 
-RUN echo 'PATH=/home/wt/XSB/bin:$PATH' >> .bashrc
+RUN echo '\n***** Build and install the trace2facts command *****\n'        \
+    && cd ./src/cmd/trace2facts                                             \
+    && /usr/local/go/bin/go install .
+
+RUN echo 'PATH=/home/wt/go/bin:/usr/local/go/bin:/home/wt/XSB/bin:$PATH' >> .bashrc
+RUN echo 'source .venv/reprozip/bin/activate' >> .bashrc
 
 CMD  /bin/bash -il

@@ -3,7 +3,7 @@ digraph G {
 
     /* programs */
     node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
-    run0 [label="0: /mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/02-hello-go/run.sh"];
+    run0 [label="0: /mnt/examples/02-hello-go/run.sh"];
 
     node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
 

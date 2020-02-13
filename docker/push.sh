@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 
-docker push tmcphillips/wt-prov-model
+# load settings from same directory as this script
+SCRIPTDIR=`dirname $(readlink -f $0)`
+source ${SCRIPTDIR}/settings.sh
+
+docker push ${DOCKER_HUB_ORG}/${IMAGE_NAME}:${IMAGE_TAG}
 

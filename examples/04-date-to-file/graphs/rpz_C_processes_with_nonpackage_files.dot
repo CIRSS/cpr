@@ -5,10 +5,10 @@ digraph G {
     node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
     subgraph cluster_run0 {
         label="run0";
-        prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/run.sh (1)"];
+        prog0 [label="/mnt/examples/04-date-to-file/run.sh (1)"];
         prog1 [label="/bin/date (2)"];
         prog0 -> prog1 [label="fork+exec"];
-        prog2 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/run.sh (3)"];
+        prog2 [label="/mnt/examples/04-date-to-file/run.sh (3)"];
         prog0 -> prog2 [label="fork"];
         prog3 [label="/bin/cat (4)"];
         prog0 -> prog3 [label="fork+exec"];
@@ -20,20 +20,20 @@ digraph G {
     "/dev/tty";
     "/etc/ld.so.cache";
     "/etc/localtime";
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" [fillcolor="#A3B4E0", label="date.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt"];
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/run.sh";
-    "/usr/lib/locale/locale-archive";
+    "/etc/nsswitch.conf";
+    "/etc/passwd";
+    "/mnt/examples/04-date-to-file/outputs/date.txt" [fillcolor="#A3B4E0", label="date.txt\n/mnt/examples/04-date-to-file/outputs/date.txt"];
+    "/mnt/examples/04-date-to-file/run.sh";
 
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/run.sh" -> prog0 [style=bold, label="./run.sh"];
+    "/mnt/examples/04-date-to-file/run.sh" -> prog0 [style=bold, label="./run.sh"];
     "/etc/ld.so.cache" -> prog0 [color="#8888CC"];
     prog0 -> "/dev/tty" [color="#000088"];
-    "/usr/lib/locale/locale-archive" -> prog0 [color="#8888CC"];
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/run.sh" -> prog0 [color="#8888CC"];
-    prog1 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" [color="#000088"];
+    "/etc/nsswitch.conf" -> prog0 [color="#8888CC"];
+    "/etc/passwd" -> prog0 [color="#8888CC"];
+    "/mnt/examples/04-date-to-file/run.sh" -> prog0 [color="#8888CC"];
+    prog1 -> "/mnt/examples/04-date-to-file/outputs/date.txt" [color="#000088"];
     "/etc/ld.so.cache" -> prog1 [color="#8888CC"];
-    "/usr/lib/locale/locale-archive" -> prog1 [color="#8888CC"];
     "/etc/localtime" -> prog1 [color="#8888CC"];
     "/etc/ld.so.cache" -> prog3 [color="#8888CC"];
-    "/usr/lib/locale/locale-archive" -> prog3 [color="#8888CC"];
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" -> prog3 [color="#8888CC"];
+    "/mnt/examples/04-date-to-file/outputs/date.txt" -> prog3 [color="#8888CC"];
 }

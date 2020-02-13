@@ -5,7 +5,7 @@ digraph G {
     node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
     subgraph cluster_run0 {
         label="run0";
-        prog0 [label="/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/run.sh (1)"];
+        prog0 [label="/mnt/examples/05-cat-file-to-file/run.sh (1)"];
         prog1 [label="/bin/cat (2)"];
         prog0 -> prog1 [label="fork+exec"];
     }
@@ -13,9 +13,9 @@ digraph G {
     node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
 
     /* other files */
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/inputs/input.txt" [fillcolor="#A3B4E0", label="input.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/inputs/input.txt"];
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/outputs/output.txt" [fillcolor="#A3B4E0", label="output.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/outputs/output.txt"];
+    "/mnt/examples/05-cat-file-to-file/inputs/input.txt" [fillcolor="#A3B4E0", label="input.txt\n/mnt/examples/05-cat-file-to-file/inputs/input.txt"];
+    "/mnt/examples/05-cat-file-to-file/outputs/output.txt" [fillcolor="#A3B4E0", label="output.txt\n/mnt/examples/05-cat-file-to-file/outputs/output.txt"];
 
-    prog1 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/outputs/output.txt" [color="#000088"];
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/05-cat-file-to-file/inputs/input.txt" -> prog1 [color="#8888CC"];
+    prog1 -> "/mnt/examples/05-cat-file-to-file/outputs/output.txt" [color="#000088"];
+    "/mnt/examples/05-cat-file-to-file/inputs/input.txt" -> prog1 [color="#8888CC"];
 }

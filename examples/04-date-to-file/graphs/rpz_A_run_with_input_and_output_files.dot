@@ -3,13 +3,13 @@ digraph G {
 
     /* programs */
     node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
-    run0 [label="0: /mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/run.sh"];
+    run0 [label="0: /mnt/examples/04-date-to-file/run.sh"];
 
     node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
 
     /* other files */
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" [fillcolor="#A3B4E0", label="date.txt\n/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt"];
+    "/mnt/examples/04-date-to-file/outputs/date.txt" [fillcolor="#A3B4E0", label="date.txt\n/mnt/examples/04-date-to-file/outputs/date.txt"];
 
-    run0 -> "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" [color="#000088"];
-    "/mnt/c/Users/tmcphill/OneDrive/GitRepos/wt-prov-model/examples/04-date-to-file/outputs/date.txt" -> run0 [color="#8888CC"];
+    run0 -> "/mnt/examples/04-date-to-file/outputs/date.txt" [color="#000088"];
+    "/mnt/examples/04-date-to-file/outputs/date.txt" -> run0 [color="#8888CC"];
 }
