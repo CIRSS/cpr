@@ -73,7 +73,7 @@ RUN echo '***** Download and build XSB 3.8 *****'                           \
     && ./configure                                                          \
     && ./makexsb
 
-COPY go src
+COPY src src
 
 RUN echo '\n***** Build and install the trace2facts command *****\n'        \
     && cd ./src/cmd/trace2facts                                             \

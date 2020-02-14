@@ -3,6 +3,12 @@ IMAGE_NAME=wt-prov-model
 IMAGE_TAG=latest
 TAGGED_IMAGE=${IMAGE_ORG}/${IMAGE_NAME}:${IMAGE_TAG}
 
+trace2facts:
+	cd ./src/cmd/trace2facts && go install .
+
+test:
+	cd src && go test -v ./... | grep -v "\[no test files\]"
+
 build-image:
 	docker build -t ${TAGGED_IMAGE} .
 
