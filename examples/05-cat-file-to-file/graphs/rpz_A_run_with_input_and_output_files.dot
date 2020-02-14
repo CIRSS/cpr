@@ -3,14 +3,14 @@ digraph G {
 
     /* programs */
     node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
-    run0 [label="0: /mnt/examples/05-cat-file-to-file/run.sh"];
+    run0 [label="0: /mnt/wt-prov-model/examples/05-cat-file-to-file/run.sh"];
 
     node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
 
     /* other files */
-    "/mnt/examples/05-cat-file-to-file/inputs/input.txt" [fillcolor="#A3B4E0", label="input.txt\n/mnt/examples/05-cat-file-to-file/inputs/input.txt"];
-    "/mnt/examples/05-cat-file-to-file/outputs/output.txt" [fillcolor="#A3B4E0", label="output.txt\n/mnt/examples/05-cat-file-to-file/outputs/output.txt"];
+    "/mnt/wt-prov-model/examples/05-cat-file-to-file/inputs/input.txt" [fillcolor="#A3B4E0", label="input.txt\n/mnt/wt-prov-model/examples/05-cat-file-to-file/inputs/input.txt"];
+    "/mnt/wt-prov-model/examples/05-cat-file-to-file/outputs/output.txt" [fillcolor="#A3B4E0", label="output.txt\n/mnt/wt-prov-model/examples/05-cat-file-to-file/outputs/output.txt"];
 
-    run0 -> "/mnt/examples/05-cat-file-to-file/outputs/output.txt" [color="#000088"];
-    "/mnt/examples/05-cat-file-to-file/inputs/input.txt" -> run0 [color="#8888CC"];
+    run0 -> "/mnt/wt-prov-model/examples/05-cat-file-to-file/outputs/output.txt" [color="#000088"];
+    "/mnt/wt-prov-model/examples/05-cat-file-to-file/inputs/input.txt" -> run0 [color="#8888CC"];
 }

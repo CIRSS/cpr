@@ -5,7 +5,7 @@ digraph G {
     node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
     subgraph cluster_run0 {
         label="run0";
-        prog0 [label="/mnt/examples/01-date-cmd/run.sh (1)"];
+        prog0 [label="/mnt/wt-prov-model/examples/01-date-cmd/run.sh (1)"];
         prog1 [label="/bin/date (2)"];
         prog0 -> prog1 [label="fork+exec"];
     }
@@ -18,14 +18,14 @@ digraph G {
     "/etc/localtime";
     "/etc/nsswitch.conf";
     "/etc/passwd";
-    "/mnt/examples/01-date-cmd/run.sh";
+    "/mnt/wt-prov-model/examples/01-date-cmd/run.sh";
 
-    "/mnt/examples/01-date-cmd/run.sh" -> prog0 [style=bold, label="./run.sh"];
+    "/mnt/wt-prov-model/examples/01-date-cmd/run.sh" -> prog0 [style=bold, label="./run.sh"];
     "/etc/ld.so.cache" -> prog0 [color="#8888CC"];
     prog0 -> "/dev/tty" [color="#000088"];
     "/etc/nsswitch.conf" -> prog0 [color="#8888CC"];
     "/etc/passwd" -> prog0 [color="#8888CC"];
-    "/mnt/examples/01-date-cmd/run.sh" -> prog0 [color="#8888CC"];
+    "/mnt/wt-prov-model/examples/01-date-cmd/run.sh" -> prog0 [color="#8888CC"];
     "/etc/ld.so.cache" -> prog1 [color="#8888CC"];
     "/etc/localtime" -> prog1 [color="#8888CC"];
 }

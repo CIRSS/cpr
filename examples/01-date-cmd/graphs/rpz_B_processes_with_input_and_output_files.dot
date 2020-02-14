@@ -5,7 +5,7 @@ digraph G {
     node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
     subgraph cluster_run0 {
         label="run0";
-        prog0 [label="/mnt/examples/01-date-cmd/run.sh (1)"];
+        prog0 [label="/mnt/wt-prov-model/examples/01-date-cmd/run.sh (1)"];
         prog1 [label="/bin/date (2)"];
         prog0 -> prog1 [label="fork+exec"];
     }

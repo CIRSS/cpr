@@ -5,8 +5,8 @@ digraph G {
     node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
     subgraph cluster_run0 {
         label="run0";
-        prog0 [label="/mnt/examples/03-hello-c/run.sh (1)"];
-        prog1 [label="/mnt/examples/03-hello-c/bin/hello_c (2)"];
+        prog0 [label="/mnt/wt-prov-model/examples/03-hello-c/run.sh (1)"];
+        prog1 [label="/mnt/wt-prov-model/examples/03-hello-c/bin/hello_c (2)"];
         prog0 -> prog1 [label="fork+exec"];
     }
 
@@ -24,10 +24,10 @@ digraph G {
     "/etc/ld.so.cache";
     "/etc/nsswitch.conf";
     "/etc/passwd";
-    "/mnt/examples/03-hello-c/bin/hello_c";
-    "/mnt/examples/03-hello-c/run.sh";
+    "/mnt/wt-prov-model/examples/03-hello-c/bin/hello_c";
+    "/mnt/wt-prov-model/examples/03-hello-c/run.sh";
 
-    "/mnt/examples/03-hello-c/run.sh" -> prog0 [style=bold, label="./run.sh"];
+    "/mnt/wt-prov-model/examples/03-hello-c/run.sh" -> prog0 [style=bold, label="./run.sh"];
     "pkg bash" -> prog0 [color="#8888CC"];
     "pkg libc6" -> prog0 [color="#8888CC"];
     "/etc/ld.so.cache" -> prog0 [color="#8888CC"];
@@ -36,9 +36,9 @@ digraph G {
     "pkg libc-bin" -> prog0 [color="#8888CC"];
     "/etc/nsswitch.conf" -> prog0 [color="#8888CC"];
     "/etc/passwd" -> prog0 [color="#8888CC"];
-    "/mnt/examples/03-hello-c/run.sh" -> prog0 [color="#8888CC"];
-    "/mnt/examples/03-hello-c/bin/hello_c" -> prog1 [style=bold, label="./bin/hello_c"];
-    "/mnt/examples/03-hello-c/bin/hello_c" -> prog1 [color="#8888CC"];
+    "/mnt/wt-prov-model/examples/03-hello-c/run.sh" -> prog0 [color="#8888CC"];
+    "/mnt/wt-prov-model/examples/03-hello-c/bin/hello_c" -> prog1 [style=bold, label="./bin/hello_c"];
+    "/mnt/wt-prov-model/examples/03-hello-c/bin/hello_c" -> prog1 [color="#8888CC"];
     "pkg libc6" -> prog1 [color="#8888CC"];
     "/etc/ld.so.cache" -> prog1 [color="#8888CC"];
     "pkg ncurses-base" -> prog0 [color="#8888CC"];

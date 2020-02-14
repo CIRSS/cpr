@@ -5,8 +5,8 @@ digraph G {
     node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
     subgraph cluster_run0 {
         label="run0";
-        prog0 [label="/mnt/examples/06-hello-python/run.sh (1)"];
-        prog1 [label="/mnt/examples/06-hello-python/hello.py (2)"];
+        prog0 [label="/mnt/wt-prov-model/examples/06-hello-python/run.sh (1)"];
+        prog1 [label="/mnt/wt-prov-model/examples/06-hello-python/hello.py (2)"];
         prog0 -> prog1 [label="fork+exec"];
         prog2 [label="/home/wt/.venv/reprozip/bin/python (2)"];
         prog1 -> prog2 [label="exec"];
@@ -36,8 +36,8 @@ digraph G {
     "/home/wt/.venv/reprozip/bin/python3" [fillcolor="#A3B4E0", label="python3\n/home/wt/.venv/reprozip/bin/python3"];
     "/home/wt/.venv/reprozip/lib/python3.7/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth" [fillcolor="#A3B4E0", label="reprounzip-1.0.16-py3.6-nspkg.pth\n/home/wt/.venv/reprozip/lib/python3.7/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth"];
     "/home/wt/.venv/reprozip/pyvenv.cfg" [fillcolor="#A3B4E0", label="pyvenv.cfg\n/home/wt/.venv/reprozip/pyvenv.cfg"];
-    "/mnt/examples/06-hello-python/hello.py";
-    "/mnt/examples/06-hello-python/run.sh";
+    "/mnt/wt-prov-model/examples/06-hello-python/hello.py";
+    "/mnt/wt-prov-model/examples/06-hello-python/run.sh";
     "/usr/lib/python3.7/__pycache__/_bootlocale.cpython-37.pyc";
     "/usr/lib/python3.7/__pycache__/_collections_abc.cpython-37.pyc";
     "/usr/lib/python3.7/__pycache__/_sitebuiltins.cpython-37.pyc";
@@ -68,7 +68,7 @@ digraph G {
     "/usr/lib/python3.7/importlib/__pycache__/machinery.cpython-37.pyc";
     "/usr/lib/python3.7/importlib/__pycache__/util.cpython-37.pyc";
 
-    "/mnt/examples/06-hello-python/run.sh" -> prog0 [style=bold, label="./run.sh"];
+    "/mnt/wt-prov-model/examples/06-hello-python/run.sh" -> prog0 [style=bold, label="./run.sh"];
     "pkg bash" -> prog0 [color="#8888CC"];
     "pkg libc6" -> prog0 [color="#8888CC"];
     "/etc/ld.so.cache" -> prog0 [color="#8888CC"];
@@ -77,8 +77,8 @@ digraph G {
     "pkg libc-bin" -> prog0 [color="#8888CC"];
     "/etc/nsswitch.conf" -> prog0 [color="#8888CC"];
     "/etc/passwd" -> prog0 [color="#8888CC"];
-    "/mnt/examples/06-hello-python/run.sh" -> prog0 [color="#8888CC"];
-    "/mnt/examples/06-hello-python/hello.py" -> prog1 [style=bold, label="./hello.py"];
+    "/mnt/wt-prov-model/examples/06-hello-python/run.sh" -> prog0 [color="#8888CC"];
+    "/mnt/wt-prov-model/examples/06-hello-python/hello.py" -> prog1 [style=bold, label="./hello.py"];
     "pkg coreutils" -> prog1 [color="#8888CC"];
     "pkg libc6" -> prog1 [color="#8888CC"];
     "/etc/ld.so.cache" -> prog1 [color="#8888CC"];
@@ -121,6 +121,6 @@ digraph G {
     "/usr/lib/python3.7/__pycache__/reprlib.cpython-37.pyc" -> prog2 [color="#8888CC"];
     "/usr/lib/python3.7/__pycache__/functools.cpython-37.pyc" -> prog2 [color="#8888CC"];
     "/usr/lib/python3.7/__pycache__/sitecustomize.cpython-37.pyc" -> prog2 [color="#8888CC"];
-    "/mnt/examples/06-hello-python/hello.py" -> prog2 [color="#8888CC"];
+    "/mnt/wt-prov-model/examples/06-hello-python/hello.py" -> prog2 [color="#8888CC"];
     "pkg ncurses-base" -> prog0 [color="#8888CC"];
 }

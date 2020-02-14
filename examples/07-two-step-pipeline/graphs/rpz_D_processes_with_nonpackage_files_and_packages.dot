@@ -5,7 +5,7 @@ digraph G {
     node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
     subgraph cluster_run0 {
         label="run0";
-        prog0 [label="/mnt/examples/07-two-step-pipeline/run.sh (1)"];
+        prog0 [label="/mnt/wt-prov-model/examples/07-two-step-pipeline/run.sh (1)"];
         prog1 [label="/bin/cat (2)"];
         prog0 -> prog1 [label="fork+exec"];
         prog2 [label="/bin/cat (3)"];
@@ -27,12 +27,12 @@ digraph G {
     "/etc/ld.so.cache";
     "/etc/nsswitch.conf";
     "/etc/passwd";
-    "/mnt/examples/07-two-step-pipeline/inputs/file1.txt" [fillcolor="#A3B4E0", label="file1.txt\n/mnt/examples/07-two-step-pipeline/inputs/file1.txt"];
-    "/mnt/examples/07-two-step-pipeline/outputs/file3.txt" [fillcolor="#A3B4E0", label="file3.txt\n/mnt/examples/07-two-step-pipeline/outputs/file3.txt"];
-    "/mnt/examples/07-two-step-pipeline/run.sh";
-    "/mnt/examples/07-two-step-pipeline/temp/file2.txt" [fillcolor="#A3B4E0", label="file2.txt\n/mnt/examples/07-two-step-pipeline/temp/file2.txt"];
+    "/mnt/wt-prov-model/examples/07-two-step-pipeline/inputs/file1.txt" [fillcolor="#A3B4E0", label="file1.txt\n/mnt/wt-prov-model/examples/07-two-step-pipeline/inputs/file1.txt"];
+    "/mnt/wt-prov-model/examples/07-two-step-pipeline/outputs/file3.txt" [fillcolor="#A3B4E0", label="file3.txt\n/mnt/wt-prov-model/examples/07-two-step-pipeline/outputs/file3.txt"];
+    "/mnt/wt-prov-model/examples/07-two-step-pipeline/run.sh";
+    "/mnt/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt" [fillcolor="#A3B4E0", label="file2.txt\n/mnt/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt"];
 
-    "/mnt/examples/07-two-step-pipeline/run.sh" -> prog0 [style=bold, label="./run.sh"];
+    "/mnt/wt-prov-model/examples/07-two-step-pipeline/run.sh" -> prog0 [style=bold, label="./run.sh"];
     "pkg bash" -> prog0 [color="#8888CC"];
     "pkg libc6" -> prog0 [color="#8888CC"];
     "/etc/ld.so.cache" -> prog0 [color="#8888CC"];
@@ -41,18 +41,18 @@ digraph G {
     "pkg libc-bin" -> prog0 [color="#8888CC"];
     "/etc/nsswitch.conf" -> prog0 [color="#8888CC"];
     "/etc/passwd" -> prog0 [color="#8888CC"];
-    "/mnt/examples/07-two-step-pipeline/run.sh" -> prog0 [color="#8888CC"];
-    prog1 -> "/mnt/examples/07-two-step-pipeline/temp/file2.txt" [color="#000088"];
+    "/mnt/wt-prov-model/examples/07-two-step-pipeline/run.sh" -> prog0 [color="#8888CC"];
+    prog1 -> "/mnt/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt" [color="#000088"];
     "pkg coreutils" -> prog1 [style=bold, label="cat inputs/file1.txt"];
     "pkg libc6" -> prog1 [color="#8888CC"];
     "/etc/ld.so.cache" -> prog1 [color="#8888CC"];
     "pkg libc-bin" -> prog1 [color="#8888CC"];
-    "/mnt/examples/07-two-step-pipeline/inputs/file1.txt" -> prog1 [color="#8888CC"];
+    "/mnt/wt-prov-model/examples/07-two-step-pipeline/inputs/file1.txt" -> prog1 [color="#8888CC"];
     "pkg ncurses-base" -> prog0 [color="#8888CC"];
-    prog2 -> "/mnt/examples/07-two-step-pipeline/outputs/file3.txt" [color="#000088"];
+    prog2 -> "/mnt/wt-prov-model/examples/07-two-step-pipeline/outputs/file3.txt" [color="#000088"];
     "pkg coreutils" -> prog2 [style=bold, label="cat temp/file2.txt"];
     "pkg libc6" -> prog2 [color="#8888CC"];
     "/etc/ld.so.cache" -> prog2 [color="#8888CC"];
     "pkg libc-bin" -> prog2 [color="#8888CC"];
-    "/mnt/examples/07-two-step-pipeline/temp/file2.txt" -> prog2 [color="#8888CC"];
+    "/mnt/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt" -> prog2 [color="#8888CC"];
 }
