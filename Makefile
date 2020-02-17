@@ -18,14 +18,14 @@ push-image:
 pull-image:
 	docker pull ${TAGGED_IMAGE}
 
-run-image:
+start:
 	docker run -it --volume $(CURDIR):/mnt/wt-prov-model ${TAGGED_IMAGE}
 
 run-examples:
 	. ~/.venv/reprozip/bin/activate
 	$(MAKE) -C ./examples clean all
 
-run-examples-image:
+start-examples:
 	docker run -it                                          \
 		--volume $(CURDIR):/mnt/wt-prov-model               \
 		${TAGGED_IMAGE}                                     \

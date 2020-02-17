@@ -81,5 +81,6 @@ RUN echo '\n***** Build and install the trace2facts command *****\n'        \
 
 RUN echo 'PATH=/home/wt/go/bin:/usr/local/go/bin:/home/wt/XSB/bin:$PATH' >> .bashrc
 RUN echo 'source .venv/reprozip/bin/activate' >> .bashrc
+RUN echo 'cd /mnt/wt-prov-model' >> .bashrc
 
 CMD  /bin/bash -il
