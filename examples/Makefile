@@ -2,16 +2,19 @@
 EXAMPLE_DIRS = $(wildcard [0-9]*/)
 
 all:
-	for dir in $(EXAMPLE_DIRS); do \
-		echo; \
-		echo "---------- Running example $$dir -------------" ;	\
-		$(MAKE) -C $$dir all; \
+	. ~/.venv/reprozip/bin/activate ;                                       \
+	                                                                        \
+	for dir in $(EXAMPLE_DIRS); do                                          \
+		echo;                                                               \
+		echo "---------- Running example $$dir -------------" ;	            \
+		$(MAKE) -C $$dir all;                                               \
 	done
 
 clean:
 	rm -rfv common/rules/*.xwam
-	for dir in $(EXAMPLE_DIRS); do \
-		echo; \
-		echo "------- Cleaning example $$dir ----------------" ; \
-		$(MAKE) -C $$dir clean; \
+
+	for dir in $(EXAMPLE_DIRS); do                                          \
+		echo;                                                               \
+		echo "------- Cleaning example $$dir ----------------" ;            \
+		$(MAKE) -C $$dir clean;                                             \
 	done

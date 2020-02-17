@@ -3,6 +3,21 @@ IMAGE_NAME=wt-prov-model
 IMAGE_TAG=latest
 TAGGED_IMAGE=${IMAGE_ORG}/${IMAGE_NAME}:${IMAGE_TAG}
 
+run-examples:
+	docker run -it                                                          \
+		--volume $(CURDIR):/mnt/wt-prov-model                               \
+		${TAGGED_IMAGE}                                                     \
+		bash -ic 'make -C /mnt/wt-prov-model/examples all'
+
+clean-examples:
+	docker run -it                                                          \
+		--volume $(CURDIR):/mnt/wt-prov-model                               \
+		${TAGGED_IMAGE}                                                     \
+		bash -ic 'make -C /mnt/wt-prov-model/examples clean'
+
+start:
+	docker run -it --volume $(CURDIR):/mnt/wt-prov-model ${TAGGED_IMAGE}
+
 install-code:
 	$(MAKE) -C ./src install
 
@@ -18,34 +33,17 @@ push-image:
 pull-image:
 	docker pull ${TAGGED_IMAGE}
 
-start:
-	docker run -it --volume $(CURDIR):/mnt/wt-prov-model ${TAGGED_IMAGE}
-
-run-examples:
-	. ~/.venv/reprozip/bin/activate ; \
-	$(MAKE) -C ./examples clean all
-
-start-examples:
-	docker run -it                                          \
-		--volume $(CURDIR):/mnt/wt-prov-model               \
-		${TAGGED_IMAGE}                                     \
-		bash -ic 'make -C /mnt/wt-prov-model run-examples'
-
-ifneq ($(OS),"Windows_NT")
-
 kill-all-containers:
-	docker kill `docker ps -q` 2> /dev/null || :
+	docker kill `docker ps -q`
 
 stop-all-containers:
-	docker stop `docker ps -a -q` 2> /dev/null || :
+	docker stop `docker ps -a -q`
 
 remove-all-containers:
-	 docker rm `docker ps -aq` 2> /dev/null || :
+	 docker rm `docker ps -aq`
 
 remove-all-images:
-	 docker rmi `docker images -aq` 2> /dev/null || :
+	 docker rmi `docker images -aq`
 
 purge-docker: kill-all-containers remove-all-containers remove-all-images
-
-endif
 
