@@ -34,16 +34,16 @@ pull-image:
 	docker pull ${TAGGED_IMAGE}
 
 kill-all-containers:
-	docker kill `docker ps -q`
+	docker kill `docker ps -q` ; :
 
 stop-all-containers:
-	docker stop `docker ps -a -q`
+	docker stop `docker ps -a -q` ; :
 
 remove-all-containers:
-	 docker rm `docker ps -aq`
+	 docker rm `docker ps -aq` ; :
 
 remove-all-images:
-	 docker rmi `docker images -aq`
+	 docker rmi `docker images -aq` ; :
 
 purge-docker: kill-all-containers remove-all-containers remove-all-images
 
