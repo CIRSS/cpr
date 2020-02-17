@@ -3,11 +3,11 @@ IMAGE_NAME=wt-prov-model
 IMAGE_TAG=latest
 TAGGED_IMAGE=${IMAGE_ORG}/${IMAGE_NAME}:${IMAGE_TAG}
 
-trace2facts:
-	cd ./src/cmd/trace2facts && go install .
+install-code:
+	$(MAKE) -C ./src install
 
-test:
-	cd src && go test -v ./... | grep -v "\[no test files\]"
+test-code:
+	$(MAKE) -C ./src test
 
 build-image:
 	docker build -t ${TAGGED_IMAGE} .
@@ -22,7 +22,7 @@ start:
 	docker run -it --volume $(CURDIR):/mnt/wt-prov-model ${TAGGED_IMAGE}
 
 run-examples:
-	. ~/.venv/reprozip/bin/activate
+	. ~/.venv/reprozip/bin/activate ; \
 	$(MAKE) -C ./examples clean all
 
 start-examples:
@@ -30,6 +30,8 @@ start-examples:
 		--volume $(CURDIR):/mnt/wt-prov-model               \
 		${TAGGED_IMAGE}                                     \
 		bash -ic 'make -C /mnt/wt-prov-model run-examples'
+
+ifneq ($(OS),"Windows_NT")
 
 kill-all-containers:
 	docker kill `docker ps -q` 2> /dev/null || :
@@ -44,4 +46,6 @@ remove-all-images:
 	 docker rmi `docker images -aq` 2> /dev/null || :
 
 purge-docker: kill-all-containers remove-all-containers remove-all-images
+
+endif
 
