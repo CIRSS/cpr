@@ -3,26 +3,40 @@ IMAGE_NAME=wt-prov-model
 IMAGE_TAG=latest
 TAGGED_IMAGE=${IMAGE_ORG}/${IMAGE_NAME}:${IMAGE_TAG}
 
+ADD_CAPS=SYS_PTRACE
+REPO_DIR=/mnt/wt-prov-model
+RUN_IMAGE=docker run -it                             \
+                     --volume $(CURDIR):$(REPO_DIR)  \
+                     --cap-add=$(ADD_CAPS)           \
+                     $(TAGGED_IMAGE)
+
+ifdef IN_RUNNING_RIPPO
+RUN_IN_IMAGE=bash -ic
+else
+RUN_IN_IMAGE=$(RUN_IMAGE) bash -ic
+endif
+
+# These targets work both outside and inside a running RIPPO
+
 run-examples:
-	docker run -it                                                          \
-		--volume $(CURDIR):/mnt/wt-prov-model                               \
-		${TAGGED_IMAGE}                                                     \
-		bash -ic 'make -C /mnt/wt-prov-model/examples all'
+	$(RUN_IN_IMAGE) 'make -C $(REPO_DIR)/examples all'
 
 clean-examples:
-	docker run -it                                                          \
-		--volume $(CURDIR):/mnt/wt-prov-model                               \
-		${TAGGED_IMAGE}                                                     \
-		bash -ic 'make -C /mnt/wt-prov-model/examples clean'
-
-start:
-	docker run -it --volume $(CURDIR):/mnt/wt-prov-model ${TAGGED_IMAGE}
+	$(RUN_IN_IMAGE) 'make -C $(REPO_DIR)/examples clean'
 
 install-code:
-	$(MAKE) -C ./src install
+	$(RUN_IN_IMAGE) 'make -C $(REPO_DIR)/src install'
 
 test-code:
-	$(MAKE) -C ./src test
+	$(RUN_IN_IMAGE) 'make -C $(REPO_DIR)/src test'
+
+
+# The remaining targets are defined only outside a running RIPPO
+
+ifndef IN_RUNNING_RIPPO
+
+start:
+	$(RUN_IMAGE)
 
 build-image:
 	docker build -t ${TAGGED_IMAGE} .
@@ -32,7 +46,6 @@ push-image:
 
 pull-image:
 	docker pull ${TAGGED_IMAGE}
-
 
 ifeq ('$(OS)', 'Windows_NT')
 ifndef PWSH_COMMAND
@@ -70,3 +83,5 @@ else
 endif
 
 purge-docker: stop-all-containers kill-all-containers remove-all-containers remove-all-images
+
+endif
