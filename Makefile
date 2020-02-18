@@ -33,17 +33,40 @@ push-image:
 pull-image:
 	docker pull ${TAGGED_IMAGE}
 
-kill-all-containers:
-	docker kill `docker ps -q` ; :
+
+ifeq ('$(OS)', 'Windows_NT')
+ifndef PWSH_COMMAND
+PWSH_COMMAND=powershell
+endif
+PWSH=$(PWSH_COMMAND) -noprofile -command
+endif
 
 stop-all-containers:
-	docker stop `docker ps -a -q` ; :
+ifdef PWSH
+	${PWSH} 'docker ps -q | % { docker stop $$_ }'
+else
+	for c in $$(docker ps -q); do docker stop $$c; done
+endif
+
+kill-all-containers:
+ifdef PWSH
+	${PWSH} 'docker ps -q | % { docker kill $$_ }'
+else
+	for c in $$(docker ps -q); do docker kill $$c; done
+endif
 
 remove-all-containers:
-	 docker rm `docker ps -aq` ; :
+ifdef PWSH
+	${PWSH} 'docker ps -aq | % { docker rm $$_ }'
+else
+	for c in $$(docker ps -aq); do docker rm $$c; done
+endif
 
 remove-all-images:
-	 docker rmi `docker images -aq` ; :
+ifdef PWSH
+	${PWSH} 'docker images -aq | % { docker rmi $$_ }'
+else
+	for i in $$(docker images -aq); do docker rmi $$i; done
+endif
 
-purge-docker: kill-all-containers remove-all-containers remove-all-images
-
+purge-docker: stop-all-containers kill-all-containers remove-all-containers remove-all-images
