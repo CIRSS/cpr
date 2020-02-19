@@ -1,8 +1,5 @@
 ifeq ('$(OS)', 'Windows_NT')
-ifndef PWSH_COMMAND
-PWSH_COMMAND=powershell
-endif
-PWSH=$(PWSH_COMMAND) -noprofile -command
+PWSH=powershell -noprofile -command
 endif
 
 IMAGE_ORG=tmcphillips
