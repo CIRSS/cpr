@@ -8,7 +8,7 @@ digraph G {
         prog0 [label="/mnt/wt-prov-model/examples/06-hello-python/run.sh (1)"];
         prog1 [label="/mnt/wt-prov-model/examples/06-hello-python/hello.py (2)"];
         prog0 -> prog1 [label="fork+exec"];
-        prog2 [label="/home/wt/.venv/reprozip/bin/python (2)"];
+        prog2 [label="/home/repro/.venv/reprozip/bin/python (2)"];
         prog1 -> prog2 [label="exec"];
     }
 
@@ -32,10 +32,10 @@ digraph G {
     "/etc/ld.so.cache";
     "/etc/nsswitch.conf";
     "/etc/passwd";
-    "/home/wt/.venv/reprozip/bin/python" [fillcolor="#A3B4E0", label="python\n/home/wt/.venv/reprozip/bin/python"];
-    "/home/wt/.venv/reprozip/bin/python3" [fillcolor="#A3B4E0", label="python3\n/home/wt/.venv/reprozip/bin/python3"];
-    "/home/wt/.venv/reprozip/lib/python3.7/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth" [fillcolor="#A3B4E0", label="reprounzip-1.0.16-py3.6-nspkg.pth\n/home/wt/.venv/reprozip/lib/python3.7/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth"];
-    "/home/wt/.venv/reprozip/pyvenv.cfg" [fillcolor="#A3B4E0", label="pyvenv.cfg\n/home/wt/.venv/reprozip/pyvenv.cfg"];
+    "/home/repro/.venv/reprozip/bin/python" [fillcolor="#A3B4E0", label="python\n/home/repro/.venv/reprozip/bin/python"];
+    "/home/repro/.venv/reprozip/bin/python3" [fillcolor="#A3B4E0", label="python3\n/home/repro/.venv/reprozip/bin/python3"];
+    "/home/repro/.venv/reprozip/lib/python3.7/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth" [fillcolor="#A3B4E0", label="reprounzip-1.0.16-py3.6-nspkg.pth\n/home/repro/.venv/reprozip/lib/python3.7/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth"];
+    "/home/repro/.venv/reprozip/pyvenv.cfg" [fillcolor="#A3B4E0", label="pyvenv.cfg\n/home/repro/.venv/reprozip/pyvenv.cfg"];
     "/mnt/wt-prov-model/examples/06-hello-python/hello.py";
     "/mnt/wt-prov-model/examples/06-hello-python/run.sh";
     "/usr/lib/python3.7/__pycache__/_bootlocale.cpython-37.pyc";
@@ -83,7 +83,7 @@ digraph G {
     "pkg libc6" -> prog1 [color="#8888CC"];
     "/etc/ld.so.cache" -> prog1 [color="#8888CC"];
     "pkg libc-bin" -> prog1 [color="#8888CC"];
-    "/home/wt/.venv/reprozip/bin/python" -> prog2 [style=bold, label="python ./hello.py"];
+    "/home/repro/.venv/reprozip/bin/python" -> prog2 [style=bold, label="python ./hello.py"];
     "pkg python3.7-minimal" -> prog2 [color="#8888CC"];
     "pkg libc6" -> prog2 [color="#8888CC"];
     "/etc/ld.so.cache" -> prog2 [color="#8888CC"];
@@ -104,8 +104,8 @@ digraph G {
     "/usr/lib/python3.7/__pycache__/genericpath.cpython-37.pyc" -> prog2 [color="#8888CC"];
     "/usr/lib/python3.7/__pycache__/_collections_abc.cpython-37.pyc" -> prog2 [color="#8888CC"];
     "/usr/lib/python3.7/__pycache__/_sitebuiltins.cpython-37.pyc" -> prog2 [color="#8888CC"];
-    "/home/wt/.venv/reprozip/pyvenv.cfg" -> prog2 [color="#8888CC"];
-    "/home/wt/.venv/reprozip/lib/python3.7/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth" -> prog2 [color="#8888CC"];
+    "/home/repro/.venv/reprozip/pyvenv.cfg" -> prog2 [color="#8888CC"];
+    "/home/repro/.venv/reprozip/lib/python3.7/site-packages/reprounzip-1.0.16-py3.6-nspkg.pth" -> prog2 [color="#8888CC"];
     "/usr/lib/python3.7/__pycache__/_bootlocale.cpython-37.pyc" -> prog2 [color="#8888CC"];
     "/usr/lib/python3.7/__pycache__/types.cpython-37.pyc" -> prog2 [color="#8888CC"];
     "/usr/lib/python3.7/importlib/__pycache__/__init__.cpython-37.pyc" -> prog2 [color="#8888CC"];

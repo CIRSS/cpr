@@ -8,20 +8,21 @@ IMAGE_TAG=latest
 TAGGED_IMAGE=${IMAGE_ORG}/${IMAGE_NAME}:${IMAGE_TAG}
 
 ADD_CAPS=SYS_PTRACE
-REPO_DIR=/mnt/wt-prov-model
-RUN_IMAGE=docker run -it                             \
-                     --volume $(CURDIR):$(REPO_DIR)  \
-                     --cap-add=$(ADD_CAPS)           \
+REPRO_DIR=/mnt/wt-prov-model
+RUN_REPRO=docker run -it                              \
+                     --volume $(CURDIR):$(REPRO_DIR)  \
+                     --cap-add=$(ADD_CAPS)            \
                      $(TAGGED_IMAGE)
 
-ifdef IN_RUNNING_RIPPO
-RUN_IN_IMAGE=bash -ic
+ifdef IN_RUNNING_REPRO
+RUN_IN_REPRO=bash -ic
 else
-RUN_IN_IMAGE=$(RUN_IMAGE) bash -ic
+RUN_IN_REPRO=$(RUN_REPRO) bash -ic
 endif
 
 ## 
-## *** Make targets that work either INSIDE or OUTSIDE a running RIPPO ***
+## ------------------------------------------------------------------------------
+##        Make targets available both INSIDE and OUTSIDE a running REPRO
 ## 
 
 help:                   ## Show this help.
@@ -31,68 +32,74 @@ else
 	@sed -ne '/@sed/!s/#\# //p' $(MAKEFILE_LIST)
 endif
 
+run: run-examples       ## Alias for run-examples.
 run-examples:           ## Run all of the examples.
-	$(RUN_IN_IMAGE) 'make -C $(REPO_DIR)/examples all'
+	$(RUN_IN_REPRO) 'make -C $(REPRO_DIR)/examples all'
 
+clean: clean-examples   ## Alias for clean-examples.
 clean-examples:         ## Delete all products of examples.
-	$(RUN_IN_IMAGE) 'make -C $(REPO_DIR)/examples clean'
+	$(RUN_IN_REPRO) 'make -C $(REPRO_DIR)/examples clean'
 
 build-code:             ## Build and install custom code.
-	$(RUN_IN_IMAGE) 'make -C $(REPO_DIR)/src install'
+	$(RUN_IN_REPRO) 'make -C $(REPRO_DIR)/src install'
 
 test-code:              ## Run tests on custom code.
-	$(RUN_IN_IMAGE) 'make -C $(REPO_DIR)/src test'
+	$(RUN_IN_REPRO) 'make -C $(REPRO_DIR)/src test'
 
 
+## ------------------------------------------------------------------------------
+##            Make targets available only OUTSIDE a running REPRO
 ## 
-## *** Make targets that work only OUTSIDE a running RIPPO ***
-## 
 
-ifndef IN_RUNNING_RIPPO
+ifndef IN_RUNNING_REPRO
 
-start:
-	$(RUN_IMAGE)
+start:                  ## Start a bash session in a new Docker container.
+	$(RUN_REPRO)
 
-build-image:
+image:                  ## Alias for build-image.
+build-image:            ## Build the Docker image used to run this REPRO.
 	docker build -t ${TAGGED_IMAGE} .
 
-push-image:
-	docker push ${TAGGED_IMAGE}
-
-pull-image:
+pull-image:             ## Pull the Docker image from Docker Hub.
 	docker pull ${TAGGED_IMAGE}
 
-stop-all-containers:    ## Gently stop all Docker containers running on this computer.
+push-image:             ## Push the Docker image to Docker Hub.
+	docker push ${TAGGED_IMAGE}
+
+## 
+
+stop-all-containers:    ## Gently stop all running Docker containers.
 ifdef PWSH
 	${PWSH} 'docker ps -q | % { docker stop $$_ }'
 else
 	for c in $$(docker ps -q); do docker stop $$c; done
 endif
 
-kill-all-containers:    ## Forcibly stop all Docker containers running on this computer.
+kill-all-containers:    ## Forcibly stop all running Docker containers.
 ifdef PWSH
 	${PWSH} 'docker ps -q | % { docker kill $$_ }'
 else
 	for c in $$(docker ps -q); do docker kill $$c; done
 endif
 
-remove-all-containers:  ## Delete all stopped Docker containers on this computer.
+remove-all-containers:  ## Delete all stopped Docker containers.
 ifdef PWSH
 	${PWSH} 'docker ps -aq | % { docker rm $$_ }'
 else
 	for c in $$(docker ps -aq); do docker rm $$c; done
 endif
 
-remove-all-images:      ## Delete all Docker images stored on this computer.
+remove-all-images:      ## Delete all Docker images on this computer.
 ifdef PWSH
 	${PWSH} 'docker images -aq | % { docker rmi $$_ }'
 else
 	for i in $$(docker images -aq); do docker rmi $$i; done
 endif
 
-purge-docker:           ## Delete all Docker containers and images on this computer.
+purge-docker:           ## Purge all Docker containers and images from computer.
 purge-docker: stop-all-containers kill-all-containers remove-all-containers remove-all-images
 
 endif
 
+## ------------------------------------------------------------------------------
 ## 
