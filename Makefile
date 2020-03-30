@@ -31,12 +31,19 @@ ifdef PWSH
 else
 	@sed -ne '/@sed/!s/#\# //p' $(MAKEFILE_LIST)
 endif
+## 
 
-run: run-examples       ## Alias for run-examples.
+## run:                    Alias for run-examples.
+run: run-examples
+
+## clean:                  Alias for clean-examples.
+clean: clean-examples
+
+## 
+
 run-examples:           ## Run all of the examples.
 	$(RUN_IN_REPRO) 'make -C $(REPRO_DIR)/examples all'
 
-clean: clean-examples   ## Alias for clean-examples.
 clean-examples:         ## Delete all products of examples.
 	$(RUN_IN_REPRO) 'make -C $(REPRO_DIR)/examples clean'
 
@@ -53,10 +60,17 @@ test-code:              ## Run tests on custom code.
 
 ifndef IN_RUNNING_REPRO
 
-start:                  ## Start a bash session in a new Docker container.
+## start:                  Alias for start-image.
+start: start-image
+
+## image:                  Alias for build-image.
+image: build-image
+
+## 
+
+start-image:            ## Start a new container using the Docker image.
 	$(RUN_REPRO)
 
-image:                  ## Alias for build-image.
 build-image:            ## Build the Docker image used to run this REPRO.
 	docker build -t ${TAGGED_IMAGE} .
 
