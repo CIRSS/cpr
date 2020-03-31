@@ -5,8 +5,6 @@ Q1_DIRECT_UPSTREAM_FILE_DEPENDENCY : What files does the given data file directl
 
 q1_direct_upstream_file_dependency(File, UpstreamFile)
 ...................................................................................................
-q1_direct_upstream_file_dependency('./temp/t12.txt','./inputs/i2.txt').
-q1_direct_upstream_file_dependency('./temp/t12.txt','./inputs/i1.txt').
 
 
 ---------------------------------------------------------------------------------------------------
@@ -14,5 +12,5 @@ Q2_DIRECT_DOWNSTREAM_FILE_DEPENDENCY : What files depend directly on the given d
 
 q2_direct_downstream_file_dependency(File, DownstreamFile)
 ...................................................................................................
-q2_direct_downstream_file_dependency('./temp/t12.txt','./outputs/o12.txt').
+q2_direct_downstream_file_dependency('./inputs/input.txt','./outputs/output.txt').
 

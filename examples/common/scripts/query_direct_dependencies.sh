@@ -25,6 +25,18 @@ end_of_file.
 printall(q1_direct_upstream_file_dependency('$ProvidedFileName', _)).
 %-------------------------------------------------------------------------------
 
+%-------------------------------------------------------------------------------
+banner( 'Q2_DIRECT_DOWNSTREAM_FILE_DEPENDENCY',
+        'What files depend directly on the given data file?',
+        'q2_direct_downstream_file_dependency(File, DownstreamFile)').
+[user].
+:- table q2_direct_downstream_file_dependency/2.
+q2_direct_downstream_file_dependency(File, DownstreamFile) :-
+    wt_file_read(_, _, ProcessID, _, File, _),
+	wt_file_write(_, _, ProcessID, _, DownstreamFile, _).
+end_of_file.
+printall(q2_direct_downstream_file_dependency('$ProvidedFileName', _)).
+%-------------------------------------------------------------------------------
 END_XSB_STDIN
 
 echo
