@@ -1,6 +1,6 @@
 
-DIRECT_DEPENDENCY_QUERIES_RESOURCE = ./temp/t12.txt
-OUTPUT_LINEAGE_QUERIES_RESOURCE = ./outputs/o12.txt
+QUERY_DIRECT_DEPENDENCIES_ARG = ./temp/t12.txt
+QUERY_OUTPUT_LINEAGES_ARG = ./outputs/o12.txt
 
 include ../common/Makefile
 

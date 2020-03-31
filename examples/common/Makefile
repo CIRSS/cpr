@@ -32,19 +32,19 @@ RPZ_GRAPHS=$(RPZ_RUN_IO_FILES).dot							\
 
 WT_FACTS=$(FACTS_DIR)/wt_facts.pl
 
-WT_RUN_QUERIES=$(QUERIES_DIR)/wt_run_queries.txt
+QUERY_RUN=$(QUERIES_DIR)/wt_run_queries.txt
 
-ifdef DIRECT_DEPENDENCY_QUERIES_RESOURCE
-WT_DIRECT_DEPENDENCY_QUERIES=$(QUERIES_DIR)/wt_direct_dependency_queries.txt
+ifdef QUERY_DIRECT_DEPENDENCIES_ARG
+QUERY_DIRECT_DEPENDENCIES=$(QUERIES_DIR)/wt_direct_dependency_queries.txt
 endif
 
-#ifdef OUTPUT_LINEAGE_QUERIES_RESOURCE
-#WT_OUTPUT_LINEAGE_QUERIES=$(QUERIES_DIR)/wt_output_lineage_queries.txt
+#ifdef QUERY_OUTPUT_LINEAGES_ARG
+#QUERY_OUTPUT_LINEAGES=$(QUERIES_DIR)/wt_output_lineage_queries.txt
 #endif
 
-WT_QUERIES=$(WT_RUN_QUERIES)               \
-           $(WT_DIRECT_DEPENDENCY_QUERIES) \
-		   $(WT_OUTPUT_LINEAGE_QUERIES)
+WT_QUERIES=$(QUERY_RUN)               \
+           $(QUERY_DIRECT_DEPENDENCIES) \
+		   $(QUERY_OUTPUT_LINEAGES)
 
 WT_GRAPH_RUN_INPUTS_OUTPUTS=$(GRAPHS_DIR)/wt_run_inputs_outputs
 WT_GRAPH_PROCESS_AND_DATA_FILES=$(GRAPHS_DIR)/wt_processes_and_data_files
@@ -119,15 +119,15 @@ $(RPZ_PROCESSES_FILES_PACKAGES).dot: $(RPZ_TRACE) $(GRAPHS_DIR)
 	rm -fv $@
 	reprounzip graph --processes process $@
 
-$(WT_RUN_QUERIES): $(QUERIES_DIR) $(VIEWS)
-	bash $(SCRIPTS_DIR)/wt_run_queries.sh > $@
+$(QUERY_RUN): $(QUERIES_DIR) $(VIEWS)
+	bash $(SCRIPTS_DIR)/query_run.sh > $@
 
-$(WT_DIRECT_DEPENDENCY_QUERIES): $(QUERIES_DIR) $(VIEWS)
-	bash $(SCRIPTS_DIR)/wt_direct_dependency_queries.sh \
-		$(DIRECT_DEPENDENCY_QUERIES_RESOURCE) > $@
+$(QUERY_DIRECT_DEPENDENCIES): $(QUERIES_DIR) $(VIEWS)
+	bash $(SCRIPTS_DIR)/query_direct_dependencies.sh \
+		$(QUERY_DIRECT_DEPENDENCIES_ARG) > $@
 
-$(WT_OUTPUT_LINEAGE_QUERIES): $(QUERIES_DIR) $(VIEWS)
-	bash $(SCRIPTS_DIR)/wt_output_lineage_queries.sh > $@
+$(QUERY_OUTPUT_LINEAGES): $(QUERIES_DIR) $(VIEWS)
+	bash $(SCRIPTS_DIR)/query_output_lineages.sh > $@
 
 $(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot: $(FACTS) $(VIEWS) $(GRAPHS_DIR)
 	bash $(SCRIPTS_DIR)/graph_run_inputs_outputs.sh > $@
