@@ -1,7 +1,7 @@
 comma :-
     write(',').
 
-json_start() :-
+json_start_object() :-
     nl, write('{').
 
 json_end() :-
@@ -15,4 +15,13 @@ json_array_end() :-
 
 json_property(Name, Value) :-
     nl, fmt_write('"%S":"%S"', args(Name, Value)).
+
+json_comma_init(Value) :-
+    assertz(comma(Value)).
+
+json_comma() :-
+    comma(Comma),
+    write(Comma),
+    retract(comma(Comma)),
+    assertz(comma(',')).
 

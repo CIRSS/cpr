@@ -7,7 +7,12 @@
   "@graph": [
     {
       "@id": "tale_execution",
-      "@type": "prov:Activity"
+      "@type": "prov:Activity",
+      "prov:used": [
+        {
+          "@id": "./inputs/file1.txt"
+        }
+      ]
     },
     {
       "@id": "./inputs/file1.txt",

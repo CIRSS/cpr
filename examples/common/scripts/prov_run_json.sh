@@ -13,16 +13,19 @@ set_prolog_flag(unknown, fail).
 [user].
 json :-
 
-    json_start(),
+    json_start_object(),
         json_array_start('@context'),
-            json_start(),
+            json_start_object(),
                 json_property('prov', 'http://www.w3.org/ns/prov#'),
             json_end(),
         json_array_end(), comma,
         json_array_start('@graph'),
-            json_start(),
+            json_start_object(),
                 json_property('@id', 'tale_execution'), comma,
-                json_property('@type', 'prov:Activity'),
+                json_property('@type', 'prov:Activity'), comma,
+                json_array_start('prov:used'),
+                    prov_used_entity_references(),
+                json_array_end(),
             json_end(),
             prov_used_entities(),
             prov_generated_entities(),
