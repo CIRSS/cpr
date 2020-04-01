@@ -13,11 +13,10 @@ RUN echo '***** Update packages *****'                                      \
     && apt-get -y install apt-utils wget curl makepasswd gcc make git       \
                                                                             \
     && echo '***** Install packages required by YesWorkflow *****'          \
-    && apt -y install default-jdk                                           \
-    && apt -y install graphviz                                              \
+    && apt -y install default-jdk graphviz                                  \
                                                                             \
     && echo '***** Install command-line utility packages *****'             \
-    && apt -y install sudo man less file tree
+    && apt -y install sudo man less file tree jq
 
 RUN echo '****** Install ReproZip prerequisites *****'                      \
     && apt -y install libssl-dev libffi-dev libsqlite3-dev                  \

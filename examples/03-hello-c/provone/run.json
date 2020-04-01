@@ -1,0 +1,13 @@
+{
+  "@context": [
+    {
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "tale_execution",
+      "@type": "prov:Activity"
+    }
+  ]
+}

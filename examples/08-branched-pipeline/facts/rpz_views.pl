@@ -71,13 +71,13 @@ wt_file_write(o83,r0,p7,i31,'./outputs/o4.txt',out).
 %---------------------------------------------------------------------------------------------------
 % FACT: wt_data_file(PathIndex, FilePath, PathRole).
 %...................................................................................................
-wt_data_file(i27,'./temp/t4.txt',tmp).
 wt_data_file(i25,'./temp/t123.txt',tmp).
 wt_data_file(i29,'./outputs/o12.txt',out).
-wt_data_file(i31,'./outputs/o4.txt',out).
-wt_data_file(i28,'./inputs/i4.txt',in).
 wt_data_file(i11,'./temp/t12.txt',tmp).
+wt_data_file(i28,'./inputs/i4.txt',in).
+wt_data_file(i31,'./outputs/o4.txt',out).
 wt_data_file(i23,'./inputs/i1.txt',in).
 wt_data_file(i26,'./inputs/i3.txt',in).
 wt_data_file(i30,'./outputs/o1234.txt',out).
 wt_data_file(i24,'./inputs/i2.txt',in).
+wt_data_file(i27,'./temp/t4.txt',tmp).

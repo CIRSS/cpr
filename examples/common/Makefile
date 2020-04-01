@@ -7,9 +7,10 @@ FACTS_DIR=facts
 OUTPUTS_DIR=outputs
 QUERIES_DIR=queries
 GRAPHS_DIR=graphs
+PROV_DIR=provone
 TEMP_DIR=temp
 
-DIRS=$(BIN_DIR) $(OUTPUTS_DIR) $(RPZ_TRACE_DIR) $(FACTS_DIR) $(QUERIES_DIR) $(GRAPHS_DIR) $(TEMP_DIR)
+DIRS=$(BIN_DIR) $(OUTPUTS_DIR) $(RPZ_TRACE_DIR) $(FACTS_DIR) $(PROV_DIR) $(QUERIES_DIR) $(GRAPHS_DIR) $(TEMP_DIR)
 
 RPZ_TRACE_SQLITE=$(RPZ_TRACE_DIR)/trace.sqlite3
 RPZ_TRACE_YAML=$(RPZ_TRACE_DIR)/config.yml
@@ -42,15 +43,19 @@ endif
 #QUERY_OUTPUT_LINEAGES=$(QUERIES_DIR)/wt_output_lineage_queries.txt
 #endif
 
-WT_QUERIES=$(QUERY_RUN)               \
+WT_QUERIES=$(QUERY_RUN)                 \
            $(QUERY_DIRECT_DEPENDENCIES) \
-		   $(QUERY_OUTPUT_LINEAGES)
+           $(QUERY_OUTPUT_LINEAGES)
 
 WT_GRAPH_RUN_INPUTS_OUTPUTS=$(GRAPHS_DIR)/wt_run_inputs_outputs
 WT_GRAPH_PROCESS_AND_DATA_FILES=$(GRAPHS_DIR)/wt_processes_and_data_files
 
 WT_GRAPHS=$(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot		\
-		  $(WT_GRAPH_PROCESS_AND_DATA_FILES).dot
+          $(WT_GRAPH_PROCESS_AND_DATA_FILES).dot
+
+PROV_RUN_JSON=$(PROV_DIR)/run.json
+
+PROV=$(PROV_RUN_JSON)
 
 FACTS=$(WT_FACTS) $(RPZ_FACTS)
 VIEWS=$(RPZ_VIEWS)
@@ -64,7 +69,7 @@ PNGS = $(GRAPHS:.dot=.png)
 .dot.png:
 	dot -Tpng $*.dot -o $*.png
 
-all: fact view query png
+all: fact view query prov png
 
 clean:
 	rm -rfv $(DIRS)
@@ -83,6 +88,8 @@ view: $(VIEWS)
 query: $(QUERIES)
 
 graph: $(GRAPHS)
+
+prov: $(PROV)
 
 png: $(PNGS)
 
@@ -134,3 +141,7 @@ $(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot: $(FACTS) $(VIEWS) $(GRAPHS_DIR)
 
 $(WT_GRAPH_PROCESS_AND_DATA_FILES).dot: $(FACTS) $(VIEWS) $(GRAPHS_DIR)
 	bash $(SCRIPTS_DIR)/graph_processes_and_data_files.sh > $@
+
+$(PROV_RUN_JSON): $(PROV_DIR) $(VIEWS)
+	bash $(SCRIPTS_DIR)/prov_run_json.sh | jq "." > $@
+
