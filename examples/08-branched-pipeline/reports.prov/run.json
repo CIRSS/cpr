@@ -26,17 +26,17 @@
       "@type": "prov:Entity"
     },
     {
-      "@id": "./outputs/o12.txt",
-      "@type": "prov:Entity",
-      "prov:wasGeneratedBy": "tale_execution"
-    },
-    {
       "@id": "./outputs/o4.txt",
       "@type": "prov:Entity",
       "prov:wasGeneratedBy": "tale_execution"
     },
     {
       "@id": "./outputs/o1234.txt",
+      "@type": "prov:Entity",
+      "prov:wasGeneratedBy": "tale_execution"
+    },
+    {
+      "@id": "./outputs/o12.txt",
       "@type": "prov:Entity",
       "prov:wasGeneratedBy": "tale_execution"
     }
