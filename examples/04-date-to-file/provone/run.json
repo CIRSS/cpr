@@ -8,6 +8,11 @@
     {
       "@id": "tale_execution",
       "@type": "prov:Activity"
+    },
+    {
+      "@id": "./outputs/date.txt",
+      "@type": "prov:Entity",
+      "prov:wasGeneratedBy": "tale_execution"
     }
   ]
 }

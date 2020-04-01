@@ -2,12 +2,13 @@
 
 xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 
-%set_prolog_flag(unknown, fail).
+set_prolog_flag(unknown, fail).
 
 ['facts/wt_facts'].
 ['facts/rpz_facts'].
 ['facts/rpz_views'].
 ['../common/rules/json_rules'].
+['../common/rules/prov_rules'].
 
 [user].
 json :-
@@ -23,6 +24,8 @@ json :-
                 json_property('@id', 'tale_execution'), comma,
                 json_property('@type', 'prov:Activity'),
             json_end(),
+            prov_used_entities(),
+            prov_generated_entities(),
         json_array_end(),
     json_end(), nl.
 

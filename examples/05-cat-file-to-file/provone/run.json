@@ -8,6 +8,15 @@
     {
       "@id": "tale_execution",
       "@type": "prov:Activity"
+    },
+    {
+      "@id": "./inputs/input.txt",
+      "@type": "prov:Entity"
+    },
+    {
+      "@id": "./outputs/output.txt",
+      "@type": "prov:Entity",
+      "prov:wasGeneratedBy": "tale_execution"
     }
   ]
 }
