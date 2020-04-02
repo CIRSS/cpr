@@ -14,7 +14,7 @@
       "prov:used": []
     },
     {
-      "@id": "./outputs/date.txt",
+      "@id": "file://./outputs/date.txt",
       "@type": "provone:Data",
       "prov:wasGeneratedBy": "tale_execution"
     }

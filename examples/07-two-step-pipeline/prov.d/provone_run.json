@@ -13,16 +13,16 @@
       "@type": "provone:Execution",
       "prov:used": [
         {
-          "@id": "./inputs/file1.txt"
+          "@id": "file://./inputs/file1.txt"
         }
       ]
     },
     {
-      "@id": "./inputs/file1.txt",
+      "@id": "file://./inputs/file1.txt",
       "@type": "provone:Data"
     },
     {
-      "@id": "./outputs/file3.txt",
+      "@id": "file://./outputs/file3.txt",
       "@type": "provone:Data",
       "prov:wasGeneratedBy": "tale_execution"
     }

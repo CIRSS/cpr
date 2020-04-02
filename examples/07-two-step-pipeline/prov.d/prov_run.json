@@ -10,16 +10,16 @@
       "@type": "prov:Activity",
       "prov:used": [
         {
-          "@id": "./inputs/file1.txt"
+          "@id": "file://./inputs/file1.txt"
         }
       ]
     },
     {
-      "@id": "./inputs/file1.txt",
+      "@id": "file://./inputs/file1.txt",
       "@type": "prov:Entity"
     },
     {
-      "@id": "./outputs/file3.txt",
+      "@id": "file://./outputs/file3.txt",
       "@type": "prov:Entity",
       "prov:wasGeneratedBy": "tale_execution"
     }
