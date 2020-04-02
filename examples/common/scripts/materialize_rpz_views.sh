@@ -2,8 +2,8 @@
 
 xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 
-['facts/wt_facts'].
-['facts/rpz_facts'].
+['facts.d/wt_facts'].
+['facts.d/rpz_facts'].
 ['../common/rules/general_rules'].
 ['../common/rules/rpz_view_rules'].
 

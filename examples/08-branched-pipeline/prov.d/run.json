@@ -10,26 +10,18 @@
       "@type": "prov:Activity",
       "prov:used": [
         {
-          "@id": "./inputs/i3.txt"
-        },
-        {
-          "@id": "./inputs/i2.txt"
-        },
-        {
           "@id": "./inputs/i4.txt"
         },
         {
           "@id": "./inputs/i1.txt"
+        },
+        {
+          "@id": "./inputs/i3.txt"
+        },
+        {
+          "@id": "./inputs/i2.txt"
         }
       ]
-    },
-    {
-      "@id": "./inputs/i3.txt",
-      "@type": "prov:Entity"
-    },
-    {
-      "@id": "./inputs/i2.txt",
-      "@type": "prov:Entity"
     },
     {
       "@id": "./inputs/i4.txt",
@@ -40,9 +32,12 @@
       "@type": "prov:Entity"
     },
     {
-      "@id": "./outputs/o1234.txt",
-      "@type": "prov:Entity",
-      "prov:wasGeneratedBy": "tale_execution"
+      "@id": "./inputs/i3.txt",
+      "@type": "prov:Entity"
+    },
+    {
+      "@id": "./inputs/i2.txt",
+      "@type": "prov:Entity"
     },
     {
       "@id": "./outputs/o12.txt",
@@ -51,6 +46,11 @@
     },
     {
       "@id": "./outputs/o4.txt",
+      "@type": "prov:Entity",
+      "prov:wasGeneratedBy": "tale_execution"
+    },
+    {
+      "@id": "./outputs/o1234.txt",
       "@type": "prov:Entity",
       "prov:wasGeneratedBy": "tale_execution"
     }

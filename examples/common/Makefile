@@ -3,11 +3,11 @@ SCRIPTS_DIR = ../common/scripts
 
 BIN_DIR=bin
 RPZ_TRACE_DIR=.reprozip-trace
-FACTS_DIR=facts
+FACTS_DIR=facts.d
 OUTPUTS_DIR=outputs
-QUERIES_DIR=queries
-GRAPHS_DIR=graphs
-PROV_DIR=reports.prov
+QUERIES_DIR=queries.d
+GRAPHS_DIR=graphs.d
+PROV_DIR=prov.d
 TEMP_DIR=temp
 
 DIRS=$(BIN_DIR) $(OUTPUTS_DIR) provone $(RPZ_TRACE_DIR) $(FACTS_DIR) $(PROV_DIR) $(QUERIES_DIR) $(GRAPHS_DIR) $(TEMP_DIR)
