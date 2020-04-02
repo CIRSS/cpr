@@ -1,0 +1,27 @@
+{
+  "@context": [
+    {
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "tale_execution",
+      "@type": "provone:Execution",
+      "prov:used": [
+        {
+          "@id": "./inputs/input.txt"
+        }
+      ]
+    },
+    {
+      "@id": "./inputs/input.txt",
+      "@type": "provone:Data"
+    },
+    {
+      "@id": "./outputs/output.txt",
+      "@type": "provone:Data",
+      "prov:wasGeneratedBy": "tale_execution"
+    }
+  ]
+}

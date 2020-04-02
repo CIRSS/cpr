@@ -54,7 +54,8 @@ WT_GRAPHS=$(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot		\
           $(WT_GRAPH_PROCESS_AND_DATA_FILES).dot
 
 PROV_RUN_JSON=$(PROV_DIR)/prov_run.json
-PROV=$(PROV_RUN_JSON)
+PROVONE_RUN_JSON=$(PROV_DIR)/provone_run.json
+PROV=$(PROV_RUN_JSON) $(PROVONE_RUN_JSON)
 
 FACTS=$(WT_FACTS) $(RPZ_FACTS)
 VIEWS=$(RPZ_VIEWS)
@@ -143,4 +144,7 @@ $(WT_GRAPH_PROCESS_AND_DATA_FILES).dot: $(FACTS) $(VIEWS) $(GRAPHS_DIR)
 
 $(PROV_RUN_JSON): $(PROV_DIR) $(VIEWS)
 	bash $(SCRIPTS_DIR)/prov_run_json.sh | jq "." > $@
+
+$(PROVONE_RUN_JSON): $(PROV_DIR) $(VIEWS)
+	bash $(SCRIPTS_DIR)/provone_run_json.sh | jq "." > $@
 
