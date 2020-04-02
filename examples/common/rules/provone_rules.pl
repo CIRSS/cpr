@@ -2,9 +2,9 @@
 
 provone_used_data() :-
     wt_data_file(_, FilePath, in),
+	prov_file_uri(FilePath, FileUri),
     comma,
     json_start_object(),
-    concat_atom(['file://', FilePath], FileUri),
     json_property('@id', FileUri), comma,
         json_property('@type', 'provone:Data'),
     json_end(),
@@ -14,9 +14,9 @@ provone_used_data() :-
 
 provone_generated_data() :-
     wt_data_file(_, FilePath, out),
+	prov_file_uri(FilePath, FileUri),
     comma,
     json_start_object(),
-        concat_atom(['file://', FilePath], FileUri),
         json_property('@id', FileUri), comma,
         json_property('@type', 'provone:Data'), comma,
         json_property('prov:wasGeneratedBy', 'tale_execution'),
