@@ -10,9 +10,6 @@
       "@type": "prov:Activity",
       "prov:used": [
         {
-          "@id": "./inputs/i4.txt"
-        },
-        {
           "@id": "./inputs/i1.txt"
         },
         {
@@ -20,12 +17,11 @@
         },
         {
           "@id": "./inputs/i2.txt"
+        },
+        {
+          "@id": "./inputs/i4.txt"
         }
       ]
-    },
-    {
-      "@id": "./inputs/i4.txt",
-      "@type": "prov:Entity"
     },
     {
       "@id": "./inputs/i1.txt",
@@ -37,6 +33,10 @@
     },
     {
       "@id": "./inputs/i2.txt",
+      "@type": "prov:Entity"
+    },
+    {
+      "@id": "./inputs/i4.txt",
       "@type": "prov:Entity"
     },
     {
