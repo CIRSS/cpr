@@ -23,12 +23,12 @@ json_property(Name, Value) :-
 json_single_property_object(Name, Value) :-
     nl, fmt_write('{ "%S": "%S" }', args(Name, Value)).
 
-json_comma_init(Value) :-
-    assertz(comma(Value)).
+json_comma_init(ID, Value) :-
+    assertz(comma(ID, Value)).
 
-json_comma() :-
-    comma(Comma),
+json_comma(ID) :-
+    comma(ID, Comma),
     write(Comma),
-    retract(comma(Comma)),
-    assertz(comma(',')).
+    retract(comma(ID, Comma)),
+    assertz(comma(ID, ',')).
 

@@ -20,15 +20,14 @@
     {
       "@id": "run:execution_1",
       "@type": "provone:Execution",
-      "prov:used": []
-    },
-    {
-      "@id": "run:data_file_i10",
-      "@type": "wt:DataFile",
-      "wt:FilePath": "./outputs/date.txt",
-      "prov:wasGeneratedBy": {
-        "id": "run:execution_1"
-      }
+      "prov:used": [],
+      "prov:generated": [
+        {
+          "@id": "run:data_file_i10",
+          "@type": "wt:DataFile",
+          "wt:FilePath": "./outputs/date.txt"
+        }
+      ]
     }
   ]
 }

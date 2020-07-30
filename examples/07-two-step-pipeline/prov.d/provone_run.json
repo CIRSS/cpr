@@ -26,15 +26,14 @@
           "@type": "wt:DataFile",
           "wt:FilePath": "./inputs/file1.txt"
         }
+      ],
+      "prov:generated": [
+        {
+          "@id": "run:data_file_i24",
+          "@type": "wt:DataFile",
+          "wt:FilePath": "./outputs/file3.txt"
+        }
       ]
-    },
-    {
-      "@id": "run:data_file_i24",
-      "@type": "wt:DataFile",
-      "wt:FilePath": "./outputs/file3.txt",
-      "prov:wasGeneratedBy": {
-        "id": "run:execution_1"
-      }
     }
   ]
 }

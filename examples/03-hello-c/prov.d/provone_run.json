@@ -20,7 +20,8 @@
     {
       "@id": "run:execution_1",
       "@type": "provone:Execution",
-      "prov:used": []
+      "prov:used": [],
+      "prov:generated": []
     }
   ]
 }

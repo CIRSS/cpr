@@ -4,10 +4,10 @@ prov_file_uri(FilePath, FileUri) :-
     concat_atom(['file://', FilePath], FileUri).
 
 prov_used_entity_references() :-
-    json_comma_init(''),
+    json_comma_init(1, ''),
     wt_data_file(_, FilePath, in),
     prov_file_uri(FilePath, FileUri),
-    json_comma(),
+    json_comma(1),
     json_start_object(),
         json_property('@id', FileUri),
     json_end(),
