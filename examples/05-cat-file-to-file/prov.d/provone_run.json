@@ -5,26 +5,36 @@
     },
     {
       "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#"
+    },
+    {
+      "wt": "http://wholetale.org/ontology/wt#"
+    },
+    {
+      "tale": "http://wholetale.org/tale2035/version1021#"
+    },
+    {
+      "run": "http://wholetale.org/tale2035/version1021/run1119#"
     }
   ],
   "@graph": [
     {
-      "@id": "tale_execution",
+      "@id": "run:execution_1",
       "@type": "provone:Execution",
       "prov:used": [
         {
-          "@id": "file://./inputs/input.txt"
+          "@id": "run:data_file_i22",
+          "@type": "wt:DataFile",
+          "wt:FilePath": "./inputs/input.txt"
         }
       ]
     },
     {
-      "@id": "file://./inputs/input.txt",
-      "@type": "provone:Data"
-    },
-    {
-      "@id": "file://./outputs/output.txt",
-      "@type": "provone:Data",
-      "prov:wasGeneratedBy": "tale_execution"
+      "@id": "run:data_file_i10",
+      "@type": "wt:DataFile",
+      "wt:FilePath": "./outputs/output.txt",
+      "prov:wasGeneratedBy": {
+        "id": "run:execution_1"
+      }
     }
   ]
 }
