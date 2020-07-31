@@ -63,14 +63,14 @@ wt_edges__run_to_output_files() :-
 
 :- table wt_process_uses_data/1.
 wt_process_uses_data(ProcessID) :-
-    wt_process(ProcessID, _, _),
+    wt_process(ProcessID, _, _, _),
     wt_file_read(_, _, ProcessID, _, _, _).
 wt_process_uses_data(ProcessID) :-
-    wt_process(ProcessID, _, _),
+    wt_process(ProcessID, _, _, _),
     wt_file_write(_, _, ProcessID, _, _, _).
 
 wt_nodes__processes() :-
-    wt_process(ProcessID, ExecutionID, Path),
+    wt_process(ProcessID, _, ExecutionID, Path),
     wt_process_uses_data(ProcessID),
     wt_executable_node_name(ExecutionID, ProcessNodeName),
     gv_labeled_node(ProcessNodeName, Path),
@@ -87,7 +87,7 @@ wt_nodes__data_files() :-
     true.
 
 wt_edges__processes_to_data_files() :-
-    wt_process(ProcessID, ExecutionID, _),
+    wt_process(ProcessID, _, ExecutionID, _),
     wt_file_write(_, _, ProcessID, PathIndex, _, _),
     wt_data_file(PathIndex, _, _),
     wt_executable_node_name(ExecutionID, ProcessNodeName),
@@ -98,7 +98,7 @@ wt_edges__processes_to_data_files() :-
     true.
 
 wt_edges__data_files_to_processes() :-
-    wt_process(ProcessID, ExecutionID, _),
+    wt_process(ProcessID, _, ExecutionID, _),
     wt_file_read(_, _, ProcessID, PathIndex, _, _),
     wt_data_file(PathIndex, _, _),
     wt_executable_node_name(ExecutionID, ProcessNodeName),

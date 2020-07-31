@@ -26,15 +26,12 @@ json :-
             json_start_object(),
                 json_property('@id', 'run:execution_1'), comma,
                 json_property('@type', 'provone:Execution'), comma,
-
                 json_array_start('prov:used'),
                     provone_used_data(),
                 json_array_end(), comma,
-
                 json_array_start('prov:generated'),
                     provone_generated_data(),
                 json_array_end(),
-
             json_end(),
         json_array_end(),
     json_end(), nl.

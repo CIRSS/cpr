@@ -1,15 +1,15 @@
 
 
 %---------------------------------------------------------------------------------------------------
-% FACT: wt_process(ProcessID, ExecID, ExecPath).
+% FACT: wt_process(ProcessID, ParentID, ExecID, ExecPath).
 %...................................................................................................
-wt_process(p7,e7,'/bin/cat').
-wt_process(p6,e6,'/bin/cat').
-wt_process(p5,e5,'/bin/cat').
-wt_process(p4,e4,'/bin/cat').
-wt_process(p3,e3,'/bin/cat').
-wt_process(p2,e2,'/bin/cat').
-wt_process(p1,e1,'./run.sh').
+wt_process(p7,p1,e7,'/bin/cat').
+wt_process(p6,p1,e6,'/bin/cat').
+wt_process(p5,p1,e5,'/bin/cat').
+wt_process(p4,p1,e4,'/bin/cat').
+wt_process(p3,p1,e3,'/bin/cat').
+wt_process(p2,p1,e2,'/bin/cat').
+wt_process(p1,nil,e1,'./run.sh').
 
 
 %---------------------------------------------------------------------------------------------------
@@ -73,11 +73,11 @@ wt_file_write(o83,r0,p7,i31,'./outputs/o4.txt',out).
 %...................................................................................................
 wt_data_file(i28,'./inputs/i4.txt',in).
 wt_data_file(i11,'./temp/t12.txt',tmp).
-wt_data_file(i29,'./outputs/o12.txt',out).
+wt_data_file(i30,'./outputs/o1234.txt',out).
 wt_data_file(i23,'./inputs/i1.txt',in).
 wt_data_file(i26,'./inputs/i3.txt',in).
 wt_data_file(i24,'./inputs/i2.txt',in).
-wt_data_file(i31,'./outputs/o4.txt',out).
+wt_data_file(i29,'./outputs/o12.txt',out).
 wt_data_file(i27,'./temp/t4.txt',tmp).
 wt_data_file(i25,'./temp/t123.txt',tmp).
-wt_data_file(i30,'./outputs/o1234.txt',out).
+wt_data_file(i31,'./outputs/o4.txt',out).

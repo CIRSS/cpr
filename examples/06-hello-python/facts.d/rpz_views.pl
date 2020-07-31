@@ -1,11 +1,11 @@
 
 
 %---------------------------------------------------------------------------------------------------
-% FACT: wt_process(ProcessID, ExecID, ExecPath).
+% FACT: wt_process(ProcessID, ParentID, ExecID, ExecPath).
 %...................................................................................................
-wt_process(p2,e3,'/home/repro/.venv/reprozip/bin/python').
-wt_process(p2,e2,'./hello.py').
-wt_process(p1,e1,'./run.sh').
+wt_process(p2,p1,e3,'/home/repro/.venv/reprozip/bin/python').
+wt_process(p2,p1,e2,'./hello.py').
+wt_process(p1,nil,e1,'./run.sh').
 
 
 %---------------------------------------------------------------------------------------------------
