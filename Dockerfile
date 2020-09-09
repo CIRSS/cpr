@@ -69,17 +69,6 @@ RUN echo '***** Download yw-prototypes jar and create alias *****'          \
     && wget -O $YW_JAR ${YW_RELEASE_DIR}/${YW_RELEASE_JAR}                  \
     && echo "alias yw='java -jar $YW_JAR'"  >> $HOME/.bash_aliases
 
-ENV JENA_VERSION 3.14.0
-ENV JENA_BINARIES http://mirror.metrocast.net/apache/jena/binaries
-ENV JENA_VERSION_NAME apache-jena-${JENA_VERSION}
-ENV JENA_ARCHIVE ${JENA_VERSION_NAME}.tar.gz
-
-RUN echo '***** Download Apache Jena and add arq to PATH       *****'       \
-    && wget ${JENA_BINARIES}/${JENA_ARCHIVE}                                \
-    && tar xvvf ${JENA_ARCHIVE}                                             \
-    && rm ${JENA_ARCHIVE}                                                   \
-    && echo 'PATH=~/${JENA_VERSION_NAME}/bin:$PATH' >> ${BASHRC}
-
 ENV XSB_REPO https://downloads.sourceforge.net/project/xsb
 ENV XSB_VERSION 3.8%20%28Three-Buck%20Chuck%29
 ENV XSB_RELEASE_DIR ${XSB_REPO}/xsb/${XSB_VERSION}

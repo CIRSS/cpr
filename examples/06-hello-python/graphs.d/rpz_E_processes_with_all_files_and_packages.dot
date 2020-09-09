@@ -44,7 +44,7 @@ digraph G {
         "/lib/x86_64-linux-gnu/libexpat.so.1";
     }
     subgraph cluster_pkg5 {
-        label="libpython3.7-minimal 3.7.3-2+deb10u1";
+        label="libpython3.7-minimal 3.7.3-2+deb10u2";
         "/usr/lib/python3.7/_bootlocale.py";
         "/usr/lib/python3.7/_collections_abc.py";
         "/usr/lib/python3.7/_sitebuiltins.py";
@@ -88,7 +88,7 @@ digraph G {
         "/usr/bin/python3";
     }
     subgraph cluster_pkg9 {
-        label="python3.7-minimal 3.7.3-2+deb10u1";
+        label="python3.7-minimal 3.7.3-2+deb10u2";
         "/usr/bin/python3.7";
     }
     subgraph cluster_pkg10 {
