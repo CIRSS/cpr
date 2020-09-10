@@ -22,7 +22,7 @@
       "@type": "provone:Execution",
       "prov:used": [
         {
-          "@id": "run:data_file_i22",
+          "@id": "run:data_file_i20",
           "@type": "wt:DataFile",
           "wt:FilePath": "./inputs/input.txt"
         }

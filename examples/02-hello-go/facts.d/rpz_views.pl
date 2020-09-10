@@ -10,8 +10,8 @@ wt_process(p1,nil,e1,'./run.sh').
 %---------------------------------------------------------------------------------------------------
 % FACT: wt_file_read(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).
 %...................................................................................................
-wt_file_read(o23,r0,p2,i4,'./bin/hello_go',sw).
-wt_file_read(o24,r0,p2,i6,'/sys/kernel/mm/transparent_hugepage/hpage_pmd_size',os).
+wt_file_read(o21,r0,p2,i4,'./bin/hello_go',sw).
+wt_file_read(o22,r0,p2,i6,'/sys/kernel/mm/transparent_hugepage/hpage_pmd_size',os).
 
 
 %---------------------------------------------------------------------------------------------------

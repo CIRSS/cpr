@@ -25,19 +25,17 @@ rpz_argument(e3, 1, 'temp/file2.txt').
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_file_open(OpenID, RunID, ProcessID, FilePath, Mode, IsDirectory, Timestamp).
 %---------------------------------------------------------------------------------------------------
-rpz_file_open(o33, r0, p2, '/mnt/wt-prov-model/examples/07-two-step-pipeline', 4, true, nil).
-rpz_file_open(o34, r0, p2, '/mnt/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt', 2, false, nil).
-rpz_file_open(o35, r0, p2, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
-rpz_file_open(o36, r0, p2, '/etc/ld.so.cache', 1, false, nil).
-rpz_file_open(o37, r0, p2, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
-rpz_file_open(o38, r0, p2, '/usr/lib/locale/C.UTF-8/LC_CTYPE', 1, false, nil).
-rpz_file_open(o39, r0, p2, '/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache', 1, false, nil).
-rpz_file_open(o40, r0, p2, '/mnt/wt-prov-model/examples/07-two-step-pipeline/inputs/file1.txt', 1, false, nil).
-rpz_file_open(o46, r0, p3, '/mnt/wt-prov-model/examples/07-two-step-pipeline', 4, true, nil).
-rpz_file_open(o47, r0, p3, '/mnt/wt-prov-model/examples/07-two-step-pipeline/outputs/file3.txt', 2, false, nil).
-rpz_file_open(o48, r0, p3, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
-rpz_file_open(o49, r0, p3, '/etc/ld.so.cache', 1, false, nil).
-rpz_file_open(o50, r0, p3, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
-rpz_file_open(o51, r0, p3, '/usr/lib/locale/C.UTF-8/LC_CTYPE', 1, false, nil).
-rpz_file_open(o52, r0, p3, '/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache', 1, false, nil).
-rpz_file_open(o53, r0, p3, '/mnt/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt', 1, false, nil).
+rpz_file_open(o31, r0, p2, '/mnt/wt-prov-model/examples/07-two-step-pipeline', 4, true, nil).
+rpz_file_open(o32, r0, p2, '/mnt/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt', 2, false, nil).
+rpz_file_open(o33, r0, p2, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
+rpz_file_open(o34, r0, p2, '/home/repro/reprozip/dist/main', 8, true, nil).
+rpz_file_open(o35, r0, p2, '/etc/ld.so.cache', 1, false, nil).
+rpz_file_open(o36, r0, p2, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
+rpz_file_open(o37, r0, p2, '/mnt/wt-prov-model/examples/07-two-step-pipeline/inputs/file1.txt', 1, false, nil).
+rpz_file_open(o43, r0, p3, '/mnt/wt-prov-model/examples/07-two-step-pipeline', 4, true, nil).
+rpz_file_open(o44, r0, p3, '/mnt/wt-prov-model/examples/07-two-step-pipeline/outputs/file3.txt', 2, false, nil).
+rpz_file_open(o45, r0, p3, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
+rpz_file_open(o46, r0, p3, '/home/repro/reprozip/dist/main', 8, true, nil).
+rpz_file_open(o47, r0, p3, '/etc/ld.so.cache', 1, false, nil).
+rpz_file_open(o48, r0, p3, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
+rpz_file_open(o49, r0, p3, '/mnt/wt-prov-model/examples/07-two-step-pipeline/temp/file2.txt', 1, false, nil).

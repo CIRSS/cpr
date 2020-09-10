@@ -27,7 +27,7 @@ WT_Q4 : What programs and scripts were executed during the run?
 
 q4_executed_file(FileName).
 ...................................................................................................
-q4_executed_file('/home/repro/.venv/reprozip/bin/python').
+q4_executed_file('/usr/bin/python3').
 q4_executed_file('./hello.py').
 q4_executed_file('./run.sh').
 
