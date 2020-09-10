@@ -2,8 +2,6 @@
 EXAMPLE_DIRS = $(wildcard [0-9]*/)
 
 all:
-	. ~/.venv/reprozip/bin/activate ;                                       \
-	                                                                        \
 	for dir in $(EXAMPLE_DIRS); do                                          \
 		echo;                                                               \
 		echo "---------- Running example $$dir -------------" ;	            \

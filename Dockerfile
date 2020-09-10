@@ -46,29 +46,6 @@ ENV BASHRC ${HOME}/.bashrc
 USER  ${REPRO_USER}
 WORKDIR $HOME
 
-ENV VENV_DIR ${HOME}/.venv
-ENV REPROZIP_VENV ${VENV_DIR}/reprozip
-
-RUN echo '***** install reprozip in python virtual environment *****'       \
-    && mkdir ${VENV_DIR}                                                    \
-    && python3 -m venv ${REPROZIP_VENV}                                     \
-    && . ${REPROZIP_VENV}/bin/activate                                      \
-    && pip install wheel                                                    \
-    && pip install reprozip reprounzip                                      \
-    && reprozip usage_report --disable                                      \
-    && deactivate
-
-ENV YW_VERSION 0.2.1.2
-ENV YW_RELEASES https://github.com/yesworkflow-org/yw-prototypes/releases
-ENV YW_RELEASE_DIR ${YW_RELEASES}/download/v${YW_VERSION}/
-ENV YW_RELEASE_JAR yesworkflow-${YW_VERSION}-jar-with-dependencies.jar
-ENV YW_JAR $HOME/bin/yesworkflow-${YW_VERSION}.jar
-
-RUN echo '***** Download yw-prototypes jar and create alias *****'          \
-    && mkdir $HOME/bin                                                      \
-    && wget -O $YW_JAR ${YW_RELEASE_DIR}/${YW_RELEASE_JAR}                  \
-    && echo "alias yw='java -jar $YW_JAR'"  >> $HOME/.bash_aliases
-
 ENV XSB_REPO https://downloads.sourceforge.net/project/xsb
 ENV XSB_VERSION 3.8%20%28Three-Buck%20Chuck%29
 ENV XSB_RELEASE_DIR ${XSB_REPO}/xsb/${XSB_VERSION}
@@ -90,8 +67,28 @@ RUN echo '\n***** Build and install the trace2facts command *****\n'        \
     && cd ./src/cmd/trace2facts                                             \
     && /usr/local/go/bin/go install .
 
-RUN echo 'PATH=~/go/bin:/usr/local/go/bin:$PATH' >> ${BASHRC}
-RUN echo 'source .venv/reprozip/bin/activate' >> ${BASHRC}
+ENV VENV_DIR ${HOME}/.venv
+ENV REPROZIP_VENV ${VENV_DIR}/reprozip
+ENV REPROZIP_VENV_PACKAGES ${REPROZIP_VENV}/lib/python3.7/site-packages
+ENV REPROZIP_INSTALL ${HOME}/reprozip
+ENV RPZ_BIN_DIR ${REPROZIP_INSTALL}/dist/main
+
+RUN echo '***** install reprozip in python virtual environment *****'       \
+    && mkdir ${VENV_DIR}                                                    \
+    && python3 -m venv ${REPROZIP_VENV}                                     \
+    && . ${REPROZIP_VENV}/bin/activate                                      \
+    && pip install wheel                                                    \
+    && pip install pyinstaller                                              \
+    && pip install reprozip reprounzip                                      \
+    && reprozip usage_report --disable                                      \
+    && mkdir ${REPROZIP_INSTALL}                                            \
+    && cd ${REPROZIP_INSTALL}                                               \
+    && pyinstaller ${REPROZIP_VENV_PACKAGES}/reprozip/main.py               \
+    && mv ${RPZ_BIN_DIR}/main ${RPZ_BIN_DIR}/reprozip.pyi                   \
+	&& rm -rf ${REPROZIP_VENV}												\
+    && deactivate
+
+RUN echo 'PATH=~/go/bin:/usr/local/go/bin:$PATH':${RPZ_BIN_DIR} >> ${BASHRC}
 RUN echo "export IN_RUNNING_REPRO=${REPRO_NAME}" >> ${BASHRC}
 RUN echo "cd ${REPRO_MNT}" >> ${BASHRC}
 

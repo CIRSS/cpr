@@ -19,18 +19,6 @@ RPZ_TRACE=$(RPZ_TRACE_SQLITE) $(RPZ_TRACE_YAML)
 RPZ_FACTS=$(FACTS_DIR)/rpz_facts.pl
 RPZ_VIEWS=$(FACTS_DIR)/rpz_views.pl
 
-RPZ_RUN_IO_FILES=$(GRAPHS_DIR)/rpz_A_run_with_input_and_output_files
-RPZ_PROCESSES_IO_FILES=$(GRAPHS_DIR)/rpz_B_processes_with_input_and_output_files
-RPZ_PROCESSES_NONPACKAGE_FILES=$(GRAPHS_DIR)/rpz_C_processes_with_nonpackage_files
-RPZ_PROCESSES_NONPACKAGE_FILES_PACKAGES=$(GRAPHS_DIR)/rpz_D_processes_with_nonpackage_files_and_packages
-RPZ_PROCESSES_FILES_PACKAGES=$(GRAPHS_DIR)/rpz_E_processes_with_all_files_and_packages
-
-RPZ_GRAPHS=$(RPZ_RUN_IO_FILES).dot							\
-           $(RPZ_PROCESSES_IO_FILES).dot					\
-		   $(RPZ_PROCESSES_NONPACKAGE_FILES).dot			\
-		   $(RPZ_PROCESSES_NONPACKAGE_FILES_PACKAGES).dot	\
-		   $(RPZ_PROCESSES_FILES_PACKAGES).dot
-
 WT_FACTS=$(FACTS_DIR)/wt_facts.pl
 
 QUERY_RUN=$(QUERIES_DIR)/wt_run_queries.txt
@@ -60,7 +48,7 @@ PROV=$(PROV_RUN_JSON) $(PROVONE_RUN_JSON)
 FACTS=$(WT_FACTS) $(RPZ_FACTS)
 VIEWS=$(RPZ_VIEWS)
 QUERIES=$(WT_QUERIES) 
-GRAPHS=$(WT_GRAPHS) $(RPZ_GRAPHS)
+GRAPHS=$(WT_GRAPHS)
 PNGS = $(GRAPHS:.dot=.png)
 
 .SUFFIXES:
@@ -98,33 +86,13 @@ $(DIRS):
 	mkdir -p $@
 
 $(RPZ_TRACE): build $(OUTPUTS_DIR) $(TEMP_DIR)
-	reprozip trace --overwrite ./run.sh
+	reprozip.pyi trace --overwrite ./run.sh
 
 $(FACTS): $(RPZ_TRACE) $(FACTS_DIR)
 	trace2facts -i -n=$(shell basename $(CURDIR)) -rpz=$(RPZ_FACTS) -wt=$(WT_FACTS) -m $(RPZ_TRACE_DIR)
 
 $(RPZ_VIEWS): $(WT_FACTS) $(RPZ_FACTS)
 	bash $(SCRIPTS_DIR)/materialize_rpz_views.sh > $@
-
-$(RPZ_RUN_IO_FILES).dot: $(RPZ_TRACE) $(GRAPHS_DIR)
-	rm -fv $@
-	reprounzip graph --processes run --packages drop --otherfiles io $@
-
-$(RPZ_PROCESSES_IO_FILES).dot: $(RPZ_TRACE) $(GRAPHS_DIR)
-	rm -fv $@
-	reprounzip graph --processes process --packages drop --otherfiles io $@
-
-$(RPZ_PROCESSES_NONPACKAGE_FILES).dot: $(RPZ_TRACE) $(GRAPHS_DIR)
-	rm -fv $@
-	reprounzip graph --processes process --packages drop $@
-
-$(RPZ_PROCESSES_NONPACKAGE_FILES_PACKAGES).dot: $(RPZ_TRACE) $(GRAPHS_DIR)
-	rm -fv $@
-	reprounzip graph --packages package --processes process $@
-
-$(RPZ_PROCESSES_FILES_PACKAGES).dot: $(RPZ_TRACE) $(GRAPHS_DIR)
-	rm -fv $@
-	reprounzip graph --processes process $@
 
 $(QUERY_RUN): $(QUERIES_DIR) $(VIEWS)
 	bash $(SCRIPTS_DIR)/query_run.sh > $@
