@@ -1,1 +1,1 @@
-# CIRSS Comprehensive Provenance Record (CPR)
+# CIRSS Provenance Record (CPR)
