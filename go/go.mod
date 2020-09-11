@@ -1,4 +1,4 @@
-module github.com/whole-tale/wt-prov-model
+module github.com/cirss/cpr
 
 go 1.13
 

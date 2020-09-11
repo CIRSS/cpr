@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/whole-tale/wt-prov-model/wt/prov"
+	"github.com/cirss/cpr/wt/prov"
 
 	"github.com/tmcphillips/main-wrapper/mw"
 )
