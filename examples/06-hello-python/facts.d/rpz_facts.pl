@@ -8,9 +8,9 @@ rpz_process(p2, p1, r0, false, 0, nil).
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
 %---------------------------------------------------------------------------------------------------
-rpz_execution(e1, r0, p1, '/mnt/wt-prov-model/examples/06-hello-python/./run.sh', '/mnt/wt-prov-model/examples/06-hello-python', nil).
-rpz_execution(e2, r0, p2, '/mnt/wt-prov-model/examples/06-hello-python/./hello.py', '/mnt/wt-prov-model/examples/06-hello-python', nil).
-rpz_execution(e3, r0, p2, '/usr/bin/python3', '/mnt/wt-prov-model/examples/06-hello-python', nil).
+rpz_execution(e1, r0, p1, '/mnt/cpr/examples/06-hello-python/./run.sh', '/mnt/cpr/examples/06-hello-python', nil).
+rpz_execution(e2, r0, p2, '/mnt/cpr/examples/06-hello-python/./hello.py', '/mnt/cpr/examples/06-hello-python', nil).
+rpz_execution(e3, r0, p2, '/usr/bin/python3', '/mnt/cpr/examples/06-hello-python', nil).
 
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_argument(ExecID, ArgIndex, ArgValue).
@@ -23,7 +23,7 @@ rpz_argument(e3, 1, './hello.py').
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_file_open(OpenID, RunID, ProcessID, FilePath, Mode, IsDirectory, Timestamp).
 %---------------------------------------------------------------------------------------------------
-rpz_file_open(o20, r0, p2, '/mnt/wt-prov-model/examples/06-hello-python', 4, true, nil).
+rpz_file_open(o20, r0, p2, '/mnt/cpr/examples/06-hello-python', 4, true, nil).
 rpz_file_open(o21, r0, p2, '/usr/bin/env', 1, false, nil).
 rpz_file_open(o22, r0, p2, '/usr/bin/env', 1, false, nil).
 rpz_file_open(o23, r0, p2, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
@@ -136,8 +136,8 @@ rpz_file_open(o129, r0, p2, '/usr/lib/python3.7', 8, true, nil).
 rpz_file_open(o130, r0, p2, '/usr/lib/python3.7/lib-dynload', 8, true, nil).
 rpz_file_open(o131, r0, p2, '/usr/local/lib/python3.7/dist-packages', 8, true, nil).
 rpz_file_open(o132, r0, p2, '/usr/lib/python3/dist-packages', 8, true, nil).
-rpz_file_open(o133, r0, p2, '/mnt/wt-prov-model/examples/06-hello-python/./hello.py', 8, false, nil).
-rpz_file_open(o134, r0, p2, '/mnt/wt-prov-model/examples/06-hello-python/./hello.py', 1, false, nil).
-rpz_file_open(o135, r0, p2, '/mnt/wt-prov-model/examples/06-hello-python/./hello.py', 8, false, nil).
-rpz_file_open(o136, r0, p2, '/mnt/wt-prov-model/examples/06-hello-python/hello.py', 24, false, nil).
-rpz_file_open(o137, r0, p2, '/mnt/wt-prov-model/examples/06-hello-python/./hello.py', 1, false, nil).
+rpz_file_open(o133, r0, p2, '/mnt/cpr/examples/06-hello-python/./hello.py', 8, false, nil).
+rpz_file_open(o134, r0, p2, '/mnt/cpr/examples/06-hello-python/./hello.py', 1, false, nil).
+rpz_file_open(o135, r0, p2, '/mnt/cpr/examples/06-hello-python/./hello.py', 8, false, nil).
+rpz_file_open(o136, r0, p2, '/mnt/cpr/examples/06-hello-python/hello.py', 24, false, nil).
+rpz_file_open(o137, r0, p2, '/mnt/cpr/examples/06-hello-python/./hello.py', 1, false, nil).

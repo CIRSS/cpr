@@ -1,6 +1,6 @@
 FROM debian:10.2
 
-ENV REPRO_NAME  wt-prov-model
+ENV REPRO_NAME  cpr
 ENV REPRO_MNT   /mnt/${REPRO_NAME}
 ENV REPRO_USER  repro
 ENV REPRO_UID   1000

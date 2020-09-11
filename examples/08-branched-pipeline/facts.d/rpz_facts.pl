@@ -13,13 +13,13 @@ rpz_process(p7, p1, r0, false, 0, nil).
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
 %---------------------------------------------------------------------------------------------------
-rpz_execution(e1, r0, p1, '/mnt/wt-prov-model/examples/08-branched-pipeline/./run.sh', '/mnt/wt-prov-model/examples/08-branched-pipeline', nil).
-rpz_execution(e2, r0, p2, '/bin/cat', '/mnt/wt-prov-model/examples/08-branched-pipeline', nil).
-rpz_execution(e3, r0, p3, '/bin/cat', '/mnt/wt-prov-model/examples/08-branched-pipeline', nil).
-rpz_execution(e4, r0, p4, '/bin/cat', '/mnt/wt-prov-model/examples/08-branched-pipeline', nil).
-rpz_execution(e5, r0, p5, '/bin/cat', '/mnt/wt-prov-model/examples/08-branched-pipeline', nil).
-rpz_execution(e6, r0, p6, '/bin/cat', '/mnt/wt-prov-model/examples/08-branched-pipeline', nil).
-rpz_execution(e7, r0, p7, '/bin/cat', '/mnt/wt-prov-model/examples/08-branched-pipeline', nil).
+rpz_execution(e1, r0, p1, '/mnt/cpr/examples/08-branched-pipeline/./run.sh', '/mnt/cpr/examples/08-branched-pipeline', nil).
+rpz_execution(e2, r0, p2, '/bin/cat', '/mnt/cpr/examples/08-branched-pipeline', nil).
+rpz_execution(e3, r0, p3, '/bin/cat', '/mnt/cpr/examples/08-branched-pipeline', nil).
+rpz_execution(e4, r0, p4, '/bin/cat', '/mnt/cpr/examples/08-branched-pipeline', nil).
+rpz_execution(e5, r0, p5, '/bin/cat', '/mnt/cpr/examples/08-branched-pipeline', nil).
+rpz_execution(e6, r0, p6, '/bin/cat', '/mnt/cpr/examples/08-branched-pipeline', nil).
+rpz_execution(e7, r0, p7, '/bin/cat', '/mnt/cpr/examples/08-branched-pipeline', nil).
 
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_argument(ExecID, ArgIndex, ArgValue).
@@ -45,49 +45,49 @@ rpz_argument(e7, 1, 'temp/t4.txt').
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_file_open(OpenID, RunID, ProcessID, FilePath, Mode, IsDirectory, Timestamp).
 %---------------------------------------------------------------------------------------------------
-rpz_file_open(o31, r0, p2, '/mnt/wt-prov-model/examples/08-branched-pipeline', 4, true, nil).
-rpz_file_open(o32, r0, p2, '/mnt/wt-prov-model/examples/08-branched-pipeline/temp/t12.txt', 2, false, nil).
+rpz_file_open(o31, r0, p2, '/mnt/cpr/examples/08-branched-pipeline', 4, true, nil).
+rpz_file_open(o32, r0, p2, '/mnt/cpr/examples/08-branched-pipeline/temp/t12.txt', 2, false, nil).
 rpz_file_open(o33, r0, p2, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
 rpz_file_open(o34, r0, p2, '/home/repro/reprozip/dist/main', 8, true, nil).
 rpz_file_open(o35, r0, p2, '/etc/ld.so.cache', 1, false, nil).
 rpz_file_open(o36, r0, p2, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
-rpz_file_open(o37, r0, p2, '/mnt/wt-prov-model/examples/08-branched-pipeline/inputs/i1.txt', 1, false, nil).
-rpz_file_open(o38, r0, p2, '/mnt/wt-prov-model/examples/08-branched-pipeline/inputs/i2.txt', 1, false, nil).
-rpz_file_open(o44, r0, p3, '/mnt/wt-prov-model/examples/08-branched-pipeline', 4, true, nil).
-rpz_file_open(o45, r0, p3, '/mnt/wt-prov-model/examples/08-branched-pipeline/temp/t123.txt', 2, false, nil).
+rpz_file_open(o37, r0, p2, '/mnt/cpr/examples/08-branched-pipeline/inputs/i1.txt', 1, false, nil).
+rpz_file_open(o38, r0, p2, '/mnt/cpr/examples/08-branched-pipeline/inputs/i2.txt', 1, false, nil).
+rpz_file_open(o44, r0, p3, '/mnt/cpr/examples/08-branched-pipeline', 4, true, nil).
+rpz_file_open(o45, r0, p3, '/mnt/cpr/examples/08-branched-pipeline/temp/t123.txt', 2, false, nil).
 rpz_file_open(o46, r0, p3, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
 rpz_file_open(o47, r0, p3, '/home/repro/reprozip/dist/main', 8, true, nil).
 rpz_file_open(o48, r0, p3, '/etc/ld.so.cache', 1, false, nil).
 rpz_file_open(o49, r0, p3, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
-rpz_file_open(o50, r0, p3, '/mnt/wt-prov-model/examples/08-branched-pipeline/inputs/i1.txt', 1, false, nil).
-rpz_file_open(o51, r0, p3, '/mnt/wt-prov-model/examples/08-branched-pipeline/inputs/i2.txt', 1, false, nil).
-rpz_file_open(o52, r0, p3, '/mnt/wt-prov-model/examples/08-branched-pipeline/inputs/i3.txt', 1, false, nil).
-rpz_file_open(o53, r0, p4, '/mnt/wt-prov-model/examples/08-branched-pipeline', 4, true, nil).
-rpz_file_open(o54, r0, p4, '/mnt/wt-prov-model/examples/08-branched-pipeline/temp/t4.txt', 2, false, nil).
+rpz_file_open(o50, r0, p3, '/mnt/cpr/examples/08-branched-pipeline/inputs/i1.txt', 1, false, nil).
+rpz_file_open(o51, r0, p3, '/mnt/cpr/examples/08-branched-pipeline/inputs/i2.txt', 1, false, nil).
+rpz_file_open(o52, r0, p3, '/mnt/cpr/examples/08-branched-pipeline/inputs/i3.txt', 1, false, nil).
+rpz_file_open(o53, r0, p4, '/mnt/cpr/examples/08-branched-pipeline', 4, true, nil).
+rpz_file_open(o54, r0, p4, '/mnt/cpr/examples/08-branched-pipeline/temp/t4.txt', 2, false, nil).
 rpz_file_open(o55, r0, p4, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
 rpz_file_open(o56, r0, p4, '/home/repro/reprozip/dist/main', 8, true, nil).
 rpz_file_open(o57, r0, p4, '/etc/ld.so.cache', 1, false, nil).
 rpz_file_open(o58, r0, p4, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
-rpz_file_open(o59, r0, p4, '/mnt/wt-prov-model/examples/08-branched-pipeline/inputs/i4.txt', 1, false, nil).
-rpz_file_open(o60, r0, p5, '/mnt/wt-prov-model/examples/08-branched-pipeline', 4, true, nil).
-rpz_file_open(o61, r0, p5, '/mnt/wt-prov-model/examples/08-branched-pipeline/outputs/o12.txt', 2, false, nil).
+rpz_file_open(o59, r0, p4, '/mnt/cpr/examples/08-branched-pipeline/inputs/i4.txt', 1, false, nil).
+rpz_file_open(o60, r0, p5, '/mnt/cpr/examples/08-branched-pipeline', 4, true, nil).
+rpz_file_open(o61, r0, p5, '/mnt/cpr/examples/08-branched-pipeline/outputs/o12.txt', 2, false, nil).
 rpz_file_open(o62, r0, p5, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
 rpz_file_open(o63, r0, p5, '/home/repro/reprozip/dist/main', 8, true, nil).
 rpz_file_open(o64, r0, p5, '/etc/ld.so.cache', 1, false, nil).
 rpz_file_open(o65, r0, p5, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
-rpz_file_open(o66, r0, p5, '/mnt/wt-prov-model/examples/08-branched-pipeline/temp/t12.txt', 1, false, nil).
-rpz_file_open(o67, r0, p6, '/mnt/wt-prov-model/examples/08-branched-pipeline', 4, true, nil).
-rpz_file_open(o68, r0, p6, '/mnt/wt-prov-model/examples/08-branched-pipeline/outputs/o1234.txt', 2, false, nil).
+rpz_file_open(o66, r0, p5, '/mnt/cpr/examples/08-branched-pipeline/temp/t12.txt', 1, false, nil).
+rpz_file_open(o67, r0, p6, '/mnt/cpr/examples/08-branched-pipeline', 4, true, nil).
+rpz_file_open(o68, r0, p6, '/mnt/cpr/examples/08-branched-pipeline/outputs/o1234.txt', 2, false, nil).
 rpz_file_open(o69, r0, p6, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
 rpz_file_open(o70, r0, p6, '/home/repro/reprozip/dist/main', 8, true, nil).
 rpz_file_open(o71, r0, p6, '/etc/ld.so.cache', 1, false, nil).
 rpz_file_open(o72, r0, p6, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
-rpz_file_open(o73, r0, p6, '/mnt/wt-prov-model/examples/08-branched-pipeline/temp/t123.txt', 1, false, nil).
-rpz_file_open(o74, r0, p6, '/mnt/wt-prov-model/examples/08-branched-pipeline/temp/t4.txt', 1, false, nil).
-rpz_file_open(o75, r0, p7, '/mnt/wt-prov-model/examples/08-branched-pipeline', 4, true, nil).
-rpz_file_open(o76, r0, p7, '/mnt/wt-prov-model/examples/08-branched-pipeline/outputs/o4.txt', 2, false, nil).
+rpz_file_open(o73, r0, p6, '/mnt/cpr/examples/08-branched-pipeline/temp/t123.txt', 1, false, nil).
+rpz_file_open(o74, r0, p6, '/mnt/cpr/examples/08-branched-pipeline/temp/t4.txt', 1, false, nil).
+rpz_file_open(o75, r0, p7, '/mnt/cpr/examples/08-branched-pipeline', 4, true, nil).
+rpz_file_open(o76, r0, p7, '/mnt/cpr/examples/08-branched-pipeline/outputs/o4.txt', 2, false, nil).
 rpz_file_open(o77, r0, p7, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
 rpz_file_open(o78, r0, p7, '/home/repro/reprozip/dist/main', 8, true, nil).
 rpz_file_open(o79, r0, p7, '/etc/ld.so.cache', 1, false, nil).
 rpz_file_open(o80, r0, p7, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
-rpz_file_open(o81, r0, p7, '/mnt/wt-prov-model/examples/08-branched-pipeline/temp/t4.txt', 1, false, nil).
+rpz_file_open(o81, r0, p7, '/mnt/cpr/examples/08-branched-pipeline/temp/t4.txt', 1, false, nil).
