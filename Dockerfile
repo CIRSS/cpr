@@ -42,9 +42,35 @@ RUN echo '***** Add the REPRO user and group *****'                         \
     && chmod 0440 /etc/sudoers.d/repro
 
 ENV HOME /home/${REPRO_USER}
+ENV USER_BIN ${HOME}/bin
 ENV BASHRC ${HOME}/.bashrc
 USER  ${REPRO_USER}
+
 WORKDIR $HOME
+
+RUN echo '***** Make the user bin directory *****'                          \
+    && mkdir ${USER_BIN}
+
+ENV GEIST_VERSION v0.1.1
+ENV GEIST_RELEASES https://github.com/cirss/geist/releases
+ENV GEIST_DOWNLOAD_DIR ${GEIST_RELEASES}/download/${GEIST_VERSION}
+ENV GEIST_DOWNLOAD_URL ${GEIST_DOWNLOAD_DIR}/blazegraph
+ENV GEIST_BINARY ${USER_BIN}/blazegraph
+
+RUN echo '***** Install Geist in user bin directory *****'                  \
+    && wget -O ${GEIST_BINARY} ${GEIST_DOWNLOAD_URL}                        \
+    && chmod u+x ${GEIST_BINARY}
+
+ENV REPROZIP_VERSION v1.0.16-r1
+ENV REPROZIP_RELEASES https://github.com/cirss/reprozip-static/releases
+ENV REPROZIP_DOWNLOAD_DIR ${REPROZIP_RELEASES}/download/${REPROZIP_VERSION}
+ENV REPROZIP_DOWNLOAD_URL ${REPROZIP_DOWNLOAD_DIR}/reprozip-1.016-linux-x86-64-static
+ENV REPROZIP_BINARY ${USER_BIN}/reprozip
+
+RUN echo '***** Install Geist in user bin directory *****'                  \
+    && wget -O ${REPROZIP_BINARY} ${REPROZIP_DOWNLOAD_URL}                  \
+    && chmod u+x ${REPROZIP_BINARY}                                         \
+    && ${REPROZIP_BINARY} usage_report --disable
 
 ENV XSB_REPO https://downloads.sourceforge.net/project/xsb
 ENV XSB_VERSION 3.8%20%28Three-Buck%20Chuck%29
@@ -61,32 +87,12 @@ RUN echo '***** Download and build XSB 3.8 *****'                           \
     && ./makexsb                                                            \
     && echo "PATH=${XSB_INSTALLATION_BIN}:$PATH" >> ${BASHRC}
 
-COPY src src
+COPY go src
 
 RUN echo '\n***** Build and install the trace2facts command *****\n'        \
     && cd ./src/cmd/trace2facts                                             \
     && /usr/local/go/bin/go install .
 
-ENV VENV_DIR ${HOME}/.venv
-ENV REPROZIP_VENV ${VENV_DIR}/reprozip
-ENV REPROZIP_VENV_PACKAGES ${REPROZIP_VENV}/lib/python3.7/site-packages
-ENV REPROZIP_INSTALL ${HOME}/reprozip
-ENV RPZ_BIN_DIR ${REPROZIP_INSTALL}/dist/main
-
-RUN echo '***** install reprozip in python virtual environment *****'       \
-    && mkdir ${VENV_DIR}                                                    \
-    && python3 -m venv ${REPROZIP_VENV}                                     \
-    && . ${REPROZIP_VENV}/bin/activate                                      \
-    && pip install wheel                                                    \
-    && pip install pyinstaller                                              \
-    && pip install reprozip reprounzip                                      \
-    && reprozip usage_report --disable                                      \
-    && mkdir ${REPROZIP_INSTALL}                                            \
-    && cd ${REPROZIP_INSTALL}                                               \
-    && pyinstaller ${REPROZIP_VENV_PACKAGES}/reprozip/main.py               \
-    && mv ${RPZ_BIN_DIR}/main ${RPZ_BIN_DIR}/reprozip.pyi                   \
-	&& rm -rf ${REPROZIP_VENV}												\
-    && deactivate
 
 RUN echo 'PATH=~/go/bin:/usr/local/go/bin:$PATH':${RPZ_BIN_DIR} >> ${BASHRC}
 RUN echo "export IN_RUNNING_REPRO=${REPRO_NAME}" >> ${BASHRC}

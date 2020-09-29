@@ -13,32 +13,32 @@ node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier
 "exe:e3" [label="/bin/cat"]
 "exe:e2" [label="/bin/cat"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-"access:i23" [label="./temp/t123.txt"]
-"access:i28" [label="./outputs/o1234.txt"]
-"access:i26" [label="./inputs/i4.txt"]
+"access:i24" [label="./outputs/o1234.txt"]
+"access:i18" [label="./inputs/i2.txt"]
+"access:i21" [label="./temp/t4.txt"]
+"access:i19" [label="./temp/t123.txt"]
+"access:i22" [label="./inputs/i4.txt"]
+"access:i25" [label="./outputs/o4.txt"]
 "access:i11" [label="./temp/t12.txt"]
-"access:i27" [label="./outputs/o12.txt"]
-"access:i21" [label="./inputs/i1.txt"]
-"access:i24" [label="./inputs/i3.txt"]
-"access:i22" [label="./inputs/i2.txt"]
-"access:i29" [label="./outputs/o4.txt"]
-"access:i25" [label="./temp/t4.txt"]
-"exe:e7" -> "access:i29"
-"exe:e6" -> "access:i28"
-"exe:e5" -> "access:i27"
-"exe:e4" -> "access:i25"
-"exe:e3" -> "access:i23"
+"access:i23" [label="./outputs/o12.txt"]
+"access:i17" [label="./inputs/i1.txt"]
+"access:i20" [label="./inputs/i3.txt"]
+"exe:e7" -> "access:i25"
+"exe:e6" -> "access:i24"
+"exe:e5" -> "access:i23"
+"exe:e4" -> "access:i21"
+"exe:e3" -> "access:i19"
 "exe:e2" -> "access:i11"
-"access:i25" -> "exe:e7"
-"access:i23" -> "exe:e6"
-"access:i25" -> "exe:e6"
+"access:i21" -> "exe:e7"
+"access:i19" -> "exe:e6"
+"access:i21" -> "exe:e6"
 "access:i11" -> "exe:e5"
-"access:i26" -> "exe:e4"
-"access:i21" -> "exe:e3"
-"access:i22" -> "exe:e3"
-"access:i24" -> "exe:e3"
-"access:i21" -> "exe:e2"
-"access:i22" -> "exe:e2"
+"access:i22" -> "exe:e4"
+"access:i17" -> "exe:e3"
+"access:i18" -> "exe:e3"
+"access:i20" -> "exe:e3"
+"access:i17" -> "exe:e2"
+"access:i18" -> "exe:e2"
 }}
 }
 

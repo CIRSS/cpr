@@ -23,6 +23,6 @@ rpz_argument(e2, 0, './bin/hello_c').
 rpz_file_open(o20, r0, p2, '/mnt/cpr/examples/03-hello-c', 4, true, nil).
 rpz_file_open(o21, r0, p2, '/mnt/cpr/examples/03-hello-c/bin/hello_c', 1, false, nil).
 rpz_file_open(o22, r0, p2, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
-rpz_file_open(o23, r0, p2, '/home/repro/reprozip/dist/main', 8, true, nil).
+rpz_file_open(o23, r0, p2, '/tmp/_MEIVAPWrH', 8, true, nil).
 rpz_file_open(o24, r0, p2, '/etc/ld.so.cache', 1, false, nil).
 rpz_file_open(o25, r0, p2, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).

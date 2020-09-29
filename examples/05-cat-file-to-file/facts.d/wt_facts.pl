@@ -23,7 +23,7 @@ wt_accessed_path(e2, r0, '/bin/cat', i9, sw).
 wt_accessed_path(o31, r0, '.', i4, sw).
 wt_accessed_path(o32, r0, './outputs/output.txt', i10, out).
 wt_accessed_path(o33, r0, '/lib/x86_64-linux-gnu/ld-2.28.so', i11, os).
-wt_accessed_path(o34, r0, '/home/repro/reprozip/dist/main', i13, nil).
-wt_accessed_path(o35, r0, '/etc/ld.so.cache', i18, os).
-wt_accessed_path(o36, r0, '/lib/x86_64-linux-gnu/libc.so.6', i19, os).
-wt_accessed_path(o37, r0, './inputs/input.txt', i20, in).
+wt_accessed_path(o34, r0, '/tmp/_MEIlYnj0T', i0, nil).
+wt_accessed_path(o35, r0, '/etc/ld.so.cache', i14, os).
+wt_accessed_path(o36, r0, '/lib/x86_64-linux-gnu/libc.so.6', i15, os).
+wt_accessed_path(o37, r0, './inputs/input.txt', i16, in).

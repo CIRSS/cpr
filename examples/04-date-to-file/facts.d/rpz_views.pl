@@ -12,12 +12,12 @@ wt_process(p1,nil,e1,'./run.sh').
 % FACT: wt_file_read(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).
 %...................................................................................................
 wt_file_read(o33,r0,p2,i11,'/lib/x86_64-linux-gnu/ld-2.28.so',os).
-wt_file_read(o35,r0,p2,i18,'/etc/ld.so.cache',os).
-wt_file_read(o36,r0,p2,i19,'/lib/x86_64-linux-gnu/libc.so.6',os).
-wt_file_read(o37,r0,p2,i20,'/etc/localtime',os).
+wt_file_read(o35,r0,p2,i14,'/etc/ld.so.cache',os).
+wt_file_read(o36,r0,p2,i15,'/lib/x86_64-linux-gnu/libc.so.6',os).
+wt_file_read(o37,r0,p2,i16,'/etc/localtime',os).
 wt_file_read(o56,r0,p4,i11,'/lib/x86_64-linux-gnu/ld-2.28.so',os).
-wt_file_read(o58,r0,p4,i18,'/etc/ld.so.cache',os).
-wt_file_read(o59,r0,p4,i19,'/lib/x86_64-linux-gnu/libc.so.6',os).
+wt_file_read(o58,r0,p4,i14,'/etc/ld.so.cache',os).
+wt_file_read(o59,r0,p4,i15,'/lib/x86_64-linux-gnu/libc.so.6',os).
 wt_file_read(o60,r0,p4,i10,'./outputs/date.txt',out).
 
 

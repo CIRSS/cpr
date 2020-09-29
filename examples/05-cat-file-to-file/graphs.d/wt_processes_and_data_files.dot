@@ -8,10 +8,10 @@ subgraph cluster_inputs_inner { label=""; color=white
 node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
 "exe:e2" [label="/bin/cat"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-"access:i20" [label="./inputs/input.txt"]
+"access:i16" [label="./inputs/input.txt"]
 "access:i10" [label="./outputs/output.txt"]
 "exe:e2" -> "access:i10"
-"access:i20" -> "exe:e2"
+"access:i16" -> "exe:e2"
 }}
 }
 

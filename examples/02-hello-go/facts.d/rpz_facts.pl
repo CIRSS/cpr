@@ -6,8 +6,8 @@ rpz_process(p1, nil, r0, false, 0, nil).
 rpz_process(p2, p1, r0, false, 0, nil).
 rpz_process(p3, p2, r0, true, 0, nil).
 rpz_process(p4, p2, r0, true, 0, nil).
-rpz_process(p5, p4, r0, true, 0, nil).
-rpz_process(p6, p2, r0, true, 0, nil).
+rpz_process(p5, p2, r0, true, 0, nil).
+rpz_process(p6, p4, r0, true, 0, nil).
 
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).

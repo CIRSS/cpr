@@ -86,7 +86,7 @@ $(DIRS):
 	mkdir -p $@
 
 $(RPZ_TRACE): build $(OUTPUTS_DIR) $(TEMP_DIR)
-	reprozip.pyi trace --overwrite ./run.sh
+	reprozip trace --overwrite ./run.sh
 
 $(FACTS): $(RPZ_TRACE) $(FACTS_DIR)
 	trace2facts -i -n=$(shell basename $(CURDIR)) -rpz=$(RPZ_FACTS) -wt=$(WT_FACTS) -m $(RPZ_TRACE_DIR)
