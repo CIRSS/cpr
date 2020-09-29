@@ -23,8 +23,8 @@ wt_file_read(o31,r0,p2,i17,'/lib/x86_64-linux-gnu/libcrypt.so.1',os).
 wt_file_read(o32,r0,p2,i18,'/lib/x86_64-linux-gnu/libpthread.so.0',os).
 wt_file_read(o33,r0,p2,i19,'/lib/x86_64-linux-gnu/libdl.so.2',os).
 wt_file_read(o34,r0,p2,i20,'/lib/x86_64-linux-gnu/libutil.so.1',os).
-wt_file_read(o35,r0,p2,i0,'/tmp/_MEIi3rh38/libexpat.so.1',nil).
-wt_file_read(o36,r0,p2,i0,'/tmp/_MEIi3rh38/libz.so.1',nil).
+wt_file_read(o35,r0,p2,i0,'/tmp/_MEIYegI7n/libexpat.so.1',nil).
+wt_file_read(o36,r0,p2,i0,'/tmp/_MEIYegI7n/libz.so.1',nil).
 wt_file_read(o37,r0,p2,i21,'/lib/x86_64-linux-gnu/libm.so.6',os).
 wt_file_read(o38,r0,p2,i16,'/lib/x86_64-linux-gnu/libc.so.6',os).
 wt_file_read(o43,r0,p2,i25,'/usr/lib/locale/C.UTF-8/LC_CTYPE',os).

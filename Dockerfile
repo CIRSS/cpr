@@ -89,8 +89,8 @@ RUN echo '***** Download and build XSB 3.8 *****'                           \
 
 COPY go src
 
-RUN echo '\n***** Build and install the trace2facts command *****\n'        \
-    && cd ./src/cmd/trace2facts                                             \
+RUN echo '\n***** Build and install the rpz2cpr command *****\n'        \
+    && cd ./src/cmd/rpz2cpr                                             \
     && /usr/local/go/bin/go install .
 
 

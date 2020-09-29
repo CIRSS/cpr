@@ -19,6 +19,6 @@ wt_accessed_path(e2, r0, './bin/hello_c', i5, sw).
 wt_accessed_path(o20, r0, '.', i3, sw).
 wt_accessed_path(o21, r0, './bin/hello_c', i5, sw).
 wt_accessed_path(o22, r0, '/lib/x86_64-linux-gnu/ld-2.28.so', i7, os).
-wt_accessed_path(o23, r0, '/tmp/_MEIVAPWrH', i0, nil).
+wt_accessed_path(o23, r0, '/tmp/_MEIhcHTlG', i0, nil).
 wt_accessed_path(o24, r0, '/etc/ld.so.cache', i10, os).
 wt_accessed_path(o25, r0, '/lib/x86_64-linux-gnu/libc.so.6', i11, os).

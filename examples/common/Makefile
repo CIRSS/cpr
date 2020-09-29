@@ -89,7 +89,7 @@ $(RPZ_TRACE): build $(OUTPUTS_DIR) $(TEMP_DIR)
 	reprozip trace --overwrite ./run.sh
 
 $(FACTS): $(RPZ_TRACE) $(FACTS_DIR)
-	trace2facts -i -n=$(shell basename $(CURDIR)) -rpz=$(RPZ_FACTS) -wt=$(WT_FACTS) -m $(RPZ_TRACE_DIR)
+	rpz2cpr -i -n=$(shell basename $(CURDIR)) -rpz=$(RPZ_FACTS) -wt=$(WT_FACTS) -m $(RPZ_TRACE_DIR)
 
 $(RPZ_VIEWS): $(WT_FACTS) $(RPZ_FACTS)
 	bash $(SCRIPTS_DIR)/materialize_rpz_views.sh > $@

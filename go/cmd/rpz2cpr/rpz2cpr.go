@@ -15,7 +15,7 @@ import (
 var MW mw.MainWrapper
 
 func init() {
-	MW = mw.NewMainWrapper("trace2facts", main)
+	MW = mw.NewMainWrapper("rpz2cpr", main)
 }
 
 // Extracts provenance information from the specified ReproZip trace directory
@@ -51,7 +51,7 @@ func main() {
 		}
 	}
 
-	config := prov.LoadConfig("trace2facts.yml")
+	config := prov.LoadConfig("rpz2cpr.yml")
 
 	prov.MaskNonrepeatables = *mask
 	prov.IgnoreFirstProcessFiles = *ignore
