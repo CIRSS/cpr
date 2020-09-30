@@ -1,26 +1,26 @@
 
 
 %---------------------------------------------------------------------------------------------------
-% FACT: wt_process(ProcessID, ParentID, ExecID, ExecPath).
+% FACT: cpr_process(ProcessID, ParentID, ExecID, ExecPath).
 %...................................................................................................
-wt_process(p2,p1,e2,'/usr/bin/date').
-wt_process(p1,nil,e1,'./run.sh').
+cpr_process(p2,p1,e2,'/usr/bin/date').
+cpr_process(p1,nil,e1,'./run.sh').
 
 
 %---------------------------------------------------------------------------------------------------
-% FACT: wt_file_read(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).
+% FACT: cpr_file_read(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).
 %...................................................................................................
-wt_file_read(o32,r0,p2,i6,'/usr/lib/x86_64-linux-gnu/ld-2.31.so',os).
-wt_file_read(o34,r0,p2,i9,'/etc/ld.so.cache',os).
-wt_file_read(o35,r0,p2,i10,'/lib/x86_64-linux-gnu/libc.so.6',os).
-wt_file_read(o36,r0,p2,i11,'/etc/localtime',os).
+cpr_file_read(o32,r0,p2,i6,'/usr/lib/x86_64-linux-gnu/ld-2.31.so',os).
+cpr_file_read(o34,r0,p2,i9,'/etc/ld.so.cache',os).
+cpr_file_read(o35,r0,p2,i10,'/lib/x86_64-linux-gnu/libc.so.6',os).
+cpr_file_read(o36,r0,p2,i11,'/etc/localtime',os).
 
 
 %---------------------------------------------------------------------------------------------------
-% FACT: wt_file_write(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).
+% FACT: cpr_file_write(AccessID, RunID, ProcessID, FileIndex, FilePath, FileRole).
 %...................................................................................................
 
 
 %---------------------------------------------------------------------------------------------------
-% FACT: wt_data_file(PathIndex, FilePath, PathRole).
+% FACT: cpr_data_file(PathIndex, FilePath, PathRole).
 %...................................................................................................

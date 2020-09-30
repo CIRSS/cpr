@@ -33,14 +33,14 @@ func GetPathRoleFacts(config Config, runID int64) []PathRole {
 }
 
 func WritePathRoleFacts(w io.Writer, pathRoles []PathRole) {
-	printRowHeader(w, "wt_path_role(RunID, Path, PathIndex, Role).")
+	printRowHeader(w, "cpr_path_role(RunID, Path, PathIndex, Role).")
 	for _, pr := range pathRoles {
 		fmt.Fprintln(w, pr)
 	}
 }
 
 func (pr PathRole) String() string {
-	return fmt.Sprintf("wt_path_role(%s, %s, %s, %s).",
+	return fmt.Sprintf("cpr_path_role(%s, %s, %s, %s).",
 		R(pr.RunID), Q(pr.Path), I(pr.PathIndex), pr.Role)
 }
 

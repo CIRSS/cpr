@@ -19,25 +19,25 @@ RPZ_TRACE=$(RPZ_TRACE_SQLITE) $(RPZ_TRACE_YAML)
 TRACE_FACTS=$(FACTS_DIR)/trace_facts.pl
 TRACE_VIEWS=$(FACTS_DIR)/trace_views.pl
 
-QUERY_RUN=$(QUERIES_DIR)/wt_run_queries.txt
+QUERY_RUN=$(QUERIES_DIR)/cpr_run_queries.txt
 
 ifdef QUERY_DIRECT_DEPENDENCIES_ARG
-QUERY_DIRECT_DEPENDENCIES=$(QUERIES_DIR)/wt_direct_dependency_queries.txt
+QUERY_DIRECT_DEPENDENCIES=$(QUERIES_DIR)/cpr_direct_dependency_queries.txt
 endif
 
 #ifdef QUERY_OUTPUT_LINEAGES_ARG
-#QUERY_OUTPUT_LINEAGES=$(QUERIES_DIR)/wt_output_lineage_queries.txt
+#QUERY_OUTPUT_LINEAGES=$(QUERIES_DIR)/cpr_output_lineage_queries.txt
 #endif
 
-WT_QUERIES=$(QUERY_RUN)                 \
+CPR_QUERIES=$(QUERY_RUN)                 \
            $(QUERY_DIRECT_DEPENDENCIES) \
            $(QUERY_OUTPUT_LINEAGES)
 
-WT_GRAPH_RUN_INPUTS_OUTPUTS=$(GRAPHS_DIR)/wt_run_inputs_outputs
-WT_GRAPH_PROCESS_AND_DATA_FILES=$(GRAPHS_DIR)/wt_processes_and_data_files
+CPR_GRAPH_RUN_INPUTS_OUTPUTS=$(GRAPHS_DIR)/cpr_run_inputs_outputs
+CPR_GRAPH_PROCESS_AND_DATA_FILES=$(GRAPHS_DIR)/cpr_processes_and_data_files
 
-WT_GRAPHS=$(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot		\
-          $(WT_GRAPH_PROCESS_AND_DATA_FILES).dot
+CPR_GRAPHS=$(CPR_GRAPH_RUN_INPUTS_OUTPUTS).dot		\
+          $(CPR_GRAPH_PROCESS_AND_DATA_FILES).dot
 
 PROV_RUN_JSON=$(PROV_DIR)/prov_run.json
 PROVONE_RUN_JSON=$(PROV_DIR)/provone_run.json
@@ -45,8 +45,8 @@ PROV=$(PROV_RUN_JSON) $(PROVONE_RUN_JSON)
 
 FACTS=$(TRACE_FACTS)
 VIEWS=$(TRACE_VIEWS)
-QUERIES=$(WT_QUERIES) 
-GRAPHS=$(WT_GRAPHS)
+QUERIES=$(CPR_QUERIES) 
+GRAPHS=$(CPR_GRAPHS)
 PNGS = $(GRAPHS:.dot=.png)
 
 .SUFFIXES:
@@ -90,7 +90,7 @@ $(FACTS): $(RPZ_TRACE) $(FACTS_DIR)
 	rpz2cpr -i -n=$(shell basename $(CURDIR)) -m -file $(TRACE_FACTS) $(RPZ_TRACE_DIR)
 
 $(TRACE_VIEWS): $(TRACE_FACTS)
-	bash $(SCRIPTS_DIR)/materialize_rpz_views.sh > $@
+	bash $(SCRIPTS_DIR)/materialize_cpr_views.sh > $@
 
 $(QUERY_RUN): $(QUERIES_DIR) $(VIEWS)
 	bash $(SCRIPTS_DIR)/query_run.sh > $@
@@ -102,10 +102,10 @@ $(QUERY_DIRECT_DEPENDENCIES): $(QUERIES_DIR) $(VIEWS)
 $(QUERY_OUTPUT_LINEAGES): $(QUERIES_DIR) $(VIEWS)
 	bash $(SCRIPTS_DIR)/query_output_lineages.sh > $@
 
-$(WT_GRAPH_RUN_INPUTS_OUTPUTS).dot: $(FACTS) $(VIEWS) $(GRAPHS_DIR)
+$(CPR_GRAPH_RUN_INPUTS_OUTPUTS).dot: $(FACTS) $(VIEWS) $(GRAPHS_DIR)
 	bash $(SCRIPTS_DIR)/graph_run_inputs_outputs.sh > $@
 
-$(WT_GRAPH_PROCESS_AND_DATA_FILES).dot: $(FACTS) $(VIEWS) $(GRAPHS_DIR)
+$(CPR_GRAPH_PROCESS_AND_DATA_FILES).dot: $(FACTS) $(VIEWS) $(GRAPHS_DIR)
 	bash $(SCRIPTS_DIR)/graph_processes_and_data_files.sh > $@
 
 $(PROV_RUN_JSON): $(PROV_DIR) $(VIEWS)

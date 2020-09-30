@@ -33,7 +33,7 @@ func GetArguments(executions []Execution) []Argument {
 }
 
 func WriteArgumentFacts(w io.Writer, arguments []Argument) {
-	printRowHeader(w, "rpz_argument(ExecID, ArgIndex, ArgValue).")
+	printRowHeader(w, "cpr_argument(ExecID, ArgIndex, ArgValue).")
 	for _, a := range arguments {
 		fmt.Fprintln(w, a)
 	}
@@ -41,6 +41,6 @@ func WriteArgumentFacts(w io.Writer, arguments []Argument) {
 
 // String prints one row of the executed_files table of trace.sqlite3 as a Prolog fact
 func (a Argument) String() string {
-	return fmt.Sprintf("rpz_argument(%s, %d, %s).",
+	return fmt.Sprintf("cpr_argument(%s, %d, %s).",
 		E(a.ExecID), a.Index, Q(a.Value))
 }

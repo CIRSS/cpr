@@ -17,9 +17,9 @@ banner( 'Q1_DIRECT_UPSTREAM_FILE_DEPENDENCY',
 [user].
 :- table q1_direct_upstream_file_dependency/2.
 q1_direct_upstream_file_dependency(File, UpstreamFile) :-
-	wt_file_write(_, _, ProcessID, _, File, _),
-    wt_file_read(_, _, ProcessID, PathIndex, UpstreamFile, _),
-    wt_data_file(PathIndex, _, _).
+	cpr_file_write(_, _, ProcessID, _, File, _),
+    cpr_file_read(_, _, ProcessID, PathIndex, UpstreamFile, _),
+    cpr_data_file(PathIndex, _, _).
 end_of_file.
 printall(q1_direct_upstream_file_dependency('$ProvidedFileName', _)).
 %-------------------------------------------------------------------------------
@@ -31,8 +31,8 @@ banner( 'Q2_DIRECT_DOWNSTREAM_FILE_DEPENDENCY',
 [user].
 :- table q2_direct_downstream_file_dependency/2.
 q2_direct_downstream_file_dependency(File, DownstreamFile) :-
-    wt_file_read(_, _, ProcessID, _, File, _),
-	wt_file_write(_, _, ProcessID, _, DownstreamFile, _).
+    cpr_file_read(_, _, ProcessID, _, File, _),
+	cpr_file_write(_, _, ProcessID, _, DownstreamFile, _).
 end_of_file.
 printall(q2_direct_downstream_file_dependency('$ProvidedFileName', _)).
 %-------------------------------------------------------------------------------

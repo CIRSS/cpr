@@ -41,13 +41,13 @@ func GetAccessedPaths(executed []Execution, opens []FileOpen) []AccessedPath {
 }
 
 func WriteAccessedPathFacts(w io.Writer, accessed []AccessedPath) {
-	printRowHeader(w, "wt_accessed_path(AccessID, RunId, Path, PathIndex, PathRole).")
+	printRowHeader(w, "cpr_accessed_path(AccessID, RunId, Path, PathIndex, PathRole).")
 	for _, f := range accessed {
 		fmt.Fprintln(w, f)
 	}
 }
 
 func (f AccessedPath) String() string {
-	return fmt.Sprintf("wt_accessed_path(%s, %s, %s, %s, %s).",
+	return fmt.Sprintf("cpr_accessed_path(%s, %s, %s, %s, %s).",
 		f.AccessID, R(f.RunID), Q(f.Path), I(f.PathIndex), f.PathRole)
 }

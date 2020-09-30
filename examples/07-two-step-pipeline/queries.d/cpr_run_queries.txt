@@ -1,32 +1,34 @@
 
 
 ---------------------------------------------------------------------------------------------------
-WT_Q1 : What is the name of the recorded run?
+CPR_Q1 : What is the name of the recorded run?
 
 q1_run_name(RunName).
 ...................................................................................................
-q1_run_name('03-hello-c').
+q1_run_name('07-two-step-pipeline').
 
 
 ---------------------------------------------------------------------------------------------------
-WT_Q2 : What data files were input to the run?
+CPR_Q2 : What data files were input to the run?
 
 q2_run_input_file(FileName).
 ...................................................................................................
+q2_run_input_file('./inputs/file1.txt').
 
 
 ---------------------------------------------------------------------------------------------------
-WT_Q3 : What data files were output by the run?
+CPR_Q3 : What data files were output by the run?
 
 q3_run_output_file(FileName).
 ...................................................................................................
+q3_run_output_file('./outputs/file3.txt').
 
 
 ---------------------------------------------------------------------------------------------------
-WT_Q4 : What programs and scripts were executed during the run?
+CPR_Q4 : What programs and scripts were executed during the run?
 
 q4_executed_file(FileName).
 ...................................................................................................
-q4_executed_file('./bin/hello_c').
+q4_executed_file('/usr/bin/cat').
 q4_executed_file('./run.sh').
 

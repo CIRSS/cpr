@@ -45,7 +45,7 @@ func GetFileOpens(db *sql.DB) []FileOpen {
 }
 
 func WriteFileOpenFacts(w io.Writer, opens []FileOpen) {
-	printRowHeader(w, "rpz_file_open(OpenID, RunID, ProcessID, FilePath, Mode, IsDirectory, Timestamp).")
+	printRowHeader(w, "cpr_file_open(OpenID, RunID, ProcessID, FilePath, Mode, IsDirectory, Timestamp).")
 	for _, fo := range opens {
 		fmt.Fprintln(w, fo)
 	}
@@ -53,6 +53,6 @@ func WriteFileOpenFacts(w io.Writer, opens []FileOpen) {
 
 // String prints one row of the opened_files table of trace.sqlite3 as a Prolog fact
 func (fo FileOpen) String() string {
-	return fmt.Sprintf("rpz_file_open(%s, %s, %s, %s, %d, %t, %s).",
+	return fmt.Sprintf("cpr_file_open(%s, %s, %s, %s, %d, %t, %s).",
 		O(fo.OpenID), R(fo.RunID), P(fo.Process), Q(fo.Name), fo.Mode, fo.IsDirectory, maskableInt64(fo.Timestamp))
 }

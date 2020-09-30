@@ -36,7 +36,7 @@ func GetProcesses(db *sql.DB) []Process {
 }
 
 func WriteProcessFacts(writer io.Writer, processes []Process) {
-	printRowHeader(writer, "rpz_process(ProcessID, ParentID, RunID, IsThread, ExitCode, TimeStamp).")
+	printRowHeader(writer, "cpr_process(ProcessID, ParentID, RunID, IsThread, ExitCode, TimeStamp).")
 	for _, p := range processes {
 		fmt.Fprintln(writer, p)
 	}
@@ -44,6 +44,6 @@ func WriteProcessFacts(writer io.Writer, processes []Process) {
 
 // String prints one row of the processes table of trace.sqlite3 as a Prolog fact
 func (p Process) String() string {
-	return fmt.Sprintf("rpz_process(%s, %s, %s, %t, %d, %s).",
+	return fmt.Sprintf("cpr_process(%s, %s, %s, %t, %d, %s).",
 		P(p.ID), int64OrNil("p", p.Parent), R(p.RunID), p.IsThread, p.ExitCode, maskableInt64(p.Timestamp))
 }

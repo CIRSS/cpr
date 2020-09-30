@@ -38,7 +38,7 @@ func GetExecutions(db *sql.DB) []Execution {
 }
 
 func WriteExecutionFacts(w io.Writer, executed []Execution) {
-	printRowHeader(w, "rpz_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).")
+	printRowHeader(w, "cpr_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).")
 	for _, f := range executed {
 		fmt.Fprintln(w, f)
 	}
@@ -46,6 +46,6 @@ func WriteExecutionFacts(w io.Writer, executed []Execution) {
 
 // String prints one row of the executed_files table of trace.sqlite3 as a Prolog fact
 func (f Execution) String() string {
-	return fmt.Sprintf("rpz_execution(%s, %s, %s, %s, %s, %s).",
+	return fmt.Sprintf("cpr_execution(%s, %s, %s, %s, %s, %s).",
 		E(f.ExecID), R(f.RunID), P(f.Process), Q(f.Name), Q(f.WorkingDir), maskableInt64(f.Timestamp))
 }

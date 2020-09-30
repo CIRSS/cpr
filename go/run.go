@@ -19,11 +19,11 @@ func NewRun(runId int64, runName string) Run {
 }
 
 func WriteRunFacts(writer io.Writer, run Run) {
-	printRowHeader(writer, "wt_run(RunID, RunName).")
+	printRowHeader(writer, "cpr_run(RunID, RunName).")
 	fmt.Fprintln(writer, run)
 }
 
 func (r Run) String() string {
-	return fmt.Sprintf("wt_run(%s, %s).",
+	return fmt.Sprintf("cpr_run(%s, %s).",
 		R(r.RunID), Q(r.RunName))
 }

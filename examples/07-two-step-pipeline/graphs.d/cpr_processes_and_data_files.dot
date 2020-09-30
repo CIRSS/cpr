@@ -1,5 +1,5 @@
 
-digraph wt_run {
+digraph cpr_run {
 rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
 label="Processes and Data Files"

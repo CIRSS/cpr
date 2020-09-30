@@ -9,13 +9,13 @@ xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 ['../common/rules/general_rules'].
 
 %-------------------------------------------------------------------------------
-banner( 'WT_OUTPUT_LINEAGE_Q1',
+banner( 'CPR_OUTPUT_LINEAGE_Q1',
         'What is the name of the recorded run?',
         'q1_run_name(RunName).').
 [user].
 :- table q1_run_name/1.
 q1_run_name(RunName) :-
-	wt_run(_, RunName).
+	cpr_run(_, RunName).
 end_of_file.
 printall(q1_run_name(_)).
 %-------------------------------------------------------------------------------

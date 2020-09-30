@@ -5,7 +5,7 @@ prov_file_uri(FilePath, FileUri) :-
 
 prov_used_entity_references() :-
     json_comma_init(1, ''),
-    wt_data_file(_, FilePath, in),
+    cpr_data_file(_, FilePath, in),
     prov_file_uri(FilePath, FileUri),
     json_comma(1),
     json_start_object(),
@@ -16,7 +16,7 @@ prov_used_entity_references() :-
     true.
 
 prov_used_entities() :-
-    wt_data_file(_, FilePath, in),
+    cpr_data_file(_, FilePath, in),
     prov_file_uri(FilePath, FileUri),
     comma,
     json_start_object(),
@@ -28,7 +28,7 @@ prov_used_entities() :-
     true.
 
 prov_generated_entities() :-
-    wt_data_file(_, FilePath, out),
+    cpr_data_file(_, FilePath, out),
     prov_file_uri(FilePath, FileUri),
     comma,
     json_start_object(),

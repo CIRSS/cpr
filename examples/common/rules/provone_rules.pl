@@ -5,7 +5,7 @@ provone_file_uri(FileID, FileUri) :-
 
 provone_used_data() :-
     json_comma_init(1, ''),
-    wt_data_file(FileID, FilePath, in),
+    cpr_data_file(FileID, FilePath, in),
 	provone_file_uri(FileID, FileUri),
     json_comma(1),
     json_start_object(),
@@ -19,7 +19,7 @@ provone_used_data() :-
 
 provone_generated_data() :-
     json_comma_init(2, ''),
-    wt_data_file(FileID, FilePath, out),
+    cpr_data_file(FileID, FilePath, out),
 	provone_file_uri(FileID, FileUri),
     json_comma(2),
     json_start_object(),
