@@ -27,8 +27,7 @@ func main() {
 	var name = flags.String("n", "", "Name of run")
 	var mask = flags.Bool("m", false, "Mask unrepeatable attributes")
 	var ignore = flags.Bool("i", false, "Ignore files written by the first process")
-	var rpz = flags.String("rpz", "-", "File for saving ReproZip facts")
-	var wt = flags.String("wt", "-", "File for saving WT facts")
+	var file = flags.String("file", "-", "File for saving trace")
 
 	err = flags.Parse(os.Args[1:])
 	if err != nil {
@@ -37,15 +36,8 @@ func main() {
 		return
 	}
 
-	if *rpz != "-" {
-		cpr.RPZFactsFile, err = os.Create(*rpz)
-		if err != nil {
-			panic(err)
-		}
-	}
-
-	if *wt != "-" {
-		cpr.WTFactsFile, err = os.Create(*wt)
+	if *file != "-" {
+		cpr.TraceFile, err = os.Create(*file)
 		if err != nil {
 			panic(err)
 		}

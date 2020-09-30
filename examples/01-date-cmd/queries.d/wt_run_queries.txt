@@ -27,6 +27,6 @@ WT_Q4 : What programs and scripts were executed during the run?
 
 q4_executed_file(FileName).
 ...................................................................................................
-q4_executed_file('/bin/date').
+q4_executed_file('/usr/bin/date').
 q4_executed_file('./run.sh').
 

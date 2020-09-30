@@ -16,10 +16,8 @@ RPZ_TRACE_SQLITE=$(RPZ_TRACE_DIR)/trace.sqlite3
 RPZ_TRACE_YAML=$(RPZ_TRACE_DIR)/config.yml
 RPZ_TRACE=$(RPZ_TRACE_SQLITE) $(RPZ_TRACE_YAML)
 
-RPZ_FACTS=$(FACTS_DIR)/rpz_facts.pl
-RPZ_VIEWS=$(FACTS_DIR)/rpz_views.pl
-
-WT_FACTS=$(FACTS_DIR)/wt_facts.pl
+TRACE_FACTS=$(FACTS_DIR)/trace_facts.pl
+TRACE_VIEWS=$(FACTS_DIR)/trace_views.pl
 
 QUERY_RUN=$(QUERIES_DIR)/wt_run_queries.txt
 
@@ -45,8 +43,8 @@ PROV_RUN_JSON=$(PROV_DIR)/prov_run.json
 PROVONE_RUN_JSON=$(PROV_DIR)/provone_run.json
 PROV=$(PROV_RUN_JSON) $(PROVONE_RUN_JSON)
 
-FACTS=$(WT_FACTS) $(RPZ_FACTS)
-VIEWS=$(RPZ_VIEWS)
+FACTS=$(TRACE_FACTS)
+VIEWS=$(TRACE_VIEWS)
 QUERIES=$(WT_QUERIES) 
 GRAPHS=$(WT_GRAPHS)
 PNGS = $(GRAPHS:.dot=.png)
@@ -89,9 +87,9 @@ $(RPZ_TRACE): build $(OUTPUTS_DIR) $(TEMP_DIR)
 	reprozip trace --overwrite ./run.sh
 
 $(FACTS): $(RPZ_TRACE) $(FACTS_DIR)
-	rpz2cpr -i -n=$(shell basename $(CURDIR)) -rpz=$(RPZ_FACTS) -wt=$(WT_FACTS) -m $(RPZ_TRACE_DIR)
+	rpz2cpr -i -n=$(shell basename $(CURDIR)) -m -file $(TRACE_FACTS) $(RPZ_TRACE_DIR)
 
-$(RPZ_VIEWS): $(WT_FACTS) $(RPZ_FACTS)
+$(TRACE_VIEWS): $(TRACE_FACTS)
 	bash $(SCRIPTS_DIR)/materialize_rpz_views.sh > $@
 
 $(QUERY_RUN): $(QUERIES_DIR) $(VIEWS)

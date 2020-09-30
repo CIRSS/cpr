@@ -9,8 +9,7 @@ import (
 )
 
 var (
-	RPZFactsFile            = os.Stdout
-	WTFactsFile             = os.Stdout
+	TraceFile               = os.Stdout
 	MaskNonrepeatables      = true
 	IgnoreFirstProcessFiles = true
 	FirstProcessID          int64
@@ -39,12 +38,12 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 	opens := GetFileOpens(db)
 	accessed := GetAccessedPaths(executions, opens)
 
-	WriteProcessFacts(RPZFactsFile, processes)
-	WriteExecutionFacts(RPZFactsFile, executions)
-	WriteArgumentFacts(RPZFactsFile, arguments)
-	WriteFileOpenFacts(RPZFactsFile, opens)
+	WriteProcessFacts(TraceFile, processes)
+	WriteExecutionFacts(TraceFile, executions)
+	WriteArgumentFacts(TraceFile, arguments)
+	WriteFileOpenFacts(TraceFile, opens)
 
-	WriteRunFacts(WTFactsFile, run)
-	WritePathRoleFacts(WTFactsFile, pathRoles)
-	WriteAccessedPathFacts(WTFactsFile, accessed)
+	WriteRunFacts(TraceFile, run)
+	WritePathRoleFacts(TraceFile, pathRoles)
+	WriteAccessedPathFacts(TraceFile, accessed)
 }

@@ -2,8 +2,7 @@
 
 xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 
-['facts.d/wt_facts'].
-['facts.d/rpz_facts'].
+['facts.d/trace_facts'].
 ['../common/rules/general_rules'].
 ['../common/rules/rpz_view_rules'].
 
