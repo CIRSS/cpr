@@ -22,8 +22,10 @@ func GetAccessedPaths(executed []Execution, opens []FileOpen) []AccessedPath {
 		runID := e.RunID
 		path := TrimWorkingDirPrefix(e.Name)
 		role := Role(path)
-		f := AccessedPath{E(e.ExecID), runID, path, fileIndex, role}
-		accessed = append(accessed, f)
+		if role != "nul" {
+			f := AccessedPath{E(e.ExecID), runID, path, fileIndex, role}
+			accessed = append(accessed, f)
+		}
 	}
 
 	for _, o := range opens {

@@ -5,3 +5,5 @@ roles:
     - /etc
     sw:
     - .
+    nul:
+    - /tmp

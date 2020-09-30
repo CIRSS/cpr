@@ -13,3 +13,5 @@ roles:
     - ./outputs
     tmp:
     - ./temp
+    nul:
+    - /tmp

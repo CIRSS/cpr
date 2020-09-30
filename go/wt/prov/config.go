@@ -13,6 +13,7 @@ type Config struct {
 		In  []string
 		Out []string
 		Tmp []string
+		Nul []string
 	}
 }
 

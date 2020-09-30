@@ -9,13 +9,13 @@ node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier
 "exe:e3" [label="/bin/cat"]
 "exe:e2" [label="/bin/cat"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-"access:i18" [label="./outputs/file3.txt"]
-"access:i17" [label="./inputs/file1.txt"]
-"access:i11" [label="./temp/file2.txt"]
-"exe:e3" -> "access:i18"
-"exe:e2" -> "access:i11"
-"access:i11" -> "exe:e3"
-"access:i17" -> "exe:e2"
+"access:i16" [label="./outputs/file3.txt"]
+"access:i15" [label="./inputs/file1.txt"]
+"access:i10" [label="./temp/file2.txt"]
+"exe:e3" -> "access:i16"
+"exe:e2" -> "access:i10"
+"access:i10" -> "exe:e3"
+"access:i15" -> "exe:e2"
 }}
 }
 

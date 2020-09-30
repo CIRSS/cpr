@@ -34,7 +34,12 @@ func GetFileOpens(db *sql.DB) []FileOpen {
 		if IgnoreFirstProcessFiles && f.Process == FirstProcessID {
 			continue
 		}
-		opened = append(opened, f)
+
+		path := TrimWorkingDirPrefix(f.Name)
+		role := Role(path)
+		if role != "nul" {
+			opened = append(opened, f)
+		}
 	}
 	return opened
 }

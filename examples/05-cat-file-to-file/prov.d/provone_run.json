@@ -22,14 +22,14 @@
       "@type": "provone:Execution",
       "prov:used": [
         {
-          "@id": "run:data_file_i16",
+          "@id": "run:data_file_i14",
           "@type": "wt:DataFile",
           "wt:FilePath": "./inputs/input.txt"
         }
       ],
       "prov:generated": [
         {
-          "@id": "run:data_file_i10",
+          "@id": "run:data_file_i9",
           "@type": "wt:DataFile",
           "wt:FilePath": "./outputs/output.txt"
         }

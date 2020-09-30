@@ -12,8 +12,8 @@ wt_process(p1,nil,e1,'./run.sh').
 %...................................................................................................
 wt_file_read(o21,r0,p2,i5,'./bin/hello_c',sw).
 wt_file_read(o22,r0,p2,i7,'/lib/x86_64-linux-gnu/ld-2.28.so',os).
-wt_file_read(o24,r0,p2,i10,'/etc/ld.so.cache',os).
-wt_file_read(o25,r0,p2,i11,'/lib/x86_64-linux-gnu/libc.so.6',os).
+wt_file_read(o24,r0,p2,i9,'/etc/ld.so.cache',os).
+wt_file_read(o25,r0,p2,i10,'/lib/x86_64-linux-gnu/libc.so.6',os).
 
 
 %---------------------------------------------------------------------------------------------------

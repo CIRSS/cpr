@@ -22,7 +22,6 @@ rpz_argument(e2, 0, 'date').
 %---------------------------------------------------------------------------------------------------
 rpz_file_open(o31, r0, p2, '/mnt/cpr/examples/01-date-cmd', 4, true, nil).
 rpz_file_open(o32, r0, p2, '/lib/x86_64-linux-gnu/ld-2.28.so', 1, false, nil).
-rpz_file_open(o33, r0, p2, '/tmp/_MEIBEz0Lk', 8, true, nil).
 rpz_file_open(o34, r0, p2, '/etc/ld.so.cache', 1, false, nil).
 rpz_file_open(o35, r0, p2, '/lib/x86_64-linux-gnu/libc.so.6', 1, false, nil).
 rpz_file_open(o36, r0, p2, '/etc/localtime', 1, false, nil).

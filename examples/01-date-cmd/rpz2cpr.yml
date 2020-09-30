@@ -7,3 +7,5 @@ roles:
     sw:
     - /bin
     - .
+    nul:
+    - /tmp

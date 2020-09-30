@@ -9,9 +9,9 @@ node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier
 "exe:e3" [label="/bin/cat"]
 "exe:e2" [label="/bin/date"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-"access:i10" [label="./outputs/date.txt"]
-"exe:e2" -> "access:i10"
-"access:i10" -> "exe:e3"
+"access:i8" [label="./outputs/date.txt"]
+"exe:e2" -> "access:i8"
+"access:i8" -> "exe:e3"
 }}
 }
 
