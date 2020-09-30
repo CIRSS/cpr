@@ -5,6 +5,7 @@ include repro.config
 include ${TARGETS}/Makefile.setup
 include ${TARGETS}/Makefile.examples
 include ${TARGETS}/Makefile.code
+include Makefile.custom
 include ${TARGETS}/Makefile.image
 include ${TARGETS}/Makefile.docker
 include ${TARGETS}/Makefile.help
