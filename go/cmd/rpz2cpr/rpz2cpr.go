@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/cirss/cpr/wt/prov"
+	"github.com/cirss/cpr"
 
 	"github.com/tmcphillips/main-wrapper/mw"
 )
@@ -38,28 +38,28 @@ func main() {
 	}
 
 	if *rpz != "-" {
-		prov.RPZFactsFile, err = os.Create(*rpz)
+		cpr.RPZFactsFile, err = os.Create(*rpz)
 		if err != nil {
 			panic(err)
 		}
 	}
 
 	if *wt != "-" {
-		prov.WTFactsFile, err = os.Create(*wt)
+		cpr.WTFactsFile, err = os.Create(*wt)
 		if err != nil {
 			panic(err)
 		}
 	}
 
-	config := prov.LoadConfig("rpz2cpr.yml")
+	config := cpr.LoadConfig("rpz2cpr.yml")
 
-	prov.MaskNonrepeatables = *mask
-	prov.IgnoreFirstProcessFiles = *ignore
+	cpr.MaskNonrepeatables = *mask
+	cpr.IgnoreFirstProcessFiles = *ignore
 
 	switch flags.NArg() {
 	case 1:
 		traceDirectory := flags.Arg(0)
-		prov.ExtractTrace(*name, traceDirectory, config)
+		cpr.ExtractTrace(*name, traceDirectory, config)
 	default:
 		flags.Usage()
 		return

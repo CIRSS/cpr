@@ -7,6 +7,7 @@ rpz_process(p2, p1, r0, false, 0, nil).
 rpz_process(p3, p2, r0, true, 0, nil).
 rpz_process(p4, p2, r0, true, 0, nil).
 rpz_process(p5, p4, r0, true, 0, nil).
+rpz_process(p6, p2, r0, true, 0, nil).
 
 %---------------------------------------------------------------------------------------------------
 % FACT: rpz_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
@@ -29,4 +30,5 @@ rpz_file_open(o22, r0, p2, '/sys/kernel/mm/transparent_hugepage/hpage_pmd_size',
 rpz_file_open(o23, r0, p3, '/mnt/cpr/examples/02-hello-go', 4, true, nil).
 rpz_file_open(o24, r0, p4, '/mnt/cpr/examples/02-hello-go', 4, true, nil).
 rpz_file_open(o25, r0, p5, '/mnt/cpr/examples/02-hello-go', 4, true, nil).
-rpz_file_open(o26, r0, p2, '/proc/self/exe', 24, false, nil).
+rpz_file_open(o26, r0, p6, '/mnt/cpr/examples/02-hello-go', 4, true, nil).
+rpz_file_open(o27, r0, p2, '/proc/self/exe', 24, false, nil).
