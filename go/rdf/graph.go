@@ -35,6 +35,10 @@ func (g *Graph) NewUri(s string) (uri Uri) {
 	return
 }
 
+func (g *Graph) NewExtendedUri(base Uri, extension string) (uri Uri) {
+	return Uri{base.String() + "/" + extension, base.Type}
+}
+
 func (g *Graph) StartsWithPrefix(s string) bool {
 	for _, prefix := range g.prefixes {
 		if strings.HasPrefix(s, prefix.Prefix+":") {

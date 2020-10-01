@@ -59,6 +59,7 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 		graph.AddNewPrefix("run", "http://cirss.illinois.edu/ns/cpr#")
 		AddProcessTriples(graph, processes)
 		AddExecutionTriples(graph, executions)
+		AddArgumentTriples(graph, arguments)
 		io.WriteString(TraceFile, graph.String())
 	}
 }
