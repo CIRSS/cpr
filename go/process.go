@@ -56,16 +56,16 @@ func AddProcessTriples(g *rdf.Graph, processes []Process) {
 		if p.IsThread {
 			g.AddNewTriple(processURI, "rdf:type", g.NewUri("cpr:Thread"))
 		} else {
-			g.AddNewTriple(processURI, "rdf:type", g.NewUri("cpr:Process"))
+			g.AddNewTriple(processURI, "rdf:type", g.NewUri("cpr:Proc"))
+			g.AddNewTriple(processURI, "cpr:ProcExitCode", p.ExitCode)
 		}
 		if p.Parent.Valid {
-			g.AddNewTriple(processURI, "cpr:ChildOf", ProcessUri(g, p.Parent.Int64))
+			g.AddNewTriple(processURI, "cpr:ProcParent", ProcessUri(g, p.Parent.Int64))
 		}
-		g.AddNewTriple(processURI, "cpr:ExitCode", p.ExitCode)
-		g.AddNewTriple(processURI, "cpr:StartTime", p.Timestamp)
+		g.AddNewTriple(processURI, "cpr:ProcStart", p.Timestamp)
 	}
 }
 
 func ProcessUri(g *rdf.Graph, id int64) rdf.Uri {
-	return g.NewUri(fmt.Sprintf("run:process/%d", id))
+	return g.NewUri(fmt.Sprintf("run:proc/%d", id))
 }

@@ -55,15 +55,14 @@ func (f Execution) String() string {
 func AddExecutionTriples(g *rdf.Graph, executions []Execution) {
 	for _, e := range executions {
 		executionURI := ExecutionUri(g, e.ExecID)
-		g.AddNewTriple(executionURI, "rdf:type", g.NewUri("cpr:Execution"))
+		g.AddNewTriple(executionURI, "rdf:type", g.NewUri("cpr:Exec"))
 		g.AddNewTriple(executionURI, "cpr:ExecProcess", ProcessUri(g, e.Process))
-		g.AddNewTriple(executionURI, "cpr:ExecFilePath", e.Name)
-		g.AddNewTriple(executionURI, "cpr:WorkingDir", e.WorkingDir)
-		g.AddNewTriple(executionURI, "cpr:StartTime", e.Timestamp)
-
+		g.AddNewTriple(executionURI, "cpr:ExecFile", e.Name)
+		g.AddNewTriple(executionURI, "cpr:ExecDir", e.WorkingDir)
+		g.AddNewTriple(executionURI, "cpr:ExecStart", e.Timestamp)
 	}
 }
 
 func ExecutionUri(g *rdf.Graph, id int64) rdf.Uri {
-	return g.NewUri(fmt.Sprintf("run:execution/%d", id))
+	return g.NewUri(fmt.Sprintf("run:exec/%d", id))
 }
