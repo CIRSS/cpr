@@ -2,14 +2,17 @@ package cpr
 
 import (
 	"database/sql"
+	"io"
 	"os"
 
 	// load the SQLite3 sql driver
+	"github.com/cirss/cpr/rdf"
 	_ "github.com/mattn/go-sqlite3"
 )
 
 var (
 	TraceFile               = os.Stdout
+	TraceFormat             = "facts"
 	MaskNonrepeatables      = true
 	IgnoreFirstProcessFiles = true
 	FirstProcessID          int64
@@ -38,12 +41,20 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 	opens := GetFileOpens(db)
 	accessed := GetAccessedPaths(executions, opens)
 
-	WriteProcessFacts(TraceFile, processes)
-	WriteExecutionFacts(TraceFile, executions)
-	WriteArgumentFacts(TraceFile, arguments)
-	WriteFileOpenFacts(TraceFile, opens)
+	switch TraceFormat {
 
-	WriteRunFacts(TraceFile, run)
-	WritePathRoleFacts(TraceFile, pathRoles)
-	WriteAccessedPathFacts(TraceFile, accessed)
+	case "facts":
+		WriteProcessFacts(TraceFile, processes)
+		WriteExecutionFacts(TraceFile, executions)
+		WriteArgumentFacts(TraceFile, arguments)
+		WriteFileOpenFacts(TraceFile, opens)
+		WriteRunFacts(TraceFile, run)
+		WritePathRoleFacts(TraceFile, pathRoles)
+		WriteAccessedPathFacts(TraceFile, accessed)
+	case "triples":
+		graph := rdf.NewGraph()
+		AddProcessTriples(graph, processes)
+		io.WriteString(TraceFile, graph.String())
+
+	}
 }

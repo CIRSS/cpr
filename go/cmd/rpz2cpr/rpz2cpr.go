@@ -28,6 +28,7 @@ func main() {
 	var mask = flags.Bool("m", false, "Mask unrepeatable attributes")
 	var ignore = flags.Bool("i", false, "Ignore files written by the first process")
 	var file = flags.String("file", "-", "File for saving trace")
+	var format = flags.String("format", "facts", "Format for trace file")
 
 	err = flags.Parse(os.Args[1:])
 	if err != nil {
@@ -35,6 +36,8 @@ func main() {
 		flags.Usage()
 		return
 	}
+
+	cpr.TraceFormat = *format
 
 	if *file != "-" {
 		cpr.TraceFile, err = os.Create(*file)
