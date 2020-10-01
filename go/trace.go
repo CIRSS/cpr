@@ -53,8 +53,11 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 		WriteAccessedPathFacts(TraceFile, accessed)
 	case "triples":
 		graph := rdf.NewGraph()
+		graph.AddNewPrefix("cpr", "http://cirss.illinois.edu/ns/cpr#")
+		graph.AddNewPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#")
+		graph.AddNewPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#")
+		graph.AddNewPrefix("run", "http://cirss.illinois.edu/ns/cpr#")
 		AddProcessTriples(graph, processes)
 		io.WriteString(TraceFile, graph.String())
-
 	}
 }

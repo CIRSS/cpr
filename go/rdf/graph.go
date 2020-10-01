@@ -7,7 +7,7 @@ import (
 
 type Prefix struct {
 	Prefix    string
-	Expansion Uri
+	Expansion string
 }
 
 func (p *Prefix) Turtle() string {
@@ -24,11 +24,14 @@ func NewGraph() *Graph {
 	return graph
 }
 
-func (g *Graph) AddNewTriple(s Subject, p Predicate, o Object) {
-	g.triples = append(g.triples, Triple{s, p, o})
+func (g *Graph) AddNewTriple(s interface{}, p interface{}, o interface{}) {
+	sub := NewSubject(s)
+	pred := NewPredicate(p)
+	obj := NewObject(o)
+	g.triples = append(g.triples, Triple{sub, pred, obj})
 }
 
-func (g *Graph) AddNewPrefix(prefix string, expansion Uri) {
+func (g *Graph) AddNewPrefix(prefix string, expansion string) {
 	g.prefixes = append(g.prefixes, Prefix{prefix, expansion})
 }
 
@@ -37,6 +40,7 @@ func (g *Graph) String() string {
 	for _, prefix := range g.prefixes {
 		buffer.WriteString(prefix.Turtle())
 	}
+	buffer.WriteRune('\n')
 	for _, triple := range g.triples {
 		buffer.WriteString(triple.Turtle())
 	}
