@@ -52,20 +52,20 @@ func (p Process) String() string {
 
 func AddProcessTriples(g *rdf.Graph, processes []Process) {
 	for _, p := range processes {
-		processURI := ProcessUri(p.ID)
+		processURI := ProcessUri(g, p.ID)
 		if p.IsThread {
-			g.AddNewTriple(processURI, "rdf:type", "cpr:Thread")
+			g.AddNewTriple(processURI, "rdf:type", g.NewUri("cpr:Thread"))
 		} else {
-			g.AddNewTriple(processURI, "rdf:type", "cpr:Process")
+			g.AddNewTriple(processURI, "rdf:type", g.NewUri("cpr:Process"))
 		}
 		if p.Parent.Valid {
-			g.AddNewTriple(processURI, "cpr:ChildOf", ProcessUri(p.Parent.Int64))
+			g.AddNewTriple(processURI, "cpr:ChildOf", ProcessUri(g, p.Parent.Int64))
 		}
 		g.AddNewTriple(processURI, "cpr:ExitCode", p.ExitCode)
 		g.AddNewTriple(processURI, "cpr:StartTime", p.Timestamp)
 	}
 }
 
-func ProcessUri(id int64) string {
-	return fmt.Sprintf("run:process/%d", id)
+func ProcessUri(g *rdf.Graph, id int64) rdf.Uri {
+	return g.NewUri(fmt.Sprintf("run:process/%d", id))
 }

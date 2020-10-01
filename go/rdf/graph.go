@@ -24,10 +24,30 @@ func NewGraph() *Graph {
 	return graph
 }
 
+func (g *Graph) NewUri(s string) (uri Uri) {
+	if s[0] == ':' {
+		uri = Uri{s, "relative"}
+	} else if g.StartsWithPrefix(s) {
+		uri = Uri{s, "prefixed"}
+	} else {
+		uri = Uri{s, "absolute"}
+	}
+	return
+}
+
+func (g *Graph) StartsWithPrefix(s string) bool {
+	for _, prefix := range g.prefixes {
+		if strings.HasPrefix(s, prefix.Prefix+":") {
+			return true
+		}
+	}
+	return false
+}
+
 func (g *Graph) AddNewTriple(s interface{}, p interface{}, o interface{}) {
-	sub := NewSubject(s)
-	pred := NewPredicate(p)
-	obj := NewObject(o)
+	sub := g.NewSubject(s)
+	pred := g.NewPredicate(p)
+	obj := g.NewObject(o)
 	g.triples = append(g.triples, Triple{sub, pred, obj})
 }
 

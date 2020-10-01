@@ -4,6 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 	"io"
+
+	"github.com/cirss/cpr/rdf"
 )
 
 // Execution represents a row in the executed_files table of trace.sqlite3
@@ -48,4 +50,20 @@ func WriteExecutionFacts(w io.Writer, executed []Execution) {
 func (f Execution) String() string {
 	return fmt.Sprintf("cpr_execution(%s, %s, %s, %s, %s, %s).",
 		E(f.ExecID), R(f.RunID), P(f.Process), Q(f.Name), Q(f.WorkingDir), maskableInt64(f.Timestamp))
+}
+
+func AddExecutionTriples(g *rdf.Graph, executions []Execution) {
+	for _, e := range executions {
+		executionURI := ExecutionUri(g, e.ExecID)
+		g.AddNewTriple(executionURI, "rdf:type", g.NewUri("cpr:Execution"))
+		g.AddNewTriple(executionURI, "cpr:ExecProcess", ProcessUri(g, e.Process))
+		g.AddNewTriple(executionURI, "cpr:ExecFilePath", e.Name)
+		g.AddNewTriple(executionURI, "cpr:WorkingDir", e.WorkingDir)
+		g.AddNewTriple(executionURI, "cpr:StartTime", e.Timestamp)
+
+	}
+}
+
+func ExecutionUri(g *rdf.Graph, id int64) rdf.Uri {
+	return g.NewUri(fmt.Sprintf("run:execution/%d", id))
 }
