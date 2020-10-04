@@ -60,6 +60,8 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 		AddProcessTriples(graph, processes)
 		AddExecutionTriples(graph, executions)
 		AddArgumentTriples(graph, arguments)
+		AddFileOpenTriples(graph, opens)
+
 		io.WriteString(TraceFile, graph.String())
 	}
 }

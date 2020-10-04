@@ -4,6 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 	"io"
+
+	"github.com/cirss/cpr/rdf"
 )
 
 // FileOpen represents a row in the opened_files table of trace.sqlite3
@@ -55,4 +57,27 @@ func WriteFileOpenFacts(w io.Writer, opens []FileOpen) {
 func (fo FileOpen) String() string {
 	return fmt.Sprintf("cpr_file_open(%s, %s, %s, %s, %d, %t, %s).",
 		O(fo.OpenID), R(fo.RunID), P(fo.Process), Q(fo.Name), fo.Mode, fo.IsDirectory, maskableInt64(fo.Timestamp))
+}
+
+func AddFileOpenTriples(g *rdf.Graph, fileOpens []FileOpen) {
+	for _, fo := range fileOpens {
+		fileAccessURI := FileAccessUri(g, fo.Process, fo.OpenID)
+		processURI := ProcessUri(g, fo.Process)
+		g.AddNewTriple(processURI, "cpr:Performed", fileAccessURI)
+		g.AddNewTriple(fileAccessURI, "rdf:type", g.NewUri("cpr:FileAccess"))
+		g.AddNewTriple(fileAccessURI, "cpr:FilePath", fo.Name)
+		switch fo.Mode {
+		case 1:
+			g.AddNewTriple(fileAccessURI, "cpr:AccessMode", g.NewUri("cpr:Read"))
+		case 2:
+			g.AddNewTriple(fileAccessURI, "cpr:AccessMode", g.NewUri("cpr:Write"))
+		case 4:
+			g.AddNewTriple(fileAccessURI, "cpr:AccessMode", g.NewUri("cpr:Search"))
+		}
+	}
+}
+
+func FileAccessUri(g *rdf.Graph, processID int64, openID int64) rdf.Uri {
+	processURI := ProcessUri(g, processID)
+	return g.NewExtendedUri(processURI, fmt.Sprintf("access/%d", openID))
 }
