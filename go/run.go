@@ -8,29 +8,29 @@ import (
 	"github.com/cirss/cpr/rdf"
 )
 
-type Run struct {
+type WorkflowRun struct {
 	RunID   int64
 	RunName string
 }
 
-func NewRun(runId int64, runName string) Run {
+func NewWorkflowRun(runId int64, runName string) WorkflowRun {
 	if runName == "" {
 		runName = "run" + strconv.FormatInt(runId, 10)
 	}
-	return Run{runId, runName}
+	return WorkflowRun{runId, runName}
 }
 
-func WriteRunFacts(writer io.Writer, run Run) {
+func WriteRunFacts(writer io.Writer, run WorkflowRun) {
 	printRowHeader(writer, "cpr_run(RunID, RunName).")
 	fmt.Fprintln(writer, run)
 }
 
-func (r Run) String() string {
+func (r WorkflowRun) String() string {
 	return fmt.Sprintf("cpr_run(%s, %s).",
 		R(r.RunID), Q(r.RunName))
 }
 
-func AddRunTriples(g *rdf.Graph, trace Trace, run Run) {
+func AddRunTriples(g *rdf.Graph, trace Trace, run WorkflowRun) {
 	runURI := RunUri(g, run.RunID)
 	g.AddNewTriple(runURI, "rdf:type", g.NewUri("cpr:Run"))
 	g.AddNewTriple(runURI, "cpr:RunName", run.RunName)

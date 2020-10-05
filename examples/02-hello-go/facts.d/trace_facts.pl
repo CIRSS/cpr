@@ -7,7 +7,7 @@ cpr_process(p2, p1, r0, false, 0, nil).
 cpr_process(p3, p2, r0, true, 0, nil).
 cpr_process(p4, p2, r0, true, 0, nil).
 cpr_process(p5, p2, r0, true, 0, nil).
-cpr_process(p6, p4, r0, true, 0, nil).
+cpr_process(p6, p2, r0, true, 0, nil).
 
 %---------------------------------------------------------------------------------------------------
 % FACT: cpr_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).

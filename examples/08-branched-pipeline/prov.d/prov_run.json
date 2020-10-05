@@ -10,6 +10,9 @@
       "@type": "prov:Activity",
       "prov:used": [
         {
+          "@id": "file://./inputs/i2.txt"
+        },
+        {
           "@id": "file://./inputs/i3.txt"
         },
         {
@@ -17,11 +20,12 @@
         },
         {
           "@id": "file://./inputs/i1.txt"
-        },
-        {
-          "@id": "file://./inputs/i2.txt"
         }
       ]
+    },
+    {
+      "@id": "file://./inputs/i2.txt",
+      "@type": "prov:Entity"
     },
     {
       "@id": "file://./inputs/i3.txt",
@@ -36,8 +40,9 @@
       "@type": "prov:Entity"
     },
     {
-      "@id": "file://./inputs/i2.txt",
-      "@type": "prov:Entity"
+      "@id": "file://./outputs/o4.txt",
+      "@type": "prov:Entity",
+      "prov:wasGeneratedBy": "tale_execution"
     },
     {
       "@id": "file://./outputs/o12.txt",
@@ -46,11 +51,6 @@
     },
     {
       "@id": "file://./outputs/o1234.txt",
-      "@type": "prov:Entity",
-      "prov:wasGeneratedBy": "tale_execution"
-    },
-    {
-      "@id": "file://./outputs/o4.txt",
       "@type": "prov:Entity",
       "prov:wasGeneratedBy": "tale_execution"
     }

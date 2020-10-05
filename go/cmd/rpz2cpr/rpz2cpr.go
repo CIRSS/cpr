@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
 
 	"github.com/cirss/cpr"
@@ -62,5 +63,20 @@ func main() {
 		return
 	}
 
-	cpr.ExtractTrace(*name, traceDirectory, config)
+	trace := cpr.ExtractTrace(*name, traceDirectory, config)
+
+	if len(cpr.TraceStore) == 0 {
+
+		switch cpr.TraceFormat {
+
+		case "facts":
+			cpr.WriteTraceFacts(trace)
+
+		case "triples":
+			graph := cpr.GetTraceGraph(trace)
+			io.WriteString(cpr.TraceFile, graph.String())
+		}
+	} else {
+
+	}
 }
