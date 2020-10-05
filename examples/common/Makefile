@@ -4,13 +4,14 @@ SCRIPTS_DIR = ../common/scripts
 BIN_DIR=bin
 RPZ_TRACE_DIR=.reprozip-trace
 FACTS_DIR=facts.d
+TRIPLES_DIR=triples.d
 OUTPUTS_DIR=outputs
 QUERIES_DIR=queries.d
 GRAPHS_DIR=graphs.d
 PROV_DIR=prov.d
 TEMP_DIR=temp
 
-DIRS=$(BIN_DIR) $(OUTPUTS_DIR) provone $(RPZ_TRACE_DIR) $(FACTS_DIR) $(PROV_DIR) $(QUERIES_DIR) $(GRAPHS_DIR) $(TEMP_DIR)
+DIRS=$(BIN_DIR) $(OUTPUTS_DIR) provone $(RPZ_TRACE_DIR) $(FACTS_DIR) $(TRIPLES_DIR) $(PROV_DIR) $(QUERIES_DIR) $(GRAPHS_DIR) $(TEMP_DIR)
 
 RPZ_TRACE_SQLITE=$(RPZ_TRACE_DIR)/trace.sqlite3
 RPZ_TRACE_YAML=$(RPZ_TRACE_DIR)/config.yml
@@ -18,6 +19,9 @@ RPZ_TRACE=$(RPZ_TRACE_SQLITE) $(RPZ_TRACE_YAML)
 
 TRACE_FACTS=$(FACTS_DIR)/trace_facts.pl
 TRACE_VIEWS=$(FACTS_DIR)/trace_views.pl
+
+TURTLE_FILE=${TRIPLES_DIR}/trace.ttl
+TRIPLES=$(TURTLE_FILE)
 
 QUERY_RUN=$(QUERIES_DIR)/cpr_run_queries.txt
 
@@ -55,7 +59,7 @@ PNGS = $(GRAPHS:.dot=.png)
 .dot.png:
 	dot -Tpng $*.dot -o $*.png
 
-all: fact view query prov png
+all: fact view triples query prov png
 
 clean:
 	rm -rfv $(DIRS)
@@ -68,6 +72,8 @@ run: $(OUTPUTS_DIR)
 trace: $(RPZ_TRACE)
 
 fact: $(FACTS)
+
+triples: ${TRIPLES}
 
 view: $(VIEWS)
 
@@ -88,6 +94,9 @@ $(RPZ_TRACE): build $(OUTPUTS_DIR) $(TEMP_DIR)
 
 $(FACTS): $(RPZ_TRACE) $(FACTS_DIR)
 	rpz2cpr -i -n=$(shell basename $(CURDIR)) -m -file $(TRACE_FACTS) $(RPZ_TRACE_DIR)
+
+$(TRIPLES): $(RPZ_TRACE) $(TRIPLES_DIR)
+	rpz2cpr -i -n=$(shell basename $(CURDIR)) -m -format triples -file $(TURTLE_FILE) $(RPZ_TRACE_DIR)
 
 $(TRACE_VIEWS): $(TRACE_FACTS)
 	bash $(SCRIPTS_DIR)/materialize_cpr_views.sh > $@

@@ -62,7 +62,7 @@ func AddProcessTriples(g *rdf.Graph, processes []Process) {
 		if p.Parent.Valid {
 			g.AddNewTriple(processURI, "cpr:ProcParent", ProcessUri(g, p.Parent.Int64))
 		}
-		g.AddNewTriple(processURI, "cpr:ProcStart", p.Timestamp)
+		g.AddNewTriple(processURI, "cpr:ProcStart", maskableInt64(p.Timestamp))
 	}
 }
 

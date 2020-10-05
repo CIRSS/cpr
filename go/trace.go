@@ -2,7 +2,7 @@ package cpr
 
 import (
 	"database/sql"
-	"os"
+	"io"
 
 	// load the SQLite3 sql driver
 	"github.com/cirss/cpr/rdf"
@@ -10,9 +10,6 @@ import (
 )
 
 var (
-	TraceFile               = os.Stdout
-	TraceFormat             = "facts"
-	TraceStore              = ""
 	MaskNonrepeatables      = true
 	IgnoreFirstProcessFiles = true
 	WorkingDirPathIndex     int64
@@ -55,14 +52,14 @@ func ExtractTrace(runName string, traceDir string, config Config) Trace {
 	return trace
 }
 
-func WriteTraceFacts(trace Trace) {
-	WriteProcessFacts(TraceFile, trace.Processes)
-	WriteExecutionFacts(TraceFile, trace.Executions)
-	WriteArgumentFacts(TraceFile, trace.Arguments)
-	WriteFileOpenFacts(TraceFile, trace.FileOpens)
-	WriteRunFacts(TraceFile, trace.Run)
-	WritePathRoleFacts(TraceFile, trace.PathRoles)
-	WriteAccessedPathFacts(TraceFile, trace.Accesses)
+func WriteTraceFacts(file io.Writer, trace Trace) {
+	WriteProcessFacts(file, trace.Processes)
+	WriteExecutionFacts(file, trace.Executions)
+	WriteArgumentFacts(file, trace.Arguments)
+	WriteFileOpenFacts(file, trace.FileOpens)
+	WriteRunFacts(file, trace.Run)
+	WritePathRoleFacts(file, trace.PathRoles)
+	WriteAccessedPathFacts(file, trace.Accesses)
 }
 
 func GetTraceGraph(trace Trace) *rdf.Graph {

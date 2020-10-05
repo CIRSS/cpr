@@ -59,7 +59,7 @@ func AddExecutionTriples(g *rdf.Graph, executions []Execution) {
 		g.AddNewTriple(executionURI, "cpr:ExecProcess", ProcessUri(g, e.Process))
 		g.AddNewTriple(executionURI, "cpr:ExecFile", e.Name)
 		g.AddNewTriple(executionURI, "cpr:ExecDir", e.WorkingDir)
-		g.AddNewTriple(executionURI, "cpr:ExecStart", e.Timestamp)
+		g.AddNewTriple(executionURI, "cpr:ExecStart", maskableInt64(e.Timestamp))
 	}
 }
 

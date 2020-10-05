@@ -39,20 +39,10 @@ func main() {
 		return
 	}
 
-	cpr.TraceFormat = *format
-
-	if *file != "-" {
-		cpr.TraceFile, err = os.Create(*file)
-		if err != nil {
-			panic(err)
-		}
-	}
-
 	config := cpr.LoadConfig("rpz2cpr.yml")
 
 	cpr.MaskNonrepeatables = *mask
 	cpr.IgnoreFirstProcessFiles = *ignore
-	cpr.TraceStore = *store
 
 	var traceDirectory string
 	switch flags.NArg() {
@@ -65,16 +55,25 @@ func main() {
 
 	trace := cpr.ExtractTrace(*name, traceDirectory, config)
 
-	if len(cpr.TraceStore) == 0 {
+	if len(*store) == 0 {
 
-		switch cpr.TraceFormat {
+		traceFile := os.Stdout
+
+		if *file != "-" {
+			traceFile, err = os.Create(*file)
+			if err != nil {
+				panic(err)
+			}
+		}
+
+		switch *format {
 
 		case "facts":
-			cpr.WriteTraceFacts(trace)
+			cpr.WriteTraceFacts(traceFile, trace)
 
 		case "triples":
 			graph := cpr.GetTraceGraph(trace)
-			io.WriteString(cpr.TraceFile, graph.String())
+			io.WriteString(traceFile, graph.String())
 		}
 	} else {
 

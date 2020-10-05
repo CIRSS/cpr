@@ -78,7 +78,7 @@ func AddFileOpenTriples(g *rdf.Graph, fileOpens []FileOpen) {
 		case 4:
 			g.AddNewTriple(accessURI, "cpr:AccessMode", g.NewUri("cpr:Search"))
 		}
-		g.AddNewTriple(accessURI, "cpr:OpenTime", fo.Timestamp)
+		g.AddNewTriple(accessURI, "cpr:OpenTime", maskableInt64(fo.Timestamp))
 		g.AddNewTriple(accessURI, "cpr:FileRole", Role(fo.Name))
 	}
 }
