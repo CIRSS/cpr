@@ -30,11 +30,11 @@ func (r Run) String() string {
 		R(r.RunID), Q(r.RunName))
 }
 
-func AddRunTriples(g *rdf.Graph, run Run) {
+func AddRunTriples(g *rdf.Graph, trace Trace, run Run) {
 	runURI := RunUri(g, run.RunID)
 	g.AddNewTriple(runURI, "rdf:type", g.NewUri("cpr:Run"))
 	g.AddNewTriple(runURI, "cpr:RunName", run.RunName)
-	g.AddNewTriple(runURI, "cpr:FirstProcess", ProcessUri(g, FirstProcessID))
+	g.AddNewTriple(runURI, "cpr:FirstProcess", ProcessUri(g, trace.FirstProcess))
 }
 
 func RunUri(g *rdf.Graph, runID int64) rdf.Uri {

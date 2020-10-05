@@ -20,7 +20,7 @@ type FileOpen struct {
 }
 
 // GetFileOpens returns all rows in the opened_files table of trace.sqlite3
-func GetFileOpens(db *sql.DB) []FileOpen {
+func GetFileOpens(trace Trace, db *sql.DB) []FileOpen {
 	var opened []FileOpen
 	rows, err := db.Query("SELECT id, run_id, name, timestamp, mode, is_directory, process FROM opened_files")
 	if err != nil {
@@ -33,7 +33,7 @@ func GetFileOpens(db *sql.DB) []FileOpen {
 			fmt.Println(err)
 			return opened
 		}
-		if IgnoreFirstProcessFiles && f.Process == FirstProcessID {
+		if IgnoreFirstProcessFiles && f.Process == trace.FirstProcess {
 			continue
 		}
 

@@ -29,6 +29,7 @@ func main() {
 	var ignore = flags.Bool("i", false, "Ignore files written by the first process")
 	var file = flags.String("file", "-", "File for saving trace")
 	var format = flags.String("format", "facts", "Format for trace file")
+	var store = flags.String("store", "", "URL of Blazegraph trace store")
 
 	err = flags.Parse(os.Args[1:])
 	if err != nil {
@@ -50,13 +51,16 @@ func main() {
 
 	cpr.MaskNonrepeatables = *mask
 	cpr.IgnoreFirstProcessFiles = *ignore
+	cpr.TraceStore = *store
 
+	var traceDirectory string
 	switch flags.NArg() {
 	case 1:
-		traceDirectory := flags.Arg(0)
-		cpr.ExtractTrace(*name, traceDirectory, config)
+		traceDirectory = flags.Arg(0)
 	default:
 		flags.Usage()
 		return
 	}
+
+	cpr.ExtractTrace(*name, traceDirectory, config)
 }
