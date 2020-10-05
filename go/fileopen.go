@@ -61,19 +61,25 @@ func (fo FileOpen) String() string {
 
 func AddFileOpenTriples(g *rdf.Graph, fileOpens []FileOpen) {
 	for _, fo := range fileOpens {
-		fileAccessURI := FileAccessUri(g, fo.Process, fo.OpenID)
+		accessURI := FileAccessUri(g, fo.Process, fo.OpenID)
 		processURI := ProcessUri(g, fo.Process)
-		g.AddNewTriple(processURI, "cpr:Performed", fileAccessURI)
-		g.AddNewTriple(fileAccessURI, "rdf:type", g.NewUri("cpr:FileAccess"))
-		g.AddNewTriple(fileAccessURI, "cpr:FilePath", fo.Name)
+		g.AddNewTriple(processURI, "cpr:Performed", accessURI)
+		if fo.IsDirectory {
+			g.AddNewTriple(accessURI, "rdf:type", g.NewUri("cpr:DirectoryAccess"))
+		} else {
+			g.AddNewTriple(accessURI, "rdf:type", g.NewUri("cpr:FileAccess"))
+		}
+		g.AddNewTriple(accessURI, "cpr:FilePath", fo.Name)
 		switch fo.Mode {
 		case 1:
-			g.AddNewTriple(fileAccessURI, "cpr:AccessMode", g.NewUri("cpr:Read"))
+			g.AddNewTriple(accessURI, "cpr:AccessMode", g.NewUri("cpr:Read"))
 		case 2:
-			g.AddNewTriple(fileAccessURI, "cpr:AccessMode", g.NewUri("cpr:Write"))
+			g.AddNewTriple(accessURI, "cpr:AccessMode", g.NewUri("cpr:Write"))
 		case 4:
-			g.AddNewTriple(fileAccessURI, "cpr:AccessMode", g.NewUri("cpr:Search"))
+			g.AddNewTriple(accessURI, "cpr:AccessMode", g.NewUri("cpr:Search"))
 		}
+		g.AddNewTriple(accessURI, "cpr:OpenTime", fo.Timestamp)
+		g.AddNewTriple(accessURI, "cpr:FileRole", Role(fo.Name))
 	}
 }
 

@@ -56,12 +56,15 @@ func ExtractTrace(runName string, traceDir string, config Config) {
 		graph.AddNewPrefix("cpr", "http://cirss.illinois.edu/ns/cpr#")
 		graph.AddNewPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 		graph.AddNewPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#")
-		graph.AddNewPrefix("run", "http://cirss.illinois.edu/ns/cpr#")
+		graph.AddNewPrefix("wf", "http://cirss.illinois.edu//workflow/3022#")
+		graph.AddNewPrefix("wfv", "http://cirss.illinois.edu/workflow/3022/version/97#")
+		graph.AddNewPrefix("run", "http://cirss.illinois.edu/workflow/3022/version/97/run/0#")
 		AddProcessTriples(graph, processes)
 		AddExecutionTriples(graph, executions)
 		AddArgumentTriples(graph, arguments)
 		AddFileOpenTriples(graph, opens)
-
+		AddRunTriples(graph, run)
+		AddPathRoleTriples(graph, pathRoles)
 		io.WriteString(TraceFile, graph.String())
 	}
 }

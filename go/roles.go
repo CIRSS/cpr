@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"io"
 	"strings"
+
+	"github.com/cirss/cpr/rdf"
 )
 
 type PathRole struct {
@@ -30,13 +32,6 @@ func GetPathRoleFacts(config Config, runID int64) []PathRole {
 	addPathsWithRole(&allRoles, runID, "tmp", config.Roles.Tmp)
 	addPathsWithRole(&allRoles, runID, "nul", config.Roles.Nul)
 	return allRoles
-}
-
-func WritePathRoleFacts(w io.Writer, pathRoles []PathRole) {
-	printRowHeader(w, "cpr_path_role(RunID, Path, PathIndex, Role).")
-	for _, pr := range pathRoles {
-		fmt.Fprintln(w, pr)
-	}
 }
 
 func (pr PathRole) String() string {
@@ -76,4 +71,27 @@ func registerPathRole(path string, role string) (pathIndex int64, ok bool) {
 		roleForPathIndex[pathIndex] = role
 	}
 	return pathIndex, ok
+}
+
+func WritePathRoleFacts(w io.Writer, pathRoles []PathRole) {
+	printRowHeader(w, "cpr_path_role(RunID, Path, PathIndex, Role).")
+	for _, pr := range pathRoles {
+		fmt.Fprintln(w, pr)
+	}
+}
+
+func AddPathRoleTriples(g *rdf.Graph, pathRoles []PathRole) {
+	for i, pr := range pathRoles {
+		pathRoleURI := PathRoleURI(g, int64(i))
+		g.AddNewTriple(pathRoleURI, "cpr:Path", pr.Path)
+		switch pr.Role {
+		case "sw":
+			g.AddNewTriple(pathRoleURI, "cpr:Role", g.NewUri("cpr:software"))
+
+		}
+	}
+}
+
+func PathRoleURI(g *rdf.Graph, id int64) rdf.Uri {
+	return g.NewUri(fmt.Sprintf("wfv:role/%d", id))
 }
