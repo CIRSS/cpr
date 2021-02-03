@@ -91,6 +91,7 @@ ENV XSB_VERSION 3.8%20%28Three-Buck%20Chuck%29
 ENV XSB_RELEASE_DIR ${XSB_REPO}/xsb/${XSB_VERSION}
 ENV XSB_INSTALLATION ${HOME}/XSB
 ENV XSB_INSTALLATION_BIN ${XSB_INSTALLATION}/bin
+ENV PATH ${XSB_INSTALLATION_BIN}:$PATH
 
 RUN echo '***** Download and build XSB 3.8 *****'                           \
     && wget -O XSB3.8.tar.gz ${XSB_RELEASE_DIR}/XSB38.tar.gz                \
@@ -98,8 +99,7 @@ RUN echo '***** Download and build XSB 3.8 *****'                           \
     && rm XSB3.8.tar.gz                                                     \
     && cd XSB/build                                                         \
     && ./configure                                                          \
-    && ./makexsb                                                            \
-    && echo "PATH=${XSB_INSTALLATION_BIN}:$PATH" >> ${BASHRC}
+    && ./makexsb
 
 COPY go src
 
@@ -107,8 +107,7 @@ RUN echo '\n***** Build and install the rpz2cpr command *****\n'        \
     && cd ./src/cmd/rpz2cpr                                             \
     && /usr/local/go/bin/go install .
 
-
-RUN echo 'PATH=~/go/bin:/usr/local/go/bin:$PATH':${RPZ_BIN_DIR} >> ${BASHRC}
+ENV PATH ${USER_BIN}:${HOME}/go/bin:/usr/local/go/bin:${PATH}
 RUN echo "export IN_RUNNING_REPRO=${REPRO_NAME}" >> ${BASHRC}
 RUN echo "cd ${REPRO_MNT}" >> ${BASHRC}
 

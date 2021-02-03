@@ -1,10 +1,6 @@
-
-REPRO_NAME=cpr
-REPRO_DOCKER_ORG=cirss
-REPRO_IMAGE_TAG=latest
-REPRO_EXAMPLES=examples
-REPRO_CODE=go
-REPRO_DOCKER_OPTIONS=-p 9999:9999 --cap-add=SYS_PTRACE
+## 
+## # Aliases for targets in this Makefile.
+## 
 
 # Define target aliases available both inside and outside a running REPRO
 examples: run-examples  ## Run all of the examples
@@ -16,3 +12,5 @@ ifndef IN_RUNNING_REPRO
 start: start-image      ## Start a container using this REPRO's Docker image.
 image: build-image      ## Build the Docker image used to run this REPRO.
 endif
+
+## 
