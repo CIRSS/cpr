@@ -1,11 +1,11 @@
-package cpr
+package rpz
 
 import (
 	"database/sql"
 	"fmt"
 	"io"
 
-	"github.com/cirss/cpr/rdf"
+	"github.com/cirss/cpr/pkg/rdf"
 )
 
 // Process represents a row in the processes table of trace.sqlite3

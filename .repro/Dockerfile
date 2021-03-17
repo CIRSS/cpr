@@ -14,10 +14,13 @@ RUN DEBIAN_FRONTEND="noninteractive" TZ="America/Los_Angeles"               \
     apt -y install tzdata openjdk-8-jdk
 
 RUN echo '***** Install packages required for creating this image *****'    \
-    && apt -y install apt-utils wget curl makepasswd gcc make git           \
+ && apt -y install apt-utils wget curl makepasswd gcc make git              \
                                                                             \
-    && echo '***** Install command-line utility packages *****'             \
-    && apt -y install sudo man less file tree jq graphviz libxml2-utils
+ && echo '***** Install command-line utility packages *****'                \
+ && apt -y install sudo man less file tree jq libxml2-utils                 \
+                                                                            \
+ && echo '***** Install packages required by examples *****'                \
+    && apt -y install python3 graphviz
 
 ENV GO_VERSION       1.16
 ENV GO_DOWNLOADS_URL https://dl.google.com/go
@@ -93,12 +96,6 @@ RUN echo '***** Download and build XSB 3.8 *****'                           \
     && cd XSB/build                                                         \
     && ./configure                                                          \
     && ./makexsb
-
-COPY go src
-
-RUN echo '\n***** Build and install the rpz2cpr command *****\n'        \
-    && cd ./src/cmd/rpz2cpr                                             \
-    && /usr/local/go/bin/go install .
 
 ENV GOPATH ${REPRO_MNT}/.gopath
 

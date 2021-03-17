@@ -1,11 +1,11 @@
-package cpr
+package rpz
 
 import (
 	"database/sql"
 	"fmt"
 	"io"
 
-	"github.com/cirss/cpr/rdf"
+	"github.com/cirss/cpr/pkg/rdf"
 )
 
 // FileOpen represents a row in the opened_files table of trace.sqlite3

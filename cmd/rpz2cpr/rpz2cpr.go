@@ -5,7 +5,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/cirss/cpr"
+	"github.com/cirss/cpr/pkg/cpr"
+	"github.com/cirss/cpr/pkg/rpz"
 
 	"github.com/tmcphillips/main-wrapper/mw"
 )
@@ -41,8 +42,8 @@ func main() {
 
 	config := cpr.LoadConfig("rpz2cpr.yml")
 
-	cpr.MaskNonrepeatables = *mask
-	cpr.IgnoreFirstProcessFiles = *ignore
+	rpz.MaskNonrepeatables = *mask
+	rpz.IgnoreFirstProcessFiles = *ignore
 
 	var traceDirectory string
 	switch flags.NArg() {
@@ -53,7 +54,7 @@ func main() {
 		return
 	}
 
-	trace := cpr.ExtractTrace(*name, traceDirectory, config)
+	trace := rpz.ExtractTrace(*name, traceDirectory, config)
 
 	if len(*store) == 0 {
 
@@ -69,10 +70,10 @@ func main() {
 		switch *format {
 
 		case "facts":
-			cpr.WriteTraceFacts(traceFile, trace)
+			rpz.WriteTraceFacts(traceFile, trace)
 
 		case "triples":
-			graph := cpr.GetTraceGraph(trace)
+			graph := rpz.GetTraceGraph(trace)
 			io.WriteString(traceFile, graph.String())
 		}
 	} else {

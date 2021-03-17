@@ -1,11 +1,11 @@
-package cpr
+package rpz
 
 import (
 	"fmt"
 	"io"
 	"strings"
 
-	"github.com/cirss/cpr/rdf"
+	"github.com/cirss/cpr/pkg/rdf"
 )
 
 // Argument represents the arguments passed to executions recorded in the executed_files table of trace.sqlite3

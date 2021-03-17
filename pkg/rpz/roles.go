@@ -1,11 +1,12 @@
-package cpr
+package rpz
 
 import (
 	"fmt"
 	"io"
 	"strings"
 
-	"github.com/cirss/cpr/rdf"
+	"github.com/cirss/cpr/pkg/cpr"
+	"github.com/cirss/cpr/pkg/rdf"
 )
 
 type PathRole struct {
@@ -23,7 +24,7 @@ func init() {
 	roleForPathIndex = make(map[int64]string)
 }
 
-func GetPathRoleFacts(config Config, runID int64) []PathRole {
+func GetPathRoleFacts(config cpr.Config, runID int64) []PathRole {
 	var allRoles []PathRole
 	addPathsWithRole(&allRoles, runID, "os", config.Roles.Os)
 	addPathsWithRole(&allRoles, runID, "sw", config.Roles.Sw)

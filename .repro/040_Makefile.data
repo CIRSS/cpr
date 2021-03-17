@@ -1,6 +1,5 @@
 ## 
 ## # Targets for managing the REPRO-local Blazegraph instance.
-## 
 
 BLAZEGRAPH_DIR=./.blazegraph
 

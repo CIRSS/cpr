@@ -1,0 +1,20 @@
+## 
+## # Targets for building and testing custom code in this REPRO.
+
+clean-code:             ## Delete artifacts from previous builds.
+	$(RUN_IN_REPRO) 'make -C ${REPRO_DIR} -f Makefile-go clean'
+
+purge-code:             ## Delete all downloaded, cached, and built artifacts.
+	$(RUN_IN_REPRO) 'make -C ${REPRO_DIR} -f Makefile-go purge'
+
+build-code:             ## Build custom code.
+	$(RUN_IN_REPRO) 'make -C ${REPRO_DIR} -f Makefile-go build'
+
+test-code:              ## Run tests on custom code.
+	$(RUN_IN_REPRO) 'make -C ${REPRO_DIR} -f Makefile-go test'
+
+install-code:           ## Install built artifacts in REPRO.
+	$(RUN_IN_REPRO) 'make -C ${REPRO_DIR} -f Makefile-go install'
+
+package-code:           # Package custom artifacts for distribution.
+	$(RUN_IN_REPRO) 'make -C ${REPRO_DIR} -f Makefile-go package'

@@ -1,11 +1,11 @@
-package cpr
+package rpz
 
 import (
 	"database/sql"
 	"io"
 
-	// load the SQLite3 sql driver
-	"github.com/cirss/cpr/rdf"
+	"github.com/cirss/cpr/pkg/cpr"
+	"github.com/cirss/cpr/pkg/rdf"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -26,7 +26,7 @@ type Trace struct {
 	Accesses     []AccessedPath
 }
 
-func ExtractTrace(runName string, traceDir string, config Config) Trace {
+func ExtractTrace(runName string, traceDir string, config cpr.Config) Trace {
 
 	var trace Trace
 

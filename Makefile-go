@@ -1,15 +1,22 @@
-all: build test install
 
 clean:
-	go clean ./...
+	go clean -cache -x ./... || true
+
+purge: clean
+	rm -f go.sum
+	chmod -R +w ${GOPATH}
+	rm -rf ${GOPATH}/*
 
 build:
+	go mod tidy
 	go build ./...
 
 # disable test result caching using: -count 1
 # disable parallel execution of tests using: -p 1 
-test:
+test: build
 	go test ./... -count 1 -p 1
 
-install:
+install: build
 	go install ./...   
+
+package: install

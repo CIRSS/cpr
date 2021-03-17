@@ -1,11 +1,11 @@
-package cpr
+package rpz
 
 import (
 	"database/sql"
 	"fmt"
 	"io"
 
-	"github.com/cirss/cpr/rdf"
+	"github.com/cirss/cpr/pkg/rdf"
 )
 
 // Execution represents a row in the executed_files table of trace.sqlite3

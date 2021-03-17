@@ -1,11 +1,11 @@
-package cpr
+package rpz
 
 import (
 	"fmt"
 	"io"
 	"strconv"
 
-	"github.com/cirss/cpr/rdf"
+	"github.com/cirss/cpr/pkg/rdf"
 )
 
 type WorkflowRun struct {

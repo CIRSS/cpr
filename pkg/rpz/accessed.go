@@ -1,4 +1,4 @@
-package cpr
+package rpz
 
 import (
 	"fmt"

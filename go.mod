@@ -1,6 +1,6 @@
 module github.com/cirss/cpr
 
-go 1.13
+go 1.16
 
 require (
 	github.com/mattn/go-sqlite3 v2.0.2+incompatible
