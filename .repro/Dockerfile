@@ -19,7 +19,7 @@ RUN echo '***** Install packages required for creating this image *****'    \
     && echo '***** Install command-line utility packages *****'             \
     && apt -y install sudo man less file tree jq graphviz libxml2-utils
 
-ENV GO_VERSION       1.13.5
+ENV GO_VERSION       1.16
 ENV GO_DOWNLOADS_URL https://dl.google.com/go
 ENV GO_ARCHIVE       go${GO_VERSION}.linux-amd64.tar.gz
 
@@ -41,21 +41,13 @@ ENV HOME /home/${REPRO_USER}
 ENV USER_BIN ${HOME}/bin
 ENV BASHRC ${HOME}/.bashrc
 USER  ${REPRO_USER}
-
 WORKDIR $HOME
 
 RUN echo '***** Make the user bin directory *****'                          \
     && mkdir ${USER_BIN}
 
-ENV GEIST_VERSION v0.1.1
-ENV GEIST_RELEASES https://github.com/cirss/geist/releases
-ENV GEIST_DOWNLOAD_DIR ${GEIST_RELEASES}/download/${GEIST_VERSION}
-ENV GEIST_DOWNLOAD_URL ${GEIST_DOWNLOAD_DIR}/blazegraph
-ENV GEIST_BINARY ${USER_BIN}/blazegraph
-
-RUN echo '***** Install Geist in user bin directory *****'                  \
-    && wget -O ${GEIST_BINARY} ${GEIST_DOWNLOAD_URL}                        \
-    && chmod u+x ${GEIST_BINARY}
+ENV BLAZE_VERSION v0.2.4
+RUN /usr/local/go/bin/go install github.com/cirss/blaze/cmd/blaze@${BLAZE_VERSION}
 
 ENV REPROZIP_VERSION v1.0.16-r1
 ENV REPROZIP_RELEASES https://github.com/cirss/reprozip-static/releases
@@ -63,7 +55,7 @@ ENV REPROZIP_DOWNLOAD_DIR ${REPROZIP_RELEASES}/download/${REPROZIP_VERSION}
 ENV REPROZIP_DOWNLOAD_URL ${REPROZIP_DOWNLOAD_DIR}/reprozip-1.016-linux-x86-64-static
 ENV REPROZIP_BINARY ${USER_BIN}/reprozip
 
-RUN echo '***** Install Geist in user bin directory *****'                  \
+RUN echo '***** Install ReproZip in user bin directory *****'                  \
     && wget -O ${REPROZIP_BINARY} ${REPROZIP_DOWNLOAD_URL}                  \
     && chmod u+x ${REPROZIP_BINARY}                                         \
     && ${REPROZIP_BINARY} usage_report --disable
@@ -84,7 +76,8 @@ ENV BLAZEGRAPH_CMD "java ${BLAZEGRAPH_OPTIONS} -jar ${BLAZEGRAPH_JAR}"
 ENV BLAZEGRAPH_LOG ${BLAZEGRAPH_DOT_DIR}/blazegraph_`date +%s`.log
 
 RUN echo '***** Start Blazegraph at login *****'                            \
-    && echo "cd ${BLAZEGRAPH_DOT_DIR} && ${BLAZEGRAPH_CMD} 2>&1 > ${BLAZEGRAPH_LOG} &" >> ${BASHRC}
+    && echo "source .bashrc" >> .bash_profile                               \
+    && echo "cd ${BLAZEGRAPH_DOT_DIR} && ${BLAZEGRAPH_CMD} 2>&1 > ${BLAZEGRAPH_LOG} &" >> .bash_profile
 
 ENV XSB_REPO https://downloads.sourceforge.net/project/xsb
 ENV XSB_VERSION 3.8%20%28Three-Buck%20Chuck%29
@@ -107,7 +100,9 @@ RUN echo '\n***** Build and install the rpz2cpr command *****\n'        \
     && cd ./src/cmd/rpz2cpr                                             \
     && /usr/local/go/bin/go install .
 
-ENV PATH ${USER_BIN}:${HOME}/go/bin:/usr/local/go/bin:${PATH}
+ENV GOPATH ${REPRO_MNT}/.gopath
+
+RUN echo 'PATH=${USER_BIN}:${GOPATH}/bin:${HOME}/go/bin:/usr/local/go/bin:${PATH}' >> ${BASHRC}
 RUN echo "export IN_RUNNING_REPRO=${REPRO_NAME}" >> ${BASHRC}
 RUN echo "cd ${REPRO_MNT}" >> ${BASHRC}
 

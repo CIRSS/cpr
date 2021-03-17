@@ -1,0 +1,17 @@
+
+digraph cpr_run {
+rankdir=LR
+fontname=Courier; fontsize=18; labelloc=t
+label="Run Inputs and Outputs"
+node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
+"06-hello-python"
+subgraph cluster_inputs { label=""; color=white; penwidth=0
+subgraph cluster_inputs_inner { label=""; color=white
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+}}
+subgraph cluster_outputs { label=""; color=white; penwidth=0
+subgraph cluster_outputs_inner { label=""; color=white
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+}}
+}
+
