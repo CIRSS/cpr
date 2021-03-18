@@ -7,17 +7,13 @@ import (
 
 	"github.com/cirss/cpr/pkg/cpr"
 	"github.com/cirss/cpr/pkg/rpz"
-
-	"github.com/tmcphillips/main-wrapper/mw"
+	"github.com/cirss/go-cli/pkg/cli"
 )
 
-// MW wraps the main() function.  It enables tests to manipulate the
-// input and output streams used by main(), and provides a new FlagSet
-// for each execution so that main() can be called by multiple tests.
-var MW mw.MainWrapper
+var Main *cli.ProgramContext
 
 func init() {
-	MW = mw.NewMainWrapper("rpz2cpr", main)
+	Main = cli.NewProgramContext("rpz2cpr", main)
 }
 
 // Extracts provenance information from the specified ReproZip trace directory
@@ -25,7 +21,7 @@ func main() {
 
 	var err error
 
-	flags := MW.InitFlagSet()
+	flags := Main.InitFlagSet()
 	var name = flags.String("n", "", "Name of run")
 	var mask = flags.Bool("m", false, "Mask unrepeatable attributes")
 	var ignore = flags.Bool("i", false, "Ignore files written by the first process")
