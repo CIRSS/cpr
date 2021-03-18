@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/cirss/cpr/pkg/rdf"
+	"github.com/cirss/geist/pkg/rdf"
 )
 
 // Process represents a row in the processes table of trace.sqlite3

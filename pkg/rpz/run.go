@@ -5,7 +5,7 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/cirss/cpr/pkg/rdf"
+	"github.com/cirss/geist/pkg/rdf"
 )
 
 type WorkflowRun struct {

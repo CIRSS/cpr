@@ -7,6 +7,8 @@ REPRO_IMAGE=${REPRO_DOCKER_ORG}/${REPRO_NAME}:${REPRO_IMAGE_TAG}
 
 # provide runtime options for Docker when running this REPRO
 REPRO_DOCKER_OPTIONS=-p 9999:9999 --cap-add=SYS_PTRACE
+REPRO_MOUNT_GEIST=--volume $(CURDIR)/../geist:/mnt/geist
+REPRO_MOUNT_OTHER_VOLUMES=$(REPRO_MOUNT_CLI) $(REPRO_MOUNT_GEIST)
 
 # define mount point for REPRO directory tree in running container
 REPRO_DIR=/mnt/${REPRO_NAME}
@@ -17,6 +19,7 @@ REPRO_EXAMPLES_DIR=examples
 # define command for running the REPRO Docker image
 REPRO_RUN_COMMAND=docker run -it --rm $(REPRO_DOCKER_OPTIONS)   \
                      --volume $(CURDIR):$(REPRO_DIR)            \
+                     $(REPRO_MOUNT_OTHER_VOLUMES)               \
                      $(REPRO_IMAGE)
 
 # detect if in a running REPRO container

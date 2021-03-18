@@ -5,7 +5,7 @@ import (
 	"io"
 
 	"github.com/cirss/cpr/pkg/cpr"
-	"github.com/cirss/cpr/pkg/rdf"
+	"github.com/cirss/geist/pkg/rdf"
 	_ "github.com/mattn/go-sqlite3"
 )
 

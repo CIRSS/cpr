@@ -5,7 +5,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/cirss/cpr/pkg/rdf"
+	"github.com/cirss/geist/pkg/rdf"
 )
 
 // Argument represents the arguments passed to executions recorded in the executed_files table of trace.sqlite3

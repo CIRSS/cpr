@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/cirss/cpr/pkg/rdf"
+	"github.com/cirss/geist/pkg/rdf"
 )
 
 // Execution represents a row in the executed_files table of trace.sqlite3

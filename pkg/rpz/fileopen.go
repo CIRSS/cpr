@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/cirss/cpr/pkg/rdf"
+	"github.com/cirss/geist/pkg/rdf"
 )
 
 // FileOpen represents a row in the opened_files table of trace.sqlite3
