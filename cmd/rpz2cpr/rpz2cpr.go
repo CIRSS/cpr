@@ -21,18 +21,19 @@ func main() {
 
 	var err error
 
-	flags := Main.InitFlagSet()
-	var name = flags.String("n", "", "Name of run")
-	var mask = flags.Bool("m", false, "Mask unrepeatable attributes")
-	var ignore = flags.Bool("i", false, "Ignore files written by the first process")
-	var file = flags.String("file", "-", "File for saving trace")
-	var format = flags.String("format", "facts", "Format for trace file")
-	var store = flags.String("store", "", "URL of Blazegraph trace store")
+	cc := cli.NewCommandContext(Main, nil)
 
-	err = flags.Parse(os.Args[1:])
+	var name = cc.Flags.String("n", "", "Name of run")
+	var mask = cc.Flags.Bool("m", false, "Mask unrepeatable attributes")
+	var ignore = cc.Flags.Bool("i", false, "Ignore files written by the first process")
+	var file = cc.Flags.String("file", "-", "File for saving trace")
+	var format = cc.Flags.String("format", "facts", "Format for trace file")
+	var store = cc.Flags.String("store", "", "URL of Blazegraph trace store")
+
+	err = cc.Flags.Parse(os.Args[1:])
 	if err != nil {
 		fmt.Println(err)
-		flags.Usage()
+		cc.Flags.Usage()
 		return
 	}
 
@@ -42,11 +43,11 @@ func main() {
 	rpz.IgnoreFirstProcessFiles = *ignore
 
 	var traceDirectory string
-	switch flags.NArg() {
+	switch cc.Flags.NArg() {
 	case 1:
-		traceDirectory = flags.Arg(0)
+		traceDirectory = cc.Flags.Arg(0)
 	default:
-		flags.Usage()
+		cc.Flags.Usage()
 		return
 	}
 
