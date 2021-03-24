@@ -21,7 +21,7 @@ func main() {
 func NewCPRCommandContext(pc *cli.ProgramContext) (cc *cli.CommandContext) {
 
 	commands := cli.NewCommandSet([]cli.CommandDescriptor{
-		{"convert", Convert, "Convert between trace representations.",
+		{"convert", Convert, "Convert between trace representations",
 			"Converts a run trace from one representation to another."},
 		{"help", cli.Help, "Show help", ""},
 		// {"import", Import, "Import a trace.",
