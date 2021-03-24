@@ -93,10 +93,10 @@ $(RPZ_TRACE): build $(OUTPUTS_DIR) $(TEMP_DIR)
 	reprozip trace --overwrite ./run.sh
 
 $(FACTS): $(RPZ_TRACE) $(FACTS_DIR)
-	rpz2cpr -i -n=$(shell basename $(CURDIR)) -m -file $(TRACE_FACTS) $(RPZ_TRACE_DIR)
+	cpr convert -i -n=$(shell basename $(CURDIR)) -m -file $(TRACE_FACTS) -trace $(RPZ_TRACE_DIR)
 
 $(TRIPLES): $(RPZ_TRACE) $(TRIPLES_DIR)
-	rpz2cpr -i -n=$(shell basename $(CURDIR)) -m -format triples -file $(TURTLE_FILE) $(RPZ_TRACE_DIR)
+	cpr convert -i -n=$(shell basename $(CURDIR)) -m -format triples -file $(TURTLE_FILE) -trace $(RPZ_TRACE_DIR)
 
 $(TRACE_VIEWS): $(TRACE_FACTS)
 	bash $(SCRIPTS_DIR)/materialize_cpr_views.sh > $@
