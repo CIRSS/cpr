@@ -5,6 +5,7 @@
 examples:               run-examples    ## 
 build:                  build-code      ## 
 test:                   test-code       ## 
+install:                install-code    ## 
 
 # Define target aliases available only outside a running REPRO
 ifndef IN_RUNNING_REPRO
