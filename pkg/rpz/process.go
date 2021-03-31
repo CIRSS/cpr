@@ -47,7 +47,7 @@ func WriteProcessFacts(writer io.Writer, processes []Process) {
 // String prints one row of the processes table of trace.sqlite3 as a Prolog fact
 func (p Process) String() string {
 	return fmt.Sprintf("cpr_process(%s, %s, %s, %t, %d, %s).",
-		P(p.ID), int64OrNil("p", p.Parent), R(p.RunID), p.IsThread, p.ExitCode, maskableInt64(p.Timestamp))
+		P(p.ID), int64OrNil("p", p.Parent), R(p.RunID), p.IsThread, p.ExitCode, timestampInt64(p.Timestamp))
 }
 
 func AddProcessTriples(g *rdf.Graph, processes []Process) {
@@ -62,7 +62,7 @@ func AddProcessTriples(g *rdf.Graph, processes []Process) {
 		if p.Parent.Valid {
 			g.AddNewTriple(processURI, "cpr:ProcParent", ProcessUri(g, p.Parent.Int64))
 		}
-		g.AddNewTriple(processURI, "cpr:ProcStart", maskableInt64(p.Timestamp))
+		g.AddNewTriple(processURI, "cpr:ProcStart", timestampInt64(p.Timestamp))
 	}
 }
 

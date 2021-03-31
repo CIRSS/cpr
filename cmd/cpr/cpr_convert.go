@@ -12,12 +12,13 @@ import (
 func Convert(cc *cli.CommandContext) (err error) {
 
 	// declare command flags
-	name := cc.Flags.String("n", "", "Name of run")
-	mask := cc.Flags.Bool("m", false, "Mask unrepeatable attributes")
-	ignore := cc.Flags.Bool("i", false, "Ignore files written by the first process")
-	file := cc.Flags.String("file", "-", "File for saving trace")
-	format := cc.Flags.String("format", "facts", "Format for trace file")
-	traceDirectory := cc.Flags.String("trace", "./.reprozip-trace", "Directory with ReproZip trace")
+	name := cc.Flags.String("name", "", "Name to apply to destination trace")
+	noroot := cc.Flags.Bool("noroot", false, "Exclude root of process tree from destination trace")
+	notimestamps := cc.Flags.Bool("notimestamps", false, "Exclude timestamps from destination trace")
+	dest := cc.Flags.String("dest", "", "Destination of `trace` conversion")
+	cc.Flags.String("from", "", "Source trace `format`")
+	to := cc.Flags.String("to", "", "Destination trace `format`")
+	src := cc.Flags.String("src", "", "Source `trace` to convert")
 
 	// parse flags
 	var helped bool
@@ -27,8 +28,8 @@ func Convert(cc *cli.CommandContext) (err error) {
 
 	traceFile := os.Stdout
 
-	if *file != "-" {
-		traceFile, err = os.Create(*file)
+	if *dest != "" {
+		traceFile, err = os.Create(*dest)
 		if err != nil {
 			return
 		}
@@ -36,12 +37,12 @@ func Convert(cc *cli.CommandContext) (err error) {
 
 	config := cpr.LoadConfig("rpz2cpr.yml")
 
-	rpz.MaskNonrepeatables = *mask
-	rpz.IgnoreFirstProcessFiles = *ignore
+	rpz.MaskTimestamps = *notimestamps
+	rpz.IgnoreFirstProcessFiles = *noroot
 
-	trace := rpz.ExtractTrace(*name, *traceDirectory, config)
+	trace := rpz.ExtractTrace(*name, *src, config)
 
-	switch *format {
+	switch *to {
 
 	case "facts":
 		rpz.WriteTraceFacts(traceFile, trace)

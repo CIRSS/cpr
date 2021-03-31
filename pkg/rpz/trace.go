@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	MaskNonrepeatables      = true
+	MaskTimestamps          = true
 	IgnoreFirstProcessFiles = true
 	WorkingDirPathIndex     int64
 )

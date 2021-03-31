@@ -57,8 +57,8 @@ func Prepend(s string, i int64) string {
 	return s + strconv.FormatInt(i, 10)
 }
 
-func maskableInt64(value int64) string {
-	if MaskNonrepeatables {
+func timestampInt64(value int64) string {
+	if MaskTimestamps {
 		return "nil"
 	}
 	return strconv.FormatInt(value, 10)

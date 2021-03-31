@@ -47,6 +47,8 @@ PROV_RUN_JSON=$(PROV_DIR)/prov_run.json
 PROVONE_RUN_JSON=$(PROV_DIR)/provone_run.json
 PROV=$(PROV_RUN_JSON) $(PROVONE_RUN_JSON)
 
+RUN_NAME=$(shell basename $(CURDIR))
+
 FACTS=$(TRACE_FACTS)
 VIEWS=$(TRACE_VIEWS)
 QUERIES=$(CPR_QUERIES) 
@@ -85,7 +87,6 @@ prov: $(PROV)
 
 png: $(PNGS)
 
-
 $(DIRS):
 	mkdir -p $@
 
@@ -93,10 +94,10 @@ $(RPZ_TRACE): build $(OUTPUTS_DIR) $(TEMP_DIR)
 	reprozip trace --overwrite ./run.sh
 
 $(FACTS): $(RPZ_TRACE) $(FACTS_DIR)
-	cpr convert -i -n=$(shell basename $(CURDIR)) -m -file $(TRACE_FACTS) -trace $(RPZ_TRACE_DIR)
+	cpr convert -noroot -notimestamps -name=$(RUN_NAME) -from reprozip -to facts -src $(RPZ_TRACE_DIR) -dest $(TRACE_FACTS)
 
 $(TRIPLES): $(RPZ_TRACE) $(TRIPLES_DIR)
-	cpr convert -i -n=$(shell basename $(CURDIR)) -m -format triples -file $(TURTLE_FILE) -trace $(RPZ_TRACE_DIR)
+	cpr convert -noroot -notimestamps -name=$(RUN_NAME) -from reprozip -to triples -src $(RPZ_TRACE_DIR) -dest $(TURTLE_FILE)
 
 $(TRACE_VIEWS): $(TRACE_FACTS)
 	bash $(SCRIPTS_DIR)/materialize_cpr_views.sh > $@

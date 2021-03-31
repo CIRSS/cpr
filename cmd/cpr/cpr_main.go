@@ -30,7 +30,7 @@ func NewCPRCommandContext(pc *cli.ProgramContext) (cc *cli.CommandContext) {
 
 	cc = cli.NewCommandContext(pc, commands)
 	cc.AddProvider("BlazegraphClient", getBlazegraphClient)
-	cc.Flags.String("store", blaze.DefaultUrl, "`URL` of CPR provenance store")
+	// cc.Flags.String("store", blaze.DefaultUrl, "`URL` of CPR provenance store")
 
 	return
 }

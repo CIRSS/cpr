@@ -7,8 +7,10 @@ purge: clean
 	chmod -R +w ${GOPATH}
 	rm -rf ${GOPATH}/*
 
-build:
+depend:
 	go mod tidy
+
+build:
 	go build ./...
 
 # disable test result caching using: -count 1
@@ -16,7 +18,7 @@ build:
 test: build
 	go test ./... -count 1 -p 1
 
-install: build
+install:
 	go install ./...   
 
 package: install

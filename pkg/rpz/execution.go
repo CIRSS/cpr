@@ -49,7 +49,7 @@ func WriteExecutionFacts(w io.Writer, executed []Execution) {
 // String prints one row of the executed_files table of trace.sqlite3 as a Prolog fact
 func (f Execution) String() string {
 	return fmt.Sprintf("cpr_execution(%s, %s, %s, %s, %s, %s).",
-		E(f.ExecID), R(f.RunID), P(f.Process), Q(f.Name), Q(f.WorkingDir), maskableInt64(f.Timestamp))
+		E(f.ExecID), R(f.RunID), P(f.Process), Q(f.Name), Q(f.WorkingDir), timestampInt64(f.Timestamp))
 }
 
 func AddExecutionTriples(g *rdf.Graph, executions []Execution) {
@@ -59,7 +59,7 @@ func AddExecutionTriples(g *rdf.Graph, executions []Execution) {
 		g.AddNewTriple(executionURI, "cpr:ExecProcess", ProcessUri(g, e.Process))
 		g.AddNewTriple(executionURI, "cpr:ExecFile", e.Name)
 		g.AddNewTriple(executionURI, "cpr:ExecDir", e.WorkingDir)
-		g.AddNewTriple(executionURI, "cpr:ExecStart", maskableInt64(e.Timestamp))
+		g.AddNewTriple(executionURI, "cpr:ExecStart", timestampInt64(e.Timestamp))
 	}
 }
 

@@ -13,22 +13,24 @@ var expectedConvertHelpOutput = string(
 	usage: cpr convert [<flags>]
 
 	flags:
-	  -file string
-			File for saving trace (default "-")
-	  -format string
-			Format for trace file (default "facts")
-	  -i	Ignore files written by the first process
-	  -m	Mask unrepeatable attributes
-	  -n string
-			Name of run
-	  -quiet
+		-dest trace
+			Destination of trace conversion
+		-from format
+			Source trace format
+		-name string
+			Name to apply to destination trace
+		-noroot
+	    	Exclude root of process tree from destination trace
+		-notimestamps
+			Exclude timestamps from destination trace
+		-quiet
 			Discard normal command output
-	  -silent
+		-silent
 			Discard normal and error command output
-	  -store URL
-			URL of CPR provenance store (default "http://127.0.0.1:9999/blazegraph")
-	  -trace string
-			Directory with ReproZip trace (default "./.reprozip-trace")
+		-src trace
+			Source trace to convert
+		-to format
+			Destination trace format
 	`)
 
 func TestCPR_convert_help(t *testing.T) {
