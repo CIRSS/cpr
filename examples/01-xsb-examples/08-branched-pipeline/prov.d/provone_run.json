@@ -1,0 +1,64 @@
+{
+  "@context": [
+    {
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    {
+      "provone": "http://purl.dataone.org/provone/2015/01/15/ontology#"
+    },
+    {
+      "wt": "http://wholetale.org/ontology/wt#"
+    },
+    {
+      "tale": "http://wholetale.org/tale2035/version1021#"
+    },
+    {
+      "run": "http://wholetale.org/tale2035/version1021/run1119#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "run:execution_1",
+      "@type": "provone:Execution",
+      "prov:used": [
+        {
+          "@id": "run:data_file_i20",
+          "@type": "wt:DataFile",
+          "wt:FilePath": "./inputs/i4.txt"
+        },
+        {
+          "@id": "run:data_file_i15",
+          "@type": "wt:DataFile",
+          "wt:FilePath": "./inputs/i1.txt"
+        },
+        {
+          "@id": "run:data_file_i16",
+          "@type": "wt:DataFile",
+          "wt:FilePath": "./inputs/i2.txt"
+        },
+        {
+          "@id": "run:data_file_i18",
+          "@type": "wt:DataFile",
+          "wt:FilePath": "./inputs/i3.txt"
+        }
+      ],
+      "prov:generated": [
+        {
+          "@id": "run:data_file_i21",
+          "@type": "wt:DataFile",
+          "wt:FilePath": "./outputs/o12.txt"
+        },
+        {
+          "@id": "run:data_file_i22",
+          "@type": "wt:DataFile",
+          "wt:FilePath": "./outputs/o1234.txt"
+        },
+        {
+          "@id": "run:data_file_i23",
+          "@type": "wt:DataFile",
+          "wt:FilePath": "./outputs/o4.txt"
+        }
+      ]
+    }
+  ]
+}

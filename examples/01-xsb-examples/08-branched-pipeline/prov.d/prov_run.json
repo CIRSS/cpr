@@ -1,0 +1,58 @@
+{
+  "@context": [
+    {
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "tale_execution",
+      "@type": "prov:Activity",
+      "prov:used": [
+        {
+          "@id": "file://./inputs/i4.txt"
+        },
+        {
+          "@id": "file://./inputs/i1.txt"
+        },
+        {
+          "@id": "file://./inputs/i2.txt"
+        },
+        {
+          "@id": "file://./inputs/i3.txt"
+        }
+      ]
+    },
+    {
+      "@id": "file://./inputs/i4.txt",
+      "@type": "prov:Entity"
+    },
+    {
+      "@id": "file://./inputs/i1.txt",
+      "@type": "prov:Entity"
+    },
+    {
+      "@id": "file://./inputs/i2.txt",
+      "@type": "prov:Entity"
+    },
+    {
+      "@id": "file://./inputs/i3.txt",
+      "@type": "prov:Entity"
+    },
+    {
+      "@id": "file://./outputs/o12.txt",
+      "@type": "prov:Entity",
+      "prov:wasGeneratedBy": "tale_execution"
+    },
+    {
+      "@id": "file://./outputs/o1234.txt",
+      "@type": "prov:Entity",
+      "prov:wasGeneratedBy": "tale_execution"
+    },
+    {
+      "@id": "file://./outputs/o4.txt",
+      "@type": "prov:Entity",
+      "prov:wasGeneratedBy": "tale_execution"
+    }
+  ]
+}
