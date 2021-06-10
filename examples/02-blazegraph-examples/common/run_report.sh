@@ -14,28 +14,28 @@ bash ${RUNNER} STEP1 "Convert trace to RDF triples" << END_STEP
 END_STEP
 
 
-bash ${RUNNER} STEP2 "Prepare Blazegraph for the trace" << END_STEP
+bash ${RUNNER} STEP2 "Prepare the traces dataset in Blazegraph" << END_STEP
 
-    # destroy the trace dataset if it exists in the Blazegraph instance
-    blaze destroy --dataset trace --quiet
+    # destroy the traces dataset if it exists in the Blazegraph instance
+    blaze destroy --dataset traces --silent
 
-    # create the trace dataset in Blazegraph
-    blaze create --dataset trace
-
-END_STEP
-
-
-bash ${RUNNER} STEP3 "Load trace into Blazegraph" << END_STEP
-
-    # load the run trace into the trace dataset in Blazegraph
-    blaze import --dataset trace --format ttl --file trace.ttl
+    # create the traces dataset in Blazegraph
+    blaze create --dataset traces
 
 END_STEP
 
 
-bash ${RUNNER} STEP4 "Export the entire trace from Blazegraph" << END_STEP
+bash ${RUNNER} STEP3 "Load the trace into Blazegraph" << END_STEP
 
-    # export all of the triples from the trace dataset in Blazegraph
-    blaze export --dataset trace --format nt | sort
+    # load the run trace into the traces dataset in Blazegraph
+    blaze import --dataset traces --format ttl --file trace.ttl
+
+END_STEP
+
+
+bash ${RUNNER} STEP4 "Export the entire traces dataset from Blazegraph" << END_STEP
+
+    # export all of the triples from the traces dataset in Blazegraph
+    blaze export --dataset traces --format nt | sort
 
 END_STEP
