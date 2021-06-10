@@ -5,7 +5,7 @@ RUNNER='../common/run_report_script.sh'
 
 bash ${RUNNER} STEP1 "Convert trace to RDF triples" << END_STEP
 
-    # convert reprozip trace to RDF triples in Turtle format
+    # convert Reprozip reprozip trace to RDF triples in Turtle format
 	cpr convert -noroot -notimestamps -from reprozip -to triples -src .reprozip-trace -dest trace.ttl
 
     # print out the Turtle file
@@ -37,5 +37,46 @@ bash ${RUNNER} STEP4 "Export the entire traces dataset from Blazegraph" << END_S
 
     # export all of the triples from the traces dataset in Blazegraph
     blaze export --dataset traces --format nt | sort
+
+END_STEP
+
+
+bash ${RUNNER} Q1 "List the programs executed during the run" << END_STEP
+
+    echo "Programs executed during the run:"
+    echo
+
+    geist query --dataset traces --format table << __END_QUERY__
+
+        PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
+
+        SELECT DISTINCT ?program
+        WHERE {
+            ?execution cpr:ExecFile ?program .
+        } ORDER BY ?program
+
+__END_QUERY__
+
+END_STEP
+
+
+bash ${RUNNER} Q2 "List the files opened for reading during the run" << END_STEP
+
+    echo "Programs opened for reading during the run and their roles:"
+    echo
+
+    geist query --dataset traces --format table << __END_QUERY__
+
+        PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
+
+        SELECT DISTINCT ?file ?role
+        WHERE {
+            ?access rdf:type cpr:FileAccess .
+            ?access cpr:AccessMode cpr:Read .
+            ?access cpr:FilePath ?file .
+            ?access cpr:FileRole ?role .
+    } ORDER BY ?file ?role
+
+__END_QUERY__
 
 END_STEP

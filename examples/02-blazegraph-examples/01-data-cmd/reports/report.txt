@@ -3,7 +3,7 @@
 
 # Convert trace to RDF triples
 
-    # convert reprozip trace to RDF triples in Turtle format
+    # convert Reprozip reprozip trace to RDF triples in Turtle format
 	cpr convert -noroot -notimestamps -from reprozip -to triples -src .reprozip-trace -dest trace.ttl
 
     # print out the Turtle file
@@ -187,4 +187,65 @@ Successfully created dataset traces
 <wfv:run/0> <http://cirss.illinois.edu/ns/cpr#FirstProcess> <run:proc/1> .
 <wfv:run/0> <http://cirss.illinois.edu/ns/cpr#RunName> "run0" .
 <wfv:run/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Run> .
+
+
+******************************************* EXAMPLE Q1 ************************************************
+
+# List the programs executed during the run
+
+    echo "Programs executed during the run:"
+    echo
+
+    geist query --dataset traces --format table << __END_QUERY__
+
+        PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
+
+        SELECT DISTINCT ?program
+        WHERE {
+            ?execution cpr:ExecFile ?program .
+        } ORDER BY ?program
+
+__END_QUERY__
+
+------------------------------------------- Q1 OUTPUTS ------------------------------------------------
+
+Programs executed during the run:
+
+program
+======================================================================
+/mnt/cpr/examples/02-blazegraph-examples/01-data-cmd/./workspace/run.sh
+/usr/bin/date
+
+
+******************************************* EXAMPLE Q2 ************************************************
+
+# List the files opened for reading during the run
+
+    echo "Programs opened for reading during the run and their roles:"
+    echo
+
+    geist query --dataset traces --format table << __END_QUERY__
+
+        PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
+
+        SELECT DISTINCT ?file ?role
+        WHERE {
+            ?access rdf:type cpr:FileAccess .
+            ?access cpr:AccessMode cpr:Read .
+            ?access cpr:FilePath ?file .
+            ?access cpr:FileRole ?role .
+    } ORDER BY ?file ?role
+
+__END_QUERY__
+
+------------------------------------------- Q2 OUTPUTS ------------------------------------------------
+
+Programs opened for reading during the run and their roles:
+
+file                                 | role
+=========================================
+/etc/ld.so.cache                     | os
+/etc/localtime                       | os
+/lib/x86_64-linux-gnu/libc.so.6      | os
+/usr/lib/x86_64-linux-gnu/ld-2.31.so | os
 
