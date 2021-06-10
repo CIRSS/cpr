@@ -8,7 +8,7 @@ REPROZIP_TRACE_DIR=.reprozip-trace
 REPROZIP_LOG_FILE=${SCRATCH_DIR}/reprozip-trace-log.txt
 
 REPORT_OUTPUT_DIR=./reports
-REPORT_SCRIPT_FILE=./report.sh
+REPORT_SCRIPT_FILE=../common/run_report.sh
 REPORT_OUTPUT_FILE=${REPORT_OUTPUT_DIR}/report.txt
 
 DIRS=${CPR_REPORT_DIR}  	\
