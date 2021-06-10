@@ -52,6 +52,10 @@ RUN echo '***** Make the user bin directory *****'                          \
 ENV BLAZE_VERSION v0.2.4
 RUN /usr/local/go/bin/go install github.com/cirss/blaze/cmd/blaze@${BLAZE_VERSION}
 
+ENV GEIST_VERSION v0.2.4
+RUN /usr/local/go/bin/go install github.com/cirss/geist/cmd/geist@${BLAZE_VERSION}
+
+
 ENV REPROZIP_VERSION v1.0.16-r1
 ENV REPROZIP_RELEASES https://github.com/cirss/reprozip-static/releases
 ENV REPROZIP_DOWNLOAD_DIR ${REPROZIP_RELEASES}/download/${REPROZIP_VERSION}
