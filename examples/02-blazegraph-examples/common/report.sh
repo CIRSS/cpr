@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-RUNNER='../common/run_report_script.sh'
-
+RUNNER='../common/do_report_step.sh'
+GRAPHER='../common/do_report_graph.sh'
 
 bash ${RUNNER} STEP1 "Convert trace to RDF triples" << END_STEP
 
     # convert Reprozip reprozip trace to RDF triples in Turtle format
-	cpr convert -noroot -notimestamps -from reprozip -to triples -src .reprozip-trace -dest trace.ttl
+	cpr convert -noroot -notimestamps -from reprozip -to triples -src .reprozip-trace -dest ./cpr/trace.ttl
 
     # print out the Turtle file
-    cat trace.ttl
+    cat ./cpr/trace.ttl
 
 END_STEP
 
@@ -28,7 +28,7 @@ END_STEP
 bash ${RUNNER} STEP3 "Load the trace into Blazegraph" << END_STEP
 
     # load the run trace into the traces dataset in Blazegraph
-    blaze import --dataset traces --format ttl --file trace.ttl
+    blaze import --dataset traces --format ttl --file cpr/trace.ttl
 
 END_STEP
 
@@ -80,3 +80,6 @@ bash ${RUNNER} Q2 "List the files opened for reading during the run" << END_STEP
 __END_QUERY__
 
 END_STEP
+
+
+
