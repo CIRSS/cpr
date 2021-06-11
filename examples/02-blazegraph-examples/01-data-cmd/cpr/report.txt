@@ -249,3 +249,33 @@ file                                 | role
 /lib/x86_64-linux-gnu/libc.so.6      | os
 /usr/lib/x86_64-linux-gnu/ld-2.31.so | os
 
+
+******************************************* EXAMPLE GRAPH-1 ************************************************
+
+# DATAFRAME FLOW THROUGH COMMANDS
+
+geist report << '__END_REPORT_TEMPLATE__'
+
+    {{{
+        {{ include "../common/graphviz.g" }}
+    }}}
+
+    {{ gv_graph "run_blackbox" }}
+
+    {{ gv_title "Black-box view of run" }}
+
+    {{ gv_end }}                                                                            \
+
+__END_REPORT_TEMPLATE__
+
+----------------------------------------- GRAPH-1 DOT OUTPUT -----------------------------------------------
+
+
+digraph run_blackbox {
+rankdir=TB
+
+fontname=Courier; fontsize=18; labelloc=t
+label="Black-box view of run"
+
+}
+

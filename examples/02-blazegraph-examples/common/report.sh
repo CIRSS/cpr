@@ -83,3 +83,24 @@ END_STEP
 
 
 
+bash ${GRAPHER} GRAPH-1 "DATAFRAME FLOW THROUGH COMMANDS" \
+    << '__END_SCRIPT__'
+
+geist report << '__END_REPORT_TEMPLATE__'
+
+    {{{
+        {{ include "../common/graphviz.g" }}
+    }}}
+
+    {{ gv_graph "run_blackbox" }}
+
+    {{ gv_title "Black-box view of run" }}
+
+    {{ gv_end }}                                                                            \\
+
+__END_REPORT_TEMPLATE__
+
+__END_SCRIPT__
+
+
+

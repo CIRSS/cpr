@@ -9,7 +9,7 @@ outputs_dir=./cpr
 
 # define name of result file
 script_file=${scratch_dir}/${script_id}.sh
-dot_file=${outputs_dir}/${script_id}.gv
+dot_file=${scratch_dir}/${script_id}.gv
 png_file=${outputs_dir}/${script_id}.png
 
 # copy query from stdin to the query file
