@@ -1,0 +1,17 @@
+[REPROZIP] 03:59:11.597 INFO: Removing existing trace directory .reprozip-trace
+[REPROZIP] 03:59:11.597 INFO: Running program
+[REPROZIP] 03:59:11.598 INFO: child created, pid=3030
+[REPROZIP] 03:59:11.600 INFO: process 3030 created by initial fork()
+[REPROZIP] 03:59:11.600 INFO: 1 processes (inc. 0 unattached)
+[REPROZIP] 03:59:11.602 INFO: [3030] successfully exec'd /mnt/cpr/examples/02-blazegraph-examples/01-data-cmd/./workspace/run.sh
+[REPROZIP] 03:59:11.602 INFO: [3030] read shebang: /mnt/cpr/examples/02-blazegraph-examples/01-data-cmd/./workspace/run.sh -> /bin/bash
+[REPROZIP] 03:59:11.669 INFO: [3031] process created by 3030 via fork()
+    (thread: no) (working directory: /mnt/cpr/examples/02-blazegraph-examples/01-data-cmd)
+[REPROZIP] 03:59:11.669 INFO: 2 processes (inc. 0 unattached)
+[REPROZIP] 03:59:11.674 INFO: [3031] successfully exec'd /usr/bin/date
+[REPROZIP] 03:59:11.696 INFO: [3031] process exited (code 0), 1 processes remain
+[REPROZIP] 03:59:11.698 INFO: [3030] caught signal 17
+[REPROZIP] 03:59:11.700 INFO: [3030] process exited (code 0), 0 processes remain
+[REPROZIP] 03:59:11.705 INFO: Program completed
+[REPROZIP] 03:59:11.719 INFO: Identifying Debian packages for 26 files...
+[REPROZIP] 03:59:11.753 INFO: 1 packages with 1 files, and 25 other files
