@@ -1,3 +1,0 @@
-Hello World
-Configuration file written in .reprozip-trace/config.yml
-Edit that file then run the packer -- use 'reprozip pack -h' for help

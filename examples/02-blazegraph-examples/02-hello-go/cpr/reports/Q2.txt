@@ -1,0 +1,9 @@
+Programs opened for reading during the run and their roles:
+
+file                                                                        | role
+================================================================================
+/etc/ld.so.cache                                                            | nil
+/lib/x86_64-linux-gnu/libc.so.6                                             | nil
+/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/bin/hello_go | sw
+/sys/kernel/mm/transparent_hugepage/hpage_pmd_size                          | os
+/usr/lib/x86_64-linux-gnu/ld-2.31.so                                        | nil

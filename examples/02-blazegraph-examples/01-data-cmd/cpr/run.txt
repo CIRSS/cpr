@@ -1,3 +1,0 @@
-Mon Jun 14 05:38:51 UTC 2021
-Configuration file written in .reprozip-trace/config.yml
-Edit that file then run the packer -- use 'reprozip pack -h' for help
