@@ -54,7 +54,8 @@ func AddProcessTriples(g *rdf.Graph, processes []Process) {
 	for _, p := range processes {
 		processURI := ProcessUri(g, p.ID)
 		if p.IsThread {
-			g.AddNewTriple(processURI, "rdf:type", g.NewUri("cpr:Thread"))
+			continue
+			//g.AddNewTriple(processURI, "rdf:type", g.NewUri("cpr:Thread"))
 		} else {
 			g.AddNewTriple(processURI, "rdf:type", g.NewUri("cpr:Proc"))
 			g.AddNewTriple(processURI, "cpr:ProcExitCode", p.ExitCode)

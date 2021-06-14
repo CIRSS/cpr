@@ -59,13 +59,13 @@ cpr_file_write(o76,r0,p7,i23,'./outputs/o4.txt',out).
 %---------------------------------------------------------------------------------------------------
 % FACT: cpr_data_file(PathIndex, FilePath, PathRole).
 %...................................................................................................
-cpr_data_file(i19,'./temp/t4.txt',tmp).
-cpr_data_file(i20,'./inputs/i4.txt',in).
-cpr_data_file(i9,'./temp/t12.txt',tmp).
-cpr_data_file(i21,'./outputs/o12.txt',out).
 cpr_data_file(i22,'./outputs/o1234.txt',out).
 cpr_data_file(i15,'./inputs/i1.txt',in).
 cpr_data_file(i23,'./outputs/o4.txt',out).
 cpr_data_file(i16,'./inputs/i2.txt',in).
 cpr_data_file(i17,'./temp/t123.txt',tmp).
 cpr_data_file(i18,'./inputs/i3.txt',in).
+cpr_data_file(i19,'./temp/t4.txt',tmp).
+cpr_data_file(i20,'./inputs/i4.txt',in).
+cpr_data_file(i9,'./temp/t12.txt',tmp).
+cpr_data_file(i21,'./outputs/o12.txt',out).
