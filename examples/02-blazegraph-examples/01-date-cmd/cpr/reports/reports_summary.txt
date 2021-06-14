@@ -27,13 +27,13 @@
 <run:proc/2> cpr:ProcStart "nil" .
 <run:exec/1> rdf:type cpr:Exec .
 <run:exec/1> cpr:ExecProcess <run:proc/1> .
-<run:exec/1> cpr:ExecFile "/mnt/cpr/examples/02-blazegraph-examples/01-data-cmd/./workspace/run.sh" .
-<run:exec/1> cpr:ExecDir "/mnt/cpr/examples/02-blazegraph-examples/01-data-cmd" .
+<run:exec/1> cpr:ExecFile "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd/./workspace/run.sh" .
+<run:exec/1> cpr:ExecDir "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd" .
 <run:exec/1> cpr:ExecStart "nil" .
 <run:exec/2> rdf:type cpr:Exec .
 <run:exec/2> cpr:ExecProcess <run:proc/2> .
 <run:exec/2> cpr:ExecFile "/usr/bin/date" .
-<run:exec/2> cpr:ExecDir "/mnt/cpr/examples/02-blazegraph-examples/01-data-cmd" .
+<run:exec/2> cpr:ExecDir "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd" .
 <run:exec/2> cpr:ExecStart "nil" .
 <run:exec/1> cpr:ExecArg <run:exec/1/arg/0> .
 <run:exec/1/arg/0> rdf:type cpr:ExecArgument .
@@ -45,7 +45,7 @@
 <run:exec/2/arg/0> cpr:ArgValue "date" .
 <run:proc/2> cpr:Performed <run:proc/2/access/36> .
 <run:proc/2/access/36> rdf:type cpr:DirectoryAccess .
-<run:proc/2/access/36> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/01-data-cmd" .
+<run:proc/2/access/36> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd" .
 <run:proc/2/access/36> cpr:AccessMode cpr:Search .
 <run:proc/2/access/36> cpr:OpenTime "nil" .
 <run:proc/2/access/36> cpr:FileRole "sw" .
@@ -76,14 +76,15 @@
 <wfv:run/0> rdf:type cpr:Run .
 <wfv:run/0> cpr:RunName "run0" .
 <wfv:run/0> cpr:FirstProcess <run:proc/1> .
-<wfv:role/0> cpr:Path "/lib" .
-<wfv:role/1> cpr:Path "/etc" .
-<wfv:role/2> cpr:Path "/usr/lib" .
-<wfv:role/3> cpr:Path "/bin" .
-<wfv:role/3> cpr:Role cpr:software .
-<wfv:role/4> cpr:Path "." .
+<wfv:role/0> cpr:Path "/etc" .
+<wfv:role/1> cpr:Path "/lib" .
+<wfv:role/2> cpr:Path "/sys" .
+<wfv:role/3> cpr:Path "/usr/lib" .
+<wfv:role/4> cpr:Path "/bin" .
 <wfv:role/4> cpr:Role cpr:software .
-<wfv:role/5> cpr:Path "/tmp" .
+<wfv:role/5> cpr:Path "." .
+<wfv:role/5> cpr:Role cpr:software .
+<wfv:role/6> cpr:Path "/tmp" .
 
 
 ******************************************* EXAMPLE STEP2 ************************************************
@@ -125,8 +126,8 @@ Successfully created dataset traces
 <run:exec/1/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgValue> "./workspace/run.sh" .
 <run:exec/1/arg/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ExecArgument> .
 <run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecArg> <run:exec/1/arg/0> .
-<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecDir> "/mnt/cpr/examples/02-blazegraph-examples/01-data-cmd" .
-<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecFile> "/mnt/cpr/examples/02-blazegraph-examples/01-data-cmd/./workspace/run.sh" .
+<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecDir> "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd" .
+<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecFile> "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd/./workspace/run.sh" .
 <run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecProcess> <run:proc/1> .
 <run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecStart> "nil" .
 <run:exec/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Exec> .
@@ -134,7 +135,7 @@ Successfully created dataset traces
 <run:exec/2/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgValue> "date" .
 <run:exec/2/arg/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ExecArgument> .
 <run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecArg> <run:exec/2/arg/0> .
-<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecDir> "/mnt/cpr/examples/02-blazegraph-examples/01-data-cmd" .
+<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecDir> "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd" .
 <run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecFile> "/usr/bin/date" .
 <run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecProcess> <run:proc/2> .
 <run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecStart> "nil" .
@@ -143,7 +144,7 @@ Successfully created dataset traces
 <run:proc/1> <http://cirss.illinois.edu/ns/cpr#ProcStart> "nil" .
 <run:proc/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Proc> .
 <run:proc/2/access/36> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Search> .
-<run:proc/2/access/36> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/01-data-cmd" .
+<run:proc/2/access/36> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd" .
 <run:proc/2/access/36> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
 <run:proc/2/access/36> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
 <run:proc/2/access/36> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
@@ -176,14 +177,15 @@ Successfully created dataset traces
 <run:proc/2> <http://cirss.illinois.edu/ns/cpr#ProcParent> <run:proc/1> .
 <run:proc/2> <http://cirss.illinois.edu/ns/cpr#ProcStart> "nil" .
 <run:proc/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Proc> .
-<wfv:role/0> <http://cirss.illinois.edu/ns/cpr#Path> "/lib" .
-<wfv:role/1> <http://cirss.illinois.edu/ns/cpr#Path> "/etc" .
-<wfv:role/2> <http://cirss.illinois.edu/ns/cpr#Path> "/usr/lib" .
-<wfv:role/3> <http://cirss.illinois.edu/ns/cpr#Path> "/bin" .
-<wfv:role/3> <http://cirss.illinois.edu/ns/cpr#Role> <http://cirss.illinois.edu/ns/cpr#software> .
-<wfv:role/4> <http://cirss.illinois.edu/ns/cpr#Path> "." .
+<wfv:role/0> <http://cirss.illinois.edu/ns/cpr#Path> "/etc" .
+<wfv:role/1> <http://cirss.illinois.edu/ns/cpr#Path> "/lib" .
+<wfv:role/2> <http://cirss.illinois.edu/ns/cpr#Path> "/sys" .
+<wfv:role/3> <http://cirss.illinois.edu/ns/cpr#Path> "/usr/lib" .
+<wfv:role/4> <http://cirss.illinois.edu/ns/cpr#Path> "/bin" .
 <wfv:role/4> <http://cirss.illinois.edu/ns/cpr#Role> <http://cirss.illinois.edu/ns/cpr#software> .
-<wfv:role/5> <http://cirss.illinois.edu/ns/cpr#Path> "/tmp" .
+<wfv:role/5> <http://cirss.illinois.edu/ns/cpr#Path> "." .
+<wfv:role/5> <http://cirss.illinois.edu/ns/cpr#Role> <http://cirss.illinois.edu/ns/cpr#software> .
+<wfv:role/6> <http://cirss.illinois.edu/ns/cpr#Path> "/tmp" .
 <wfv:run/0> <http://cirss.illinois.edu/ns/cpr#FirstProcess> <run:proc/1> .
 <wfv:run/0> <http://cirss.illinois.edu/ns/cpr#RunName> "run0" .
 <wfv:run/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Run> .
@@ -213,7 +215,7 @@ Programs executed during the run:
 
 program
 ======================================================================
-/mnt/cpr/examples/02-blazegraph-examples/01-data-cmd/./workspace/run.sh
+/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd/./workspace/run.sh
 /usr/bin/date
 
 

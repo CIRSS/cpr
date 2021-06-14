@@ -1,8 +1,10 @@
 ---
 roles:
     os:
-    - /proc
+    - /etc
+    - /lib
     - /sys
+    - /usr/lib
     sw:
     - .
     nul:

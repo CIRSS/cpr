@@ -1,8 +1,9 @@
 ---
 roles:
     os:
-    - /lib
     - /etc
+    - /lib
+    - /sys
     - /usr/lib
     sw:
     - /bin

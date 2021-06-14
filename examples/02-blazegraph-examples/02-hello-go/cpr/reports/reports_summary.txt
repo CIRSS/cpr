@@ -138,19 +138,19 @@
 <run:proc/2/access/37> cpr:FilePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
 <run:proc/2/access/37> cpr:AccessMode cpr:Read .
 <run:proc/2/access/37> cpr:OpenTime "nil" .
-<run:proc/2/access/37> cpr:FileRole "nil" .
+<run:proc/2/access/37> cpr:FileRole "os" .
 <run:proc/2> cpr:Performed <run:proc/2/access/39> .
 <run:proc/2/access/39> rdf:type cpr:FileAccess .
 <run:proc/2/access/39> cpr:FilePath "/etc/ld.so.cache" .
 <run:proc/2/access/39> cpr:AccessMode cpr:Read .
 <run:proc/2/access/39> cpr:OpenTime "nil" .
-<run:proc/2/access/39> cpr:FileRole "nil" .
+<run:proc/2/access/39> cpr:FileRole "os" .
 <run:proc/2> cpr:Performed <run:proc/2/access/40> .
 <run:proc/2/access/40> rdf:type cpr:FileAccess .
 <run:proc/2/access/40> cpr:FilePath "/lib/x86_64-linux-gnu/libc.so.6" .
 <run:proc/2/access/40> cpr:AccessMode cpr:Read .
 <run:proc/2/access/40> cpr:OpenTime "nil" .
-<run:proc/2/access/40> cpr:FileRole "nil" .
+<run:proc/2/access/40> cpr:FileRole "os" .
 <run:proc/3> cpr:Performed <run:proc/3/access/48> .
 <run:proc/3/access/48> rdf:type cpr:DirectoryAccess .
 <run:proc/3/access/48> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace" .
@@ -201,11 +201,13 @@
 <wfv:run/0> rdf:type cpr:Run .
 <wfv:run/0> cpr:RunName "run0" .
 <wfv:run/0> cpr:FirstProcess <run:proc/1> .
-<wfv:role/0> cpr:Path "/proc" .
-<wfv:role/1> cpr:Path "/sys" .
-<wfv:role/2> cpr:Path "." .
-<wfv:role/2> cpr:Role cpr:software .
-<wfv:role/3> cpr:Path "/tmp" .
+<wfv:role/0> cpr:Path "/etc" .
+<wfv:role/1> cpr:Path "/lib" .
+<wfv:role/2> cpr:Path "/sys" .
+<wfv:role/3> cpr:Path "/usr/lib" .
+<wfv:role/4> cpr:Path "." .
+<wfv:role/4> cpr:Role cpr:software .
+<wfv:role/5> cpr:Path "/tmp" .
 
 
 ******************************************* EXAMPLE STEP2 ************************************************
@@ -328,17 +330,17 @@ Successfully created dataset traces
 <run:proc/2/access/36> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
 <run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
 <run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
-<run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#FileRole> "nil" .
+<run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
 <run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
 <run:proc/2/access/37> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
 <run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
 <run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#FilePath> "/etc/ld.so.cache" .
-<run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#FileRole> "nil" .
+<run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
 <run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
 <run:proc/2/access/39> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
 <run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
 <run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#FilePath> "/lib/x86_64-linux-gnu/libc.so.6" .
-<run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#FileRole> "nil" .
+<run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
 <run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
 <run:proc/2/access/40> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
 <run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/25> .
@@ -423,11 +425,13 @@ Successfully created dataset traces
 <run:proc/7> <http://cirss.illinois.edu/ns/cpr#ProcParent> <run:proc/5> .
 <run:proc/7> <http://cirss.illinois.edu/ns/cpr#ProcStart> "nil" .
 <run:proc/7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Thread> .
-<wfv:role/0> <http://cirss.illinois.edu/ns/cpr#Path> "/proc" .
-<wfv:role/1> <http://cirss.illinois.edu/ns/cpr#Path> "/sys" .
-<wfv:role/2> <http://cirss.illinois.edu/ns/cpr#Path> "." .
-<wfv:role/2> <http://cirss.illinois.edu/ns/cpr#Role> <http://cirss.illinois.edu/ns/cpr#software> .
-<wfv:role/3> <http://cirss.illinois.edu/ns/cpr#Path> "/tmp" .
+<wfv:role/0> <http://cirss.illinois.edu/ns/cpr#Path> "/etc" .
+<wfv:role/1> <http://cirss.illinois.edu/ns/cpr#Path> "/lib" .
+<wfv:role/2> <http://cirss.illinois.edu/ns/cpr#Path> "/sys" .
+<wfv:role/3> <http://cirss.illinois.edu/ns/cpr#Path> "/usr/lib" .
+<wfv:role/4> <http://cirss.illinois.edu/ns/cpr#Path> "." .
+<wfv:role/4> <http://cirss.illinois.edu/ns/cpr#Role> <http://cirss.illinois.edu/ns/cpr#software> .
+<wfv:role/5> <http://cirss.illinois.edu/ns/cpr#Path> "/tmp" .
 <wfv:run/0> <http://cirss.illinois.edu/ns/cpr#FirstProcess> <run:proc/1> .
 <wfv:run/0> <http://cirss.illinois.edu/ns/cpr#RunName> "run0" .
 <wfv:run/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Run> .
@@ -489,11 +493,11 @@ Programs opened for reading during the run and their roles:
 
 file                                                                        | role
 ================================================================================
-/etc/ld.so.cache                                                            | nil
-/lib/x86_64-linux-gnu/libc.so.6                                             | nil
+/etc/ld.so.cache                                                            | os
+/lib/x86_64-linux-gnu/libc.so.6                                             | os
 /mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/bin/hello_go | sw
 /sys/kernel/mm/transparent_hugepage/hpage_pmd_size                          | os
-/usr/lib/x86_64-linux-gnu/ld-2.31.so                                        | nil
+/usr/lib/x86_64-linux-gnu/ld-2.31.so                                        | os
 
 
 ******************************************* EXAMPLE GRAPH-1 ************************************************
