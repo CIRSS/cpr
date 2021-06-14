@@ -1,4 +1,4 @@
-# DATAFRAME FLOW THROUGH COMMANDS
+# BLACKBOX VIEW OF RUN
 
 geist report << '__END_REPORT_TEMPLATE__'
 
@@ -7,9 +7,7 @@ geist report << '__END_REPORT_TEMPLATE__'
     }}}
 
     {{ gv_graph "run_blackbox" }}
-
     {{ gv_title "Black-box view of run" }}
-
     {{ gv_end }}                                                                            \
 
 __END_REPORT_TEMPLATE__

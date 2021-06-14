@@ -1,3 +1,4 @@
 bin/
 .reprozip-trace/
+.scratch
 *.xwam
