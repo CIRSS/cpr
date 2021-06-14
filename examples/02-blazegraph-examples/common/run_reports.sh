@@ -6,10 +6,10 @@ GRAPHER='../common/do_report_graph.sh'
 bash ${RUNNER} STEP1 "Convert trace to RDF triples" << END_STEP
 
     # convert Reprozip reprozip trace to RDF triples in Turtle format
-	cpr convert -noroot -notimestamps -from reprozip -to triples -src ./cpr/.reprozip-trace -dest ./cpr/.scratch/trace.ttl
+	cpr convert -noroot -notimestamps -from reprozip -to triples -src ./run/.reprozip-trace -dest ./run/.scratch/trace.ttl
 
     # print out the Turtle file
-    cat ./cpr/.scratch/trace.ttl
+    cat ./run/.scratch/trace.ttl
 
 END_STEP
 
@@ -28,7 +28,7 @@ END_STEP
 bash ${RUNNER} STEP3 "Load the trace into Blazegraph" << END_STEP
 
     # load the run trace into the traces dataset in Blazegraph
-    blaze import --dataset traces --format ttl --file cpr/.scratch/trace.ttl
+    blaze import --dataset traces --format ttl --file run/.scratch/trace.ttl
 
 END_STEP
 

@@ -4,10 +4,10 @@
 # Convert trace to RDF triples
 
     # convert Reprozip reprozip trace to RDF triples in Turtle format
-	cpr convert -noroot -notimestamps -from reprozip -to triples -src ./cpr/.reprozip-trace -dest ./cpr/.scratch/trace.ttl
+	cpr convert -noroot -notimestamps -from reprozip -to triples -src ./run/.reprozip-trace -dest ./run/.scratch/trace.ttl
 
     # print out the Turtle file
-    cat ./cpr/.scratch/trace.ttl
+    cat ./run/.scratch/trace.ttl
 
 ------------------------------------------- STEP1 OUTPUTS ------------------------------------------------
 
@@ -107,7 +107,7 @@ Successfully created dataset traces
 # Load the trace into Blazegraph
 
     # load the run trace into the traces dataset in Blazegraph
-    blaze import --dataset traces --format ttl --file cpr/.scratch/trace.ttl
+    blaze import --dataset traces --format ttl --file run/.scratch/trace.ttl
 
 ------------------------------------------- STEP3 OUTPUTS ------------------------------------------------
 
