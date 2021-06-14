@@ -1,17 +1,17 @@
-[REPROZIP] 04:26:39.926 INFO: Removing existing trace directory .reprozip-trace
-[REPROZIP] 04:26:39.927 INFO: Running program
-[REPROZIP] 04:26:39.928 INFO: child created, pid=3580
-[REPROZIP] 04:26:39.929 INFO: process 3580 created by initial fork()
-[REPROZIP] 04:26:39.929 INFO: 1 processes (inc. 0 unattached)
-[REPROZIP] 04:26:39.931 INFO: [3580] successfully exec'd /mnt/cpr/examples/02-blazegraph-examples/01-data-cmd/./workspace/run.sh
-[REPROZIP] 04:26:39.931 INFO: [3580] read shebang: /mnt/cpr/examples/02-blazegraph-examples/01-data-cmd/./workspace/run.sh -> /bin/bash
-[REPROZIP] 04:26:39.995 INFO: [3581] process created by 3580 via fork()
+[REPROZIP] 05:38:50.946 INFO: Removing existing trace directory .reprozip-trace
+[REPROZIP] 05:38:50.946 INFO: Running program
+[REPROZIP] 05:38:50.947 INFO: child created, pid=3728
+[REPROZIP] 05:38:50.949 INFO: process 3728 created by initial fork()
+[REPROZIP] 05:38:50.949 INFO: 1 processes (inc. 0 unattached)
+[REPROZIP] 05:38:50.951 INFO: [3728] successfully exec'd /mnt/cpr/examples/02-blazegraph-examples/01-data-cmd/./workspace/run.sh
+[REPROZIP] 05:38:50.951 INFO: [3728] read shebang: /mnt/cpr/examples/02-blazegraph-examples/01-data-cmd/./workspace/run.sh -> /bin/bash
+[REPROZIP] 05:38:51.021 INFO: [3729] process created by 3728 via fork()
     (thread: no) (working directory: /mnt/cpr/examples/02-blazegraph-examples/01-data-cmd)
-[REPROZIP] 04:26:39.995 INFO: 2 processes (inc. 0 unattached)
-[REPROZIP] 04:26:40.000 INFO: [3581] successfully exec'd /usr/bin/date
-[REPROZIP] 04:26:40.021 INFO: [3581] process exited (code 0), 1 processes remain
-[REPROZIP] 04:26:40.022 INFO: [3580] caught signal 17
-[REPROZIP] 04:26:40.025 INFO: [3580] process exited (code 0), 0 processes remain
-[REPROZIP] 04:26:40.029 INFO: Program completed
-[REPROZIP] 04:26:40.045 INFO: Identifying Debian packages for 26 files...
-[REPROZIP] 04:26:40.077 INFO: 1 packages with 1 files, and 25 other files
+[REPROZIP] 05:38:51.021 INFO: 2 processes (inc. 0 unattached)
+[REPROZIP] 05:38:51.026 INFO: [3729] successfully exec'd /usr/bin/date
+[REPROZIP] 05:38:51.048 INFO: [3729] process exited (code 0), 1 processes remain
+[REPROZIP] 05:38:51.049 INFO: [3728] caught signal 17
+[REPROZIP] 05:38:51.052 INFO: [3728] process exited (code 0), 0 processes remain
+[REPROZIP] 05:38:51.057 INFO: Program completed
+[REPROZIP] 05:38:51.072 INFO: Identifying Debian packages for 26 files...
+[REPROZIP] 05:38:51.103 INFO: 1 packages with 1 files, and 25 other files

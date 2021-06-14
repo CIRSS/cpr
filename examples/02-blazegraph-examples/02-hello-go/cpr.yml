@@ -1,0 +1,9 @@
+---
+roles:
+    os:
+    - /proc
+    - /sys
+    sw:
+    - .
+    nul:
+    - /tmp

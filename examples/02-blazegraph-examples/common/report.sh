@@ -83,7 +83,7 @@ END_STEP
 
 
 
-bash ${GRAPHER} GRAPH-1 "DATAFRAME FLOW THROUGH COMMANDS" \
+bash ${GRAPHER} GRAPH-1 "BLACKBOX VIEW OF RUN"  \
     << '__END_SCRIPT__'
 
 geist report << '__END_REPORT_TEMPLATE__'
@@ -93,9 +93,7 @@ geist report << '__END_REPORT_TEMPLATE__'
     }}}
 
     {{ gv_graph "run_blackbox" }}
-
     {{ gv_title "Black-box view of run" }}
-
     {{ gv_end }}                                                                            \\
 
 __END_REPORT_TEMPLATE__
