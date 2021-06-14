@@ -1,6 +1,5 @@
 CPR_DIR=./cpr
-CPR_SCRATCH_DIR=${CPR_DIR}/.scratch
-CPR_REPORTS_DIR=${CPR_DIR}/reports
+SCRATCH_DIR=${CPR_DIR}/.scratch
 
 WORKSPACE_DIR=./workspace
 WORKSPACE_BIN_DIR=${WORKSPACE_DIR}/bin
@@ -8,20 +7,20 @@ WORKSPACE_BIN_DIR=${WORKSPACE_DIR}/bin
 RUN_SCRIPT_FILE=${WORKSPACE_DIR}/run.sh
 
 REPROZIP_TRACE_DIR=.reprozip-trace
-REPROZIP_STDOUT_FILE=${CPR_SCRATCH_DIR}/reprozip_stdout.txt
-REPROZIP_STDERR_FILE=${CPR_SCRATCH_DIR}/reprozip_stderr.txt
+REPROZIP_STDOUT_FILE=${SCRATCH_DIR}/reprozip_stdout.txt
+REPROZIP_STDERR_FILE=${SCRATCH_DIR}/reprozip_stderr.txt
 
 REPORTS_RUN_SCRIPT=../common/run_reports.sh
-REPORTS_RUN_SUMMARY=${CPR_REPORTS_DIR}/reports_summary.txt
+REPORTS_RUN_SUMMARY=${CPR_DIR}/reports_summary.txt
 
 DIRS=${WORKSPACE_BIN_DIR}	\
-	 ${CPR_REPORTS_DIR}  	\
- 	 ${CPR_SCRATCH_DIR} 	\
+	 ${CPR_DIR}  	\
+ 	 ${SCRATCH_DIR} 	\
  	 ${REPROZIP_TRACE_DIR}
 
 all: build run
 
-run: ${CPR_SCRATCH_DIR} trace report
+run: ${SCRATCH_DIR} trace report
 
 $(DIRS):
 	mkdir -p $@
@@ -42,6 +41,6 @@ trace: $(TRACE_DIRS)
 		1> ${REPROZIP_STDOUT_FILE} 						\
 		2> ${REPROZIP_STDERR_FILE} 
 
-report: ${CPR_REPORTS_DIR}
+report: ${CPR_DIR}
 	bash ${REPORTS_RUN_SCRIPT} > ${REPORTS_RUN_SUMMARY}
 

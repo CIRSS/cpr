@@ -4,12 +4,13 @@
 script_id=$1
 script_description=$2
 
-reports_dir=./cpr/reports
+cpr_dir=./cpr
 
 # define name of result file
-script_file=${reports_dir}/${script_id}.sh
-dot_file=${reports_dir}/${script_id}.gv
-png_file=${reports_dir}/${script_id}.png
+script_file=${cpr_dir}/${script_id}.sh
+output_file=${cpr_dir}/${script_id}.txt
+dot_file=${cpr_dir}/${script_id}.gv
+png_file=${cpr_dir}/${script_id}.png
 
 # copy query from stdin to the query file
 echo "# ${script_description}" > ${script_file}
