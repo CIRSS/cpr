@@ -1,8 +1,7 @@
 Programs executed during the run:
 
 program
-==========================================================================
-/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/./workspace/run.sh
+========================================================================
+/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/run.sh
 /usr/bin/cat
 /usr/bin/date
-/usr/bin/dirname
