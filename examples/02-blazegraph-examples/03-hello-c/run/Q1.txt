@@ -1,0 +1,7 @@
+Programs executed during the run:
+
+program
+==========================================================================
+/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/./workspace/run.sh
+/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/./bin/hello_c
+/usr/bin/dirname
