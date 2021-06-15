@@ -19,12 +19,18 @@ DIRS=${WORKSPACE_BIN_DIR}	\
 
 all: build run
 
-run: ${SCRATCH_DIR} trace report
+run:  init trace report
 
 $(DIRS):
 	mkdir -p $@
 
-clean:
+init-workspace:
+
+init: init-workspace ${RUN_DIR} ${SCRATCH_DIR} 
+
+clean-workspace:
+
+clean: clean-workspace
 	rm -rfv ${WORKSPACE_BIN_DIR}	\
 			${RUN_DIR}
 
@@ -34,7 +40,7 @@ build: ${WORKSPACE_BIN_DIR} build-code
 
 rerun: clean run
 
-trace: $(TRACE_DIRS)
+trace:
 	reprozip -v trace --overwrite -d ${REPROZIP_TRACE_DIR}	${RUN_SCRIPT_FILE} 	\
 		1> ${REPROZIP_STDOUT_FILE} 												\
 		2> ${REPROZIP_STDERR_FILE} 

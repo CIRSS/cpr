@@ -1,0 +1,602 @@
+
+******************************************* EXAMPLE STEP1 ************************************************
+
+# Convert trace to RDF triples
+
+    # convert Reprozip reprozip trace to RDF triples in Turtle format
+	cpr convert -noroot -notimestamps -from reprozip -to triples -src ./run/.reprozip-trace -dest ./run/.scratch/trace.ttl
+
+    # print out the Turtle file
+    cat ./run/.scratch/trace.ttl
+
+------------------------------------------- STEP1 OUTPUTS ------------------------------------------------
+
+@prefix cpr: <http://cirss.illinois.edu/ns/cpr#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wf: <http://cirss.illinois.edu//workflow/3022#> .
+@prefix wfv: <http://cirss.illinois.edu/workflow/3022/version/97#> .
+@prefix run: <http://cirss.illinois.edu/workflow/3022/version/97/run/0#> .
+
+<run:proc/1> rdf:type cpr:Proc .
+<run:proc/1> cpr:ProcExitCode 0 .
+<run:proc/1> cpr:ProcStart "nil" .
+<run:proc/2> rdf:type cpr:Proc .
+<run:proc/2> cpr:ProcExitCode 0 .
+<run:proc/2> cpr:ProcParent <run:proc/1> .
+<run:proc/2> cpr:ProcStart "nil" .
+<run:proc/3> rdf:type cpr:Proc .
+<run:proc/3> cpr:ProcExitCode 0 .
+<run:proc/3> cpr:ProcParent <run:proc/1> .
+<run:proc/3> cpr:ProcStart "nil" .
+<run:proc/4> rdf:type cpr:Proc .
+<run:proc/4> cpr:ProcExitCode 0 .
+<run:proc/4> cpr:ProcParent <run:proc/1> .
+<run:proc/4> cpr:ProcStart "nil" .
+<run:proc/5> rdf:type cpr:Proc .
+<run:proc/5> cpr:ProcExitCode 0 .
+<run:proc/5> cpr:ProcParent <run:proc/1> .
+<run:proc/5> cpr:ProcStart "nil" .
+<run:exec/1> rdf:type cpr:Exec .
+<run:exec/1> cpr:ExecProcess <run:proc/1> .
+<run:exec/1> cpr:ExecFile "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/./workspace/run.sh" .
+<run:exec/1> cpr:ExecDir "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file" .
+<run:exec/1> cpr:ExecStart "nil" .
+<run:exec/2> rdf:type cpr:Exec .
+<run:exec/2> cpr:ExecProcess <run:proc/2> .
+<run:exec/2> cpr:ExecFile "/usr/bin/dirname" .
+<run:exec/2> cpr:ExecDir "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file" .
+<run:exec/2> cpr:ExecStart "nil" .
+<run:exec/3> rdf:type cpr:Exec .
+<run:exec/3> cpr:ExecProcess <run:proc/3> .
+<run:exec/3> cpr:ExecFile "/usr/bin/date" .
+<run:exec/3> cpr:ExecDir "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace" .
+<run:exec/3> cpr:ExecStart "nil" .
+<run:exec/4> rdf:type cpr:Exec .
+<run:exec/4> cpr:ExecProcess <run:proc/5> .
+<run:exec/4> cpr:ExecFile "/usr/bin/cat" .
+<run:exec/4> cpr:ExecDir "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace" .
+<run:exec/4> cpr:ExecStart "nil" .
+<run:exec/1> cpr:ExecArg <run:exec/1/arg/0> .
+<run:exec/1/arg/0> rdf:type cpr:ExecArgument .
+<run:exec/1/arg/0> cpr:ArgIndex 0 .
+<run:exec/1/arg/0> cpr:ArgValue "./workspace/run.sh" .
+<run:exec/2> cpr:ExecArg <run:exec/2/arg/0> .
+<run:exec/2/arg/0> rdf:type cpr:ExecArgument .
+<run:exec/2/arg/0> cpr:ArgIndex 0 .
+<run:exec/2/arg/0> cpr:ArgValue "dirname" .
+<run:exec/2> cpr:ExecArg <run:exec/2/arg/1> .
+<run:exec/2/arg/1> rdf:type cpr:ExecArgument .
+<run:exec/2/arg/1> cpr:ArgIndex 1 .
+<run:exec/2/arg/1> cpr:ArgValue "./workspace/run.sh" .
+<run:exec/3> cpr:ExecArg <run:exec/3/arg/0> .
+<run:exec/3/arg/0> rdf:type cpr:ExecArgument .
+<run:exec/3/arg/0> cpr:ArgIndex 0 .
+<run:exec/3/arg/0> cpr:ArgValue "date" .
+<run:exec/4> cpr:ExecArg <run:exec/4/arg/0> .
+<run:exec/4/arg/0> rdf:type cpr:ExecArgument .
+<run:exec/4/arg/0> cpr:ArgIndex 0 .
+<run:exec/4/arg/0> cpr:ArgValue "cat" .
+<run:exec/4> cpr:ExecArg <run:exec/4/arg/1> .
+<run:exec/4/arg/1> rdf:type cpr:ExecArgument .
+<run:exec/4/arg/1> cpr:ArgIndex 1 .
+<run:exec/4/arg/1> cpr:ArgValue "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt" .
+<run:proc/2> cpr:Performed <run:proc/2/access/25> .
+<run:proc/2/access/25> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/25> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file" .
+<run:proc/2/access/25> cpr:AccessMode cpr:Search .
+<run:proc/2/access/25> cpr:OpenTime "nil" .
+<run:proc/2/access/25> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/26> .
+<run:proc/2/access/26> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/26> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/." .
+<run:proc/2/access/26> cpr:OpenTime "nil" .
+<run:proc/2/access/26> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/27> .
+<run:proc/2/access/27> rdf:type cpr:FileAccess .
+<run:proc/2/access/27> cpr:FilePath "/usr/bin/dirname" .
+<run:proc/2/access/27> cpr:OpenTime "nil" .
+<run:proc/2/access/27> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/28> .
+<run:proc/2/access/28> rdf:type cpr:FileAccess .
+<run:proc/2/access/28> cpr:FilePath "/usr/bin/dirname" .
+<run:proc/2/access/28> cpr:OpenTime "nil" .
+<run:proc/2/access/28> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/29> .
+<run:proc/2/access/29> rdf:type cpr:FileAccess .
+<run:proc/2/access/29> cpr:FilePath "/usr/bin/dirname" .
+<run:proc/2/access/29> cpr:OpenTime "nil" .
+<run:proc/2/access/29> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/30> .
+<run:proc/2/access/30> rdf:type cpr:FileAccess .
+<run:proc/2/access/30> cpr:FilePath "/usr/bin/dirname" .
+<run:proc/2/access/30> cpr:OpenTime "nil" .
+<run:proc/2/access/30> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/31> .
+<run:proc/2/access/31> rdf:type cpr:FileAccess .
+<run:proc/2/access/31> cpr:FilePath "/usr/bin/dirname" .
+<run:proc/2/access/31> cpr:OpenTime "nil" .
+<run:proc/2/access/31> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/32> .
+<run:proc/2/access/32> rdf:type cpr:FileAccess .
+<run:proc/2/access/32> cpr:FilePath "/usr/bin/dirname" .
+<run:proc/2/access/32> cpr:OpenTime "nil" .
+<run:proc/2/access/32> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/33> .
+<run:proc/2/access/33> rdf:type cpr:FileAccess .
+<run:proc/2/access/33> cpr:FilePath "/usr/bin/dirname" .
+<run:proc/2/access/33> cpr:OpenTime "nil" .
+<run:proc/2/access/33> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/34> .
+<run:proc/2/access/34> rdf:type cpr:FileAccess .
+<run:proc/2/access/34> cpr:FilePath "/usr/bin/dirname" .
+<run:proc/2/access/34> cpr:OpenTime "nil" .
+<run:proc/2/access/34> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/35> .
+<run:proc/2/access/35> rdf:type cpr:FileAccess .
+<run:proc/2/access/35> cpr:FilePath "/usr/bin/dirname" .
+<run:proc/2/access/35> cpr:OpenTime "nil" .
+<run:proc/2/access/35> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/36> .
+<run:proc/2/access/36> rdf:type cpr:FileAccess .
+<run:proc/2/access/36> cpr:FilePath "/usr/bin/dirname" .
+<run:proc/2/access/36> cpr:OpenTime "nil" .
+<run:proc/2/access/36> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/37> .
+<run:proc/2/access/37> rdf:type cpr:FileAccess .
+<run:proc/2/access/37> cpr:FilePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<run:proc/2/access/37> cpr:AccessMode cpr:Read .
+<run:proc/2/access/37> cpr:OpenTime "nil" .
+<run:proc/2/access/37> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/39> .
+<run:proc/2/access/39> rdf:type cpr:FileAccess .
+<run:proc/2/access/39> cpr:FilePath "/etc/ld.so.cache" .
+<run:proc/2/access/39> cpr:AccessMode cpr:Read .
+<run:proc/2/access/39> cpr:OpenTime "nil" .
+<run:proc/2/access/39> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/40> .
+<run:proc/2/access/40> rdf:type cpr:FileAccess .
+<run:proc/2/access/40> cpr:FilePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<run:proc/2/access/40> cpr:AccessMode cpr:Read .
+<run:proc/2/access/40> cpr:OpenTime "nil" .
+<run:proc/2/access/40> cpr:FileRole "os" .
+<run:proc/3> cpr:Performed <run:proc/3/access/59> .
+<run:proc/3/access/59> rdf:type cpr:DirectoryAccess .
+<run:proc/3/access/59> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace" .
+<run:proc/3/access/59> cpr:AccessMode cpr:Search .
+<run:proc/3/access/59> cpr:OpenTime "nil" .
+<run:proc/3/access/59> cpr:FileRole "sw" .
+<run:proc/3> cpr:Performed <run:proc/3/access/60> .
+<run:proc/3/access/60> rdf:type cpr:FileAccess .
+<run:proc/3/access/60> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt" .
+<run:proc/3/access/60> cpr:AccessMode cpr:Write .
+<run:proc/3/access/60> cpr:OpenTime "nil" .
+<run:proc/3/access/60> cpr:FileRole "out" .
+<run:proc/3> cpr:Performed <run:proc/3/access/61> .
+<run:proc/3/access/61> rdf:type cpr:FileAccess .
+<run:proc/3/access/61> cpr:FilePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<run:proc/3/access/61> cpr:AccessMode cpr:Read .
+<run:proc/3/access/61> cpr:OpenTime "nil" .
+<run:proc/3/access/61> cpr:FileRole "os" .
+<run:proc/3> cpr:Performed <run:proc/3/access/63> .
+<run:proc/3/access/63> rdf:type cpr:FileAccess .
+<run:proc/3/access/63> cpr:FilePath "/etc/ld.so.cache" .
+<run:proc/3/access/63> cpr:AccessMode cpr:Read .
+<run:proc/3/access/63> cpr:OpenTime "nil" .
+<run:proc/3/access/63> cpr:FileRole "os" .
+<run:proc/3> cpr:Performed <run:proc/3/access/64> .
+<run:proc/3/access/64> rdf:type cpr:FileAccess .
+<run:proc/3/access/64> cpr:FilePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<run:proc/3/access/64> cpr:AccessMode cpr:Read .
+<run:proc/3/access/64> cpr:OpenTime "nil" .
+<run:proc/3/access/64> cpr:FileRole "os" .
+<run:proc/3> cpr:Performed <run:proc/3/access/65> .
+<run:proc/3/access/65> rdf:type cpr:FileAccess .
+<run:proc/3/access/65> cpr:FilePath "/etc/localtime" .
+<run:proc/3/access/65> cpr:AccessMode cpr:Read .
+<run:proc/3/access/65> cpr:OpenTime "nil" .
+<run:proc/3/access/65> cpr:FileRole "os" .
+<run:proc/4> cpr:Performed <run:proc/4/access/66> .
+<run:proc/4/access/66> rdf:type cpr:DirectoryAccess .
+<run:proc/4/access/66> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace" .
+<run:proc/4/access/66> cpr:AccessMode cpr:Search .
+<run:proc/4/access/66> cpr:OpenTime "nil" .
+<run:proc/4/access/66> cpr:FileRole "sw" .
+<run:proc/5> cpr:Performed <run:proc/5/access/78> .
+<run:proc/5/access/78> rdf:type cpr:DirectoryAccess .
+<run:proc/5/access/78> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace" .
+<run:proc/5/access/78> cpr:AccessMode cpr:Search .
+<run:proc/5/access/78> cpr:OpenTime "nil" .
+<run:proc/5/access/78> cpr:FileRole "sw" .
+<run:proc/5> cpr:Performed <run:proc/5/access/79> .
+<run:proc/5/access/79> rdf:type cpr:FileAccess .
+<run:proc/5/access/79> cpr:FilePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<run:proc/5/access/79> cpr:AccessMode cpr:Read .
+<run:proc/5/access/79> cpr:OpenTime "nil" .
+<run:proc/5/access/79> cpr:FileRole "os" .
+<run:proc/5> cpr:Performed <run:proc/5/access/81> .
+<run:proc/5/access/81> rdf:type cpr:FileAccess .
+<run:proc/5/access/81> cpr:FilePath "/etc/ld.so.cache" .
+<run:proc/5/access/81> cpr:AccessMode cpr:Read .
+<run:proc/5/access/81> cpr:OpenTime "nil" .
+<run:proc/5/access/81> cpr:FileRole "os" .
+<run:proc/5> cpr:Performed <run:proc/5/access/82> .
+<run:proc/5/access/82> rdf:type cpr:FileAccess .
+<run:proc/5/access/82> cpr:FilePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<run:proc/5/access/82> cpr:AccessMode cpr:Read .
+<run:proc/5/access/82> cpr:OpenTime "nil" .
+<run:proc/5/access/82> cpr:FileRole "os" .
+<run:proc/5> cpr:Performed <run:proc/5/access/83> .
+<run:proc/5/access/83> rdf:type cpr:FileAccess .
+<run:proc/5/access/83> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt" .
+<run:proc/5/access/83> cpr:AccessMode cpr:Read .
+<run:proc/5/access/83> cpr:OpenTime "nil" .
+<run:proc/5/access/83> cpr:FileRole "out" .
+<wfv:run/0> rdf:type cpr:Run .
+<wfv:run/0> cpr:RunName "run0" .
+<wfv:run/0> cpr:FirstProcess <run:proc/1> .
+<wfv:role/0> cpr:Path "/etc" .
+<wfv:role/1> cpr:Path "/lib" .
+<wfv:role/2> cpr:Path "/sys" .
+<wfv:role/3> cpr:Path "/usr/lib" .
+<wfv:role/4> cpr:Path "/bin" .
+<wfv:role/4> cpr:Role cpr:software .
+<wfv:role/5> cpr:Path "." .
+<wfv:role/5> cpr:Role cpr:software .
+<wfv:role/6> cpr:Path "workspace/outputs" .
+<wfv:role/7> cpr:Path "/tmp" .
+
+
+******************************************* EXAMPLE STEP2 ************************************************
+
+# Prepare the traces dataset in Blazegraph
+
+    # destroy the traces dataset if it exists in the Blazegraph instance
+    blaze destroy --dataset traces --silent
+
+    # create the traces dataset in Blazegraph
+    blaze create --dataset traces
+
+------------------------------------------- STEP2 OUTPUTS ------------------------------------------------
+
+Successfully created dataset traces
+
+
+******************************************* EXAMPLE STEP3 ************************************************
+
+# Load the trace into Blazegraph
+
+    # load the run trace into the traces dataset in Blazegraph
+    blaze import --dataset traces --format ttl --file run/.scratch/trace.ttl
+
+------------------------------------------- STEP3 OUTPUTS ------------------------------------------------
+
+
+
+******************************************* EXAMPLE STEP4 ************************************************
+
+# Export the entire traces dataset from Blazegraph
+
+    # export all of the triples from the traces dataset in Blazegraph
+    blaze export --dataset traces --format nt | sort
+
+------------------------------------------- STEP4 OUTPUTS ------------------------------------------------
+
+<run:exec/1/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:exec/1/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgValue> "./workspace/run.sh" .
+<run:exec/1/arg/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ExecArgument> .
+<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecArg> <run:exec/1/arg/0> .
+<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecDir> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file" .
+<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecFile> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/./workspace/run.sh" .
+<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecProcess> <run:proc/1> .
+<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecStart> "nil" .
+<run:exec/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Exec> .
+<run:exec/2/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:exec/2/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgValue> "dirname" .
+<run:exec/2/arg/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ExecArgument> .
+<run:exec/2/arg/1> <http://cirss.illinois.edu/ns/cpr#ArgIndex> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:exec/2/arg/1> <http://cirss.illinois.edu/ns/cpr#ArgValue> "./workspace/run.sh" .
+<run:exec/2/arg/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ExecArgument> .
+<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecArg> <run:exec/2/arg/0> .
+<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecArg> <run:exec/2/arg/1> .
+<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecDir> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file" .
+<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecFile> "/usr/bin/dirname" .
+<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecProcess> <run:proc/2> .
+<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecStart> "nil" .
+<run:exec/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Exec> .
+<run:exec/3/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:exec/3/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgValue> "date" .
+<run:exec/3/arg/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ExecArgument> .
+<run:exec/3> <http://cirss.illinois.edu/ns/cpr#ExecArg> <run:exec/3/arg/0> .
+<run:exec/3> <http://cirss.illinois.edu/ns/cpr#ExecDir> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace" .
+<run:exec/3> <http://cirss.illinois.edu/ns/cpr#ExecFile> "/usr/bin/date" .
+<run:exec/3> <http://cirss.illinois.edu/ns/cpr#ExecProcess> <run:proc/3> .
+<run:exec/3> <http://cirss.illinois.edu/ns/cpr#ExecStart> "nil" .
+<run:exec/3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Exec> .
+<run:exec/4/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:exec/4/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgValue> "cat" .
+<run:exec/4/arg/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ExecArgument> .
+<run:exec/4/arg/1> <http://cirss.illinois.edu/ns/cpr#ArgIndex> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:exec/4/arg/1> <http://cirss.illinois.edu/ns/cpr#ArgValue> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt" .
+<run:exec/4/arg/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ExecArgument> .
+<run:exec/4> <http://cirss.illinois.edu/ns/cpr#ExecArg> <run:exec/4/arg/0> .
+<run:exec/4> <http://cirss.illinois.edu/ns/cpr#ExecArg> <run:exec/4/arg/1> .
+<run:exec/4> <http://cirss.illinois.edu/ns/cpr#ExecDir> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace" .
+<run:exec/4> <http://cirss.illinois.edu/ns/cpr#ExecFile> "/usr/bin/cat" .
+<run:exec/4> <http://cirss.illinois.edu/ns/cpr#ExecProcess> <run:proc/5> .
+<run:exec/4> <http://cirss.illinois.edu/ns/cpr#ExecStart> "nil" .
+<run:exec/4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Exec> .
+<run:proc/1> <http://cirss.illinois.edu/ns/cpr#ProcExitCode> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:proc/1> <http://cirss.illinois.edu/ns/cpr#ProcStart> "nil" .
+<run:proc/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Proc> .
+<run:proc/2/access/25> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Search> .
+<run:proc/2/access/25> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file" .
+<run:proc/2/access/25> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/25> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/25> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/26> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/." .
+<run:proc/2/access/26> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/26> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/26> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/27> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/dirname" .
+<run:proc/2/access/27> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/27> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/27> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/28> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/dirname" .
+<run:proc/2/access/28> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/28> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/28> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/29> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/dirname" .
+<run:proc/2/access/29> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/29> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/29> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/30> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/dirname" .
+<run:proc/2/access/30> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/30> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/30> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/31> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/dirname" .
+<run:proc/2/access/31> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/31> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/31> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/32> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/dirname" .
+<run:proc/2/access/32> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/32> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/32> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/33> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/dirname" .
+<run:proc/2/access/33> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/33> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/33> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/34> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/dirname" .
+<run:proc/2/access/34> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/34> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/34> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/35> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/dirname" .
+<run:proc/2/access/35> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/35> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/35> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/36> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/dirname" .
+<run:proc/2/access/36> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/36> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/36> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/37> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#FilePath> "/etc/ld.so.cache" .
+<run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/39> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#FilePath> "/lib/x86_64-linux-gnu/libc.so.6" .
+<run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/40> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/25> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/26> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/27> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/28> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/29> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/30> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/31> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/32> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/33> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/34> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/35> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/36> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/37> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/39> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/40> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#ProcExitCode> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#ProcParent> <run:proc/1> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#ProcStart> "nil" .
+<run:proc/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Proc> .
+<run:proc/3/access/59> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Search> .
+<run:proc/3/access/59> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace" .
+<run:proc/3/access/59> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/3/access/59> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/3/access/59> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/3/access/60> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Write> .
+<run:proc/3/access/60> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt" .
+<run:proc/3/access/60> <http://cirss.illinois.edu/ns/cpr#FileRole> "out" .
+<run:proc/3/access/60> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/3/access/60> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/3/access/61> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/3/access/61> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<run:proc/3/access/61> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/3/access/61> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/3/access/61> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/3/access/63> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/3/access/63> <http://cirss.illinois.edu/ns/cpr#FilePath> "/etc/ld.so.cache" .
+<run:proc/3/access/63> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/3/access/63> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/3/access/63> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/3/access/64> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/3/access/64> <http://cirss.illinois.edu/ns/cpr#FilePath> "/lib/x86_64-linux-gnu/libc.so.6" .
+<run:proc/3/access/64> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/3/access/64> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/3/access/64> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/3/access/65> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/3/access/65> <http://cirss.illinois.edu/ns/cpr#FilePath> "/etc/localtime" .
+<run:proc/3/access/65> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/3/access/65> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/3/access/65> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/3> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/3/access/59> .
+<run:proc/3> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/3/access/60> .
+<run:proc/3> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/3/access/61> .
+<run:proc/3> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/3/access/63> .
+<run:proc/3> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/3/access/64> .
+<run:proc/3> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/3/access/65> .
+<run:proc/3> <http://cirss.illinois.edu/ns/cpr#ProcExitCode> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:proc/3> <http://cirss.illinois.edu/ns/cpr#ProcParent> <run:proc/1> .
+<run:proc/3> <http://cirss.illinois.edu/ns/cpr#ProcStart> "nil" .
+<run:proc/3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Proc> .
+<run:proc/4/access/66> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Search> .
+<run:proc/4/access/66> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace" .
+<run:proc/4/access/66> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/4/access/66> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/4/access/66> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/4> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/4/access/66> .
+<run:proc/4> <http://cirss.illinois.edu/ns/cpr#ProcExitCode> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:proc/4> <http://cirss.illinois.edu/ns/cpr#ProcParent> <run:proc/1> .
+<run:proc/4> <http://cirss.illinois.edu/ns/cpr#ProcStart> "nil" .
+<run:proc/4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Proc> .
+<run:proc/5/access/78> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Search> .
+<run:proc/5/access/78> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace" .
+<run:proc/5/access/78> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/5/access/78> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/5/access/78> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/5/access/79> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/5/access/79> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<run:proc/5/access/79> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/5/access/79> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/5/access/79> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/5/access/81> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/5/access/81> <http://cirss.illinois.edu/ns/cpr#FilePath> "/etc/ld.so.cache" .
+<run:proc/5/access/81> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/5/access/81> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/5/access/81> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/5/access/82> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/5/access/82> <http://cirss.illinois.edu/ns/cpr#FilePath> "/lib/x86_64-linux-gnu/libc.so.6" .
+<run:proc/5/access/82> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/5/access/82> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/5/access/82> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/5/access/83> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/5/access/83> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt" .
+<run:proc/5/access/83> <http://cirss.illinois.edu/ns/cpr#FileRole> "out" .
+<run:proc/5/access/83> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/5/access/83> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/5> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/5/access/78> .
+<run:proc/5> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/5/access/79> .
+<run:proc/5> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/5/access/81> .
+<run:proc/5> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/5/access/82> .
+<run:proc/5> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/5/access/83> .
+<run:proc/5> <http://cirss.illinois.edu/ns/cpr#ProcExitCode> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:proc/5> <http://cirss.illinois.edu/ns/cpr#ProcParent> <run:proc/1> .
+<run:proc/5> <http://cirss.illinois.edu/ns/cpr#ProcStart> "nil" .
+<run:proc/5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Proc> .
+<wfv:role/0> <http://cirss.illinois.edu/ns/cpr#Path> "/etc" .
+<wfv:role/1> <http://cirss.illinois.edu/ns/cpr#Path> "/lib" .
+<wfv:role/2> <http://cirss.illinois.edu/ns/cpr#Path> "/sys" .
+<wfv:role/3> <http://cirss.illinois.edu/ns/cpr#Path> "/usr/lib" .
+<wfv:role/4> <http://cirss.illinois.edu/ns/cpr#Path> "/bin" .
+<wfv:role/4> <http://cirss.illinois.edu/ns/cpr#Role> <http://cirss.illinois.edu/ns/cpr#software> .
+<wfv:role/5> <http://cirss.illinois.edu/ns/cpr#Path> "." .
+<wfv:role/5> <http://cirss.illinois.edu/ns/cpr#Role> <http://cirss.illinois.edu/ns/cpr#software> .
+<wfv:role/6> <http://cirss.illinois.edu/ns/cpr#Path> "workspace/outputs" .
+<wfv:role/7> <http://cirss.illinois.edu/ns/cpr#Path> "/tmp" .
+<wfv:run/0> <http://cirss.illinois.edu/ns/cpr#FirstProcess> <run:proc/1> .
+<wfv:run/0> <http://cirss.illinois.edu/ns/cpr#RunName> "run0" .
+<wfv:run/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Run> .
+
+
+******************************************* EXAMPLE Q1 ************************************************
+
+# List the programs executed during the run
+
+    echo "Programs executed during the run:"
+    echo
+
+    geist query --dataset traces --format table << __END_QUERY__
+
+        PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
+
+        SELECT DISTINCT ?program
+        WHERE {
+            ?execution cpr:ExecFile ?program .
+        } ORDER BY ?program
+
+__END_QUERY__
+
+------------------------------------------- Q1 OUTPUTS ------------------------------------------------
+
+Programs executed during the run:
+
+program
+==========================================================================
+/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/./workspace/run.sh
+/usr/bin/cat
+/usr/bin/date
+/usr/bin/dirname
+
+
+******************************************* EXAMPLE Q2 ************************************************
+
+# List the files opened for reading during the run
+
+    echo "Programs opened for reading during the run and their roles:"
+    echo
+
+    geist query --dataset traces --format table << __END_QUERY__
+
+        PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
+
+        SELECT DISTINCT ?file ?role
+        WHERE {
+            ?access rdf:type cpr:FileAccess .
+            ?access cpr:AccessMode cpr:Read .
+            ?access cpr:FilePath ?file .
+            ?access cpr:FileRole ?role .
+    } ORDER BY ?file ?role
+
+__END_QUERY__
+
+------------------------------------------- Q2 OUTPUTS ------------------------------------------------
+
+Programs opened for reading during the run and their roles:
+
+file                                                                                | role
+=========================================================================================
+/etc/ld.so.cache                                                                    | os
+/etc/localtime                                                                      | os
+/lib/x86_64-linux-gnu/libc.so.6                                                     | os
+/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt | out
+/usr/lib/x86_64-linux-gnu/ld-2.31.so                                                | os
+
+
+******************************************* EXAMPLE GRAPH-1 ************************************************
+
+# BLACKBOX VIEW OF RUN
+
+geist report << '__END_REPORT_TEMPLATE__'
+
+    {{{
+        {{ include "../common/graphviz.g" }}
+    }}}
+
+    {{ gv_graph "run_blackbox" }}
+    {{ gv_title "Black-box view of run" }}
+    {{ gv_end }}                                                                            \
+
+__END_REPORT_TEMPLATE__
+
+----------------------------------------- GRAPH-1 DOT OUTPUT -----------------------------------------------
+
+
+digraph run_blackbox {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="Black-box view of run"
+}
+

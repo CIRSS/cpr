@@ -1,0 +1,9 @@
+Programs opened for reading during the run and their roles:
+
+file                                                                                | role
+=========================================================================================
+/etc/ld.so.cache                                                                    | os
+/etc/localtime                                                                      | os
+/lib/x86_64-linux-gnu/libc.so.6                                                     | os
+/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt | out
+/usr/lib/x86_64-linux-gnu/ld-2.31.so                                                | os
