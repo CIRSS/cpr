@@ -1,0 +1,11 @@
+---
+roles:
+    os:
+    - /etc
+    - /lib
+    - /sys
+    - /usr/lib
+    sw:
+    - .
+    nul:
+    - /tmp
