@@ -1,0 +1,1560 @@
+
+******************************************* EXAMPLE STEP1 ************************************************
+
+# Convert trace to RDF triples
+
+    # convert Reprozip reprozip trace to RDF triples in Turtle format
+	cpr convert -noroot -notimestamps -from reprozip -to triples -src ./run/.reprozip-trace -dest ./run/.scratch/trace.ttl
+
+    # print out the Turtle file
+    cat ./run/.scratch/trace.ttl
+
+------------------------------------------- STEP1 OUTPUTS ------------------------------------------------
+
+@prefix cpr: <http://cirss.illinois.edu/ns/cpr#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wf: <http://cirss.illinois.edu//workflow/3022#> .
+@prefix wfv: <http://cirss.illinois.edu/workflow/3022/version/97#> .
+@prefix run: <http://cirss.illinois.edu/workflow/3022/version/97/run/0#> .
+
+<run:proc/1> rdf:type cpr:Proc .
+<run:proc/1> cpr:ProcExitCode 0 .
+<run:proc/1> cpr:ProcStart "nil" .
+<run:proc/2> rdf:type cpr:Proc .
+<run:proc/2> cpr:ProcExitCode 0 .
+<run:proc/2> cpr:ProcParent <run:proc/1> .
+<run:proc/2> cpr:ProcStart "nil" .
+<run:exec/1> rdf:type cpr:Exec .
+<run:exec/1> cpr:ExecProcess <run:proc/1> .
+<run:exec/1> cpr:ExecFile "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/run.sh" .
+<run:exec/1> cpr:ExecDir "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
+<run:exec/1> cpr:ExecStart "nil" .
+<run:exec/2> rdf:type cpr:Exec .
+<run:exec/2> cpr:ExecProcess <run:proc/2> .
+<run:exec/2> cpr:ExecFile "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py" .
+<run:exec/2> cpr:ExecDir "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
+<run:exec/2> cpr:ExecStart "nil" .
+<run:exec/3> rdf:type cpr:Exec .
+<run:exec/3> cpr:ExecProcess <run:proc/2> .
+<run:exec/3> cpr:ExecFile "/usr/bin/python3" .
+<run:exec/3> cpr:ExecDir "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
+<run:exec/3> cpr:ExecStart "nil" .
+<run:exec/1> cpr:ExecArg <run:exec/1/arg/0> .
+<run:exec/1/arg/0> rdf:type cpr:ExecArgument .
+<run:exec/1/arg/0> cpr:ArgIndex 0 .
+<run:exec/1/arg/0> cpr:ArgValue "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/run.sh" .
+<run:exec/2> cpr:ExecArg <run:exec/2/arg/0> .
+<run:exec/2/arg/0> rdf:type cpr:ExecArgument .
+<run:exec/2/arg/0> cpr:ArgIndex 0 .
+<run:exec/2/arg/0> cpr:ArgValue "./hello.py" .
+<run:exec/3> cpr:ExecArg <run:exec/3/arg/0> .
+<run:exec/3/arg/0> rdf:type cpr:ExecArgument .
+<run:exec/3/arg/0> cpr:ArgIndex 0 .
+<run:exec/3/arg/0> cpr:ArgValue "python3" .
+<run:exec/3> cpr:ExecArg <run:exec/3/arg/1> .
+<run:exec/3/arg/1> rdf:type cpr:ExecArgument .
+<run:exec/3/arg/1> cpr:ArgIndex 1 .
+<run:exec/3/arg/1> cpr:ArgValue "./hello.py" .
+<run:proc/2> cpr:Performed <run:proc/2/access/26> .
+<run:proc/2/access/26> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/26> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
+<run:proc/2/access/26> cpr:AccessMode cpr:Search .
+<run:proc/2/access/26> cpr:OpenTime "nil" .
+<run:proc/2/access/26> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/27> .
+<run:proc/2/access/27> rdf:type cpr:FileAccess .
+<run:proc/2/access/27> cpr:FilePath "/usr/bin/env" .
+<run:proc/2/access/27> cpr:AccessMode cpr:Read .
+<run:proc/2/access/27> cpr:OpenTime "nil" .
+<run:proc/2/access/27> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/28> .
+<run:proc/2/access/28> rdf:type cpr:FileAccess .
+<run:proc/2/access/28> cpr:FilePath "/usr/bin/env" .
+<run:proc/2/access/28> cpr:AccessMode cpr:Read .
+<run:proc/2/access/28> cpr:OpenTime "nil" .
+<run:proc/2/access/28> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/29> .
+<run:proc/2/access/29> rdf:type cpr:FileAccess .
+<run:proc/2/access/29> cpr:FilePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<run:proc/2/access/29> cpr:AccessMode cpr:Read .
+<run:proc/2/access/29> cpr:OpenTime "nil" .
+<run:proc/2/access/29> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/31> .
+<run:proc/2/access/31> rdf:type cpr:FileAccess .
+<run:proc/2/access/31> cpr:FilePath "/etc/ld.so.cache" .
+<run:proc/2/access/31> cpr:AccessMode cpr:Read .
+<run:proc/2/access/31> cpr:OpenTime "nil" .
+<run:proc/2/access/31> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/32> .
+<run:proc/2/access/32> rdf:type cpr:FileAccess .
+<run:proc/2/access/32> cpr:FilePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<run:proc/2/access/32> cpr:AccessMode cpr:Read .
+<run:proc/2/access/32> cpr:OpenTime "nil" .
+<run:proc/2/access/32> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/33> .
+<run:proc/2/access/33> rdf:type cpr:FileAccess .
+<run:proc/2/access/33> cpr:FilePath "/usr/bin/python3.8" .
+<run:proc/2/access/33> cpr:AccessMode cpr:Read .
+<run:proc/2/access/33> cpr:OpenTime "nil" .
+<run:proc/2/access/33> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/34> .
+<run:proc/2/access/34> rdf:type cpr:FileAccess .
+<run:proc/2/access/34> cpr:FilePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<run:proc/2/access/34> cpr:AccessMode cpr:Read .
+<run:proc/2/access/34> cpr:OpenTime "nil" .
+<run:proc/2/access/34> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/36> .
+<run:proc/2/access/36> rdf:type cpr:FileAccess .
+<run:proc/2/access/36> cpr:FilePath "/etc/ld.so.cache" .
+<run:proc/2/access/36> cpr:AccessMode cpr:Read .
+<run:proc/2/access/36> cpr:OpenTime "nil" .
+<run:proc/2/access/36> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/37> .
+<run:proc/2/access/37> rdf:type cpr:FileAccess .
+<run:proc/2/access/37> cpr:FilePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<run:proc/2/access/37> cpr:AccessMode cpr:Read .
+<run:proc/2/access/37> cpr:OpenTime "nil" .
+<run:proc/2/access/37> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/38> .
+<run:proc/2/access/38> rdf:type cpr:FileAccess .
+<run:proc/2/access/38> cpr:FilePath "/lib/x86_64-linux-gnu/libpthread.so.0" .
+<run:proc/2/access/38> cpr:AccessMode cpr:Read .
+<run:proc/2/access/38> cpr:OpenTime "nil" .
+<run:proc/2/access/38> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/39> .
+<run:proc/2/access/39> rdf:type cpr:FileAccess .
+<run:proc/2/access/39> cpr:FilePath "/lib/x86_64-linux-gnu/libdl.so.2" .
+<run:proc/2/access/39> cpr:AccessMode cpr:Read .
+<run:proc/2/access/39> cpr:OpenTime "nil" .
+<run:proc/2/access/39> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/40> .
+<run:proc/2/access/40> rdf:type cpr:FileAccess .
+<run:proc/2/access/40> cpr:FilePath "/lib/x86_64-linux-gnu/libutil.so.1" .
+<run:proc/2/access/40> cpr:AccessMode cpr:Read .
+<run:proc/2/access/40> cpr:OpenTime "nil" .
+<run:proc/2/access/40> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/41> .
+<run:proc/2/access/41> rdf:type cpr:FileAccess .
+<run:proc/2/access/41> cpr:FilePath "/lib/x86_64-linux-gnu/libm.so.6" .
+<run:proc/2/access/41> cpr:AccessMode cpr:Read .
+<run:proc/2/access/41> cpr:OpenTime "nil" .
+<run:proc/2/access/41> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/44> .
+<run:proc/2/access/44> rdf:type cpr:FileAccess .
+<run:proc/2/access/44> cpr:FilePath "/usr/lib/locale/C.UTF-8/LC_CTYPE" .
+<run:proc/2/access/44> cpr:AccessMode cpr:Read .
+<run:proc/2/access/44> cpr:OpenTime "nil" .
+<run:proc/2/access/44> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/45> .
+<run:proc/2/access/45> rdf:type cpr:FileAccess .
+<run:proc/2/access/45> cpr:FilePath "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache" .
+<run:proc/2/access/45> cpr:AccessMode cpr:Read .
+<run:proc/2/access/45> cpr:OpenTime "nil" .
+<run:proc/2/access/45> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/46> .
+<run:proc/2/access/46> rdf:type cpr:FileAccess .
+<run:proc/2/access/46> cpr:FilePath "/usr/bin/python3" .
+<run:proc/2/access/46> cpr:OpenTime "nil" .
+<run:proc/2/access/46> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/47> .
+<run:proc/2/access/47> rdf:type cpr:FileAccess .
+<run:proc/2/access/47> cpr:FilePath "/usr/bin/python3" .
+<run:proc/2/access/47> cpr:OpenTime "nil" .
+<run:proc/2/access/47> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/48> .
+<run:proc/2/access/48> rdf:type cpr:FileAccess .
+<run:proc/2/access/48> cpr:FilePath "/usr/lib/python3.8/os.py" .
+<run:proc/2/access/48> cpr:OpenTime "nil" .
+<run:proc/2/access/48> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/49> .
+<run:proc/2/access/49> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/49> cpr:FilePath "/usr/lib/python3.8/lib-dynload" .
+<run:proc/2/access/49> cpr:OpenTime "nil" .
+<run:proc/2/access/49> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/50> .
+<run:proc/2/access/50> rdf:type cpr:FileAccess .
+<run:proc/2/access/50> cpr:FilePath "/etc/localtime" .
+<run:proc/2/access/50> cpr:AccessMode cpr:Read .
+<run:proc/2/access/50> cpr:OpenTime "nil" .
+<run:proc/2/access/50> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/51> .
+<run:proc/2/access/51> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/51> cpr:FilePath "/usr/lib" .
+<run:proc/2/access/51> cpr:OpenTime "nil" .
+<run:proc/2/access/51> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/52> .
+<run:proc/2/access/52> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/52> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/52> cpr:OpenTime "nil" .
+<run:proc/2/access/52> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/53> .
+<run:proc/2/access/53> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/53> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/53> cpr:OpenTime "nil" .
+<run:proc/2/access/53> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/54> .
+<run:proc/2/access/54> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/54> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/54> cpr:OpenTime "nil" .
+<run:proc/2/access/54> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/55> .
+<run:proc/2/access/55> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/55> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/55> cpr:AccessMode cpr:Read .
+<run:proc/2/access/55> cpr:OpenTime "nil" .
+<run:proc/2/access/55> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/56> .
+<run:proc/2/access/56> rdf:type cpr:FileAccess .
+<run:proc/2/access/56> cpr:FilePath "/usr/lib/python3.8/encodings/__init__.py" .
+<run:proc/2/access/56> cpr:OpenTime "nil" .
+<run:proc/2/access/56> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/57> .
+<run:proc/2/access/57> rdf:type cpr:FileAccess .
+<run:proc/2/access/57> cpr:FilePath "/usr/lib/python3.8/encodings/__init__.py" .
+<run:proc/2/access/57> cpr:OpenTime "nil" .
+<run:proc/2/access/57> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/58> .
+<run:proc/2/access/58> rdf:type cpr:FileAccess .
+<run:proc/2/access/58> cpr:FilePath "/usr/lib/python3.8/encodings/__pycache__/__init__.cpython-38.pyc" .
+<run:proc/2/access/58> cpr:AccessMode cpr:Read .
+<run:proc/2/access/58> cpr:OpenTime "nil" .
+<run:proc/2/access/58> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/59> .
+<run:proc/2/access/59> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/59> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/59> cpr:OpenTime "nil" .
+<run:proc/2/access/59> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/60> .
+<run:proc/2/access/60> rdf:type cpr:FileAccess .
+<run:proc/2/access/60> cpr:FilePath "/usr/lib/python3.8/codecs.py" .
+<run:proc/2/access/60> cpr:OpenTime "nil" .
+<run:proc/2/access/60> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/61> .
+<run:proc/2/access/61> rdf:type cpr:FileAccess .
+<run:proc/2/access/61> cpr:FilePath "/usr/lib/python3.8/codecs.py" .
+<run:proc/2/access/61> cpr:OpenTime "nil" .
+<run:proc/2/access/61> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/62> .
+<run:proc/2/access/62> rdf:type cpr:FileAccess .
+<run:proc/2/access/62> cpr:FilePath "/usr/lib/python3.8/__pycache__/codecs.cpython-38.pyc" .
+<run:proc/2/access/62> cpr:AccessMode cpr:Read .
+<run:proc/2/access/62> cpr:OpenTime "nil" .
+<run:proc/2/access/62> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/63> .
+<run:proc/2/access/63> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/63> cpr:FilePath "/usr/lib/python3.8/encodings" .
+<run:proc/2/access/63> cpr:OpenTime "nil" .
+<run:proc/2/access/63> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/64> .
+<run:proc/2/access/64> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/64> cpr:FilePath "/usr/lib/python3.8/encodings" .
+<run:proc/2/access/64> cpr:OpenTime "nil" .
+<run:proc/2/access/64> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/65> .
+<run:proc/2/access/65> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/65> cpr:FilePath "/usr/lib/python3.8/encodings" .
+<run:proc/2/access/65> cpr:OpenTime "nil" .
+<run:proc/2/access/65> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/66> .
+<run:proc/2/access/66> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/66> cpr:FilePath "/usr/lib/python3.8/encodings" .
+<run:proc/2/access/66> cpr:AccessMode cpr:Read .
+<run:proc/2/access/66> cpr:OpenTime "nil" .
+<run:proc/2/access/66> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/67> .
+<run:proc/2/access/67> rdf:type cpr:FileAccess .
+<run:proc/2/access/67> cpr:FilePath "/usr/lib/python3.8/encodings/aliases.py" .
+<run:proc/2/access/67> cpr:OpenTime "nil" .
+<run:proc/2/access/67> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/68> .
+<run:proc/2/access/68> rdf:type cpr:FileAccess .
+<run:proc/2/access/68> cpr:FilePath "/usr/lib/python3.8/encodings/aliases.py" .
+<run:proc/2/access/68> cpr:OpenTime "nil" .
+<run:proc/2/access/68> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/69> .
+<run:proc/2/access/69> rdf:type cpr:FileAccess .
+<run:proc/2/access/69> cpr:FilePath "/usr/lib/python3.8/encodings/__pycache__/aliases.cpython-38.pyc" .
+<run:proc/2/access/69> cpr:AccessMode cpr:Read .
+<run:proc/2/access/69> cpr:OpenTime "nil" .
+<run:proc/2/access/69> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/70> .
+<run:proc/2/access/70> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/70> cpr:FilePath "/usr/lib/python3.8/encodings" .
+<run:proc/2/access/70> cpr:OpenTime "nil" .
+<run:proc/2/access/70> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/71> .
+<run:proc/2/access/71> rdf:type cpr:FileAccess .
+<run:proc/2/access/71> cpr:FilePath "/usr/lib/python3.8/encodings/utf_8.py" .
+<run:proc/2/access/71> cpr:OpenTime "nil" .
+<run:proc/2/access/71> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/72> .
+<run:proc/2/access/72> rdf:type cpr:FileAccess .
+<run:proc/2/access/72> cpr:FilePath "/usr/lib/python3.8/encodings/utf_8.py" .
+<run:proc/2/access/72> cpr:OpenTime "nil" .
+<run:proc/2/access/72> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/73> .
+<run:proc/2/access/73> rdf:type cpr:FileAccess .
+<run:proc/2/access/73> cpr:FilePath "/usr/lib/python3.8/encodings/__pycache__/utf_8.cpython-38.pyc" .
+<run:proc/2/access/73> cpr:AccessMode cpr:Read .
+<run:proc/2/access/73> cpr:OpenTime "nil" .
+<run:proc/2/access/73> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/74> .
+<run:proc/2/access/74> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/74> cpr:FilePath "/usr/lib/python3.8/encodings" .
+<run:proc/2/access/74> cpr:OpenTime "nil" .
+<run:proc/2/access/74> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/75> .
+<run:proc/2/access/75> rdf:type cpr:FileAccess .
+<run:proc/2/access/75> cpr:FilePath "/usr/lib/python3.8/encodings/latin_1.py" .
+<run:proc/2/access/75> cpr:OpenTime "nil" .
+<run:proc/2/access/75> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/76> .
+<run:proc/2/access/76> rdf:type cpr:FileAccess .
+<run:proc/2/access/76> cpr:FilePath "/usr/lib/python3.8/encodings/latin_1.py" .
+<run:proc/2/access/76> cpr:OpenTime "nil" .
+<run:proc/2/access/76> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/77> .
+<run:proc/2/access/77> rdf:type cpr:FileAccess .
+<run:proc/2/access/77> cpr:FilePath "/usr/lib/python3.8/encodings/__pycache__/latin_1.cpython-38.pyc" .
+<run:proc/2/access/77> cpr:AccessMode cpr:Read .
+<run:proc/2/access/77> cpr:OpenTime "nil" .
+<run:proc/2/access/77> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/78> .
+<run:proc/2/access/78> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/78> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/78> cpr:OpenTime "nil" .
+<run:proc/2/access/78> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/79> .
+<run:proc/2/access/79> rdf:type cpr:FileAccess .
+<run:proc/2/access/79> cpr:FilePath "/usr/lib/python3.8/io.py" .
+<run:proc/2/access/79> cpr:OpenTime "nil" .
+<run:proc/2/access/79> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/80> .
+<run:proc/2/access/80> rdf:type cpr:FileAccess .
+<run:proc/2/access/80> cpr:FilePath "/usr/lib/python3.8/io.py" .
+<run:proc/2/access/80> cpr:OpenTime "nil" .
+<run:proc/2/access/80> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/81> .
+<run:proc/2/access/81> rdf:type cpr:FileAccess .
+<run:proc/2/access/81> cpr:FilePath "/usr/lib/python3.8/__pycache__/io.cpython-38.pyc" .
+<run:proc/2/access/81> cpr:AccessMode cpr:Read .
+<run:proc/2/access/81> cpr:OpenTime "nil" .
+<run:proc/2/access/81> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/82> .
+<run:proc/2/access/82> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/82> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/82> cpr:OpenTime "nil" .
+<run:proc/2/access/82> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/83> .
+<run:proc/2/access/83> rdf:type cpr:FileAccess .
+<run:proc/2/access/83> cpr:FilePath "/usr/lib/python3.8/abc.py" .
+<run:proc/2/access/83> cpr:OpenTime "nil" .
+<run:proc/2/access/83> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/84> .
+<run:proc/2/access/84> rdf:type cpr:FileAccess .
+<run:proc/2/access/84> cpr:FilePath "/usr/lib/python3.8/abc.py" .
+<run:proc/2/access/84> cpr:OpenTime "nil" .
+<run:proc/2/access/84> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/85> .
+<run:proc/2/access/85> rdf:type cpr:FileAccess .
+<run:proc/2/access/85> cpr:FilePath "/usr/lib/python3.8/__pycache__/abc.cpython-38.pyc" .
+<run:proc/2/access/85> cpr:AccessMode cpr:Read .
+<run:proc/2/access/85> cpr:OpenTime "nil" .
+<run:proc/2/access/85> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/86> .
+<run:proc/2/access/86> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/86> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/86> cpr:OpenTime "nil" .
+<run:proc/2/access/86> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/87> .
+<run:proc/2/access/87> rdf:type cpr:FileAccess .
+<run:proc/2/access/87> cpr:FilePath "/usr/lib/python3.8/site.py" .
+<run:proc/2/access/87> cpr:OpenTime "nil" .
+<run:proc/2/access/87> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/88> .
+<run:proc/2/access/88> rdf:type cpr:FileAccess .
+<run:proc/2/access/88> cpr:FilePath "/usr/lib/python3.8/site.py" .
+<run:proc/2/access/88> cpr:OpenTime "nil" .
+<run:proc/2/access/88> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/89> .
+<run:proc/2/access/89> rdf:type cpr:FileAccess .
+<run:proc/2/access/89> cpr:FilePath "/usr/lib/python3.8/__pycache__/site.cpython-38.pyc" .
+<run:proc/2/access/89> cpr:AccessMode cpr:Read .
+<run:proc/2/access/89> cpr:OpenTime "nil" .
+<run:proc/2/access/89> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/90> .
+<run:proc/2/access/90> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/90> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/90> cpr:OpenTime "nil" .
+<run:proc/2/access/90> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/91> .
+<run:proc/2/access/91> rdf:type cpr:FileAccess .
+<run:proc/2/access/91> cpr:FilePath "/usr/lib/python3.8/os.py" .
+<run:proc/2/access/91> cpr:OpenTime "nil" .
+<run:proc/2/access/91> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/92> .
+<run:proc/2/access/92> rdf:type cpr:FileAccess .
+<run:proc/2/access/92> cpr:FilePath "/usr/lib/python3.8/os.py" .
+<run:proc/2/access/92> cpr:OpenTime "nil" .
+<run:proc/2/access/92> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/93> .
+<run:proc/2/access/93> rdf:type cpr:FileAccess .
+<run:proc/2/access/93> cpr:FilePath "/usr/lib/python3.8/__pycache__/os.cpython-38.pyc" .
+<run:proc/2/access/93> cpr:AccessMode cpr:Read .
+<run:proc/2/access/93> cpr:OpenTime "nil" .
+<run:proc/2/access/93> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/94> .
+<run:proc/2/access/94> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/94> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/94> cpr:OpenTime "nil" .
+<run:proc/2/access/94> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/95> .
+<run:proc/2/access/95> rdf:type cpr:FileAccess .
+<run:proc/2/access/95> cpr:FilePath "/usr/lib/python3.8/stat.py" .
+<run:proc/2/access/95> cpr:OpenTime "nil" .
+<run:proc/2/access/95> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/96> .
+<run:proc/2/access/96> rdf:type cpr:FileAccess .
+<run:proc/2/access/96> cpr:FilePath "/usr/lib/python3.8/stat.py" .
+<run:proc/2/access/96> cpr:OpenTime "nil" .
+<run:proc/2/access/96> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/97> .
+<run:proc/2/access/97> rdf:type cpr:FileAccess .
+<run:proc/2/access/97> cpr:FilePath "/usr/lib/python3.8/__pycache__/stat.cpython-38.pyc" .
+<run:proc/2/access/97> cpr:AccessMode cpr:Read .
+<run:proc/2/access/97> cpr:OpenTime "nil" .
+<run:proc/2/access/97> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/98> .
+<run:proc/2/access/98> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/98> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/98> cpr:OpenTime "nil" .
+<run:proc/2/access/98> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/99> .
+<run:proc/2/access/99> rdf:type cpr:FileAccess .
+<run:proc/2/access/99> cpr:FilePath "/usr/lib/python3.8/_collections_abc.py" .
+<run:proc/2/access/99> cpr:OpenTime "nil" .
+<run:proc/2/access/99> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/100> .
+<run:proc/2/access/100> rdf:type cpr:FileAccess .
+<run:proc/2/access/100> cpr:FilePath "/usr/lib/python3.8/_collections_abc.py" .
+<run:proc/2/access/100> cpr:OpenTime "nil" .
+<run:proc/2/access/100> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/101> .
+<run:proc/2/access/101> rdf:type cpr:FileAccess .
+<run:proc/2/access/101> cpr:FilePath "/usr/lib/python3.8/__pycache__/_collections_abc.cpython-38.pyc" .
+<run:proc/2/access/101> cpr:AccessMode cpr:Read .
+<run:proc/2/access/101> cpr:OpenTime "nil" .
+<run:proc/2/access/101> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/102> .
+<run:proc/2/access/102> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/102> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/102> cpr:OpenTime "nil" .
+<run:proc/2/access/102> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/103> .
+<run:proc/2/access/103> rdf:type cpr:FileAccess .
+<run:proc/2/access/103> cpr:FilePath "/usr/lib/python3.8/posixpath.py" .
+<run:proc/2/access/103> cpr:OpenTime "nil" .
+<run:proc/2/access/103> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/104> .
+<run:proc/2/access/104> rdf:type cpr:FileAccess .
+<run:proc/2/access/104> cpr:FilePath "/usr/lib/python3.8/posixpath.py" .
+<run:proc/2/access/104> cpr:OpenTime "nil" .
+<run:proc/2/access/104> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/105> .
+<run:proc/2/access/105> rdf:type cpr:FileAccess .
+<run:proc/2/access/105> cpr:FilePath "/usr/lib/python3.8/__pycache__/posixpath.cpython-38.pyc" .
+<run:proc/2/access/105> cpr:AccessMode cpr:Read .
+<run:proc/2/access/105> cpr:OpenTime "nil" .
+<run:proc/2/access/105> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/106> .
+<run:proc/2/access/106> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/106> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/106> cpr:OpenTime "nil" .
+<run:proc/2/access/106> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/107> .
+<run:proc/2/access/107> rdf:type cpr:FileAccess .
+<run:proc/2/access/107> cpr:FilePath "/usr/lib/python3.8/genericpath.py" .
+<run:proc/2/access/107> cpr:OpenTime "nil" .
+<run:proc/2/access/107> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/108> .
+<run:proc/2/access/108> rdf:type cpr:FileAccess .
+<run:proc/2/access/108> cpr:FilePath "/usr/lib/python3.8/genericpath.py" .
+<run:proc/2/access/108> cpr:OpenTime "nil" .
+<run:proc/2/access/108> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/109> .
+<run:proc/2/access/109> rdf:type cpr:FileAccess .
+<run:proc/2/access/109> cpr:FilePath "/usr/lib/python3.8/__pycache__/genericpath.cpython-38.pyc" .
+<run:proc/2/access/109> cpr:AccessMode cpr:Read .
+<run:proc/2/access/109> cpr:OpenTime "nil" .
+<run:proc/2/access/109> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/110> .
+<run:proc/2/access/110> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/110> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/110> cpr:OpenTime "nil" .
+<run:proc/2/access/110> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/111> .
+<run:proc/2/access/111> rdf:type cpr:FileAccess .
+<run:proc/2/access/111> cpr:FilePath "/usr/lib/python3.8/_sitebuiltins.py" .
+<run:proc/2/access/111> cpr:OpenTime "nil" .
+<run:proc/2/access/111> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/112> .
+<run:proc/2/access/112> rdf:type cpr:FileAccess .
+<run:proc/2/access/112> cpr:FilePath "/usr/lib/python3.8/_sitebuiltins.py" .
+<run:proc/2/access/112> cpr:OpenTime "nil" .
+<run:proc/2/access/112> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/113> .
+<run:proc/2/access/113> rdf:type cpr:FileAccess .
+<run:proc/2/access/113> cpr:FilePath "/usr/lib/python3.8/__pycache__/_sitebuiltins.cpython-38.pyc" .
+<run:proc/2/access/113> cpr:AccessMode cpr:Read .
+<run:proc/2/access/113> cpr:OpenTime "nil" .
+<run:proc/2/access/113> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/114> .
+<run:proc/2/access/114> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/114> cpr:FilePath "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/114> cpr:OpenTime "nil" .
+<run:proc/2/access/114> cpr:FileRole "nil" .
+<run:proc/2> cpr:Performed <run:proc/2/access/115> .
+<run:proc/2/access/115> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/115> cpr:FilePath "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/115> cpr:AccessMode cpr:Read .
+<run:proc/2/access/115> cpr:OpenTime "nil" .
+<run:proc/2/access/115> cpr:FileRole "nil" .
+<run:proc/2> cpr:Performed <run:proc/2/access/116> .
+<run:proc/2/access/116> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/116> cpr:FilePath "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/116> cpr:OpenTime "nil" .
+<run:proc/2/access/116> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/117> .
+<run:proc/2/access/117> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/117> cpr:FilePath "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/117> cpr:AccessMode cpr:Read .
+<run:proc/2/access/117> cpr:OpenTime "nil" .
+<run:proc/2/access/117> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/118> .
+<run:proc/2/access/118> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/118> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/118> cpr:OpenTime "nil" .
+<run:proc/2/access/118> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/119> .
+<run:proc/2/access/119> rdf:type cpr:FileAccess .
+<run:proc/2/access/119> cpr:FilePath "/usr/lib/python3.8/sitecustomize.py" .
+<run:proc/2/access/119> cpr:OpenTime "nil" .
+<run:proc/2/access/119> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/120> .
+<run:proc/2/access/120> rdf:type cpr:FileAccess .
+<run:proc/2/access/120> cpr:FilePath "/usr/lib/python3.8/sitecustomize.py" .
+<run:proc/2/access/120> cpr:OpenTime "nil" .
+<run:proc/2/access/120> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/121> .
+<run:proc/2/access/121> rdf:type cpr:FileAccess .
+<run:proc/2/access/121> cpr:FilePath "/usr/lib/python3.8/__pycache__/sitecustomize.cpython-38.pyc" .
+<run:proc/2/access/121> cpr:AccessMode cpr:Read .
+<run:proc/2/access/121> cpr:OpenTime "nil" .
+<run:proc/2/access/121> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/122> .
+<run:proc/2/access/122> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/122> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/122> cpr:OpenTime "nil" .
+<run:proc/2/access/122> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/123> .
+<run:proc/2/access/123> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/123> cpr:FilePath "/usr/lib/python3.8/lib-dynload" .
+<run:proc/2/access/123> cpr:OpenTime "nil" .
+<run:proc/2/access/123> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/124> .
+<run:proc/2/access/124> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/124> cpr:FilePath "/usr/lib/python3.8/lib-dynload" .
+<run:proc/2/access/124> cpr:OpenTime "nil" .
+<run:proc/2/access/124> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/125> .
+<run:proc/2/access/125> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/125> cpr:FilePath "/usr/lib/python3.8/lib-dynload" .
+<run:proc/2/access/125> cpr:OpenTime "nil" .
+<run:proc/2/access/125> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/126> .
+<run:proc/2/access/126> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/126> cpr:FilePath "/usr/lib/python3.8/lib-dynload" .
+<run:proc/2/access/126> cpr:AccessMode cpr:Read .
+<run:proc/2/access/126> cpr:OpenTime "nil" .
+<run:proc/2/access/126> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/127> .
+<run:proc/2/access/127> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/127> cpr:FilePath "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/127> cpr:OpenTime "nil" .
+<run:proc/2/access/127> cpr:FileRole "nil" .
+<run:proc/2> cpr:Performed <run:proc/2/access/128> .
+<run:proc/2/access/128> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/128> cpr:FilePath "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/128> cpr:OpenTime "nil" .
+<run:proc/2/access/128> cpr:FileRole "nil" .
+<run:proc/2> cpr:Performed <run:proc/2/access/129> .
+<run:proc/2/access/129> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/129> cpr:FilePath "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/129> cpr:OpenTime "nil" .
+<run:proc/2/access/129> cpr:FileRole "nil" .
+<run:proc/2> cpr:Performed <run:proc/2/access/130> .
+<run:proc/2/access/130> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/130> cpr:FilePath "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/130> cpr:AccessMode cpr:Read .
+<run:proc/2/access/130> cpr:OpenTime "nil" .
+<run:proc/2/access/130> cpr:FileRole "nil" .
+<run:proc/2> cpr:Performed <run:proc/2/access/131> .
+<run:proc/2/access/131> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/131> cpr:FilePath "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/131> cpr:OpenTime "nil" .
+<run:proc/2/access/131> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/132> .
+<run:proc/2/access/132> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/132> cpr:FilePath "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/132> cpr:OpenTime "nil" .
+<run:proc/2/access/132> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/133> .
+<run:proc/2/access/133> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/133> cpr:FilePath "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/133> cpr:OpenTime "nil" .
+<run:proc/2/access/133> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/134> .
+<run:proc/2/access/134> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/134> cpr:FilePath "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/134> cpr:AccessMode cpr:Read .
+<run:proc/2/access/134> cpr:OpenTime "nil" .
+<run:proc/2/access/134> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/135> .
+<run:proc/2/access/135> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/135> cpr:FilePath "/usr/lib/python3.8" .
+<run:proc/2/access/135> cpr:OpenTime "nil" .
+<run:proc/2/access/135> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/136> .
+<run:proc/2/access/136> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/136> cpr:FilePath "/usr/lib/python3.8/lib-dynload" .
+<run:proc/2/access/136> cpr:OpenTime "nil" .
+<run:proc/2/access/136> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/137> .
+<run:proc/2/access/137> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/137> cpr:FilePath "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/137> cpr:OpenTime "nil" .
+<run:proc/2/access/137> cpr:FileRole "nil" .
+<run:proc/2> cpr:Performed <run:proc/2/access/138> .
+<run:proc/2/access/138> rdf:type cpr:DirectoryAccess .
+<run:proc/2/access/138> cpr:FilePath "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/138> cpr:OpenTime "nil" .
+<run:proc/2/access/138> cpr:FileRole "os" .
+<run:proc/2> cpr:Performed <run:proc/2/access/139> .
+<run:proc/2/access/139> rdf:type cpr:FileAccess .
+<run:proc/2/access/139> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py" .
+<run:proc/2/access/139> cpr:OpenTime "nil" .
+<run:proc/2/access/139> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/140> .
+<run:proc/2/access/140> rdf:type cpr:FileAccess .
+<run:proc/2/access/140> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py" .
+<run:proc/2/access/140> cpr:AccessMode cpr:Read .
+<run:proc/2/access/140> cpr:OpenTime "nil" .
+<run:proc/2/access/140> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/141> .
+<run:proc/2/access/141> rdf:type cpr:FileAccess .
+<run:proc/2/access/141> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py" .
+<run:proc/2/access/141> cpr:OpenTime "nil" .
+<run:proc/2/access/141> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/142> .
+<run:proc/2/access/142> rdf:type cpr:FileAccess .
+<run:proc/2/access/142> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/hello.py" .
+<run:proc/2/access/142> cpr:OpenTime "nil" .
+<run:proc/2/access/142> cpr:FileRole "sw" .
+<run:proc/2> cpr:Performed <run:proc/2/access/143> .
+<run:proc/2/access/143> rdf:type cpr:FileAccess .
+<run:proc/2/access/143> cpr:FilePath "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py" .
+<run:proc/2/access/143> cpr:AccessMode cpr:Read .
+<run:proc/2/access/143> cpr:OpenTime "nil" .
+<run:proc/2/access/143> cpr:FileRole "sw" .
+<wfv:run/0> rdf:type cpr:Run .
+<wfv:run/0> cpr:RunName "run0" .
+<wfv:run/0> cpr:FirstProcess <run:proc/1> .
+<wfv:role/0> cpr:Path "/etc" .
+<wfv:role/1> cpr:Path "/lib" .
+<wfv:role/2> cpr:Path "/sys" .
+<wfv:role/3> cpr:Path "/usr/lib" .
+<wfv:role/4> cpr:Path "/usr/bin" .
+<wfv:role/4> cpr:Role cpr:software .
+<wfv:role/5> cpr:Path "/usr/lib/python3.8" .
+<wfv:role/5> cpr:Role cpr:software .
+<wfv:role/6> cpr:Path "." .
+<wfv:role/6> cpr:Role cpr:software .
+<wfv:role/7> cpr:Path "/tmp" .
+
+
+******************************************* EXAMPLE STEP2 ************************************************
+
+# Prepare the traces dataset in Blazegraph
+
+    # destroy the traces dataset if it exists in the Blazegraph instance
+    blaze destroy --dataset traces --silent
+
+    # create the traces dataset in Blazegraph
+    blaze create --dataset traces
+
+------------------------------------------- STEP2 OUTPUTS ------------------------------------------------
+
+Successfully created dataset traces
+
+
+******************************************* EXAMPLE STEP3 ************************************************
+
+# Load the trace into Blazegraph
+
+    # load the run trace into the traces dataset in Blazegraph
+    blaze import --dataset traces --format ttl --file run/.scratch/trace.ttl
+
+------------------------------------------- STEP3 OUTPUTS ------------------------------------------------
+
+
+
+******************************************* EXAMPLE STEP4 ************************************************
+
+# Export the entire traces dataset from Blazegraph
+
+    # export all of the triples from the traces dataset in Blazegraph
+    blaze export --dataset traces --format nt | sort
+
+------------------------------------------- STEP4 OUTPUTS ------------------------------------------------
+
+<run:exec/1/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:exec/1/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgValue> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/run.sh" .
+<run:exec/1/arg/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ExecArgument> .
+<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecArg> <run:exec/1/arg/0> .
+<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecDir> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
+<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecFile> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/run.sh" .
+<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecProcess> <run:proc/1> .
+<run:exec/1> <http://cirss.illinois.edu/ns/cpr#ExecStart> "nil" .
+<run:exec/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Exec> .
+<run:exec/2/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:exec/2/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgValue> "./hello.py" .
+<run:exec/2/arg/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ExecArgument> .
+<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecArg> <run:exec/2/arg/0> .
+<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecDir> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
+<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecFile> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py" .
+<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecProcess> <run:proc/2> .
+<run:exec/2> <http://cirss.illinois.edu/ns/cpr#ExecStart> "nil" .
+<run:exec/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Exec> .
+<run:exec/3/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:exec/3/arg/0> <http://cirss.illinois.edu/ns/cpr#ArgValue> "python3" .
+<run:exec/3/arg/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ExecArgument> .
+<run:exec/3/arg/1> <http://cirss.illinois.edu/ns/cpr#ArgIndex> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:exec/3/arg/1> <http://cirss.illinois.edu/ns/cpr#ArgValue> "./hello.py" .
+<run:exec/3/arg/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ExecArgument> .
+<run:exec/3> <http://cirss.illinois.edu/ns/cpr#ExecArg> <run:exec/3/arg/0> .
+<run:exec/3> <http://cirss.illinois.edu/ns/cpr#ExecArg> <run:exec/3/arg/1> .
+<run:exec/3> <http://cirss.illinois.edu/ns/cpr#ExecDir> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
+<run:exec/3> <http://cirss.illinois.edu/ns/cpr#ExecFile> "/usr/bin/python3" .
+<run:exec/3> <http://cirss.illinois.edu/ns/cpr#ExecProcess> <run:proc/2> .
+<run:exec/3> <http://cirss.illinois.edu/ns/cpr#ExecStart> "nil" .
+<run:exec/3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Exec> .
+<run:proc/1> <http://cirss.illinois.edu/ns/cpr#ProcExitCode> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:proc/1> <http://cirss.illinois.edu/ns/cpr#ProcStart> "nil" .
+<run:proc/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Proc> .
+<run:proc/2/access/100> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/_collections_abc.py" .
+<run:proc/2/access/100> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/100> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/100> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/101> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/101> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/__pycache__/_collections_abc.cpython-38.pyc" .
+<run:proc/2/access/101> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/101> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/101> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/102> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/102> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/102> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/102> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/103> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/posixpath.py" .
+<run:proc/2/access/103> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/103> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/103> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/104> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/posixpath.py" .
+<run:proc/2/access/104> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/104> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/104> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/105> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/105> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/__pycache__/posixpath.cpython-38.pyc" .
+<run:proc/2/access/105> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/105> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/105> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/106> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/106> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/106> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/106> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/107> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/genericpath.py" .
+<run:proc/2/access/107> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/107> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/107> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/108> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/genericpath.py" .
+<run:proc/2/access/108> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/108> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/108> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/109> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/109> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/__pycache__/genericpath.cpython-38.pyc" .
+<run:proc/2/access/109> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/109> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/109> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/110> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/110> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/110> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/110> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/111> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/_sitebuiltins.py" .
+<run:proc/2/access/111> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/111> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/111> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/112> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/_sitebuiltins.py" .
+<run:proc/2/access/112> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/112> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/112> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/113> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/113> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/__pycache__/_sitebuiltins.cpython-38.pyc" .
+<run:proc/2/access/113> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/113> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/113> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/114> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/114> <http://cirss.illinois.edu/ns/cpr#FileRole> "nil" .
+<run:proc/2/access/114> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/114> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/115> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/115> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/115> <http://cirss.illinois.edu/ns/cpr#FileRole> "nil" .
+<run:proc/2/access/115> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/115> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/116> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/116> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/116> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/116> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/117> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/117> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/117> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/117> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/117> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/118> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/118> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/118> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/118> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/119> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/sitecustomize.py" .
+<run:proc/2/access/119> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/119> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/119> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/120> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/sitecustomize.py" .
+<run:proc/2/access/120> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/120> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/120> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/121> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/121> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/__pycache__/sitecustomize.cpython-38.pyc" .
+<run:proc/2/access/121> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/121> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/121> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/122> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/122> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/122> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/122> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/123> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/lib-dynload" .
+<run:proc/2/access/123> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/123> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/123> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/124> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/lib-dynload" .
+<run:proc/2/access/124> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/124> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/124> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/125> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/lib-dynload" .
+<run:proc/2/access/125> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/125> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/125> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/126> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/126> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/lib-dynload" .
+<run:proc/2/access/126> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/126> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/126> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/127> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/127> <http://cirss.illinois.edu/ns/cpr#FileRole> "nil" .
+<run:proc/2/access/127> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/127> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/128> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/128> <http://cirss.illinois.edu/ns/cpr#FileRole> "nil" .
+<run:proc/2/access/128> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/128> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/129> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/129> <http://cirss.illinois.edu/ns/cpr#FileRole> "nil" .
+<run:proc/2/access/129> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/129> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/130> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/130> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/130> <http://cirss.illinois.edu/ns/cpr#FileRole> "nil" .
+<run:proc/2/access/130> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/130> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/131> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/131> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/131> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/131> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/132> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/132> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/132> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/132> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/133> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/133> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/133> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/133> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/134> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/134> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/134> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/134> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/134> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/135> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/135> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/135> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/135> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/136> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/lib-dynload" .
+<run:proc/2/access/136> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/136> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/136> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/137> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/local/lib/python3.8/dist-packages" .
+<run:proc/2/access/137> <http://cirss.illinois.edu/ns/cpr#FileRole> "nil" .
+<run:proc/2/access/137> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/137> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/138> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3/dist-packages" .
+<run:proc/2/access/138> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/138> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/138> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/139> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py" .
+<run:proc/2/access/139> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/139> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/139> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/140> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/140> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py" .
+<run:proc/2/access/140> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/140> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/140> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/141> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py" .
+<run:proc/2/access/141> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/141> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/141> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/142> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/hello.py" .
+<run:proc/2/access/142> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/142> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/142> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/143> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/143> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py" .
+<run:proc/2/access/143> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/143> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/143> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/26> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Search> .
+<run:proc/2/access/26> <http://cirss.illinois.edu/ns/cpr#FilePath> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
+<run:proc/2/access/26> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/26> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/26> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/27> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/27> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/env" .
+<run:proc/2/access/27> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/27> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/27> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/28> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/28> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/env" .
+<run:proc/2/access/28> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/28> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/28> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/29> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/29> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<run:proc/2/access/29> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/29> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/29> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/31> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/31> <http://cirss.illinois.edu/ns/cpr#FilePath> "/etc/ld.so.cache" .
+<run:proc/2/access/31> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/31> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/31> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/32> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/32> <http://cirss.illinois.edu/ns/cpr#FilePath> "/lib/x86_64-linux-gnu/libc.so.6" .
+<run:proc/2/access/32> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/32> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/32> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/33> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/33> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/python3.8" .
+<run:proc/2/access/33> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/33> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/33> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/34> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/34> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<run:proc/2/access/34> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/34> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/34> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/36> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/36> <http://cirss.illinois.edu/ns/cpr#FilePath> "/etc/ld.so.cache" .
+<run:proc/2/access/36> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/36> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/36> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#FilePath> "/lib/x86_64-linux-gnu/libc.so.6" .
+<run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/37> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/37> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/38> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/38> <http://cirss.illinois.edu/ns/cpr#FilePath> "/lib/x86_64-linux-gnu/libpthread.so.0" .
+<run:proc/2/access/38> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/38> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/38> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#FilePath> "/lib/x86_64-linux-gnu/libdl.so.2" .
+<run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/39> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/39> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#FilePath> "/lib/x86_64-linux-gnu/libutil.so.1" .
+<run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/40> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/40> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/41> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/41> <http://cirss.illinois.edu/ns/cpr#FilePath> "/lib/x86_64-linux-gnu/libm.so.6" .
+<run:proc/2/access/41> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/41> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/41> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/44> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/44> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/locale/C.UTF-8/LC_CTYPE" .
+<run:proc/2/access/44> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/44> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/44> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/45> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/45> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache" .
+<run:proc/2/access/45> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/45> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/45> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/46> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/python3" .
+<run:proc/2/access/46> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/46> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/46> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/47> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/bin/python3" .
+<run:proc/2/access/47> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/47> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/47> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/48> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/os.py" .
+<run:proc/2/access/48> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/48> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/48> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/49> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/lib-dynload" .
+<run:proc/2/access/49> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/49> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/49> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/50> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/50> <http://cirss.illinois.edu/ns/cpr#FilePath> "/etc/localtime" .
+<run:proc/2/access/50> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/50> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/50> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/51> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib" .
+<run:proc/2/access/51> <http://cirss.illinois.edu/ns/cpr#FileRole> "os" .
+<run:proc/2/access/51> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/51> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/52> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/52> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/52> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/52> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/53> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/53> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/53> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/53> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/54> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/54> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/54> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/54> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/55> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/55> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/55> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/55> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/55> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/56> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings/__init__.py" .
+<run:proc/2/access/56> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/56> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/56> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/57> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings/__init__.py" .
+<run:proc/2/access/57> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/57> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/57> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/58> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/58> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings/__pycache__/__init__.cpython-38.pyc" .
+<run:proc/2/access/58> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/58> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/58> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/59> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/59> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/59> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/59> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/60> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/codecs.py" .
+<run:proc/2/access/60> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/60> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/60> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/61> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/codecs.py" .
+<run:proc/2/access/61> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/61> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/61> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/62> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/62> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/__pycache__/codecs.cpython-38.pyc" .
+<run:proc/2/access/62> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/62> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/62> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/63> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings" .
+<run:proc/2/access/63> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/63> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/63> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/64> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings" .
+<run:proc/2/access/64> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/64> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/64> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/65> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings" .
+<run:proc/2/access/65> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/65> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/65> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/66> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/66> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings" .
+<run:proc/2/access/66> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/66> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/66> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/67> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings/aliases.py" .
+<run:proc/2/access/67> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/67> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/67> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/68> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings/aliases.py" .
+<run:proc/2/access/68> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/68> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/68> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/69> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/69> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings/__pycache__/aliases.cpython-38.pyc" .
+<run:proc/2/access/69> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/69> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/69> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/70> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings" .
+<run:proc/2/access/70> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/70> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/70> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/71> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings/utf_8.py" .
+<run:proc/2/access/71> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/71> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/71> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/72> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings/utf_8.py" .
+<run:proc/2/access/72> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/72> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/72> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/73> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/73> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings/__pycache__/utf_8.cpython-38.pyc" .
+<run:proc/2/access/73> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/73> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/73> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/74> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings" .
+<run:proc/2/access/74> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/74> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/74> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/75> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings/latin_1.py" .
+<run:proc/2/access/75> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/75> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/75> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/76> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings/latin_1.py" .
+<run:proc/2/access/76> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/76> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/76> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/77> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/77> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/encodings/__pycache__/latin_1.cpython-38.pyc" .
+<run:proc/2/access/77> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/77> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/77> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/78> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/78> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/78> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/78> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/79> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/io.py" .
+<run:proc/2/access/79> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/79> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/79> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/80> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/io.py" .
+<run:proc/2/access/80> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/80> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/80> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/81> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/81> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/__pycache__/io.cpython-38.pyc" .
+<run:proc/2/access/81> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/81> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/81> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/82> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/82> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/82> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/82> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/83> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/abc.py" .
+<run:proc/2/access/83> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/83> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/83> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/84> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/abc.py" .
+<run:proc/2/access/84> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/84> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/84> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/85> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/85> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/__pycache__/abc.cpython-38.pyc" .
+<run:proc/2/access/85> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/85> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/85> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/86> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/86> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/86> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/86> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/87> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/site.py" .
+<run:proc/2/access/87> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/87> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/87> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/88> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/site.py" .
+<run:proc/2/access/88> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/88> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/88> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/89> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/89> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/__pycache__/site.cpython-38.pyc" .
+<run:proc/2/access/89> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/89> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/89> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/90> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/90> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/90> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/90> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/91> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/os.py" .
+<run:proc/2/access/91> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/91> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/91> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/92> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/os.py" .
+<run:proc/2/access/92> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/92> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/92> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/93> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/93> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/__pycache__/os.cpython-38.pyc" .
+<run:proc/2/access/93> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/93> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/93> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/94> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/94> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/94> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/94> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/95> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/stat.py" .
+<run:proc/2/access/95> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/95> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/95> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/96> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/stat.py" .
+<run:proc/2/access/96> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/96> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/96> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/97> <http://cirss.illinois.edu/ns/cpr#AccessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
+<run:proc/2/access/97> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/__pycache__/stat.cpython-38.pyc" .
+<run:proc/2/access/97> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/97> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/97> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2/access/98> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8" .
+<run:proc/2/access/98> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/98> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/98> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#DirectoryAccess> .
+<run:proc/2/access/99> <http://cirss.illinois.edu/ns/cpr#FilePath> "/usr/lib/python3.8/_collections_abc.py" .
+<run:proc/2/access/99> <http://cirss.illinois.edu/ns/cpr#FileRole> "sw" .
+<run:proc/2/access/99> <http://cirss.illinois.edu/ns/cpr#OpenTime> "nil" .
+<run:proc/2/access/99> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#FileAccess> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/100> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/101> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/102> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/103> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/104> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/105> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/106> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/107> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/108> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/109> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/110> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/111> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/112> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/113> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/114> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/115> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/116> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/117> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/118> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/119> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/120> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/121> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/122> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/123> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/124> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/125> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/126> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/127> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/128> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/129> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/130> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/131> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/132> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/133> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/134> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/135> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/136> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/137> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/138> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/139> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/140> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/141> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/142> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/143> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/26> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/27> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/28> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/29> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/31> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/32> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/33> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/34> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/36> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/37> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/38> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/39> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/40> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/41> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/44> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/45> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/46> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/47> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/48> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/49> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/50> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/51> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/52> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/53> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/54> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/55> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/56> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/57> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/58> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/59> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/60> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/61> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/62> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/63> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/64> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/65> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/66> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/67> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/68> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/69> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/70> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/71> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/72> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/73> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/74> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/75> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/76> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/77> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/78> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/79> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/80> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/81> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/82> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/83> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/84> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/85> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/86> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/87> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/88> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/89> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/90> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/91> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/92> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/93> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/94> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/95> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/96> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/97> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/98> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#Performed> <run:proc/2/access/99> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#ProcExitCode> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#ProcParent> <run:proc/1> .
+<run:proc/2> <http://cirss.illinois.edu/ns/cpr#ProcStart> "nil" .
+<run:proc/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Proc> .
+<wfv:role/0> <http://cirss.illinois.edu/ns/cpr#Path> "/etc" .
+<wfv:role/1> <http://cirss.illinois.edu/ns/cpr#Path> "/lib" .
+<wfv:role/2> <http://cirss.illinois.edu/ns/cpr#Path> "/sys" .
+<wfv:role/3> <http://cirss.illinois.edu/ns/cpr#Path> "/usr/lib" .
+<wfv:role/4> <http://cirss.illinois.edu/ns/cpr#Path> "/usr/bin" .
+<wfv:role/4> <http://cirss.illinois.edu/ns/cpr#Role> <http://cirss.illinois.edu/ns/cpr#software> .
+<wfv:role/5> <http://cirss.illinois.edu/ns/cpr#Path> "/usr/lib/python3.8" .
+<wfv:role/5> <http://cirss.illinois.edu/ns/cpr#Role> <http://cirss.illinois.edu/ns/cpr#software> .
+<wfv:role/6> <http://cirss.illinois.edu/ns/cpr#Path> "." .
+<wfv:role/6> <http://cirss.illinois.edu/ns/cpr#Role> <http://cirss.illinois.edu/ns/cpr#software> .
+<wfv:role/7> <http://cirss.illinois.edu/ns/cpr#Path> "/tmp" .
+<wfv:run/0> <http://cirss.illinois.edu/ns/cpr#FirstProcess> <run:proc/1> .
+<wfv:run/0> <http://cirss.illinois.edu/ns/cpr#RunName> "run0" .
+<wfv:run/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Run> .
+
+
+******************************************* EXAMPLE Q1 ************************************************
+
+# List the programs executed during the run
+
+    echo "Programs executed during the run:"
+    echo
+
+    geist query --dataset traces --format table << __END_QUERY__
+
+        PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
+
+        SELECT DISTINCT ?program
+        WHERE {
+            ?execution cpr:ExecFile ?program .
+        } ORDER BY ?program
+
+__END_QUERY__
+
+------------------------------------------- Q1 OUTPUTS ------------------------------------------------
+
+Programs executed during the run:
+
+program
+============================================================================
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/run.sh
+/usr/bin/python3
+
+
+******************************************* EXAMPLE Q2 ************************************************
+
+# List the files opened for reading during the run
+
+    echo "Files opened for reading during the run and their roles:"
+    echo
+
+    geist query --dataset traces --format table << __END_QUERY__
+
+        PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
+
+        SELECT DISTINCT ?reader ?file ?role
+        WHERE {
+            ?access rdf:type cpr:FileAccess .
+            ?access cpr:AccessMode cpr:Read .
+            ?process cpr:Performed ?access.
+            ?exec cpr:ExecProcess ?process .
+            ?exec cpr:ExecFile ?reader .
+            ?access cpr:FilePath ?file .
+            ?access cpr:FileRole ?role .
+
+    } ORDER BY ?reader ?file ?role
+
+__END_QUERY__
+
+------------------------------------------- Q2 OUTPUTS ------------------------------------------------
+
+Files opened for reading during the run and their roles:
+
+reader                                                                        | file                                                                          | role
+===================================================================================================================================================================
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /etc/ld.so.cache                                                              | os
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /etc/localtime                                                                | os
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /lib/x86_64-linux-gnu/libc.so.6                                               | os
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /lib/x86_64-linux-gnu/libdl.so.2                                              | os
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /lib/x86_64-linux-gnu/libm.so.6                                               | os
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /lib/x86_64-linux-gnu/libpthread.so.0                                         | os
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /lib/x86_64-linux-gnu/libutil.so.1                                            | os
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/bin/env                                                                  | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/bin/python3.8                                                            | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/locale/C.UTF-8/LC_CTYPE                                              | os
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/__pycache__/_collections_abc.cpython-38.pyc                | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/__pycache__/_sitebuiltins.cpython-38.pyc                   | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/__pycache__/abc.cpython-38.pyc                             | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/__pycache__/codecs.cpython-38.pyc                          | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/__pycache__/genericpath.cpython-38.pyc                     | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/__pycache__/io.cpython-38.pyc                              | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/__pycache__/os.cpython-38.pyc                              | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/__pycache__/posixpath.cpython-38.pyc                       | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/__pycache__/site.cpython-38.pyc                            | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/__pycache__/sitecustomize.cpython-38.pyc                   | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/__pycache__/stat.cpython-38.pyc                            | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/encodings/__pycache__/__init__.cpython-38.pyc              | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/encodings/__pycache__/aliases.cpython-38.pyc               | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/encodings/__pycache__/latin_1.cpython-38.pyc               | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/python3.8/encodings/__pycache__/utf_8.cpython-38.pyc                 | sw
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache                           | os
+/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | /usr/lib/x86_64-linux-gnu/ld-2.31.so                                          | os
+/usr/bin/python3                                                              | /etc/ld.so.cache                                                              | os
+/usr/bin/python3                                                              | /etc/localtime                                                                | os
+/usr/bin/python3                                                              | /lib/x86_64-linux-gnu/libc.so.6                                               | os
+/usr/bin/python3                                                              | /lib/x86_64-linux-gnu/libdl.so.2                                              | os
+/usr/bin/python3                                                              | /lib/x86_64-linux-gnu/libm.so.6                                               | os
+/usr/bin/python3                                                              | /lib/x86_64-linux-gnu/libpthread.so.0                                         | os
+/usr/bin/python3                                                              | /lib/x86_64-linux-gnu/libutil.so.1                                            | os
+/usr/bin/python3                                                              | /mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py | sw
+/usr/bin/python3                                                              | /usr/bin/env                                                                  | sw
+/usr/bin/python3                                                              | /usr/bin/python3.8                                                            | sw
+/usr/bin/python3                                                              | /usr/lib/locale/C.UTF-8/LC_CTYPE                                              | os
+/usr/bin/python3                                                              | /usr/lib/python3.8/__pycache__/_collections_abc.cpython-38.pyc                | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/__pycache__/_sitebuiltins.cpython-38.pyc                   | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/__pycache__/abc.cpython-38.pyc                             | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/__pycache__/codecs.cpython-38.pyc                          | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/__pycache__/genericpath.cpython-38.pyc                     | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/__pycache__/io.cpython-38.pyc                              | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/__pycache__/os.cpython-38.pyc                              | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/__pycache__/posixpath.cpython-38.pyc                       | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/__pycache__/site.cpython-38.pyc                            | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/__pycache__/sitecustomize.cpython-38.pyc                   | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/__pycache__/stat.cpython-38.pyc                            | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/encodings/__pycache__/__init__.cpython-38.pyc              | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/encodings/__pycache__/aliases.cpython-38.pyc               | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/encodings/__pycache__/latin_1.cpython-38.pyc               | sw
+/usr/bin/python3                                                              | /usr/lib/python3.8/encodings/__pycache__/utf_8.cpython-38.pyc                 | sw
+/usr/bin/python3                                                              | /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache                           | os
+/usr/bin/python3                                                              | /usr/lib/x86_64-linux-gnu/ld-2.31.so                                          | os
+
+
+******************************************* EXAMPLE Q3 ************************************************
+
+# List the files opened for writing during the run
+
+    echo "Files opened for writing during the run and their roles:"
+    echo
+
+    geist query --dataset traces --format table << __END_QUERY__
+
+        PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
+
+        SELECT DISTINCT ?writer ?file ?role
+        WHERE {
+            ?access rdf:type cpr:FileAccess .
+            ?access cpr:AccessMode cpr:Write .
+            ?process cpr:Performed ?access.
+            ?exec cpr:ExecProcess ?process .
+            ?exec cpr:ExecFile ?writer .
+            ?access cpr:FilePath ?file .
+            ?access cpr:FileRole ?role .
+    } ORDER BY ?writer ?file ?role
+
+__END_QUERY__
+
+------------------------------------------- Q3 OUTPUTS ------------------------------------------------
+
+Files opened for writing during the run and their roles:
+
+writer | file | role
+=====================
+
+
+******************************************* EXAMPLE GRAPH-1 ************************************************
+
+# BLACKBOX VIEW OF RUN
+
+geist report << '__END_REPORT_TEMPLATE__'
+
+    {{{
+        {{ include "../common/graphviz.g" }}
+    }}}
+
+    {{ gv_graph "run_blackbox" }}
+    {{ gv_title "Black-box view of run" }}
+    {{ gv_end }}                                                                            \
+
+__END_REPORT_TEMPLATE__
+
+----------------------------------------- GRAPH-1 DOT OUTPUT -----------------------------------------------
+
+
+digraph run_blackbox {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="Black-box view of run"
+}
+

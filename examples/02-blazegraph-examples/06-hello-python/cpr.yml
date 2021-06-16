@@ -1,0 +1,13 @@
+---
+roles:
+    os:
+    - /etc
+    - /lib
+    - /sys
+    - /usr/lib
+    sw:
+    - /usr/bin
+    - /usr/lib/python3.8
+    - .
+    nul:
+    - /tmp
