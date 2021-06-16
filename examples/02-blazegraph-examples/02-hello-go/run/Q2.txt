@@ -1,6 +1,6 @@
-Programs opened for reading during the run and their roles:
+Files opened for reading during the run and their roles:
 
-file                                                                        | role
-================================================================================
-/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/bin/hello_go | sw
-/sys/kernel/mm/transparent_hugepage/hpage_pmd_size                          | os
+reader                                                                        | file                                                                        | role
+=================================================================================================================================================================
+/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/./bin/hello_go | /mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/bin/hello_go | sw
+/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/./bin/hello_go | /sys/kernel/mm/transparent_hugepage/hpage_pmd_size                          | os

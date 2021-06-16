@@ -1,8 +1,8 @@
-Programs opened for reading during the run and their roles:
+Files opened for reading during the run and their roles:
 
-file                                 | role
-=========================================
-/etc/ld.so.cache                     | os
-/etc/localtime                       | os
-/lib/x86_64-linux-gnu/libc.so.6      | os
-/usr/lib/x86_64-linux-gnu/ld-2.31.so | os
+reader        | file                                 | role
+==========================================================
+/usr/bin/date | /etc/ld.so.cache                     | os
+/usr/bin/date | /etc/localtime                       | os
+/usr/bin/date | /lib/x86_64-linux-gnu/libc.so.6      | os
+/usr/bin/date | /usr/lib/x86_64-linux-gnu/ld-2.31.so | os

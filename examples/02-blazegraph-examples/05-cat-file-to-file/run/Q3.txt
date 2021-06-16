@@ -1,0 +1,5 @@
+Files opened for writing during the run and their roles:
+
+writer       | file                                                                                      | role
+===============================================================================================================
+/usr/bin/cat | /mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/outputs/output.txt | out

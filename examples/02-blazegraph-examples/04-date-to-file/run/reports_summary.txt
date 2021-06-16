@@ -352,34 +352,74 @@ program
 
 # List the files opened for reading during the run
 
-    echo "Programs opened for reading during the run and their roles:"
+    echo "Files opened for reading during the run and their roles:"
     echo
 
     geist query --dataset traces --format table << __END_QUERY__
 
         PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
 
-        SELECT DISTINCT ?file ?role
+        SELECT DISTINCT ?reader ?file ?role
         WHERE {
             ?access rdf:type cpr:FileAccess .
             ?access cpr:AccessMode cpr:Read .
+            ?process cpr:Performed ?access.
+            ?exec cpr:ExecProcess ?process .
+            ?exec cpr:ExecFile ?reader .
             ?access cpr:FilePath ?file .
             ?access cpr:FileRole ?role .
-    } ORDER BY ?file ?role
+
+    } ORDER BY ?reader ?file ?role
 
 __END_QUERY__
 
 ------------------------------------------- Q2 OUTPUTS ------------------------------------------------
 
-Programs opened for reading during the run and their roles:
+Files opened for reading during the run and their roles:
 
-file                                                                                | role
-=========================================================================================
-/etc/ld.so.cache                                                                    | os
-/etc/localtime                                                                      | os
-/lib/x86_64-linux-gnu/libc.so.6                                                     | os
-/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt | out
-/usr/lib/x86_64-linux-gnu/ld-2.31.so                                                | os
+reader        | file                                                                                | role
+=========================================================================================================
+/usr/bin/cat  | /etc/ld.so.cache                                                                    | os
+/usr/bin/cat  | /lib/x86_64-linux-gnu/libc.so.6                                                     | os
+/usr/bin/cat  | /mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt | out
+/usr/bin/cat  | /usr/lib/x86_64-linux-gnu/ld-2.31.so                                                | os
+/usr/bin/date | /etc/ld.so.cache                                                                    | os
+/usr/bin/date | /etc/localtime                                                                      | os
+/usr/bin/date | /lib/x86_64-linux-gnu/libc.so.6                                                     | os
+/usr/bin/date | /usr/lib/x86_64-linux-gnu/ld-2.31.so                                                | os
+
+
+******************************************* EXAMPLE Q3 ************************************************
+
+# List the files opened for writing during the run
+
+    echo "Files opened for writing during the run and their roles:"
+    echo
+
+    geist query --dataset traces --format table << __END_QUERY__
+
+        PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
+
+        SELECT DISTINCT ?writer ?file ?role
+        WHERE {
+            ?access rdf:type cpr:FileAccess .
+            ?access cpr:AccessMode cpr:Write .
+            ?process cpr:Performed ?access.
+            ?exec cpr:ExecProcess ?process .
+            ?exec cpr:ExecFile ?writer .
+            ?access cpr:FilePath ?file .
+            ?access cpr:FileRole ?role .
+    } ORDER BY ?writer ?file ?role
+
+__END_QUERY__
+
+------------------------------------------- Q3 OUTPUTS ------------------------------------------------
+
+Files opened for writing during the run and their roles:
+
+writer        | file                                                                                | role
+==========================================================================================================
+/usr/bin/date | /mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt | out
 
 
 ******************************************* EXAMPLE GRAPH-1 ************************************************

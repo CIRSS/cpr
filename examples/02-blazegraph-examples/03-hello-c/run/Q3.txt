@@ -1,0 +1,4 @@
+Files opened for writing during the run and their roles:
+
+writer | file | role
+=====================
