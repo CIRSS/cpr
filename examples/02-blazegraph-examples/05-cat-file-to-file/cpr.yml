@@ -1,0 +1,16 @@
+---
+roles:
+    os:
+    - /etc
+    - /lib
+    - /sys
+    - /usr/lib
+    sw:
+    - /bin
+    - .
+    in:
+    - workspace/inputs
+    out:
+    - workspace/outputs
+    nul:
+    - /tmp

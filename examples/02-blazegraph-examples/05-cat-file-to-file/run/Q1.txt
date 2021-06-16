@@ -1,0 +1,6 @@
+Programs executed during the run:
+
+program
+============================================================================
+/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/run.sh
+/usr/bin/cat
