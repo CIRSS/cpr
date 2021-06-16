@@ -1,0 +1,6 @@
+Files opened for writing during the run and their roles:
+
+writer       | file                                                                                      | role
+===============================================================================================================
+/usr/bin/cat | /mnt/cpr/examples/02-blazegraph-examples/07-two-step-pipeline/workspace/outputs/file3.txt | out
+/usr/bin/cat | /mnt/cpr/examples/02-blazegraph-examples/07-two-step-pipeline/workspace/temp/file2.txt    | tmp
