@@ -3,6 +3,7 @@
 
 # Define target aliases available both inside and outside a running REPRO
 examples:               run-examples    ## 
+binaries:               package-code    ## 
 build:                  build-code      ## 
 test:                   test-code       ## 
 install:                install-code    ## 

@@ -1,3 +1,5 @@
+BINARIES_DIR=./binaries
+LINUX_BINARY=${BINARIES_DIR}/cpr-0.2.5-linux-x86-64
 
 clean:
 	go clean -cache -x ./... || true
@@ -6,6 +8,7 @@ purge: clean
 	rm -f go.sum
 	chmod -R +w ${GOPATH}
 	rm -rf ${GOPATH}/*
+	rm -rf ${BINARIES_DIR}
 
 depend:
 	go mod tidy
@@ -18,7 +21,17 @@ build: depend
 test: build
 	go test ./... -count 1 -p 1
 
-install: build
-	go install ./...   
+install: depend
+	go install ./...
 
-package: install
+package: ${LINUX_BINARY}
+
+${LINUX_BINARY}: depend
+	CGO_ENABLED=1 GOOS=linux go build -a -o ${LINUX_BINARY} ./cmd/...
+	(echo "\nExecutable has these properties:\n" &&						\
+	file -b ${LINUX_BINARY} | sed "s/, /\\n/g" && 					\
+	echo "\nExecutable dynamically links to these libraries:\n" &&		\
+	ldd ${LINUX_BINARY} | sort											\
+	) > ${LINUX_BINARY}.properties
+
+
