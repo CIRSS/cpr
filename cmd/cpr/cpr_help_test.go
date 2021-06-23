@@ -29,8 +29,6 @@ func TestCPR_no_command(t *testing.T) {
             	Discard normal command output
           -silent
             	Discard normal and error command output
-          -store URL
-            	URL of CPR provenance store (default "http://127.0.0.1:9999/blazegraph")
 
         See 'cpr help <command>' for help with one of the above commands.
 		`)
@@ -56,8 +54,6 @@ func TestCLR_help_command_with_no_argument(t *testing.T) {
             	Discard normal command output
           -silent
             	Discard normal and error command output
-          -store URL
-            	URL of CPR provenance store (default "http://127.0.0.1:9999/blazegraph")
 
         See 'cpr help <command>' for help with one of the above commands.
 		`)
@@ -85,8 +81,6 @@ func TestCPR_unsupported_command(t *testing.T) {
             	Discard normal command output
           -silent
             	Discard normal and error command output
-          -store URL
-            	URL of CPR provenance store (default "http://127.0.0.1:9999/blazegraph")
 
         See 'cpr help <command>' for help with one of the above commands.
 		`)
@@ -114,8 +108,6 @@ func TestCPR_help_unsupported_command(t *testing.T) {
             	Discard normal command output
           -silent
             	Discard normal and error command output
-          -store URL
-            	URL of CPR provenance store (default "http://127.0.0.1:9999/blazegraph")
 
         See 'cpr help <command>' for help with one of the above commands.
 		`)
