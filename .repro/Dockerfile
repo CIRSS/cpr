@@ -49,11 +49,25 @@ WORKDIR $HOME
 RUN echo '***** Make the user bin directory *****'                          \
     && mkdir ${USER_BIN}
 
-ENV BLAZE_VERSION v0.2.4
-RUN /usr/local/go/bin/go install github.com/cirss/blaze/cmd/blaze@${BLAZE_VERSION}
+ENV GEIST_VERSION 0.2.5
+ENV GEIST_RELEASES https://github.com/cirss/geist/releases
+ENV GEIST_DOWNLOADS ${GEIST_RELEASES}/download/v${GEIST_VERSION}
+ENV GEIST_DOWNLOAD ${GEIST_DOWNLOADS}/geist-${GEIST_VERSION}-linux-x86-64-static
+ENV GEIST_BINARY ${USER_BIN}/geist
 
-ENV GEIST_VERSION v0.2.4
-RUN /usr/local/go/bin/go install github.com/cirss/geist/cmd/geist@${BLAZE_VERSION}
+RUN echo '***** Install Geist in user bin directory *****'                  \
+    && wget -O ${GEIST_BINARY} ${GEIST_DOWNLOAD}                           \
+    && chmod u+x ${GEIST_BINARY}
+
+ENV BLAZE_VERSION 0.2.5
+ENV BLAZE_RELEASES https://github.com/cirss/blaze/releases
+ENV BLAZE_DOWNLOADS ${BLAZE_RELEASES}/download/v${BLAZE_VERSION}
+ENV BLAZE_DOWNLOAD ${BLAZE_DOWNLOADS}/blaze-${BLAZE_VERSION}-linux-x86-64-static
+ENV BLAZE_BINARY ${USER_BIN}/blaze
+
+RUN echo '***** Install Blaze in user bin directory *****'                  \
+    && wget -O ${BLAZE_BINARY} ${BLAZE_DOWNLOAD}                            \
+    && chmod u+x ${BLAZE_BINARY}
 
 ENV REPROZIP_VERSION v1.0.16-r1
 ENV REPROZIP_RELEASES https://github.com/cirss/reprozip-static/releases
