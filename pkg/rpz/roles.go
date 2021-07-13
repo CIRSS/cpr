@@ -84,6 +84,7 @@ func WritePathRoleFacts(w io.Writer, pathRoles []PathRole) {
 func AddPathRoleTriples(g *rdf.Graph, pathRoles []PathRole) {
 	for i, pr := range pathRoles {
 		pathRoleURI := PathRoleURI(g, int64(i))
+		g.AddNewTriple(pathRoleURI, "rdf:type", g.NewUri("cpr:ResourceRole"))
 		g.AddNewTriple(pathRoleURI, "cpr:Path", pr.Path)
 		switch pr.Role {
 		case "sw":
@@ -94,5 +95,5 @@ func AddPathRoleTriples(g *rdf.Graph, pathRoles []PathRole) {
 }
 
 func PathRoleURI(g *rdf.Graph, id int64) rdf.Uri {
-	return g.NewUri(fmt.Sprintf("wfv:role/%d", id))
+	return g.NewUri(fmt.Sprintf("role/%d", id))
 }

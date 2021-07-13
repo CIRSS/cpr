@@ -5,11 +5,11 @@
 
     geist query --dataset traces --format table << __END_QUERY__
 
-        PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
+        PREFIX os: <http://cirss.illinois.edu/ns/cpr/os#>
 
         SELECT DISTINCT ?program
         WHERE {
-            ?execution cpr:ExecFile ?program .
+            ?execution os:executedFile ?program .
         } ORDER BY ?program
 
 __END_QUERY__

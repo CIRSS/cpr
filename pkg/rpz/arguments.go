@@ -51,13 +51,13 @@ func AddArgumentTriples(g *rdf.Graph, arguments []Argument) {
 	for _, a := range arguments {
 		executionURI := ExecutionUri(g, a.ExecID)
 		argumentURI := ArgumentUri(g, executionURI, a.Index)
-		g.AddNewTriple(executionURI, "cpr:ExecArg", argumentURI)
-		g.AddNewTriple(argumentURI, "rdf:type", g.NewUri("cpr:ExecArgument"))
-		g.AddNewTriple(argumentURI, "cpr:ArgIndex", a.Index)
-		g.AddNewTriple(argumentURI, "cpr:ArgValue", a.Value)
+		g.AddNewTriple(executionURI, "os:Argument", argumentURI)
+		g.AddNewTriple(argumentURI, "rdf:type", g.NewUri("os:ExecutionArgument"))
+		g.AddNewTriple(argumentURI, "cpr:hadIndex", a.Index)
+		g.AddNewTriple(argumentURI, "cpr:hadValue", a.Value)
 	}
 }
 
 func ArgumentUri(g *rdf.Graph, executionURI rdf.Uri, id int64) rdf.Uri {
-	return g.NewExtendedUri(executionURI, fmt.Sprintf("arg/%d", id))
+	return g.NewExtendedUri(executionURI, fmt.Sprintf("argument/%d", id))
 }

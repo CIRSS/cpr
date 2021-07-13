@@ -2,6 +2,7 @@ package rpz
 
 import (
 	"database/sql"
+	"fmt"
 	"io"
 
 	"github.com/cirss/cpr/pkg/cpr"
@@ -65,20 +66,24 @@ func WriteTraceFacts(file io.Writer, trace Trace) {
 func GetTraceGraph(trace Trace) *rdf.Graph {
 
 	graph := rdf.NewGraph()
+	graph.Base = RunBaseUri(graph, trace.Run)
 
 	graph.AddNewPrefix("cpr", "http://cirss.illinois.edu/ns/cpr#")
+	graph.AddNewPrefix("os", "http://cirss.illinois.edu/ns/cpr/os#")
+	graph.AddNewPrefix("wt", "http://cirss.illinois.edu/ns/cpr/wt#")
 	graph.AddNewPrefix("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 	graph.AddNewPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#")
-	graph.AddNewPrefix("wf", "http://cirss.illinois.edu//workflow/3022#")
-	graph.AddNewPrefix("wfv", "http://cirss.illinois.edu/workflow/3022/version/97#")
-	graph.AddNewPrefix("run", "http://cirss.illinois.edu/workflow/3022/version/97/run/0#")
 
+	AddRunTriples(graph, trace, trace.Run)
 	AddProcessTriples(graph, trace.Processes)
 	AddExecutionTriples(graph, trace.Executions)
 	AddArgumentTriples(graph, trace.Arguments)
 	AddFileOpenTriples(graph, trace.FileOpens)
-	AddRunTriples(graph, trace, trace.Run)
 	AddPathRoleTriples(graph, trace.PathRoles)
 
 	return graph
+}
+
+func RunBaseUri(g *rdf.Graph, run WorkflowRun) rdf.Uri {
+	return g.NewUri(fmt.Sprintf("http://cirss.illinois.edu/runs/%d/", run.RunID))
 }

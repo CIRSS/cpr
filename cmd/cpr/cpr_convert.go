@@ -49,7 +49,7 @@ func Convert(cc *cli.CommandContext) (err error) {
 
 	case "triples":
 		graph := rpz.GetTraceGraph(trace)
-		io.WriteString(traceFile, graph.String())
+		io.WriteString(traceFile, graph.TurtleString())
 	}
 
 	return

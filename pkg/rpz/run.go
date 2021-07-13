@@ -31,12 +31,8 @@ func (r WorkflowRun) String() string {
 }
 
 func AddRunTriples(g *rdf.Graph, trace Trace, run WorkflowRun) {
-	runURI := RunUri(g, run.RunID)
-	g.AddNewTriple(runURI, "rdf:type", g.NewUri("cpr:Run"))
-	g.AddNewTriple(runURI, "cpr:RunName", run.RunName)
-	g.AddNewTriple(runURI, "cpr:FirstProcess", ProcessUri(g, trace.FirstProcess))
-}
-
-func RunUri(g *rdf.Graph, runID int64) rdf.Uri {
-	return g.NewUri(fmt.Sprintf("wfv:run/%d", runID))
+	runUri := g.NewUri("")
+	g.AddNewTriple(runUri, "rdf:type", g.NewUri("cpr:Run"))
+	g.AddNewTriple(runUri, "cpr:RunName", run.RunName)
+	g.AddNewTriple(runUri, "cpr:FirstProcess", ProcessUri(g, trace.FirstProcess))
 }
