@@ -63,7 +63,7 @@ func AddFileOpenTriples(g *rdf.Graph, fileOpens []FileOpen) {
 	for _, fo := range fileOpens {
 		accessURI := FileAccessUri(g, fo.Process, fo.OpenID)
 		processURI := ProcessUri(g, fo.Process)
-		g.AddNewTriple(processURI, "os:PerformedAccess", accessURI)
+		g.AddNewTriple(processURI, "os:performedAccess", accessURI)
 		if fo.IsDirectory {
 			g.AddNewTriple(accessURI, "rdf:type", g.NewUri("os:DirectoryAccess"))
 		} else {
@@ -79,7 +79,7 @@ func AddFileOpenTriples(g *rdf.Graph, fileOpens []FileOpen) {
 			g.AddNewTriple(accessURI, "os:accessMode", g.NewUri("cpr:Search"))
 		}
 		g.AddNewTriple(accessURI, "os:accessStartTime", timestampInt64(fo.Timestamp))
-		g.AddNewTriple(accessURI, "os:fileRole", Role(fo.Name))
+		g.AddNewTriple(accessURI, "os:resourceRole", Role(fo.Name))
 	}
 }
 

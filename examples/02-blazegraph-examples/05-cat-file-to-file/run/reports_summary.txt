@@ -51,62 +51,62 @@
 <execution/2/argument/1> rdf:type os:ExecutionArgument .
 <execution/2/argument/1> cpr:hadIndex 1 .
 <execution/2/argument/1> cpr:hadValue "inputs/input.txt" .
-<process/2> os:PerformedAccess <process/2/access/37> .
+<process/2> os:performedAccess <process/2/access/37> .
 <process/2/access/37> rdf:type os:DirectoryAccess .
 <process/2/access/37> os:accessPath "/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace" .
 <process/2/access/37> os:accessMode cpr:Search .
 <process/2/access/37> os:accessStartTime "nil" .
-<process/2/access/37> os:fileRole "sw" .
-<process/2> os:PerformedAccess <process/2/access/38> .
+<process/2/access/37> os:resourceRole "sw" .
+<process/2> os:performedAccess <process/2/access/38> .
 <process/2/access/38> rdf:type os:FileAccess .
 <process/2/access/38> os:accessPath "/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/outputs/output.txt" .
 <process/2/access/38> os:accessMode cpr:Write .
 <process/2/access/38> os:accessStartTime "nil" .
-<process/2/access/38> os:fileRole "out" .
-<process/2> os:PerformedAccess <process/2/access/39> .
+<process/2/access/38> os:resourceRole "out" .
+<process/2> os:performedAccess <process/2/access/39> .
 <process/2/access/39> rdf:type os:FileAccess .
 <process/2/access/39> os:accessPath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
 <process/2/access/39> os:accessMode cpr:Read .
 <process/2/access/39> os:accessStartTime "nil" .
-<process/2/access/39> os:fileRole "os" .
-<process/2> os:PerformedAccess <process/2/access/41> .
+<process/2/access/39> os:resourceRole "os" .
+<process/2> os:performedAccess <process/2/access/41> .
 <process/2/access/41> rdf:type os:FileAccess .
 <process/2/access/41> os:accessPath "/etc/ld.so.cache" .
 <process/2/access/41> os:accessMode cpr:Read .
 <process/2/access/41> os:accessStartTime "nil" .
-<process/2/access/41> os:fileRole "os" .
-<process/2> os:PerformedAccess <process/2/access/42> .
+<process/2/access/41> os:resourceRole "os" .
+<process/2> os:performedAccess <process/2/access/42> .
 <process/2/access/42> rdf:type os:FileAccess .
 <process/2/access/42> os:accessPath "/lib/x86_64-linux-gnu/libc.so.6" .
 <process/2/access/42> os:accessMode cpr:Read .
 <process/2/access/42> os:accessStartTime "nil" .
-<process/2/access/42> os:fileRole "os" .
-<process/2> os:PerformedAccess <process/2/access/43> .
+<process/2/access/42> os:resourceRole "os" .
+<process/2> os:performedAccess <process/2/access/43> .
 <process/2/access/43> rdf:type os:FileAccess .
 <process/2/access/43> os:accessPath "/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/inputs/input.txt" .
 <process/2/access/43> os:accessMode cpr:Read .
 <process/2/access/43> os:accessStartTime "nil" .
-<process/2/access/43> os:fileRole "in" .
+<process/2/access/43> os:resourceRole "in" .
 <role/0> rdf:type cpr:ResourceRole .
-<role/0> cpr:Path "/etc" .
+<role/0> cpr:resourcePath "/etc" .
 <role/1> rdf:type cpr:ResourceRole .
-<role/1> cpr:Path "/lib" .
+<role/1> cpr:resourcePath "/lib" .
 <role/2> rdf:type cpr:ResourceRole .
-<role/2> cpr:Path "/sys" .
+<role/2> cpr:resourcePath "/sys" .
 <role/3> rdf:type cpr:ResourceRole .
-<role/3> cpr:Path "/usr/lib" .
+<role/3> cpr:resourcePath "/usr/lib" .
 <role/4> rdf:type cpr:ResourceRole .
-<role/4> cpr:Path "/bin" .
+<role/4> cpr:resourcePath "/bin" .
 <role/4> cpr:Role cpr:software .
 <role/5> rdf:type cpr:ResourceRole .
-<role/5> cpr:Path "." .
+<role/5> cpr:resourcePath "." .
 <role/5> cpr:Role cpr:software .
 <role/6> rdf:type cpr:ResourceRole .
-<role/6> cpr:Path "workspace/inputs" .
+<role/6> cpr:resourcePath "workspace/inputs" .
 <role/7> rdf:type cpr:ResourceRole .
-<role/7> cpr:Path "workspace/outputs" .
+<role/7> cpr:resourcePath "workspace/outputs" .
 <role/8> rdf:type cpr:ResourceRole .
-<role/8> cpr:Path "/tmp" .
+<role/8> cpr:resourcePath "/tmp" .
 
 
 ******************************************* EXAMPLE STEP2 ************************************************
@@ -175,62 +175,62 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/process/2/access/37> <http://cirss.illinois.edu/ns/cpr/os#accessMode> <http://cirss.illinois.edu/ns/cpr#Search> .
 <http://cirss.illinois.edu/runs/0/process/2/access/37> <http://cirss.illinois.edu/ns/cpr/os#accessPath> "/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace" .
 <http://cirss.illinois.edu/runs/0/process/2/access/37> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
-<http://cirss.illinois.edu/runs/0/process/2/access/37> <http://cirss.illinois.edu/ns/cpr/os#fileRole> "sw" .
+<http://cirss.illinois.edu/runs/0/process/2/access/37> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "sw" .
 <http://cirss.illinois.edu/runs/0/process/2/access/37> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#DirectoryAccess> .
 <http://cirss.illinois.edu/runs/0/process/2/access/38> <http://cirss.illinois.edu/ns/cpr/os#accessMode> <http://cirss.illinois.edu/ns/cpr#Write> .
 <http://cirss.illinois.edu/runs/0/process/2/access/38> <http://cirss.illinois.edu/ns/cpr/os#accessPath> "/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/outputs/output.txt" .
 <http://cirss.illinois.edu/runs/0/process/2/access/38> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
-<http://cirss.illinois.edu/runs/0/process/2/access/38> <http://cirss.illinois.edu/ns/cpr/os#fileRole> "out" .
+<http://cirss.illinois.edu/runs/0/process/2/access/38> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "out" .
 <http://cirss.illinois.edu/runs/0/process/2/access/38> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#FileAccess> .
 <http://cirss.illinois.edu/runs/0/process/2/access/39> <http://cirss.illinois.edu/ns/cpr/os#accessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
 <http://cirss.illinois.edu/runs/0/process/2/access/39> <http://cirss.illinois.edu/ns/cpr/os#accessPath> "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
 <http://cirss.illinois.edu/runs/0/process/2/access/39> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
-<http://cirss.illinois.edu/runs/0/process/2/access/39> <http://cirss.illinois.edu/ns/cpr/os#fileRole> "os" .
+<http://cirss.illinois.edu/runs/0/process/2/access/39> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "os" .
 <http://cirss.illinois.edu/runs/0/process/2/access/39> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#FileAccess> .
 <http://cirss.illinois.edu/runs/0/process/2/access/41> <http://cirss.illinois.edu/ns/cpr/os#accessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
 <http://cirss.illinois.edu/runs/0/process/2/access/41> <http://cirss.illinois.edu/ns/cpr/os#accessPath> "/etc/ld.so.cache" .
 <http://cirss.illinois.edu/runs/0/process/2/access/41> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
-<http://cirss.illinois.edu/runs/0/process/2/access/41> <http://cirss.illinois.edu/ns/cpr/os#fileRole> "os" .
+<http://cirss.illinois.edu/runs/0/process/2/access/41> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "os" .
 <http://cirss.illinois.edu/runs/0/process/2/access/41> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#FileAccess> .
 <http://cirss.illinois.edu/runs/0/process/2/access/42> <http://cirss.illinois.edu/ns/cpr/os#accessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
 <http://cirss.illinois.edu/runs/0/process/2/access/42> <http://cirss.illinois.edu/ns/cpr/os#accessPath> "/lib/x86_64-linux-gnu/libc.so.6" .
 <http://cirss.illinois.edu/runs/0/process/2/access/42> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
-<http://cirss.illinois.edu/runs/0/process/2/access/42> <http://cirss.illinois.edu/ns/cpr/os#fileRole> "os" .
+<http://cirss.illinois.edu/runs/0/process/2/access/42> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "os" .
 <http://cirss.illinois.edu/runs/0/process/2/access/42> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#FileAccess> .
 <http://cirss.illinois.edu/runs/0/process/2/access/43> <http://cirss.illinois.edu/ns/cpr/os#accessMode> <http://cirss.illinois.edu/ns/cpr#Read> .
 <http://cirss.illinois.edu/runs/0/process/2/access/43> <http://cirss.illinois.edu/ns/cpr/os#accessPath> "/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/inputs/input.txt" .
 <http://cirss.illinois.edu/runs/0/process/2/access/43> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
-<http://cirss.illinois.edu/runs/0/process/2/access/43> <http://cirss.illinois.edu/ns/cpr/os#fileRole> "in" .
+<http://cirss.illinois.edu/runs/0/process/2/access/43> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "in" .
 <http://cirss.illinois.edu/runs/0/process/2/access/43> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#FileAccess> .
-<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#PerformedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/37> .
-<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#PerformedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/38> .
-<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#PerformedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/39> .
-<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#PerformedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/41> .
-<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#PerformedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/42> .
-<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#PerformedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/43> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#childProcessOf> <http://cirss.illinois.edu/runs/0/process/1> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#exitCode> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/37> .
+<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/38> .
+<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/39> .
+<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/41> .
+<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/42> .
+<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/43> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#startTime> "nil" .
 <http://cirss.illinois.edu/runs/0/process/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#Process> .
-<http://cirss.illinois.edu/runs/0/role/0> <http://cirss.illinois.edu/ns/cpr#Path> "/etc" .
+<http://cirss.illinois.edu/runs/0/role/0> <http://cirss.illinois.edu/ns/cpr#resourcePath> "/etc" .
 <http://cirss.illinois.edu/runs/0/role/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
-<http://cirss.illinois.edu/runs/0/role/1> <http://cirss.illinois.edu/ns/cpr#Path> "/lib" .
+<http://cirss.illinois.edu/runs/0/role/1> <http://cirss.illinois.edu/ns/cpr#resourcePath> "/lib" .
 <http://cirss.illinois.edu/runs/0/role/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
-<http://cirss.illinois.edu/runs/0/role/2> <http://cirss.illinois.edu/ns/cpr#Path> "/sys" .
+<http://cirss.illinois.edu/runs/0/role/2> <http://cirss.illinois.edu/ns/cpr#resourcePath> "/sys" .
 <http://cirss.illinois.edu/runs/0/role/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
-<http://cirss.illinois.edu/runs/0/role/3> <http://cirss.illinois.edu/ns/cpr#Path> "/usr/lib" .
+<http://cirss.illinois.edu/runs/0/role/3> <http://cirss.illinois.edu/ns/cpr#resourcePath> "/usr/lib" .
 <http://cirss.illinois.edu/runs/0/role/3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
-<http://cirss.illinois.edu/runs/0/role/4> <http://cirss.illinois.edu/ns/cpr#Path> "/bin" .
 <http://cirss.illinois.edu/runs/0/role/4> <http://cirss.illinois.edu/ns/cpr#Role> <http://cirss.illinois.edu/ns/cpr#software> .
+<http://cirss.illinois.edu/runs/0/role/4> <http://cirss.illinois.edu/ns/cpr#resourcePath> "/bin" .
 <http://cirss.illinois.edu/runs/0/role/4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
-<http://cirss.illinois.edu/runs/0/role/5> <http://cirss.illinois.edu/ns/cpr#Path> "." .
 <http://cirss.illinois.edu/runs/0/role/5> <http://cirss.illinois.edu/ns/cpr#Role> <http://cirss.illinois.edu/ns/cpr#software> .
+<http://cirss.illinois.edu/runs/0/role/5> <http://cirss.illinois.edu/ns/cpr#resourcePath> "." .
 <http://cirss.illinois.edu/runs/0/role/5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
-<http://cirss.illinois.edu/runs/0/role/6> <http://cirss.illinois.edu/ns/cpr#Path> "workspace/inputs" .
+<http://cirss.illinois.edu/runs/0/role/6> <http://cirss.illinois.edu/ns/cpr#resourcePath> "workspace/inputs" .
 <http://cirss.illinois.edu/runs/0/role/6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
-<http://cirss.illinois.edu/runs/0/role/7> <http://cirss.illinois.edu/ns/cpr#Path> "workspace/outputs" .
+<http://cirss.illinois.edu/runs/0/role/7> <http://cirss.illinois.edu/ns/cpr#resourcePath> "workspace/outputs" .
 <http://cirss.illinois.edu/runs/0/role/7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
-<http://cirss.illinois.edu/runs/0/role/8> <http://cirss.illinois.edu/ns/cpr#Path> "/tmp" .
+<http://cirss.illinois.edu/runs/0/role/8> <http://cirss.illinois.edu/ns/cpr#resourcePath> "/tmp" .
 <http://cirss.illinois.edu/runs/0/role/8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
 
 
@@ -278,11 +278,11 @@ program
         WHERE {
             ?access rdf:type os:FileAccess .
             ?access os:accessMode cpr:Read .
-            ?process os:PerformedAccess ?access.
+            ?process os:performedAccess ?access.
             ?exec os:startedProcess ?process .
             ?exec os:executedFile ?reader .
             ?access os:accessPath ?file .
-            ?access os:fileRole ?role .
+            ?access os:resourceRole ?role .
 
     } ORDER BY ?reader ?file ?role
 
@@ -316,11 +316,11 @@ reader       | file                                                             
         WHERE {
             ?access rdf:type os:FileAccess .
             ?access os:accessMode cpr:Write .
-            ?process os:PerformedAccess ?access.
+            ?process os:performedAccess ?access.
             ?exec os:startedProcess ?process .
             ?exec os:executedFile ?writer .
             ?access os:accessPath ?file .
-            ?access os:fileRole ?role .
+            ?access os:resourceRole ?role .
         } ORDER BY ?writer ?file ?role
 
 __END_QUERY__

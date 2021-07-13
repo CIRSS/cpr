@@ -12,11 +12,11 @@
         WHERE {
             ?access rdf:type os:FileAccess .
             ?access os:accessMode cpr:Write .
-            ?process os:PerformedAccess ?access.
+            ?process os:performedAccess ?access.
             ?exec os:startedProcess ?process .
             ?exec os:executedFile ?writer .
             ?access os:accessPath ?file .
-            ?access os:fileRole ?role .
+            ?access os:resourceRole ?role .
         } ORDER BY ?writer ?file ?role
 
 __END_QUERY__

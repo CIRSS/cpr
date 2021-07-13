@@ -85,7 +85,7 @@ func AddPathRoleTriples(g *rdf.Graph, pathRoles []PathRole) {
 	for i, pr := range pathRoles {
 		pathRoleURI := PathRoleURI(g, int64(i))
 		g.AddNewTriple(pathRoleURI, "rdf:type", g.NewUri("cpr:ResourceRole"))
-		g.AddNewTriple(pathRoleURI, "cpr:Path", pr.Path)
+		g.AddNewTriple(pathRoleURI, "cpr:resourcePath", pr.Path)
 		switch pr.Role {
 		case "sw":
 			g.AddNewTriple(pathRoleURI, "cpr:Role", g.NewUri("cpr:software"))
