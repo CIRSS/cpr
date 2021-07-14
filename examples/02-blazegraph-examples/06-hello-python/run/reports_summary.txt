@@ -1,5 +1,5 @@
 
-******************************************* EXAMPLE step-1-convert-trace-to-rdf ************************************************
+******************************************* step-1-convert-trace-to-rdf ************************************************
 
 # Convert the ReproZip trace to RDF triples
 
@@ -9,7 +9,7 @@
     # print out the Turtle file
     cat ./run/.scratch/trace.ttl
 
-------------------------------------------- step-1-convert-trace-to-rdf OUTPUTS ------------------------------------------------
+-------------------------------------------------- OUTPUT -----------------------------------------------
 
 @prefix cpr: <http://cirss.illinois.edu/ns/cpr#> .
 @prefix os: <http://cirss.illinois.edu/ns/cpr/os#> .
@@ -692,7 +692,7 @@
 <role/7> cpr:resourcePath "/tmp" .
 
 
-******************************************* EXAMPLE step-2-load-traces-dataset ************************************************
+******************************************* step-2-load-traces-dataset ************************************************
 
 # Load the Turtle-formatted trace into Blazegraph
 
@@ -705,19 +705,19 @@
     # load the run trace into the traces dataset in Blazegraph
     blaze import --dataset traces --format ttl --file run/.scratch/trace.ttl
 
-------------------------------------------- step-2-load-traces-dataset OUTPUTS ------------------------------------------------
+-------------------------------------------------- OUTPUT -----------------------------------------------
 
 Successfully created dataset traces
 
 
-******************************************* EXAMPLE step-3-export-ntriples ************************************************
+******************************************* step-3-export-ntriples ************************************************
 
 # Export the trace from Blazegraph as N-Triples
 
     # export all of the triples from the traces dataset in Blazegraph
     blaze export --dataset traces --format nt | sort
 
-------------------------------------------- step-3-export-ntriples OUTPUTS ------------------------------------------------
+-------------------------------------------------- OUTPUT -----------------------------------------------
 
 <http://cirss.illinois.edu/runs/0/> <http://cirss.illinois.edu/ns/cpr#FirstProcess> <http://cirss.illinois.edu/runs/0/process/1> .
 <http://cirss.illinois.edu/runs/0/> <http://cirss.illinois.edu/ns/cpr#RunName> "run0" .
@@ -1392,7 +1392,7 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/role/7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
 
 
-******************************************* EXAMPLE query-1-select-executed-programs ************************************************
+******************************************* query-1-select-executed-programs ************************************************
 
 # List the programs executed during the run
 
@@ -1410,7 +1410,7 @@ Successfully created dataset traces
 
 __END_QUERY__
 
-------------------------------------------- query-1-select-executed-programs OUTPUTS ------------------------------------------------
+-------------------------------------------------- OUTPUT -----------------------------------------------
 
 Programs executed during the run:
 
@@ -1421,7 +1421,7 @@ program
 /usr/bin/python3
 
 
-******************************************* EXAMPLE query-2-select-files-read ************************************************
+******************************************* query-2-select-files-read ************************************************
 
 # List the files opened for reading during the run
 
@@ -1447,7 +1447,7 @@ program
 
 __END_QUERY__
 
-------------------------------------------- query-2-select-files-read OUTPUTS ------------------------------------------------
+-------------------------------------------------- OUTPUT -----------------------------------------------
 
 Files opened for reading during the run and their roles:
 
@@ -1511,7 +1511,7 @@ reader                                                                        | 
 /usr/bin/python3                                                              | /usr/lib/x86_64-linux-gnu/ld-2.31.so                                          | os
 
 
-******************************************* EXAMPLE query-3-select-files-written ************************************************
+******************************************* query-3-select-files-written ************************************************
 
 # List the files opened for writing during the run
 
@@ -1536,7 +1536,7 @@ reader                                                                        | 
 
 __END_QUERY__
 
-------------------------------------------- query-3-select-files-written OUTPUTS ------------------------------------------------
+-------------------------------------------------- OUTPUT -----------------------------------------------
 
 Files opened for writing during the run and their roles:
 
@@ -1544,7 +1544,7 @@ writer | file | role
 =====================
 
 
-******************************************* EXAMPLE graph-1 ************************************************
+******************************************* graph-1 ************************************************
 
 # BLACKBOX VIEW OF RUN
 
@@ -1560,7 +1560,7 @@ geist report << '__END_REPORT_TEMPLATE__'
 
 __END_REPORT_TEMPLATE__
 
------------------------------------------ graph-1 DOT OUTPUT -----------------------------------------------
+-------------------------------------------------- OUTPUT -----------------------------------------------
 
 
 digraph run_blackbox {
