@@ -1,7 +1,7 @@
 
-******************************************* EXAMPLE STEP1 ************************************************
+******************************************* EXAMPLE step-1-convert-trace-to-rdf ************************************************
 
-# Convert trace to RDF triples
+# Convert the ReproZip trace to RDF triples
 
     # convert Reprozip reprozip trace to RDF triples in Turtle format
 	cpr convert -noroot -notimestamps -from reprozip -to triples -src ./run/.reprozip-trace -dest ./run/.scratch/trace.ttl
@@ -9,7 +9,7 @@
     # print out the Turtle file
     cat ./run/.scratch/trace.ttl
 
-------------------------------------------- STEP1 OUTPUTS ------------------------------------------------
+------------------------------------------- step-1-convert-trace-to-rdf OUTPUTS ------------------------------------------------
 
 @prefix cpr: <http://cirss.illinois.edu/ns/cpr#> .
 @prefix os: <http://cirss.illinois.edu/ns/cpr/os#> .
@@ -416,9 +416,9 @@
 <role/9> cpr:resourcePath "/tmp" .
 
 
-******************************************* EXAMPLE STEP2 ************************************************
+******************************************* EXAMPLE step-2-load-traces-dataset ************************************************
 
-# Prepare the traces dataset in Blazegraph
+# Load the Turtle-formatted trace into Blazegraph
 
     # destroy the traces dataset if it exists in the Blazegraph instance
     blaze destroy --dataset traces --silent
@@ -426,30 +426,22 @@
     # create the traces dataset in Blazegraph
     blaze create --dataset traces
 
-------------------------------------------- STEP2 OUTPUTS ------------------------------------------------
+    # load the run trace into the traces dataset in Blazegraph
+    blaze import --dataset traces --format ttl --file run/.scratch/trace.ttl
+
+------------------------------------------- step-2-load-traces-dataset OUTPUTS ------------------------------------------------
 
 Successfully created dataset traces
 
 
-******************************************* EXAMPLE STEP3 ************************************************
+******************************************* EXAMPLE step-3-export-ntriples ************************************************
 
-# Load the trace into Blazegraph
-
-    # load the run trace into the traces dataset in Blazegraph
-    blaze import --dataset traces --format ttl --file run/.scratch/trace.ttl
-
-------------------------------------------- STEP3 OUTPUTS ------------------------------------------------
-
-
-
-******************************************* EXAMPLE STEP4 ************************************************
-
-# Export the entire traces dataset from Blazegraph
+# Export the trace from Blazegraph as N-Triples
 
     # export all of the triples from the traces dataset in Blazegraph
     blaze export --dataset traces --format nt | sort
 
-------------------------------------------- STEP4 OUTPUTS ------------------------------------------------
+------------------------------------------- step-3-export-ntriples OUTPUTS ------------------------------------------------
 
 <http://cirss.illinois.edu/runs/0/> <http://cirss.illinois.edu/ns/cpr#FirstProcess> <http://cirss.illinois.edu/runs/0/process/1> .
 <http://cirss.illinois.edu/runs/0/> <http://cirss.illinois.edu/ns/cpr#RunName> "run0" .
@@ -848,7 +840,7 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/role/9> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
 
 
-******************************************* EXAMPLE Q1 ************************************************
+******************************************* EXAMPLE query-1-select-executed-programs ************************************************
 
 # List the programs executed during the run
 
@@ -866,7 +858,7 @@ Successfully created dataset traces
 
 __END_QUERY__
 
-------------------------------------------- Q1 OUTPUTS ------------------------------------------------
+------------------------------------------- query-1-select-executed-programs OUTPUTS ------------------------------------------------
 
 Programs executed during the run:
 
@@ -876,7 +868,7 @@ program
 /usr/bin/cat
 
 
-******************************************* EXAMPLE Q2 ************************************************
+******************************************* EXAMPLE query-2-select-files-read ************************************************
 
 # List the files opened for reading during the run
 
@@ -902,7 +894,7 @@ program
 
 __END_QUERY__
 
-------------------------------------------- Q2 OUTPUTS ------------------------------------------------
+------------------------------------------- query-2-select-files-read OUTPUTS ------------------------------------------------
 
 Files opened for reading during the run and their roles:
 
@@ -920,7 +912,7 @@ reader       | file                                                             
 /usr/bin/cat | /usr/lib/x86_64-linux-gnu/ld-2.31.so                                                  | os
 
 
-******************************************* EXAMPLE Q3 ************************************************
+******************************************* EXAMPLE query-3-select-files-written ************************************************
 
 # List the files opened for writing during the run
 
@@ -945,7 +937,7 @@ reader       | file                                                             
 
 __END_QUERY__
 
-------------------------------------------- Q3 OUTPUTS ------------------------------------------------
+------------------------------------------- query-3-select-files-written OUTPUTS ------------------------------------------------
 
 Files opened for writing during the run and their roles:
 
@@ -959,7 +951,7 @@ writer       | file                                                             
 /usr/bin/cat | /mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t4.txt       | tmp
 
 
-******************************************* EXAMPLE GRAPH-1 ************************************************
+******************************************* EXAMPLE graph-1 ************************************************
 
 # BLACKBOX VIEW OF RUN
 
@@ -975,7 +967,7 @@ geist report << '__END_REPORT_TEMPLATE__'
 
 __END_REPORT_TEMPLATE__
 
------------------------------------------ GRAPH-1 DOT OUTPUT -----------------------------------------------
+----------------------------------------- graph-1 DOT OUTPUT -----------------------------------------------
 
 
 digraph run_blackbox {

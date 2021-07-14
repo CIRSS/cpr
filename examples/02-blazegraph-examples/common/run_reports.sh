@@ -3,7 +3,7 @@
 RUNNER='../common/do_report_step.sh'
 GRAPHER='../common/do_report_graph.sh'
 
-bash ${RUNNER} STEP1 "Convert trace to RDF triples" << END_STEP
+bash ${RUNNER} step-1-convert-trace-to-rdf "Convert the ReproZip trace to RDF triples" << END_STEP
 
     # convert Reprozip reprozip trace to RDF triples in Turtle format
 	cpr convert -noroot -notimestamps -from reprozip -to triples -src ./run/.reprozip-trace -dest ./run/.scratch/trace.ttl
@@ -14,7 +14,7 @@ bash ${RUNNER} STEP1 "Convert trace to RDF triples" << END_STEP
 END_STEP
 
 
-bash ${RUNNER} STEP2 "Prepare the traces dataset in Blazegraph" << END_STEP
+bash ${RUNNER} step-2-load-traces-dataset "Load the Turtle-formatted trace into Blazegraph" << END_STEP
 
     # destroy the traces dataset if it exists in the Blazegraph instance
     blaze destroy --dataset traces --silent
@@ -22,18 +22,13 @@ bash ${RUNNER} STEP2 "Prepare the traces dataset in Blazegraph" << END_STEP
     # create the traces dataset in Blazegraph
     blaze create --dataset traces
 
-END_STEP
-
-
-bash ${RUNNER} STEP3 "Load the trace into Blazegraph" << END_STEP
-
     # load the run trace into the traces dataset in Blazegraph
     blaze import --dataset traces --format ttl --file run/.scratch/trace.ttl
 
 END_STEP
 
 
-bash ${RUNNER} STEP4 "Export the entire traces dataset from Blazegraph" << END_STEP
+bash ${RUNNER} step-3-export-ntriples "Export the trace from Blazegraph as N-Triples" << END_STEP
 
     # export all of the triples from the traces dataset in Blazegraph
     blaze export --dataset traces --format nt | sort
@@ -41,7 +36,7 @@ bash ${RUNNER} STEP4 "Export the entire traces dataset from Blazegraph" << END_S
 END_STEP
 
 
-bash ${RUNNER} Q1 "List the programs executed during the run" << END_STEP
+bash ${RUNNER} query-1-select-executed-programs "List the programs executed during the run" << END_STEP
 
     echo "Programs executed during the run:"
     echo
@@ -60,7 +55,7 @@ __END_QUERY__
 END_STEP
 
 
-bash ${RUNNER} Q2 "List the files opened for reading during the run" << END_STEP
+bash ${RUNNER} query-2-select-files-read "List the files opened for reading during the run" << END_STEP
 
     echo "Files opened for reading during the run and their roles:"
     echo
@@ -86,7 +81,7 @@ __END_QUERY__
 
 END_STEP
 
-bash ${RUNNER} Q3 "List the files opened for writing during the run" << END_STEP
+bash ${RUNNER} query-3-select-files-written "List the files opened for writing during the run" << END_STEP
 
     echo "Files opened for writing during the run and their roles:"
     echo
@@ -111,7 +106,7 @@ __END_QUERY__
 
 END_STEP
 
-bash ${GRAPHER} GRAPH-1 "BLACKBOX VIEW OF RUN"  \
+bash ${GRAPHER} graph-1 "BLACKBOX VIEW OF RUN"  \
     << '__END_SCRIPT__'
 
 geist report << '__END_REPORT_TEMPLATE__'
