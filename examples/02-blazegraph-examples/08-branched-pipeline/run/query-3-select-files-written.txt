@@ -1,10 +1,10 @@
 Files opened for writing during the run and their roles:
 
-writer       | file                                                                                      | role
-===============================================================================================================
-/usr/bin/cat | /mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o12.txt   | out
-/usr/bin/cat | /mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o1234.txt | out
-/usr/bin/cat | /mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o4.txt    | out
-/usr/bin/cat | /mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t12.txt      | tmp
-/usr/bin/cat | /mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t123.txt     | tmp
-/usr/bin/cat | /mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t4.txt       | tmp
+writer       | file                | role
+=========================================
+/usr/bin/cat | ./outputs/o12.txt   | out
+/usr/bin/cat | ./outputs/o1234.txt | out
+/usr/bin/cat | ./outputs/o4.txt    | out
+/usr/bin/cat | ./temp/t12.txt      | tmp
+/usr/bin/cat | ./temp/t123.txt     | tmp
+/usr/bin/cat | ./temp/t4.txt       | tmp

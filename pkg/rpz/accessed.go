@@ -57,13 +57,13 @@ func (f AccessedPath) String() string {
 
 func AddAccessedPathTriples(g *rdf.Graph, accessed []AccessedPath) {
 	for _, ap := range accessed {
-		relativePathUri := AccessedPathUri(g, ap)
-		g.AddNewTriple(relativePathUri, "rdf:type", g.NewUri("os:RelativePath"))
+		relativePathUri := AccessedPathUri(g, ap.PathIndex)
+		g.AddNewTriple(relativePathUri, "rdf:type", g.NewUri("os:FileResource"))
 		g.AddNewTriple(relativePathUri, "os:absolutePath", ap.Absolute)
 		g.AddNewTriple(relativePathUri, "os:relativePath", ap.Relative)
 	}
 }
 
-func AccessedPathUri(g *rdf.Graph, ap AccessedPath) rdf.Uri {
-	return g.NewUri(fmt.Sprintf("relativepath/%d", ap.PathIndex))
+func AccessedPathUri(g *rdf.Graph, pathIndex int64) rdf.Uri {
+	return g.NewUri(fmt.Sprintf("fileresource/%d", pathIndex))
 }

@@ -1,8 +1,8 @@
 Files opened for reading during the run and their roles:
 
-reader                                                                      | file                                                                      | role
-=============================================================================================================================================================
-/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/./bin/hello_c | /etc/ld.so.cache                                                          | os
-/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/./bin/hello_c | /lib/x86_64-linux-gnu/libc.so.6                                           | os
-/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/./bin/hello_c | /mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/bin/hello_c | sw
-/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/./bin/hello_c | /usr/lib/x86_64-linux-gnu/ld-2.31.so                                      | os
+reader                                                                      | file                                 | role
+========================================================================================================================
+/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/./bin/hello_c | ./bin/hello_c                        | sw
+/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/./bin/hello_c | /etc/ld.so.cache                     | os
+/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/./bin/hello_c | /lib/x86_64-linux-gnu/libc.so.6      | os
+/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/./bin/hello_c | /usr/lib/x86_64-linux-gnu/ld-2.31.so | os

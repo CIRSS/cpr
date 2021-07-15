@@ -1,5 +1,5 @@
 Files opened for writing during the run and their roles:
 
-writer        | file                                                                                | role
-==========================================================================================================
-/usr/bin/date | /mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt | out
+writer        | file               | role
+=========================================
+/usr/bin/date | ./outputs/date.txt | out

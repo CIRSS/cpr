@@ -72,7 +72,8 @@ bash ${RUNNER} query-2-select-files-read "List the files opened for reading duri
             ?process os:performedAccess ?access.
             ?exec os:startedProcess ?process .
             ?exec os:executedFile ?reader .
-            ?access os:accessPath ?file .
+            ?access os:resourcePath ?resource .
+            ?resource os:relativePath ?file .
             ?access os:resourceRole ?role .
 
     } ORDER BY ?reader ?file ?role
@@ -98,7 +99,8 @@ bash ${RUNNER} query-3-select-files-written "List the files opened for writing d
             ?process os:performedAccess ?access.
             ?exec os:startedProcess ?process .
             ?exec os:executedFile ?writer .
-            ?access os:accessPath ?file .
+            ?access os:resourcePath ?resource .
+            ?resource os:relativePath ?file .
             ?access os:resourceRole ?role .
         } ORDER BY ?writer ?file ?role
 

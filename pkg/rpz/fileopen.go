@@ -68,6 +68,8 @@ func AddFileOpenTriples(g *rdf.Graph, fileOpens []FileOpen) {
 			g.AddNewTriple(accessURI, "rdf:type", g.NewUri("os:DirectoryAccess"))
 		} else {
 			g.AddNewTriple(accessURI, "rdf:type", g.NewUri("os:FileAccess"))
+			pathIndex, _ := PathIndex(fo.Name)
+			g.AddNewTriple(accessURI, "os:resourcePath", AccessedPathUri(g, pathIndex))
 		}
 		g.AddNewTriple(accessURI, "os:accessPath", fo.Name)
 		switch fo.Mode {

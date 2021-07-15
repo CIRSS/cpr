@@ -1,8 +1,8 @@
 Files opened for reading during the run and their roles:
 
-reader       | file                                                                                    | role
-============================================================================================================
-/usr/bin/cat | /etc/ld.so.cache                                                                        | os
-/usr/bin/cat | /lib/x86_64-linux-gnu/libc.so.6                                                         | os
-/usr/bin/cat | /mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/inputs/input.txt | in
-/usr/bin/cat | /usr/lib/x86_64-linux-gnu/ld-2.31.so                                                    | os
+reader       | file                                 | role
+=========================================================
+/usr/bin/cat | ./inputs/input.txt                   | in
+/usr/bin/cat | /etc/ld.so.cache                     | os
+/usr/bin/cat | /lib/x86_64-linux-gnu/libc.so.6      | os
+/usr/bin/cat | /usr/lib/x86_64-linux-gnu/ld-2.31.so | os

@@ -15,7 +15,8 @@
             ?process os:performedAccess ?access.
             ?exec os:startedProcess ?process .
             ?exec os:executedFile ?reader .
-            ?access os:accessPath ?file .
+            ?access os:resourcePath ?resource .
+            ?resource os:relativePath ?file .
             ?access os:resourceRole ?role .
 
     } ORDER BY ?reader ?file ?role

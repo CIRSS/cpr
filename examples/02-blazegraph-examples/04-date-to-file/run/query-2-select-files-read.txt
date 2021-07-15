@@ -1,12 +1,12 @@
 Files opened for reading during the run and their roles:
 
-reader        | file                                                                                | role
-=========================================================================================================
-/usr/bin/cat  | /etc/ld.so.cache                                                                    | os
-/usr/bin/cat  | /lib/x86_64-linux-gnu/libc.so.6                                                     | os
-/usr/bin/cat  | /mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt | out
-/usr/bin/cat  | /usr/lib/x86_64-linux-gnu/ld-2.31.so                                                | os
-/usr/bin/date | /etc/ld.so.cache                                                                    | os
-/usr/bin/date | /etc/localtime                                                                      | os
-/usr/bin/date | /lib/x86_64-linux-gnu/libc.so.6                                                     | os
-/usr/bin/date | /usr/lib/x86_64-linux-gnu/ld-2.31.so                                                | os
+reader        | file                                 | role
+==========================================================
+/usr/bin/cat  | ./outputs/date.txt                   | out
+/usr/bin/cat  | /etc/ld.so.cache                     | os
+/usr/bin/cat  | /lib/x86_64-linux-gnu/libc.so.6      | os
+/usr/bin/cat  | /usr/lib/x86_64-linux-gnu/ld-2.31.so | os
+/usr/bin/date | /etc/ld.so.cache                     | os
+/usr/bin/date | /etc/localtime                       | os
+/usr/bin/date | /lib/x86_64-linux-gnu/libc.so.6      | os
+/usr/bin/date | /usr/lib/x86_64-linux-gnu/ld-2.31.so | os
