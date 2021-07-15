@@ -1,6 +1,6 @@
 Programs executed during the run:
 
 program
-=============================================================================
-/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/run.sh
+===========
+./run.sh
 /usr/bin/cat

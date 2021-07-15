@@ -32,11 +32,13 @@
 <execution/1> rdf:type os:Execution .
 <execution/1> os:startedProcess <process/1> .
 <execution/1> os:executedFile "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/run.sh" .
+<execution/1> os:resourcePath <fileresource/15> .
 <execution/1> os:hadWorkingDirectory "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace" .
 <execution/1> os:atTime "nil" .
 <execution/2> rdf:type os:Execution .
 <execution/2> os:startedProcess <process/2> .
 <execution/2> os:executedFile "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/./bin/hello_go" .
+<execution/2> os:resourcePath <fileresource/7> .
 <execution/2> os:hadWorkingDirectory "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace" .
 <execution/2> os:atTime "nil" .
 <execution/1> os:Argument <execution/1/argument/0> .
@@ -91,18 +93,12 @@
 <process/6/access/32> os:accessMode cpr:Search .
 <process/6/access/32> os:accessStartTime "nil" .
 <process/6/access/32> os:resourceRole "sw" .
-<process/7> os:performedAccess <process/7/access/33> .
-<process/7/access/33> rdf:type os:DirectoryAccess .
-<process/7/access/33> os:accessPath "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace" .
-<process/7/access/33> os:accessMode cpr:Search .
-<process/7/access/33> os:accessStartTime "nil" .
-<process/7/access/33> os:resourceRole "sw" .
-<process/2> os:performedAccess <process/2/access/34> .
-<process/2/access/34> rdf:type os:FileAccess .
-<process/2/access/34> os:resourcePath <fileresource/13> .
-<process/2/access/34> os:accessPath "/proc/self/exe" .
-<process/2/access/34> os:accessStartTime "nil" .
-<process/2/access/34> os:resourceRole "os" .
+<process/2> os:performedAccess <process/2/access/33> .
+<process/2/access/33> rdf:type os:FileAccess .
+<process/2/access/33> os:resourcePath <fileresource/13> .
+<process/2/access/33> os:accessPath "/proc/self/exe" .
+<process/2/access/33> os:accessStartTime "nil" .
+<process/2/access/33> os:resourceRole "os" .
 <fileresource/15> rdf:type os:FileResource .
 <fileresource/15> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/run.sh" .
 <fileresource/15> os:relativePath "./run.sh" .
@@ -118,9 +114,6 @@
 <fileresource/9> rdf:type os:FileResource .
 <fileresource/9> os:absolutePath "/sys/kernel/mm/transparent_hugepage/hpage_pmd_size" .
 <fileresource/9> os:relativePath "/sys/kernel/mm/transparent_hugepage/hpage_pmd_size" .
-<fileresource/6> rdf:type os:FileResource .
-<fileresource/6> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace" .
-<fileresource/6> os:relativePath "." .
 <fileresource/6> rdf:type os:FileResource .
 <fileresource/6> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace" .
 <fileresource/6> os:relativePath "." .
@@ -188,6 +181,7 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#atTime> "nil" .
 <http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#executedFile> "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/run.sh" .
 <http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#hadWorkingDirectory> "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace" .
+<http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#resourcePath> <http://cirss.illinois.edu/runs/0/fileresource/15> .
 <http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#startedProcess> <http://cirss.illinois.edu/runs/0/process/1> .
 <http://cirss.illinois.edu/runs/0/execution/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#Execution> .
 <http://cirss.illinois.edu/runs/0/execution/2/argument/0> <http://cirss.illinois.edu/ns/cpr#hadIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
@@ -197,6 +191,7 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#atTime> "nil" .
 <http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#executedFile> "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/./bin/hello_go" .
 <http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#hadWorkingDirectory> "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace" .
+<http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#resourcePath> <http://cirss.illinois.edu/runs/0/fileresource/7> .
 <http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#startedProcess> <http://cirss.illinois.edu/runs/0/process/2> .
 <http://cirss.illinois.edu/runs/0/execution/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#Execution> .
 <http://cirss.illinois.edu/runs/0/fileresource/13> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/proc/self/exe" .
@@ -235,17 +230,17 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/process/2/access/28> <http://cirss.illinois.edu/ns/cpr/os#resourcePath> <http://cirss.illinois.edu/runs/0/fileresource/9> .
 <http://cirss.illinois.edu/runs/0/process/2/access/28> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "os" .
 <http://cirss.illinois.edu/runs/0/process/2/access/28> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#FileAccess> .
-<http://cirss.illinois.edu/runs/0/process/2/access/34> <http://cirss.illinois.edu/ns/cpr/os#accessPath> "/proc/self/exe" .
-<http://cirss.illinois.edu/runs/0/process/2/access/34> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
-<http://cirss.illinois.edu/runs/0/process/2/access/34> <http://cirss.illinois.edu/ns/cpr/os#resourcePath> <http://cirss.illinois.edu/runs/0/fileresource/13> .
-<http://cirss.illinois.edu/runs/0/process/2/access/34> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "os" .
-<http://cirss.illinois.edu/runs/0/process/2/access/34> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#FileAccess> .
+<http://cirss.illinois.edu/runs/0/process/2/access/33> <http://cirss.illinois.edu/ns/cpr/os#accessPath> "/proc/self/exe" .
+<http://cirss.illinois.edu/runs/0/process/2/access/33> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
+<http://cirss.illinois.edu/runs/0/process/2/access/33> <http://cirss.illinois.edu/ns/cpr/os#resourcePath> <http://cirss.illinois.edu/runs/0/fileresource/13> .
+<http://cirss.illinois.edu/runs/0/process/2/access/33> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "os" .
+<http://cirss.illinois.edu/runs/0/process/2/access/33> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#FileAccess> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#childProcessOf> <http://cirss.illinois.edu/runs/0/process/1> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#exitCode> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/26> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/27> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/28> .
-<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/34> .
+<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/33> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#startTime> "nil" .
 <http://cirss.illinois.edu/runs/0/process/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#Process> .
 <http://cirss.illinois.edu/runs/0/process/3/access/29> <http://cirss.illinois.edu/ns/cpr/os#accessMode> <http://cirss.illinois.edu/ns/cpr#Search> .
@@ -272,12 +267,6 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/process/6/access/32> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "sw" .
 <http://cirss.illinois.edu/runs/0/process/6/access/32> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#DirectoryAccess> .
 <http://cirss.illinois.edu/runs/0/process/6> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/6/access/32> .
-<http://cirss.illinois.edu/runs/0/process/7/access/33> <http://cirss.illinois.edu/ns/cpr/os#accessMode> <http://cirss.illinois.edu/ns/cpr#Search> .
-<http://cirss.illinois.edu/runs/0/process/7/access/33> <http://cirss.illinois.edu/ns/cpr/os#accessPath> "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace" .
-<http://cirss.illinois.edu/runs/0/process/7/access/33> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
-<http://cirss.illinois.edu/runs/0/process/7/access/33> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "sw" .
-<http://cirss.illinois.edu/runs/0/process/7/access/33> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#DirectoryAccess> .
-<http://cirss.illinois.edu/runs/0/process/7> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/7/access/33> .
 <http://cirss.illinois.edu/runs/0/role/0> <http://cirss.illinois.edu/ns/cpr#resourcePath> "/etc" .
 <http://cirss.illinois.edu/runs/0/role/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
 <http://cirss.illinois.edu/runs/0/role/1> <http://cirss.illinois.edu/ns/cpr#resourcePath> "/lib" .
@@ -306,7 +295,9 @@ Successfully created dataset traces
 
         SELECT DISTINCT ?program
         WHERE {
-            ?execution os:executedFile ?program .
+			?execution rdf:type os:Execution .
+			?execution os:resourcePath ?resource .
+            ?resource os:relativePath ?program .
         } ORDER BY ?program
 
 __END_QUERY__
@@ -316,9 +307,9 @@ __END_QUERY__
 Programs executed during the run:
 
 program
-============================================================================
-/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/./bin/hello_go
-/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace/run.sh
+=============
+./bin/hello_go
+./run.sh
 
 
 ******************************************* query-2-select-files-read ************************************************

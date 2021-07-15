@@ -9,7 +9,9 @@
 
         SELECT DISTINCT ?program
         WHERE {
-            ?execution os:executedFile ?program .
+			?execution rdf:type os:Execution .
+			?execution os:resourcePath ?resource .
+            ?resource os:relativePath ?program .
         } ORDER BY ?program
 
 __END_QUERY__

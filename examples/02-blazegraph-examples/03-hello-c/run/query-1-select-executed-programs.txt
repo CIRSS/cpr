@@ -1,6 +1,6 @@
 Programs executed during the run:
 
 program
-==========================================================================
-/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/./bin/hello_c
-/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/run.sh
+============
+./bin/hello_c
+./run.sh

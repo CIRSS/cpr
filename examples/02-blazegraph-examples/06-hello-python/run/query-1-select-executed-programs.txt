@@ -1,7 +1,8 @@
 Programs executed during the run:
 
 program
-============================================================================
-/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py
-/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/run.sh
+=================
+./hello.py
+./run.sh
 /usr/bin/python3
+/usr/bin/python3.8

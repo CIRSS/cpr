@@ -32,16 +32,19 @@
 <execution/1> rdf:type os:Execution .
 <execution/1> os:startedProcess <process/1> .
 <execution/1> os:executedFile "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/run.sh" .
+<execution/1> os:resourcePath <fileresource/67> .
 <execution/1> os:hadWorkingDirectory "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
 <execution/1> os:atTime "nil" .
 <execution/2> rdf:type os:Execution .
 <execution/2> os:startedProcess <process/2> .
 <execution/2> os:executedFile "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py" .
+<execution/2> os:resourcePath <fileresource/66> .
 <execution/2> os:hadWorkingDirectory "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
 <execution/2> os:atTime "nil" .
 <execution/3> rdf:type os:Execution .
 <execution/3> os:startedProcess <process/2> .
 <execution/3> os:executedFile "/usr/bin/python3" .
+<execution/3> os:resourcePath <fileresource/15> .
 <execution/3> os:hadWorkingDirectory "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
 <execution/3> os:atTime "nil" .
 <execution/1> os:Argument <execution/1/argument/0> .
@@ -1149,6 +1152,7 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#atTime> "nil" .
 <http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#executedFile> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/run.sh" .
 <http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#hadWorkingDirectory> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
+<http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#resourcePath> <http://cirss.illinois.edu/runs/0/fileresource/67> .
 <http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#startedProcess> <http://cirss.illinois.edu/runs/0/process/1> .
 <http://cirss.illinois.edu/runs/0/execution/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#Execution> .
 <http://cirss.illinois.edu/runs/0/execution/2/argument/0> <http://cirss.illinois.edu/ns/cpr#hadIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
@@ -1158,6 +1162,7 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#atTime> "nil" .
 <http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#executedFile> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py" .
 <http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#hadWorkingDirectory> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
+<http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#resourcePath> <http://cirss.illinois.edu/runs/0/fileresource/66> .
 <http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#startedProcess> <http://cirss.illinois.edu/runs/0/process/2> .
 <http://cirss.illinois.edu/runs/0/execution/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#Execution> .
 <http://cirss.illinois.edu/runs/0/execution/3/argument/0> <http://cirss.illinois.edu/ns/cpr#hadIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
@@ -1171,6 +1176,7 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/execution/3> <http://cirss.illinois.edu/ns/cpr/os#atTime> "nil" .
 <http://cirss.illinois.edu/runs/0/execution/3> <http://cirss.illinois.edu/ns/cpr/os#executedFile> "/usr/bin/python3" .
 <http://cirss.illinois.edu/runs/0/execution/3> <http://cirss.illinois.edu/ns/cpr/os#hadWorkingDirectory> "/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace" .
+<http://cirss.illinois.edu/runs/0/execution/3> <http://cirss.illinois.edu/ns/cpr/os#resourcePath> <http://cirss.illinois.edu/runs/0/fileresource/15> .
 <http://cirss.illinois.edu/runs/0/execution/3> <http://cirss.illinois.edu/ns/cpr/os#startedProcess> <http://cirss.illinois.edu/runs/0/process/2> .
 <http://cirss.illinois.edu/runs/0/execution/3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#Execution> .
 <http://cirss.illinois.edu/runs/0/fileresource/11> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
@@ -2050,7 +2056,9 @@ Successfully created dataset traces
 
         SELECT DISTINCT ?program
         WHERE {
-            ?execution os:executedFile ?program .
+			?execution rdf:type os:Execution .
+			?execution os:resourcePath ?resource .
+            ?resource os:relativePath ?program .
         } ORDER BY ?program
 
 __END_QUERY__
@@ -2060,10 +2068,11 @@ __END_QUERY__
 Programs executed during the run:
 
 program
-============================================================================
-/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/./hello.py
-/mnt/cpr/examples/02-blazegraph-examples/06-hello-python/workspace/run.sh
+=================
+./hello.py
+./run.sh
 /usr/bin/python3
+/usr/bin/python3.8
 
 
 ******************************************* query-2-select-files-read ************************************************

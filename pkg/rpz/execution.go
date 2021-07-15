@@ -58,6 +58,8 @@ func AddExecutionTriples(g *rdf.Graph, executions []Execution) {
 		g.AddNewTriple(executionURI, "rdf:type", g.NewUri("os:Execution"))
 		g.AddNewTriple(executionURI, "os:startedProcess", ProcessUri(g, e.Process))
 		g.AddNewTriple(executionURI, "os:executedFile", e.Name)
+		pathIndex, _ := PathIndex(e.Name)
+		g.AddNewTriple(executionURI, "os:resourcePath", AccessedPathUri(g, pathIndex))
 		g.AddNewTriple(executionURI, "os:hadWorkingDirectory", e.WorkingDir)
 		g.AddNewTriple(executionURI, "os:atTime", timestampInt64(e.Timestamp))
 	}

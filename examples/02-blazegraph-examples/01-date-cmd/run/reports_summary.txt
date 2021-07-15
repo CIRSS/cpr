@@ -32,11 +32,13 @@
 <execution/1> rdf:type os:Execution .
 <execution/1> os:startedProcess <process/1> .
 <execution/1> os:executedFile "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd/workspace/run.sh" .
+<execution/1> os:resourcePath <fileresource/14> .
 <execution/1> os:hadWorkingDirectory "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd/workspace" .
 <execution/1> os:atTime "nil" .
 <execution/2> rdf:type os:Execution .
 <execution/2> os:startedProcess <process/2> .
 <execution/2> os:executedFile "/usr/bin/date" .
+<execution/2> os:resourcePath <fileresource/15> .
 <execution/2> os:hadWorkingDirectory "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd/workspace" .
 <execution/2> os:atTime "nil" .
 <execution/1> os:Argument <execution/1/argument/0> .
@@ -157,6 +159,7 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#atTime> "nil" .
 <http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#executedFile> "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd/workspace/run.sh" .
 <http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#hadWorkingDirectory> "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd/workspace" .
+<http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#resourcePath> <http://cirss.illinois.edu/runs/0/fileresource/14> .
 <http://cirss.illinois.edu/runs/0/execution/1> <http://cirss.illinois.edu/ns/cpr/os#startedProcess> <http://cirss.illinois.edu/runs/0/process/1> .
 <http://cirss.illinois.edu/runs/0/execution/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#Execution> .
 <http://cirss.illinois.edu/runs/0/execution/2/argument/0> <http://cirss.illinois.edu/ns/cpr#hadIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
@@ -166,6 +169,7 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#atTime> "nil" .
 <http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#executedFile> "/usr/bin/date" .
 <http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#hadWorkingDirectory> "/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd/workspace" .
+<http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#resourcePath> <http://cirss.illinois.edu/runs/0/fileresource/15> .
 <http://cirss.illinois.edu/runs/0/execution/2> <http://cirss.illinois.edu/ns/cpr/os#startedProcess> <http://cirss.illinois.edu/runs/0/process/2> .
 <http://cirss.illinois.edu/runs/0/execution/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#Execution> .
 <http://cirss.illinois.edu/runs/0/fileresource/11> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/etc/ld.so.cache" .
@@ -261,7 +265,9 @@ Successfully created dataset traces
 
         SELECT DISTINCT ?program
         WHERE {
-            ?execution os:executedFile ?program .
+			?execution rdf:type os:Execution .
+			?execution os:resourcePath ?resource .
+            ?resource os:relativePath ?program .
         } ORDER BY ?program
 
 __END_QUERY__
@@ -271,8 +277,8 @@ __END_QUERY__
 Programs executed during the run:
 
 program
-====================================================================
-/mnt/cpr/examples/02-blazegraph-examples/01-date-cmd/workspace/run.sh
+============
+./run.sh
 /usr/bin/date
 
 
