@@ -44,11 +44,6 @@
       ],
       "prov:generated": [
         {
-          "@id": "run:data_file_i21",
-          "@type": "wt:DataFile",
-          "wt:FilePath": "./outputs/o12.txt"
-        },
-        {
           "@id": "run:data_file_i22",
           "@type": "wt:DataFile",
           "wt:FilePath": "./outputs/o1234.txt"
@@ -57,6 +52,11 @@
           "@id": "run:data_file_i23",
           "@type": "wt:DataFile",
           "wt:FilePath": "./outputs/o4.txt"
+        },
+        {
+          "@id": "run:data_file_i21",
+          "@type": "wt:DataFile",
+          "wt:FilePath": "./outputs/o12.txt"
         }
       ]
     }

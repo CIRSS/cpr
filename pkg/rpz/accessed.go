@@ -3,12 +3,15 @@ package rpz
 import (
 	"fmt"
 	"io"
+
+	"github.com/cirss/geist/pkg/rdf"
 )
 
 type AccessedPath struct {
 	AccessID  string
 	RunID     int64
-	Path      string
+	Absolute  string
+	Relative  string
 	PathIndex int64
 	PathRole  string
 }
@@ -23,7 +26,7 @@ func GetAccessedPaths(executed []Execution, opens []FileOpen) []AccessedPath {
 		path := TrimWorkingDirPrefix(e.Name)
 		role := Role(path)
 		if role != "nul" {
-			f := AccessedPath{E(e.ExecID), runID, path, fileIndex, role}
+			f := AccessedPath{E(e.ExecID), runID, e.Name, path, fileIndex, role}
 			accessed = append(accessed, f)
 		}
 	}
@@ -33,7 +36,7 @@ func GetAccessedPaths(executed []Execution, opens []FileOpen) []AccessedPath {
 		runID := o.RunID
 		path := TrimWorkingDirPrefix(o.Name)
 		role := Role(path)
-		f := AccessedPath{O(o.OpenID), runID, path, fileIndex, role}
+		f := AccessedPath{O(o.OpenID), runID, o.Name, path, fileIndex, role}
 		accessed = append(accessed, f)
 	}
 
@@ -49,5 +52,18 @@ func WriteAccessedPathFacts(w io.Writer, accessed []AccessedPath) {
 
 func (f AccessedPath) String() string {
 	return fmt.Sprintf("cpr_accessed_path(%s, %s, %s, %s, %s).",
-		f.AccessID, R(f.RunID), Q(f.Path), I(f.PathIndex), f.PathRole)
+		f.AccessID, R(f.RunID), Q(f.Relative), I(f.PathIndex), f.PathRole)
+}
+
+func AddAccessedPathTriples(g *rdf.Graph, accessed []AccessedPath) {
+	for _, ap := range accessed {
+		relativePathUri := AccessedPathUri(g, ap)
+		g.AddNewTriple(relativePathUri, "rdf:type", g.NewUri("os:RelativePath"))
+		g.AddNewTriple(relativePathUri, "os:absolutePath", ap.Absolute)
+		g.AddNewTriple(relativePathUri, "os:relativePath", ap.Relative)
+	}
+}
+
+func AccessedPathUri(g *rdf.Graph, ap AccessedPath) rdf.Uri {
+	return g.NewUri(fmt.Sprintf("relativepath/%d", ap.PathIndex))
 }

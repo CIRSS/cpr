@@ -21,7 +21,6 @@
 	} ORDER BY ?name
 '''}}
 
-
 {{ query "cpr_select_files_written" '''
     SELECT DISTINCT ?writer ?file ?role
     WHERE {
@@ -41,7 +40,9 @@
         ?access rdf:type os:FileAccess .
         ?access os:accessMode cpr:Read .
         ?access os:resourceRole "in" .
-        ?access os:accessPath ?file .
+        ?access os:accessPath ?fullPath .
+        ?rp os:absolutePath ?fullPath .
+        ?rp os:relativePath ?file .
     } 
 '''}}
 
@@ -51,6 +52,8 @@
         ?access rdf:type os:FileAccess .
         ?access os:accessMode cpr:Write .
         ?access os:resourceRole "out" .
-        ?access os:accessPath ?file .
+        ?access os:accessPath ?fullPath .
+        ?rp os:absolutePath ?fullPath .
+        ?rp os:relativePath ?file .
     } 
 '''}}

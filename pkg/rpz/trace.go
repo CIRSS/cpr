@@ -79,6 +79,7 @@ func GetTraceGraph(trace Trace) *rdf.Graph {
 	AddExecutionTriples(graph, trace.Executions)
 	AddArgumentTriples(graph, trace.Arguments)
 	AddFileOpenTriples(graph, trace.FileOpens)
+	AddAccessedPathTriples(graph, trace.Accesses)
 	AddPathRoleTriples(graph, trace.PathRoles)
 
 	return graph

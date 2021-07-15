@@ -11,44 +11,44 @@ subgraph cluster_input_files { label=""; color=white; penwidth=0
 subgraph cluster_input_files_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i1.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i1.txt"]
+"./inputs/i1.txt" [label="./inputs/i1.txt"]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i2.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i2.txt"]
+"./inputs/i2.txt" [label="./inputs/i2.txt"]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i3.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i3.txt"]
+"./inputs/i3.txt" [label="./inputs/i3.txt"]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i4.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i4.txt"]
+"./inputs/i4.txt" [label="./inputs/i4.txt"]
 
 }}
 
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i1.txt" -> "run"
+"./inputs/i1.txt" -> "run"
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i2.txt" -> "run"
+"./inputs/i2.txt" -> "run"
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i3.txt" -> "run"
+"./inputs/i3.txt" -> "run"
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i4.txt" -> "run"
+"./inputs/i4.txt" -> "run"
 
 
 subgraph cluster_output_files { label=""; color=white; penwidth=0
 subgraph cluster_output_files_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o12.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o12.txt"]
+"./outputs/o12.txt" [label="./outputs/o12.txt"]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o1234.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o1234.txt"]
+"./outputs/o1234.txt" [label="./outputs/o1234.txt"]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o4.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o4.txt"]
+"./outputs/o4.txt" [label="./outputs/o4.txt"]
 
 }}
 
 
-"run" -> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o12.txt"
+"run" -> "./outputs/o12.txt"
 
-"run" -> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o1234.txt"
+"run" -> "./outputs/o1234.txt"
 
-"run" -> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o4.txt"
+"run" -> "./outputs/o4.txt"
 
 
 }

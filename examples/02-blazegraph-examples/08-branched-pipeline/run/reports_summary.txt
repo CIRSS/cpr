@@ -392,6 +392,147 @@
 <process/7/access/82> os:accessMode cpr:Read .
 <process/7/access/82> os:accessStartTime "nil" .
 <process/7/access/82> os:resourceRole "tmp" .
+<relativepath/26> rdf:type os:RelativePath .
+<relativepath/26> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/run.sh" .
+<relativepath/26> os:relativePath "./run.sh" .
+<relativepath/27> rdf:type os:RelativePath .
+<relativepath/27> os:absolutePath "/usr/bin/cat" .
+<relativepath/27> os:relativePath "/usr/bin/cat" .
+<relativepath/27> rdf:type os:RelativePath .
+<relativepath/27> os:absolutePath "/usr/bin/cat" .
+<relativepath/27> os:relativePath "/usr/bin/cat" .
+<relativepath/27> rdf:type os:RelativePath .
+<relativepath/27> os:absolutePath "/usr/bin/cat" .
+<relativepath/27> os:relativePath "/usr/bin/cat" .
+<relativepath/27> rdf:type os:RelativePath .
+<relativepath/27> os:absolutePath "/usr/bin/cat" .
+<relativepath/27> os:relativePath "/usr/bin/cat" .
+<relativepath/27> rdf:type os:RelativePath .
+<relativepath/27> os:absolutePath "/usr/bin/cat" .
+<relativepath/27> os:relativePath "/usr/bin/cat" .
+<relativepath/27> rdf:type os:RelativePath .
+<relativepath/27> os:absolutePath "/usr/bin/cat" .
+<relativepath/27> os:relativePath "/usr/bin/cat" .
+<relativepath/10> rdf:type os:RelativePath .
+<relativepath/10> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace" .
+<relativepath/10> os:relativePath "." .
+<relativepath/11> rdf:type os:RelativePath .
+<relativepath/11> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t12.txt" .
+<relativepath/11> os:relativePath "./temp/t12.txt" .
+<relativepath/12> rdf:type os:RelativePath .
+<relativepath/12> os:absolutePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<relativepath/12> os:relativePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<relativepath/15> rdf:type os:RelativePath .
+<relativepath/15> os:absolutePath "/etc/ld.so.cache" .
+<relativepath/15> os:relativePath "/etc/ld.so.cache" .
+<relativepath/16> rdf:type os:RelativePath .
+<relativepath/16> os:absolutePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<relativepath/16> os:relativePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<relativepath/17> rdf:type os:RelativePath .
+<relativepath/17> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i1.txt" .
+<relativepath/17> os:relativePath "./inputs/i1.txt" .
+<relativepath/18> rdf:type os:RelativePath .
+<relativepath/18> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i2.txt" .
+<relativepath/18> os:relativePath "./inputs/i2.txt" .
+<relativepath/10> rdf:type os:RelativePath .
+<relativepath/10> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace" .
+<relativepath/10> os:relativePath "." .
+<relativepath/19> rdf:type os:RelativePath .
+<relativepath/19> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t123.txt" .
+<relativepath/19> os:relativePath "./temp/t123.txt" .
+<relativepath/12> rdf:type os:RelativePath .
+<relativepath/12> os:absolutePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<relativepath/12> os:relativePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<relativepath/15> rdf:type os:RelativePath .
+<relativepath/15> os:absolutePath "/etc/ld.so.cache" .
+<relativepath/15> os:relativePath "/etc/ld.so.cache" .
+<relativepath/16> rdf:type os:RelativePath .
+<relativepath/16> os:absolutePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<relativepath/16> os:relativePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<relativepath/17> rdf:type os:RelativePath .
+<relativepath/17> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i1.txt" .
+<relativepath/17> os:relativePath "./inputs/i1.txt" .
+<relativepath/18> rdf:type os:RelativePath .
+<relativepath/18> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i2.txt" .
+<relativepath/18> os:relativePath "./inputs/i2.txt" .
+<relativepath/20> rdf:type os:RelativePath .
+<relativepath/20> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i3.txt" .
+<relativepath/20> os:relativePath "./inputs/i3.txt" .
+<relativepath/10> rdf:type os:RelativePath .
+<relativepath/10> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace" .
+<relativepath/10> os:relativePath "." .
+<relativepath/21> rdf:type os:RelativePath .
+<relativepath/21> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t4.txt" .
+<relativepath/21> os:relativePath "./temp/t4.txt" .
+<relativepath/12> rdf:type os:RelativePath .
+<relativepath/12> os:absolutePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<relativepath/12> os:relativePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<relativepath/15> rdf:type os:RelativePath .
+<relativepath/15> os:absolutePath "/etc/ld.so.cache" .
+<relativepath/15> os:relativePath "/etc/ld.so.cache" .
+<relativepath/16> rdf:type os:RelativePath .
+<relativepath/16> os:absolutePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<relativepath/16> os:relativePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<relativepath/22> rdf:type os:RelativePath .
+<relativepath/22> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i4.txt" .
+<relativepath/22> os:relativePath "./inputs/i4.txt" .
+<relativepath/10> rdf:type os:RelativePath .
+<relativepath/10> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace" .
+<relativepath/10> os:relativePath "." .
+<relativepath/23> rdf:type os:RelativePath .
+<relativepath/23> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o12.txt" .
+<relativepath/23> os:relativePath "./outputs/o12.txt" .
+<relativepath/12> rdf:type os:RelativePath .
+<relativepath/12> os:absolutePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<relativepath/12> os:relativePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<relativepath/15> rdf:type os:RelativePath .
+<relativepath/15> os:absolutePath "/etc/ld.so.cache" .
+<relativepath/15> os:relativePath "/etc/ld.so.cache" .
+<relativepath/16> rdf:type os:RelativePath .
+<relativepath/16> os:absolutePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<relativepath/16> os:relativePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<relativepath/11> rdf:type os:RelativePath .
+<relativepath/11> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t12.txt" .
+<relativepath/11> os:relativePath "./temp/t12.txt" .
+<relativepath/10> rdf:type os:RelativePath .
+<relativepath/10> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace" .
+<relativepath/10> os:relativePath "." .
+<relativepath/24> rdf:type os:RelativePath .
+<relativepath/24> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o1234.txt" .
+<relativepath/24> os:relativePath "./outputs/o1234.txt" .
+<relativepath/12> rdf:type os:RelativePath .
+<relativepath/12> os:absolutePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<relativepath/12> os:relativePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<relativepath/15> rdf:type os:RelativePath .
+<relativepath/15> os:absolutePath "/etc/ld.so.cache" .
+<relativepath/15> os:relativePath "/etc/ld.so.cache" .
+<relativepath/16> rdf:type os:RelativePath .
+<relativepath/16> os:absolutePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<relativepath/16> os:relativePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<relativepath/19> rdf:type os:RelativePath .
+<relativepath/19> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t123.txt" .
+<relativepath/19> os:relativePath "./temp/t123.txt" .
+<relativepath/21> rdf:type os:RelativePath .
+<relativepath/21> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t4.txt" .
+<relativepath/21> os:relativePath "./temp/t4.txt" .
+<relativepath/10> rdf:type os:RelativePath .
+<relativepath/10> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace" .
+<relativepath/10> os:relativePath "." .
+<relativepath/25> rdf:type os:RelativePath .
+<relativepath/25> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o4.txt" .
+<relativepath/25> os:relativePath "./outputs/o4.txt" .
+<relativepath/12> rdf:type os:RelativePath .
+<relativepath/12> os:absolutePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<relativepath/12> os:relativePath "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<relativepath/15> rdf:type os:RelativePath .
+<relativepath/15> os:absolutePath "/etc/ld.so.cache" .
+<relativepath/15> os:relativePath "/etc/ld.so.cache" .
+<relativepath/16> rdf:type os:RelativePath .
+<relativepath/16> os:absolutePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<relativepath/16> os:relativePath "/lib/x86_64-linux-gnu/libc.so.6" .
+<relativepath/21> rdf:type os:RelativePath .
+<relativepath/21> os:absolutePath "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t4.txt" .
+<relativepath/21> os:relativePath "./temp/t4.txt" .
 <role/0> rdf:type cpr:ResourceRole .
 <role/0> cpr:resourcePath "/etc" .
 <role/1> rdf:type cpr:ResourceRole .
@@ -816,6 +957,54 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/process/7> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/7/access/82> .
 <http://cirss.illinois.edu/runs/0/process/7> <http://cirss.illinois.edu/ns/cpr/os#startTime> "nil" .
 <http://cirss.illinois.edu/runs/0/process/7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#Process> .
+<http://cirss.illinois.edu/runs/0/relativepath/10> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace" .
+<http://cirss.illinois.edu/runs/0/relativepath/10> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "." .
+<http://cirss.illinois.edu/runs/0/relativepath/10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/11> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t12.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/11> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "./temp/t12.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/11> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/12> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<http://cirss.illinois.edu/runs/0/relativepath/12> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "/usr/lib/x86_64-linux-gnu/ld-2.31.so" .
+<http://cirss.illinois.edu/runs/0/relativepath/12> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/15> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/etc/ld.so.cache" .
+<http://cirss.illinois.edu/runs/0/relativepath/15> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "/etc/ld.so.cache" .
+<http://cirss.illinois.edu/runs/0/relativepath/15> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/16> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/lib/x86_64-linux-gnu/libc.so.6" .
+<http://cirss.illinois.edu/runs/0/relativepath/16> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "/lib/x86_64-linux-gnu/libc.so.6" .
+<http://cirss.illinois.edu/runs/0/relativepath/16> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/17> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i1.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/17> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "./inputs/i1.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/17> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/18> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i2.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/18> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "./inputs/i2.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/18> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/19> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t123.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/19> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "./temp/t123.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/19> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/20> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i3.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/20> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "./inputs/i3.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/20> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/21> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t4.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/21> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "./temp/t4.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/21> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/22> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i4.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/22> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "./inputs/i4.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/22> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/23> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o12.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/23> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "./outputs/o12.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/23> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/24> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o1234.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/24> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "./outputs/o1234.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/24> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/25> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o4.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/25> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "./outputs/o4.txt" .
+<http://cirss.illinois.edu/runs/0/relativepath/25> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/26> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/run.sh" .
+<http://cirss.illinois.edu/runs/0/relativepath/26> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "./run.sh" .
+<http://cirss.illinois.edu/runs/0/relativepath/26> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
+<http://cirss.illinois.edu/runs/0/relativepath/27> <http://cirss.illinois.edu/ns/cpr/os#absolutePath> "/usr/bin/cat" .
+<http://cirss.illinois.edu/runs/0/relativepath/27> <http://cirss.illinois.edu/ns/cpr/os#relativePath> "/usr/bin/cat" .
+<http://cirss.illinois.edu/runs/0/relativepath/27> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#RelativePath> .
 <http://cirss.illinois.edu/runs/0/role/0> <http://cirss.illinois.edu/ns/cpr#resourcePath> "/etc" .
 <http://cirss.illinois.edu/runs/0/role/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
 <http://cirss.illinois.edu/runs/0/role/1> <http://cirss.illinois.edu/ns/cpr#resourcePath> "/lib" .
@@ -1009,44 +1198,44 @@ subgraph cluster_input_files { label=""; color=white; penwidth=0
 subgraph cluster_input_files_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i1.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i1.txt"]
+"./inputs/i1.txt" [label="./inputs/i1.txt"]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i2.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i2.txt"]
+"./inputs/i2.txt" [label="./inputs/i2.txt"]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i3.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i3.txt"]
+"./inputs/i3.txt" [label="./inputs/i3.txt"]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i4.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i4.txt"]
+"./inputs/i4.txt" [label="./inputs/i4.txt"]
 
 }}
 
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i1.txt" -> "run"
+"./inputs/i1.txt" -> "run"
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i2.txt" -> "run"
+"./inputs/i2.txt" -> "run"
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i3.txt" -> "run"
+"./inputs/i3.txt" -> "run"
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i4.txt" -> "run"
+"./inputs/i4.txt" -> "run"
 
 
 subgraph cluster_output_files { label=""; color=white; penwidth=0
 subgraph cluster_output_files_inner { label=""; color=white
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o12.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o12.txt"]
+"./outputs/o12.txt" [label="./outputs/o12.txt"]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o1234.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o1234.txt"]
+"./outputs/o1234.txt" [label="./outputs/o1234.txt"]
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o4.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o4.txt"]
+"./outputs/o4.txt" [label="./outputs/o4.txt"]
 
 }}
 
 
-"run" -> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o12.txt"
+"run" -> "./outputs/o12.txt"
 
-"run" -> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o1234.txt"
+"run" -> "./outputs/o1234.txt"
 
-"run" -> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o4.txt"
+"run" -> "./outputs/o4.txt"
 
 
 }
