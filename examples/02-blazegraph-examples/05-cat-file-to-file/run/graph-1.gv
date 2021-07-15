@@ -7,28 +7,25 @@ label="Run Inputs and Outputs"
 node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
 "run" [label="05-cat-file-to-file"]
 
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+# input file nodes
 subgraph cluster_input_files { label=""; color=white; penwidth=0
 subgraph cluster_input_files_inner { label=""; color=white
-node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-
-"/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/inputs/input.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/inputs/input.txt"]
-
+"./inputs/input.txt" [label="./inputs/input.txt"]
 }}
 
-
-"/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/inputs/input.txt" -> "run"
-
-
+# output file nodes
 subgraph cluster_output_files { label=""; color=white; penwidth=0
 subgraph cluster_output_files_inner { label=""; color=white
-node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-
-"/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/outputs/output.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/outputs/output.txt"]
-
+"./outputs/output.txt" [label="./outputs/output.txt"]
 }}
 
+# input file edges
+"./inputs/input.txt" -> "run"
 
-"run" -> "/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/outputs/output.txt"
-
+# output file edges
+"run" -> "./outputs/output.txt"
 
 }
+

@@ -57,3 +57,28 @@
         ?rp os:relativePath ?file .
     } 
 '''}}
+
+{{ macro "cpr_run_input_file_nodes" '''                     \\
+    {{ range $Row := cpr_select_input_files | rows }}       \\
+        {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
+    {{ end }}                                               \\
+''' }}                                                      \\
+
+{{ macro "cpr_run_output_file_nodes" '''                    \\
+    {{ range $Row := cpr_select_output_files | rows }}      \\
+        {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
+    {{ end }}                                               \\
+''' }}                                                      \\
+
+
+{{ macro "cpr_run_input_file_edges" '''                     \\
+    {{ range $Row := cpr_select_input_files | rows }}       \\
+        {{ gv_edge (index $Row 0) "run" }}                  
+    {{ end }}                                               \\
+''' }}                                                      \\
+
+{{ macro "cpr_run_output_file_edges" '''                    \\
+    {{ range $Row := cpr_select_output_files | rows }}      \\
+        {{ gv_edge "run" (index $Row 0) }}                  
+    {{ end }}                                               \\
+''' }}                                                      \\

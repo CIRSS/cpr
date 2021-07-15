@@ -512,8 +512,8 @@ writer        | file                                                            
 geist report --dataset traces << '__END_REPORT__'
 
     {{{
-        {{ include "../common/cpr.g" }}
         {{ include "../common/graphviz.g" }}
+        {{ include "../common/cpr.g" }}
     }}}
 
     {{ gv_graph "cpr_run" "LR" }}
@@ -522,29 +522,25 @@ geist report --dataset traces << '__END_REPORT__'
     {{ cpr_run_node_style }}
     {{ gv_labeled_node "run" ( cpr_select_run_info | value ) }}
 
+    {{ os_file_node_style }}
+
+    # input file nodes
     {{ gv_cluster "input_files" }}
-        {{ os_file_node_style }}
-        {{ range $Row := cpr_select_input_files | rows }}
-            {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
-        {{ end }}
+        {{ cpr_run_input_file_nodes }}
     {{ gv_cluster_end}}
 
-    {{ range $Row := cpr_select_input_files | rows }}
-        {{ gv_edge (index $Row 0) "run" }}
-    {{ end }}
-
+    # output file nodes
     {{ gv_cluster "output_files" }}
-        {{ os_file_node_style }}
-        {{ range $Row := cpr_select_output_files | rows }}
-            {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
-        {{ end }}
+        {{ cpr_run_output_file_nodes }}
     {{ gv_cluster_end }}
 
-    {{ range $Row := cpr_select_output_files | rows }}
-        {{ gv_edge "run" (index $Row 0) }}
-    {{ end }}
+    # input file edges
+    {{ cpr_run_input_file_edges }}
 
-    {{ gv_end }}                                                                            \
+    # output file edges
+    {{ cpr_run_output_file_edges }}
+
+    {{ gv_end }}                                                                            
 
 __END_REPORT__
 
@@ -559,25 +555,26 @@ label="Run Inputs and Outputs"
 node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
 "run" [label="04-date-to-file"]
 
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+# input file nodes
 subgraph cluster_input_files { label=""; color=white; penwidth=0
 subgraph cluster_input_files_inner { label=""; color=white
-node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 
 }}
 
-
-
+# output file nodes
 subgraph cluster_output_files { label=""; color=white; penwidth=0
 subgraph cluster_output_files_inner { label=""; color=white
-node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-
-"/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt"]
-
+"./outputs/date.txt" [label="./outputs/date.txt"]
 }}
 
+# input file edges
 
-"run" -> "/mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt"
 
+# output file edges
+"run" -> "./outputs/date.txt"
 
 }
+
 

@@ -7,28 +7,25 @@ label="Run Inputs and Outputs"
 node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
 "run" [label="07-two-step-pipeline"]
 
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+# input file nodes
 subgraph cluster_input_files { label=""; color=white; penwidth=0
 subgraph cluster_input_files_inner { label=""; color=white
-node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-
-"/mnt/cpr/examples/02-blazegraph-examples/07-two-step-pipeline/workspace/inputs/file1.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/07-two-step-pipeline/workspace/inputs/file1.txt"]
-
+"./inputs/file1.txt" [label="./inputs/file1.txt"]
 }}
 
-
-"/mnt/cpr/examples/02-blazegraph-examples/07-two-step-pipeline/workspace/inputs/file1.txt" -> "run"
-
-
+# output file nodes
 subgraph cluster_output_files { label=""; color=white; penwidth=0
 subgraph cluster_output_files_inner { label=""; color=white
-node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-
-"/mnt/cpr/examples/02-blazegraph-examples/07-two-step-pipeline/workspace/outputs/file3.txt" [label="/mnt/cpr/examples/02-blazegraph-examples/07-two-step-pipeline/workspace/outputs/file3.txt"]
-
+"./outputs/file3.txt" [label="./outputs/file3.txt"]
 }}
 
+# input file edges
+"./inputs/file1.txt" -> "run"
 
-"run" -> "/mnt/cpr/examples/02-blazegraph-examples/07-two-step-pipeline/workspace/outputs/file3.txt"
-
+# output file edges
+"run" -> "./outputs/file3.txt"
 
 }
+
