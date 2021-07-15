@@ -1,11 +1,12 @@
 
+
 digraph cpr_run {
 rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
 label="Run Inputs and Outputs"
 
 node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
-Run
+"run" [label="01-date-cmd"]
 
 subgraph cluster_input_files { label=""; color=white; penwidth=0
 subgraph cluster_input_files_inner { label=""; color=white
@@ -24,3 +25,4 @@ node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname
 
 
 }
+

@@ -7,7 +7,7 @@
 @base <http://cirss.illinois.edu/runs/0/> .
 
 <> rdf:type cpr:Run .
-<> cpr:RunName "run0" .
+<> cpr:RunName "06-hello-python" .
 <> cpr:FirstProcess <process/1> .
 <process/1> rdf:type os:Process .
 <process/1> os:exitCode 0 .

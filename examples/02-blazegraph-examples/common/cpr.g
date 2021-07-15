@@ -14,6 +14,14 @@
     node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 ''' }}
 
+{{ query "cpr_select_run_info" '''
+	SELECT ?name
+	WHERE {
+		?run cpr:RunName ?name .
+	} ORDER BY ?name
+'''}}
+
+
 {{ query "cpr_select_files_written" '''
     SELECT DISTINCT ?writer ?file ?role
     WHERE {

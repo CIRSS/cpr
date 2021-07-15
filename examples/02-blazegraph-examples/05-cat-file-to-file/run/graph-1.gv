@@ -1,11 +1,12 @@
 
+
 digraph cpr_run {
 rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
 label="Run Inputs and Outputs"
 
 node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
-Run
+"run" [label="05-cat-file-to-file"]
 
 subgraph cluster_input_files { label=""; color=white; penwidth=0
 subgraph cluster_input_files_inner { label=""; color=white
@@ -16,7 +17,7 @@ node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname
 }}
 
 
-"/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/inputs/input.txt" -> "Run"
+"/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/inputs/input.txt" -> "run"
 
 
 subgraph cluster_output_files { label=""; color=white; penwidth=0
@@ -28,7 +29,8 @@ node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname
 }}
 
 
-"Run" -> "/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/outputs/output.txt"
+"run" -> "/mnt/cpr/examples/02-blazegraph-examples/05-cat-file-to-file/workspace/outputs/output.txt"
 
 
 }
+

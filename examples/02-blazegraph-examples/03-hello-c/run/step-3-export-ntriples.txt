@@ -1,5 +1,5 @@
 <http://cirss.illinois.edu/runs/0/> <http://cirss.illinois.edu/ns/cpr#FirstProcess> <http://cirss.illinois.edu/runs/0/process/1> .
-<http://cirss.illinois.edu/runs/0/> <http://cirss.illinois.edu/ns/cpr#RunName> "run0" .
+<http://cirss.illinois.edu/runs/0/> <http://cirss.illinois.edu/ns/cpr#RunName> "03-hello-c" .
 <http://cirss.illinois.edu/runs/0/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Run> .
 <http://cirss.illinois.edu/runs/0/execution/1/argument/0> <http://cirss.illinois.edu/ns/cpr#hadIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://cirss.illinois.edu/runs/0/execution/1/argument/0> <http://cirss.illinois.edu/ns/cpr#hadValue> "/mnt/cpr/examples/02-blazegraph-examples/03-hello-c/workspace/run.sh" .

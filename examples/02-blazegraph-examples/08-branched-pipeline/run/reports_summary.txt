@@ -4,7 +4,7 @@
 # Convert the ReproZip trace to RDF triples
 
     # convert Reprozip reprozip trace to RDF triples in Turtle format
-	cpr convert -noroot -notimestamps -from reprozip -to triples -src ./run/.reprozip-trace -dest ./run/.scratch/trace.ttl
+	cpr convert -name=08-branched-pipeline -noroot -notimestamps -from reprozip -to triples -src ./run/.reprozip-trace -dest ./run/.scratch/trace.ttl
 
     # print out the Turtle file
     cat ./run/.scratch/trace.ttl
@@ -20,7 +20,7 @@
 @base <http://cirss.illinois.edu/runs/0/> .
 
 <> rdf:type cpr:Run .
-<> cpr:RunName "run0" .
+<> cpr:RunName "08-branched-pipeline" .
 <> cpr:FirstProcess <process/1> .
 <process/1> rdf:type os:Process .
 <process/1> os:exitCode 0 .
@@ -444,7 +444,7 @@ Successfully created dataset traces
 -------------------------------------------------- OUTPUT -----------------------------------------------
 
 <http://cirss.illinois.edu/runs/0/> <http://cirss.illinois.edu/ns/cpr#FirstProcess> <http://cirss.illinois.edu/runs/0/process/1> .
-<http://cirss.illinois.edu/runs/0/> <http://cirss.illinois.edu/ns/cpr#RunName> "run0" .
+<http://cirss.illinois.edu/runs/0/> <http://cirss.illinois.edu/ns/cpr#RunName> "08-branched-pipeline" .
 <http://cirss.illinois.edu/runs/0/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#Run> .
 <http://cirss.illinois.edu/runs/0/execution/1/argument/0> <http://cirss.illinois.edu/ns/cpr#hadIndex> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://cirss.illinois.edu/runs/0/execution/1/argument/0> <http://cirss.illinois.edu/ns/cpr#hadValue> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/run.sh" .
@@ -962,39 +962,43 @@ geist report --dataset traces << '__END_REPORT__'
         {{ include "../common/graphviz.g" }}
     }}}
 
-    {{ gv_graph "cpr_run" "LR" }}
-    {{ gv_title "Run Inputs and Outputs" }}
+    {{ with $RunName := cpr_select_run_info | value}}                                    \
 
-    {{ cpr_run_node_style }}
-    Run
+        {{ gv_graph "cpr_run" "LR" }}
+        {{ gv_title "Run Inputs and Outputs" }}
 
-    {{ gv_cluster "input_files" }}
-        {{ os_file_node_style }}
+        {{ cpr_run_node_style }}
+        {{ gv_labeled_node "run" $RunName }}
+
+        {{ gv_cluster "input_files" }}
+            {{ os_file_node_style }}
+            {{ range $Row := cpr_select_input_files | rows }}
+                {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
+            {{ end }}
+        {{ gv_cluster_end}}
+
         {{ range $Row := cpr_select_input_files | rows }}
-            {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
+            {{ gv_edge (index $Row 0) "run" }}
         {{ end }}
-    {{ gv_cluster_end}}
 
-    {{ range $Row := cpr_select_input_files | rows }}
-        {{ gv_edge (index $Row 0) "Run" }}
-    {{ end }}
+        {{ gv_cluster "output_files" }}
+            {{ os_file_node_style }}
+            {{ range $Row := cpr_select_output_files | rows }}
+                {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
+            {{ end }}
+        {{ gv_cluster_end }}
 
-    {{ gv_cluster "output_files" }}
-        {{ os_file_node_style }}
         {{ range $Row := cpr_select_output_files | rows }}
-            {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
+            {{ gv_edge "run" (index $Row 0) }}
         {{ end }}
-    {{ gv_cluster_end }}
 
-    {{ range $Row := cpr_select_output_files | rows }}
-        {{ gv_edge "Run" (index $Row 0) }}
+        {{ gv_end }}                                                                            \
     {{ end }}
-
-    {{ gv_end }}                                                                            \
 
 __END_REPORT__
 
 -------------------------------------------------- OUTPUT -----------------------------------------------
+
 
 
 digraph cpr_run {
@@ -1003,7 +1007,7 @@ fontname=Courier; fontsize=18; labelloc=t
 label="Run Inputs and Outputs"
 
 node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
-Run
+"run" [label="08-branched-pipeline"]
 
 subgraph cluster_input_files { label=""; color=white; penwidth=0
 subgraph cluster_input_files_inner { label=""; color=white
@@ -1020,13 +1024,13 @@ node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname
 }}
 
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i1.txt" -> "Run"
+"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i1.txt" -> "run"
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i2.txt" -> "Run"
+"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i2.txt" -> "run"
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i3.txt" -> "Run"
+"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i3.txt" -> "run"
 
-"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i4.txt" -> "Run"
+"/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/inputs/i4.txt" -> "run"
 
 
 subgraph cluster_output_files { label=""; color=white; penwidth=0
@@ -1042,12 +1046,13 @@ node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname
 }}
 
 
-"Run" -> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o12.txt"
+"run" -> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o12.txt"
 
-"Run" -> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o1234.txt"
+"run" -> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o1234.txt"
 
-"Run" -> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o4.txt"
+"run" -> "/mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/outputs/o4.txt"
 
 
 }
+
 
