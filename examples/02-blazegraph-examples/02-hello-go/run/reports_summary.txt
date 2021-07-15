@@ -89,11 +89,17 @@
 <process/6/access/32> os:accessMode cpr:Search .
 <process/6/access/32> os:accessStartTime "nil" .
 <process/6/access/32> os:resourceRole "sw" .
-<process/2> os:performedAccess <process/2/access/33> .
-<process/2/access/33> rdf:type os:FileAccess .
-<process/2/access/33> os:accessPath "/proc/self/exe" .
-<process/2/access/33> os:accessStartTime "nil" .
-<process/2/access/33> os:resourceRole "os" .
+<process/7> os:performedAccess <process/7/access/33> .
+<process/7/access/33> rdf:type os:DirectoryAccess .
+<process/7/access/33> os:accessPath "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace" .
+<process/7/access/33> os:accessMode cpr:Search .
+<process/7/access/33> os:accessStartTime "nil" .
+<process/7/access/33> os:resourceRole "sw" .
+<process/2> os:performedAccess <process/2/access/34> .
+<process/2/access/34> rdf:type os:FileAccess .
+<process/2/access/34> os:accessPath "/proc/self/exe" .
+<process/2/access/34> os:accessStartTime "nil" .
+<process/2/access/34> os:resourceRole "os" .
 <role/0> rdf:type cpr:ResourceRole .
 <role/0> cpr:resourcePath "/etc" .
 <role/1> rdf:type cpr:ResourceRole .
@@ -175,16 +181,16 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/process/2/access/28> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
 <http://cirss.illinois.edu/runs/0/process/2/access/28> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "os" .
 <http://cirss.illinois.edu/runs/0/process/2/access/28> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#FileAccess> .
-<http://cirss.illinois.edu/runs/0/process/2/access/33> <http://cirss.illinois.edu/ns/cpr/os#accessPath> "/proc/self/exe" .
-<http://cirss.illinois.edu/runs/0/process/2/access/33> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
-<http://cirss.illinois.edu/runs/0/process/2/access/33> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "os" .
-<http://cirss.illinois.edu/runs/0/process/2/access/33> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#FileAccess> .
+<http://cirss.illinois.edu/runs/0/process/2/access/34> <http://cirss.illinois.edu/ns/cpr/os#accessPath> "/proc/self/exe" .
+<http://cirss.illinois.edu/runs/0/process/2/access/34> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
+<http://cirss.illinois.edu/runs/0/process/2/access/34> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "os" .
+<http://cirss.illinois.edu/runs/0/process/2/access/34> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#FileAccess> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#childProcessOf> <http://cirss.illinois.edu/runs/0/process/1> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#exitCode> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/26> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/27> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/28> .
-<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/33> .
+<http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/2/access/34> .
 <http://cirss.illinois.edu/runs/0/process/2> <http://cirss.illinois.edu/ns/cpr/os#startTime> "nil" .
 <http://cirss.illinois.edu/runs/0/process/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#Process> .
 <http://cirss.illinois.edu/runs/0/process/3/access/29> <http://cirss.illinois.edu/ns/cpr/os#accessMode> <http://cirss.illinois.edu/ns/cpr#Search> .
@@ -211,6 +217,12 @@ Successfully created dataset traces
 <http://cirss.illinois.edu/runs/0/process/6/access/32> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "sw" .
 <http://cirss.illinois.edu/runs/0/process/6/access/32> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#DirectoryAccess> .
 <http://cirss.illinois.edu/runs/0/process/6> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/6/access/32> .
+<http://cirss.illinois.edu/runs/0/process/7/access/33> <http://cirss.illinois.edu/ns/cpr/os#accessMode> <http://cirss.illinois.edu/ns/cpr#Search> .
+<http://cirss.illinois.edu/runs/0/process/7/access/33> <http://cirss.illinois.edu/ns/cpr/os#accessPath> "/mnt/cpr/examples/02-blazegraph-examples/02-hello-go/workspace" .
+<http://cirss.illinois.edu/runs/0/process/7/access/33> <http://cirss.illinois.edu/ns/cpr/os#accessStartTime> "nil" .
+<http://cirss.illinois.edu/runs/0/process/7/access/33> <http://cirss.illinois.edu/ns/cpr/os#resourceRole> "sw" .
+<http://cirss.illinois.edu/runs/0/process/7/access/33> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr/os#DirectoryAccess> .
+<http://cirss.illinois.edu/runs/0/process/7> <http://cirss.illinois.edu/ns/cpr/os#performedAccess> <http://cirss.illinois.edu/runs/0/process/7/access/33> .
 <http://cirss.illinois.edu/runs/0/role/0> <http://cirss.illinois.edu/ns/cpr#resourcePath> "/etc" .
 <http://cirss.illinois.edu/runs/0/role/0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cirss.illinois.edu/ns/cpr#ResourceRole> .
 <http://cirss.illinois.edu/runs/0/role/1> <http://cirss.illinois.edu/ns/cpr#resourcePath> "/lib" .
@@ -327,24 +339,71 @@ writer | file | role
 
 # BLACKBOX VIEW OF RUN
 
-geist report << '__END_REPORT_TEMPLATE__'
+geist report --dataset traces << '__END_REPORT__'
 
     {{{
+        {{ include "../common/cpr.g" }}
         {{ include "../common/graphviz.g" }}
     }}}
 
-    {{ gv_graph "run_blackbox" }}
-    {{ gv_title "Black-box view of run" }}
+    {{ gv_graph "cpr_run" "LR" }}
+    {{ gv_title "Run Inputs and Outputs" }}
+
+    {{ cpr_run_node_style }}
+    Run
+
+    {{ gv_cluster "input_files" }}
+        {{ os_file_node_style }}
+        {{ range $Row := cpr_select_input_files | rows }}
+            {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
+        {{ end }}
+    {{ gv_cluster_end}}
+
+    {{ range $Row := cpr_select_input_files | rows }}
+        {{ gv_edge (index $Row 0) "Run" }}
+    {{ end }}
+
+    {{ gv_cluster "output_files" }}
+        {{ os_file_node_style }}
+        {{ range $Row := cpr_select_output_files | rows }}
+            {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
+        {{ end }}
+    {{ gv_cluster_end }}
+
+    {{ range $Row := cpr_select_output_files | rows }}
+        {{ gv_edge "Run" (index $Row 0) }}
+    {{ end }}
+
     {{ gv_end }}                                                                            \
 
-__END_REPORT_TEMPLATE__
+__END_REPORT__
 
 -------------------------------------------------- OUTPUT -----------------------------------------------
 
 
-digraph run_blackbox {
-rankdir=TB
+digraph cpr_run {
+rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
-label="Black-box view of run"
+label="Run Inputs and Outputs"
+
+node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
+Run
+
+subgraph cluster_input_files { label=""; color=white; penwidth=0
+subgraph cluster_input_files_inner { label=""; color=white
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+}}
+
+
+
+subgraph cluster_output_files { label=""; color=white; penwidth=0
+subgraph cluster_output_files_inner { label=""; color=white
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+}}
+
+
+
 }
 

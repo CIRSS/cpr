@@ -1,7 +1,7 @@
 
-{{ macro "gv_graph" "Name" '''
+{{ macro "gv_graph" "Name" "Direction" '''
     digraph {{$Name}} {
-    rankdir=TB
+    rankdir={{$Direction}}
 ''' }}
 
 {{ macro "gv_title" "Title" '''
