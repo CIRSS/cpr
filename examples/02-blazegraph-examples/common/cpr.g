@@ -58,6 +58,67 @@
     } 
 '''}}
 
+
+{{ query "cpr_select_data_files" '''
+    SELECT DISTINCT ?file
+    WHERE {
+        ?access rdf:type os:FileAccess .
+        ?access os:resourceRole ?role .
+        FILTER (?role="in" || ?role="out" || ?role="tmp") .
+        ?access os:accessPath ?fullPath .
+        ?rp os:absolutePath ?fullPath .
+        ?rp os:relativePath ?file .
+    } 
+'''}}
+
+
+{{ query "cpr_data_io_process_nodes" '''
+    SELECT DISTINCT ?process ?programpath
+    WHERE {
+        ?process rdf:type os:Process .
+        ?process os:performedAccess ?access .
+        ?access rdf:type os:FileAccess .
+        ?access os:resourceRole ?role .
+        FILTER (?role="in" || ?role="out" || ?role="tmp") .
+        ?execution os:startedProcess ?process .
+        ?execution os:executedFile ?program .
+        ?rp os:absolutePath ?program .
+        ?rp os:relativePath ?programpath .
+    } 
+'''}}
+
+{{ query "cpr_data_file_process_edges" '''
+    SELECT DISTINCT ?process ?file
+    WHERE {
+        ?process rdf:type os:Process .
+        ?process os:performedAccess ?access .
+        ?access rdf:type os:FileAccess .
+        ?access os:accessMode cpr:Read .
+        ?access os:resourceRole ?role .
+        FILTER (?role="in" || ?role="out" || ?role="tmp") .
+        ?access os:accessPath ?fullPath .
+        ?rp os:absolutePath ?fullPath .
+        ?rp os:relativePath ?file .
+    } 
+'''}}
+
+{{ query "cpr_process_data_file_edges" '''
+    SELECT DISTINCT ?process ?file
+    WHERE {
+        ?process rdf:type os:Process .
+        ?process os:performedAccess ?access .
+        ?access rdf:type os:FileAccess .
+        ?access os:accessMode cpr:Write .
+        ?access os:resourceRole ?role .
+        FILTER (?role="in" || ?role="out" || ?role="tmp") .
+        ?access os:accessPath ?fullPath .
+        ?rp os:absolutePath ?fullPath .
+        ?rp os:relativePath ?file .
+    } 
+'''}}
+
+
+
 {{ macro "cpr_run_input_file_nodes" '''                     \\
     {{ range $Row := cpr_select_input_files | rows }}       \\
         {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
@@ -80,5 +141,29 @@
 {{ macro "cpr_run_output_file_edges" '''                    \\
     {{ range $Row := cpr_select_output_files | rows }}      \\
         {{ gv_edge "run" (index $Row 0) }}                  
+    {{ end }}                                               \\
+''' }}                                                      \\
+
+{{ macro "cpr_data_file_nodes" '''                          \\
+    {{ range $Row := cpr_select_data_files | rows }}        \\
+        {{ gv_labeled_node (index $Row 0) (index $Row 0) }}                  
+    {{ end }}                                               \\
+''' }}                                                      \\
+
+{{ macro "cpr_data_io_process_nodes" '''                    \\
+    {{ range $Row := cpr_data_io_process_nodes | rows }}    \\
+        {{ gv_labeled_node (index $Row 0) (index $Row 1) }}                  
+    {{ end }}                                               \\
+''' }}                                                      \\
+
+{{ macro "cpr_process_input_file_edges" '''                 \\
+    {{ range $Row := cpr_data_file_process_edges | rows }}  \\
+        {{ gv_edge (index $Row 1) (index $Row 0) }}                  
+    {{ end }}                                               \\
+''' }}                                                      \\
+
+{{ macro "cpr_process_output_file_edges" '''                \\
+    {{ range $Row := cpr_process_data_file_edges | rows }}  \\
+        {{ gv_edge  (index $Row 0) (index $Row 1) }}                  
     {{ end }}                                               \\
 ''' }}                                                      \\

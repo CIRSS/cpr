@@ -447,3 +447,71 @@ subgraph cluster_output_files_inner { label=""; color=white
 }
 
 
+
+******************************************* graph-2-run-processes-and-data-files ************************************************
+
+# Visualize run processes and data files
+
+geist report --dataset traces << '__END_REPORT__'
+
+    {{{
+        {{ include "../common/graphviz.g" }}
+        {{ include "../common/cpr.g" }}
+    }}}
+
+    {{ gv_graph "cpr_run" "LR" }}
+    {{ gv_title "Run Processes and Data Files" }}
+
+    {{ gv_cluster "dataflow_graph" }}
+
+    # data file nodes
+    {{ os_file_node_style }}
+    {{ cpr_data_file_nodes }}
+
+    # nodes for processes that read or write data files
+    {{ os_process_node_style }}
+    {{ cpr_data_io_process_nodes }}
+
+    # process input file edges
+    {{ cpr_process_input_file_edges }}
+
+    # process output file edges
+    {{ cpr_process_output_file_edges }}
+
+    {{ gv_cluster_end }}                                                                            
+
+    {{ gv_end }}                                                                            
+
+__END_REPORT__
+
+-------------------------------------------------- OUTPUT -----------------------------------------------
+
+
+digraph cpr_run {
+rankdir=LR
+fontname=Courier; fontsize=18; labelloc=t
+label="Run Processes and Data Files"
+
+subgraph cluster_dataflow_graph { label=""; color=white; penwidth=0
+subgraph cluster_dataflow_graph_inner { label=""; color=white
+
+# data file nodes
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+"./outputs/output.txt" [label="./outputs/output.txt"]
+"./inputs/input.txt" [label="./inputs/input.txt"]
+
+# nodes for processes that read or write data files
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+"http://cirss.illinois.edu/runs/0/process/2" [label="/usr/bin/cat"]
+
+# process input file edges
+"./inputs/input.txt" -> "http://cirss.illinois.edu/runs/0/process/2"
+
+# process output file edges
+"http://cirss.illinois.edu/runs/0/process/2" -> "./outputs/output.txt"
+
+}}
+
+}
+
+

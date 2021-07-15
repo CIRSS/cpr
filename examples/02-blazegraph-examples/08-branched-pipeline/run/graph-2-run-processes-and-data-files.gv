@@ -1,0 +1,55 @@
+
+digraph cpr_run {
+rankdir=LR
+fontname=Courier; fontsize=18; labelloc=t
+label="Run Processes and Data Files"
+
+subgraph cluster_dataflow_graph { label=""; color=white; penwidth=0
+subgraph cluster_dataflow_graph_inner { label=""; color=white
+
+# data file nodes
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+"./temp/t12.txt" [label="./temp/t12.txt"]
+"./inputs/i1.txt" [label="./inputs/i1.txt"]
+"./inputs/i2.txt" [label="./inputs/i2.txt"]
+"./temp/t123.txt" [label="./temp/t123.txt"]
+"./inputs/i3.txt" [label="./inputs/i3.txt"]
+"./temp/t4.txt" [label="./temp/t4.txt"]
+"./inputs/i4.txt" [label="./inputs/i4.txt"]
+"./outputs/o12.txt" [label="./outputs/o12.txt"]
+"./outputs/o1234.txt" [label="./outputs/o1234.txt"]
+"./outputs/o4.txt" [label="./outputs/o4.txt"]
+
+# nodes for processes that read or write data files
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+"http://cirss.illinois.edu/runs/0/process/2" [label="/usr/bin/cat"]
+"http://cirss.illinois.edu/runs/0/process/3" [label="/usr/bin/cat"]
+"http://cirss.illinois.edu/runs/0/process/4" [label="/usr/bin/cat"]
+"http://cirss.illinois.edu/runs/0/process/5" [label="/usr/bin/cat"]
+"http://cirss.illinois.edu/runs/0/process/6" [label="/usr/bin/cat"]
+"http://cirss.illinois.edu/runs/0/process/7" [label="/usr/bin/cat"]
+
+# process input file edges
+"./temp/t12.txt" -> "http://cirss.illinois.edu/runs/0/process/5"
+"./inputs/i1.txt" -> "http://cirss.illinois.edu/runs/0/process/2"
+"./inputs/i1.txt" -> "http://cirss.illinois.edu/runs/0/process/3"
+"./inputs/i2.txt" -> "http://cirss.illinois.edu/runs/0/process/2"
+"./inputs/i2.txt" -> "http://cirss.illinois.edu/runs/0/process/3"
+"./temp/t123.txt" -> "http://cirss.illinois.edu/runs/0/process/6"
+"./inputs/i3.txt" -> "http://cirss.illinois.edu/runs/0/process/3"
+"./temp/t4.txt" -> "http://cirss.illinois.edu/runs/0/process/6"
+"./temp/t4.txt" -> "http://cirss.illinois.edu/runs/0/process/7"
+"./inputs/i4.txt" -> "http://cirss.illinois.edu/runs/0/process/4"
+
+# process output file edges
+"http://cirss.illinois.edu/runs/0/process/2" -> "./temp/t12.txt"
+"http://cirss.illinois.edu/runs/0/process/3" -> "./temp/t123.txt"
+"http://cirss.illinois.edu/runs/0/process/4" -> "./temp/t4.txt"
+"http://cirss.illinois.edu/runs/0/process/5" -> "./outputs/o12.txt"
+"http://cirss.illinois.edu/runs/0/process/6" -> "./outputs/o1234.txt"
+"http://cirss.illinois.edu/runs/0/process/7" -> "./outputs/o4.txt"
+
+}}
+
+}
+

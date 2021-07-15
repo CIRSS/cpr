@@ -1,0 +1,27 @@
+
+digraph cpr_run {
+rankdir=LR
+fontname=Courier; fontsize=18; labelloc=t
+label="Run Processes and Data Files"
+
+subgraph cluster_dataflow_graph { label=""; color=white; penwidth=0
+subgraph cluster_dataflow_graph_inner { label=""; color=white
+
+# data file nodes
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+
+# nodes for processes that read or write data files
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+
+
+# process input file edges
+
+
+# process output file edges
+
+
+}}
+
+}
+
