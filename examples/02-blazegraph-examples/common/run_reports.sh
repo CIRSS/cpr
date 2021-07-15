@@ -107,7 +107,7 @@ __END_QUERY__
 END_STEP
 
 
-bash ${GRAPHER} graph-1 "BLACKBOX VIEW OF RUN"  << '__END_GRAPH__'
+bash ${GRAPHER} graph-1-run-inputs-and-oututs "Visualize run with run inputs and outputs"  << '__END_GRAPH__'
 
 geist report --dataset traces << '__END_REPORT__'
 

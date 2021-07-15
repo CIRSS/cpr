@@ -505,9 +505,9 @@ writer        | file                                                            
 /usr/bin/date | /mnt/cpr/examples/02-blazegraph-examples/04-date-to-file/workspace/outputs/date.txt | out
 
 
-******************************************* graph-1 ************************************************
+******************************************* graph-1-run-inputs-and-oututs ************************************************
 
-# BLACKBOX VIEW OF RUN
+# Visualize run with run inputs and outputs
 
 geist report --dataset traces << '__END_REPORT__'
 

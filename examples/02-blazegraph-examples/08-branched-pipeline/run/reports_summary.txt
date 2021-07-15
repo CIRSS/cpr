@@ -1140,9 +1140,9 @@ writer       | file                                                             
 /usr/bin/cat | /mnt/cpr/examples/02-blazegraph-examples/08-branched-pipeline/workspace/temp/t4.txt       | tmp
 
 
-******************************************* graph-1 ************************************************
+******************************************* graph-1-run-inputs-and-oututs ************************************************
 
-# BLACKBOX VIEW OF RUN
+# Visualize run with run inputs and outputs
 
 geist report --dataset traces << '__END_REPORT__'
 

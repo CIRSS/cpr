@@ -1,4 +1,4 @@
-# BLACKBOX VIEW OF RUN
+# Visualize run with run inputs and outputs
 
 geist report --dataset traces << '__END_REPORT__'
 
