@@ -9,9 +9,9 @@ subgraph cluster_dataflow_graph_inner { label=""; color=white
 
 # data file nodes
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-"./temp/file2.txt" [label="./temp/file2.txt"]
-"./inputs/file1.txt" [label="./inputs/file1.txt"]
-"./outputs/file3.txt" [label="./outputs/file3.txt"]
+"http://cirss.illinois.edu/runs/0/fileresource/11" [label="./temp/file2.txt"]
+"http://cirss.illinois.edu/runs/0/fileresource/17" [label="./inputs/file1.txt"]
+"http://cirss.illinois.edu/runs/0/fileresource/18" [label="./outputs/file3.txt"]
 
 # nodes for processes that read or write data files
 node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
@@ -19,12 +19,12 @@ node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier
 "http://cirss.illinois.edu/runs/0/process/3" [label="/usr/bin/cat"]
 
 # process input file edges
-"./temp/file2.txt" -> "http://cirss.illinois.edu/runs/0/process/3"
-"./inputs/file1.txt" -> "http://cirss.illinois.edu/runs/0/process/2"
+"http://cirss.illinois.edu/runs/0/fileresource/17" -> "http://cirss.illinois.edu/runs/0/process/2"
+"http://cirss.illinois.edu/runs/0/fileresource/11" -> "http://cirss.illinois.edu/runs/0/process/3"
 
 # process output file edges
-"http://cirss.illinois.edu/runs/0/process/2" -> "./temp/file2.txt"
-"http://cirss.illinois.edu/runs/0/process/3" -> "./outputs/file3.txt"
+"http://cirss.illinois.edu/runs/0/process/2" -> "http://cirss.illinois.edu/runs/0/fileresource/11"
+"http://cirss.illinois.edu/runs/0/process/3" -> "http://cirss.illinois.edu/runs/0/fileresource/18"
 
 }}
 

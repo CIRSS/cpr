@@ -35,42 +35,38 @@
 '''}}
 
 {{ query "cpr_select_input_files" '''
-    SELECT DISTINCT ?file
+    SELECT DISTINCT ?resource ?filepath
     WHERE {
         ?access rdf:type os:FileAccess .
         ?access os:accessMode cpr:Read .
         ?access os:resourceRole "in" .
-        ?access os:accessPath ?fullPath .
-        ?rp os:absolutePath ?fullPath .
-        ?rp os:relativePath ?file .
+        ?access os:resourcePath ?resource .
+        ?resource os:relativePath ?filepath .
     } 
 '''}}
 
 {{ query "cpr_select_output_files" '''
-    SELECT DISTINCT ?file
+    SELECT DISTINCT ?resource ?filepath
     WHERE {
         ?access rdf:type os:FileAccess .
         ?access os:accessMode cpr:Write .
         ?access os:resourceRole "out" .
-        ?access os:accessPath ?fullPath .
-        ?rp os:absolutePath ?fullPath .
-        ?rp os:relativePath ?file .
+        ?access os:resourcePath ?resource .
+        ?resource os:relativePath ?filepath .
     } 
 '''}}
 
 
 {{ query "cpr_select_data_files" '''
-    SELECT DISTINCT ?file
+    SELECT DISTINCT ?resource ?filepath
     WHERE {
         ?access rdf:type os:FileAccess .
         ?access os:resourceRole ?role .
         FILTER (?role="in" || ?role="out" || ?role="tmp") .
-        ?access os:accessPath ?fullPath .
-        ?rp os:absolutePath ?fullPath .
-        ?rp os:relativePath ?file .
+        ?access os:resourcePath ?resource .
+        ?resource os:relativePath ?filepath .
     } 
 '''}}
-
 
 {{ query "cpr_data_io_process_nodes" '''
     SELECT DISTINCT ?process ?programpath
@@ -88,7 +84,7 @@
 '''}}
 
 {{ query "cpr_data_file_process_edges" '''
-    SELECT DISTINCT ?process ?file
+    SELECT DISTINCT ?process ?resource
     WHERE {
         ?process rdf:type os:Process .
         ?process os:performedAccess ?access .
@@ -96,14 +92,12 @@
         ?access os:accessMode cpr:Read .
         ?access os:resourceRole ?role .
         FILTER (?role="in" || ?role="out" || ?role="tmp") .
-        ?access os:accessPath ?fullPath .
-        ?rp os:absolutePath ?fullPath .
-        ?rp os:relativePath ?file .
+        ?access os:resourcePath ?resource .
     } 
 '''}}
 
 {{ query "cpr_process_data_file_edges" '''
-    SELECT DISTINCT ?process ?file
+    SELECT DISTINCT ?process ?resource
     WHERE {
         ?process rdf:type os:Process .
         ?process os:performedAccess ?access .
@@ -111,9 +105,7 @@
         ?access os:accessMode cpr:Write .
         ?access os:resourceRole ?role .
         FILTER (?role="in" || ?role="out" || ?role="tmp") .
-        ?access os:accessPath ?fullPath .
-        ?rp os:absolutePath ?fullPath .
-        ?rp os:relativePath ?file .
+        ?access os:resourcePath ?resource .
     } 
 '''}}
 
@@ -121,13 +113,13 @@
 
 {{ macro "cpr_run_input_file_nodes" '''                     \\
     {{ range $Row := cpr_select_input_files | rows }}       \\
-        {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
+        {{ gv_labeled_node (index $Row 0) (index $Row 1) }}
     {{ end }}                                               \\
 ''' }}                                                      \\
 
 {{ macro "cpr_run_output_file_nodes" '''                    \\
     {{ range $Row := cpr_select_output_files | rows }}      \\
-        {{ gv_labeled_node (index $Row 0) (index $Row 0) }}
+        {{ gv_labeled_node (index $Row 0) (index $Row 1) }}
     {{ end }}                                               \\
 ''' }}                                                      \\
 
@@ -146,7 +138,7 @@
 
 {{ macro "cpr_data_file_nodes" '''                          \\
     {{ range $Row := cpr_select_data_files | rows }}        \\
-        {{ gv_labeled_node (index $Row 0) (index $Row 0) }}                  
+        {{ gv_labeled_node (index $Row 0) (index $Row 1) }}                  
     {{ end }}                                               \\
 ''' }}                                                      \\
 

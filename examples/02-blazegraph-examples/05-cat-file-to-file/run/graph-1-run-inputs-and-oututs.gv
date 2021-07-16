@@ -12,20 +12,20 @@ node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname
 # input file nodes
 subgraph cluster_input_files { label=""; color=white; penwidth=0
 subgraph cluster_input_files_inner { label=""; color=white
-"./inputs/input.txt" [label="./inputs/input.txt"]
+"http://cirss.illinois.edu/runs/0/fileresource/16" [label="./inputs/input.txt"]
 }}
 
 # output file nodes
 subgraph cluster_output_files { label=""; color=white; penwidth=0
 subgraph cluster_output_files_inner { label=""; color=white
-"./outputs/output.txt" [label="./outputs/output.txt"]
+"http://cirss.illinois.edu/runs/0/fileresource/10" [label="./outputs/output.txt"]
 }}
 
 # input file edges
-"./inputs/input.txt" -> "run"
+"http://cirss.illinois.edu/runs/0/fileresource/16" -> "run"
 
 # output file edges
-"run" -> "./outputs/output.txt"
+"run" -> "http://cirss.illinois.edu/runs/0/fileresource/10"
 
 }
 
