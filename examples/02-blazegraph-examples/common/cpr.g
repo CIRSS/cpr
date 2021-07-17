@@ -21,6 +21,14 @@
 	} ORDER BY ?name
 '''}}
 
+
+{{ query "cpr_select_run_info_pair" '''
+	SELECT ?run ?name
+	WHERE {
+		?run cpr:RunName ?name .
+	} ORDER BY ?name
+'''}}
+
 {{ query "cpr_select_files_written" '''
     SELECT DISTINCT ?writer ?file ?role
     WHERE {
@@ -124,15 +132,15 @@
 ''' }}                                                      \\
 
 
-{{ macro "cpr_run_input_file_edges" '''                     \\
+{{ macro "cpr_run_input_file_edges" "RunId" '''             \\
     {{ range $Row := cpr_select_input_files | rows }}       \\
-        {{ gv_edge (index $Row 0) "run" }}                  
+        {{ gv_edge (index $Row 0) $RunId }}                  
     {{ end }}                                               \\
 ''' }}                                                      \\
 
-{{ macro "cpr_run_output_file_edges" '''                    \\
+{{ macro "cpr_run_output_file_edges" "RunId" '''              \\
     {{ range $Row := cpr_select_output_files | rows }}      \\
-        {{ gv_edge "run" (index $Row 0) }}                  
+        {{ gv_edge $RunId (index $Row 0) }}                  
     {{ end }}                                               \\
 ''' }}                                                      \\
 

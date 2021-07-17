@@ -1,11 +1,13 @@
 
+
+
 digraph cpr_run {
 rankdir=LR
 fontname=Courier; fontsize=18; labelloc=t
 label="Run Inputs and Outputs"
 
 node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
-"run" [label="04-date-to-file"]
+"http://cirss.illinois.edu/runs/0/" [label="04-date-to-file"]
 
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 
@@ -25,7 +27,9 @@ subgraph cluster_output_files_inner { label=""; color=white
 
 
 # output file edges
-"run" -> "http://cirss.illinois.edu/runs/0/fileresource/9"
+"http://cirss.illinois.edu/runs/0/" -> "http://cirss.illinois.edu/runs/0/fileresource/9"
 
 }
+
+
 

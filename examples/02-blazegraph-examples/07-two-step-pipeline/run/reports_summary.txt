@@ -540,6 +540,65 @@ writer       | file                | role
 /usr/bin/cat | ./temp/file2.txt    | tmp
 
 
+******************************************* query-4-select-run-info ************************************************
+
+# Show metadata about the run
+
+    echo "Show metadata about the run:"
+    echo
+
+    geist query --dataset traces --format table << __END_QUERY__
+
+        PREFIX cpr: <http://cirss.illinois.edu/ns/cpr#>
+        PREFIX os: <http://cirss.illinois.edu/ns/cpr/os#>
+
+        SELECT ?run ?name
+        WHERE {
+            ?run cpr:RunName ?name .
+        } ORDER BY ?name
+
+__END_QUERY__
+
+-------------------------------------------------- OUTPUT -----------------------------------------------
+
+Show metadata about the run:
+
+run                               | name
+========================================================
+http://cirss.illinois.edu/runs/0/ | 07-two-step-pipeline
+
+
+******************************************* report-4-summarize-run ************************************************
+
+# Summarize information about the run
+
+
+    geist report --dataset traces << '__END_REPORT__'
+
+        {{{
+            {{ include "../common/graphviz.g" }}
+            {{ include "../common/cpr.g" }}
+        }}}
+
+        Run summary:
+        ============
+        {{ with $RunInfo := (cpr_select_run_info_pair | vector) }}
+            Run ID   = {{ index $RunInfo 0 }} 
+            Run Name = {{ index $RunInfo 1 }}
+        {{ end }}                                                   
+__END_REPORT__
+
+-------------------------------------------------- OUTPUT -----------------------------------------------
+
+
+Run summary:
+============
+
+Run ID   = http://cirss.illinois.edu/runs/0/
+Run Name = 07-two-step-pipeline
+
+
+
 ******************************************* graph-1-run-inputs-and-oututs ************************************************
 
 # Visualize run with run inputs and outputs
@@ -551,35 +610,41 @@ geist report --dataset traces << '__END_REPORT__'
         {{ include "../common/cpr.g" }}
     }}}
 
-    {{ gv_graph "cpr_run" "LR" }}
-    {{ gv_title "Run Inputs and Outputs" }}
+    {{ with $RunInfo := (cpr_select_run_info_pair | vector) }}
 
-    {{ cpr_run_node_style }}
-    {{ gv_labeled_node "run" ( cpr_select_run_info | value ) }}
+        {{ gv_graph "cpr_run" "LR" }}
+        {{ gv_title "Run Inputs and Outputs" }}
 
-    {{ os_file_node_style }}
+        {{ cpr_run_node_style }}
+        {{ gv_labeled_node ( index $RunInfo 0 ) ( index $RunInfo 1 ) }}
 
-    # input file nodes
-    {{ gv_cluster "input_files" }}
-        {{ cpr_run_input_file_nodes }}
-    {{ gv_cluster_end}}
+        {{ os_file_node_style }}
 
-    # output file nodes
-    {{ gv_cluster "output_files" }}
-        {{ cpr_run_output_file_nodes }}
-    {{ gv_cluster_end }}
+        # input file nodes
+        {{ gv_cluster "input_files" }}
+            {{ cpr_run_input_file_nodes }}
+        {{ gv_cluster_end}}
 
-    # input file edges
-    {{ cpr_run_input_file_edges }}
+        # output file nodes
+        {{ gv_cluster "output_files" }}
+            {{ cpr_run_output_file_nodes }}
+        {{ gv_cluster_end }}
 
-    # output file edges
-    {{ cpr_run_output_file_edges }}
+        # input file edges
+        {{ cpr_run_input_file_edges ( index $RunInfo 0 ) }}
 
-    {{ gv_end }}                                                                            
+        # output file edges
+        {{ cpr_run_output_file_edges ( index $RunInfo 0 )}}
+
+        {{ gv_end }}                                                                            
+
+    {{ end }}
 
 __END_REPORT__
 
 -------------------------------------------------- OUTPUT -----------------------------------------------
+
+
 
 
 digraph cpr_run {
@@ -588,7 +653,7 @@ fontname=Courier; fontsize=18; labelloc=t
 label="Run Inputs and Outputs"
 
 node[shape=box style="filled" fillcolor="#FFFFFF" peripheries=2 fontname=Courier]
-"run" [label="07-two-step-pipeline"]
+"http://cirss.illinois.edu/runs/0/" [label="07-two-step-pipeline"]
 
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 
@@ -605,12 +670,14 @@ subgraph cluster_output_files_inner { label=""; color=white
 }}
 
 # input file edges
-"http://cirss.illinois.edu/runs/0/fileresource/17" -> "run"
+"http://cirss.illinois.edu/runs/0/fileresource/17" -> "http://cirss.illinois.edu/runs/0/"
 
 # output file edges
-"run" -> "http://cirss.illinois.edu/runs/0/fileresource/18"
+"http://cirss.illinois.edu/runs/0/" -> "http://cirss.illinois.edu/runs/0/fileresource/18"
 
 }
+
+
 
 
 

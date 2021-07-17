@@ -7,31 +7,35 @@ geist report --dataset traces << '__END_REPORT__'
         {{ include "../common/cpr.g" }}
     }}}
 
-    {{ gv_graph "cpr_run" "LR" }}
-    {{ gv_title "Run Inputs and Outputs" }}
+    {{ with $RunInfo := (cpr_select_run_info_pair | vector) }}
 
-    {{ cpr_run_node_style }}
-    {{ gv_labeled_node "run" ( cpr_select_run_info | value ) }}
+        {{ gv_graph "cpr_run" "LR" }}
+        {{ gv_title "Run Inputs and Outputs" }}
 
-    {{ os_file_node_style }}
+        {{ cpr_run_node_style }}
+        {{ gv_labeled_node ( index $RunInfo 0 ) ( index $RunInfo 1 ) }}
 
-    # input file nodes
-    {{ gv_cluster "input_files" }}
-        {{ cpr_run_input_file_nodes }}
-    {{ gv_cluster_end}}
+        {{ os_file_node_style }}
 
-    # output file nodes
-    {{ gv_cluster "output_files" }}
-        {{ cpr_run_output_file_nodes }}
-    {{ gv_cluster_end }}
+        # input file nodes
+        {{ gv_cluster "input_files" }}
+            {{ cpr_run_input_file_nodes }}
+        {{ gv_cluster_end}}
 
-    # input file edges
-    {{ cpr_run_input_file_edges }}
+        # output file nodes
+        {{ gv_cluster "output_files" }}
+            {{ cpr_run_output_file_nodes }}
+        {{ gv_cluster_end }}
 
-    # output file edges
-    {{ cpr_run_output_file_edges }}
+        # input file edges
+        {{ cpr_run_input_file_edges ( index $RunInfo 0 ) }}
 
-    {{ gv_end }}                                                                            
+        # output file edges
+        {{ cpr_run_output_file_edges ( index $RunInfo 0 )}}
+
+        {{ gv_end }}                                                                            
+
+    {{ end }}
 
 __END_REPORT__
 
