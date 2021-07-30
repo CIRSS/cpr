@@ -49,7 +49,7 @@ WORKDIR $HOME
 RUN echo '***** Make the user bin directory *****'                          \
     && mkdir ${USER_BIN}
 
-ENV GEIST_VERSION 0.2.5
+ENV GEIST_VERSION 0.2.6
 ENV GEIST_RELEASES https://github.com/cirss/geist/releases
 ENV GEIST_DOWNLOADS ${GEIST_RELEASES}/download/v${GEIST_VERSION}
 ENV GEIST_DOWNLOAD ${GEIST_DOWNLOADS}/geist-${GEIST_VERSION}-linux-x86-64-static
@@ -59,7 +59,7 @@ RUN echo '***** Install Geist in user bin directory *****'                  \
     && wget -O ${GEIST_BINARY} ${GEIST_DOWNLOAD}                           \
     && chmod u+x ${GEIST_BINARY}
 
-ENV BLAZE_VERSION 0.2.5
+ENV BLAZE_VERSION 0.2.6
 ENV BLAZE_RELEASES https://github.com/cirss/blaze/releases
 ENV BLAZE_DOWNLOADS ${BLAZE_RELEASES}/download/v${BLAZE_VERSION}
 ENV BLAZE_DOWNLOAD ${BLAZE_DOWNLOADS}/blaze-${BLAZE_VERSION}-linux-x86-64-static
