@@ -13,7 +13,7 @@ type Process struct {
 	ID        int64
 	RunID     int64
 	Parent    sql.NullInt64
-	Timestamp int64
+	Timestamp uint64
 	IsThread  bool
 	ExitCode  int64
 }
@@ -46,8 +46,8 @@ func WriteProcessFacts(writer io.Writer, processes []Process) {
 
 // String prints one row of the processes table of trace.sqlite3 as a Prolog fact
 func (p Process) String() string {
-	return fmt.Sprintf("cpr_process(%s, %s, %s, %t, %d, %s).",
-		P(p.ID), int64OrNil("p", p.Parent), R(p.RunID), p.IsThread, p.ExitCode, timestampInt64(p.Timestamp))
+	return fmt.Sprintf("cpr_process(%s, %s, %s, %t, %#v, %s).",
+		P(p.ID), int64OrNil("p", p.Parent), R(p.RunID), p.IsThread, p.ExitCode, timestampUint64(p.Timestamp))
 }
 
 func AddProcessTriples(g *rdf.Graph, processes []Process) {
@@ -63,7 +63,7 @@ func AddProcessTriples(g *rdf.Graph, processes []Process) {
 		if p.Parent.Valid {
 			g.AddNewTriple(processURI, "os:childProcessOf", ProcessUri(g, p.Parent.Int64))
 		}
-		g.AddNewTriple(processURI, "os:startTime", timestampInt64(p.Timestamp))
+		g.AddNewTriple(processURI, "os:startTime", timestampUint64(p.Timestamp))
 	}
 }
 

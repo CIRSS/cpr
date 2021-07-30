@@ -57,9 +57,9 @@ func Prepend(s string, i int64) string {
 	return s + strconv.FormatInt(i, 10)
 }
 
-func timestampInt64(value int64) string {
+func timestampUint64(value uint64) string {
 	if MaskTimestamps {
 		return "nil"
 	}
-	return strconv.FormatInt(value, 10)
+	return strconv.FormatUint(value, 10)
 }

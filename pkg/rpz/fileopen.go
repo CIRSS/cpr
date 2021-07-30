@@ -13,7 +13,7 @@ type FileOpen struct {
 	OpenID      int64
 	RunID       int64
 	Name        string
-	Timestamp   int64
+	Timestamp   uint64
 	Mode        int64
 	IsDirectory bool
 	Process     int64
@@ -55,8 +55,8 @@ func WriteFileOpenFacts(w io.Writer, opens []FileOpen) {
 
 // String prints one row of the opened_files table of trace.sqlite3 as a Prolog fact
 func (fo FileOpen) String() string {
-	return fmt.Sprintf("cpr_file_open(%s, %s, %s, %s, %d, %t, %s).",
-		O(fo.OpenID), R(fo.RunID), P(fo.Process), Q(fo.Name), fo.Mode, fo.IsDirectory, timestampInt64(fo.Timestamp))
+	return fmt.Sprintf("cpr_file_open(%s, %s, %s, %s, %#v, %t, %s).",
+		O(fo.OpenID), R(fo.RunID), P(fo.Process), Q(fo.Name), fo.Mode, fo.IsDirectory, timestampUint64(fo.Timestamp))
 }
 
 func AddFileOpenTriples(g *rdf.Graph, fileOpens []FileOpen) {
@@ -80,7 +80,7 @@ func AddFileOpenTriples(g *rdf.Graph, fileOpens []FileOpen) {
 		case 4:
 			g.AddNewTriple(accessURI, "os:accessMode", g.NewUri("cpr:Search"))
 		}
-		g.AddNewTriple(accessURI, "os:accessStartTime", timestampInt64(fo.Timestamp))
+		g.AddNewTriple(accessURI, "os:accessStartTime", timestampUint64(fo.Timestamp))
 		g.AddNewTriple(accessURI, "os:resourceRole", Role(fo.Name))
 	}
 }

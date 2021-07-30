@@ -13,7 +13,7 @@ type Execution struct {
 	ExecID     int64
 	Name       string
 	RunID      int64
-	Timestamp  int64
+	Timestamp  uint64
 	Process    int64
 	Argv       string
 	Envp       string
@@ -49,7 +49,7 @@ func WriteExecutionFacts(w io.Writer, executed []Execution) {
 // String prints one row of the executed_files table of trace.sqlite3 as a Prolog fact
 func (f Execution) String() string {
 	return fmt.Sprintf("cpr_execution(%s, %s, %s, %s, %s, %s).",
-		E(f.ExecID), R(f.RunID), P(f.Process), Q(f.Name), Q(f.WorkingDir), timestampInt64(f.Timestamp))
+		E(f.ExecID), R(f.RunID), P(f.Process), Q(f.Name), Q(f.WorkingDir), timestampUint64(f.Timestamp))
 }
 
 func AddExecutionTriples(g *rdf.Graph, executions []Execution) {
@@ -61,7 +61,7 @@ func AddExecutionTriples(g *rdf.Graph, executions []Execution) {
 		pathIndex, _ := PathIndex(e.Name)
 		g.AddNewTriple(executionURI, "os:resourcePath", AccessedPathUri(g, pathIndex))
 		g.AddNewTriple(executionURI, "os:hadWorkingDirectory", e.WorkingDir)
-		g.AddNewTriple(executionURI, "os:atTime", timestampInt64(e.Timestamp))
+		g.AddNewTriple(executionURI, "os:atTime", timestampUint64(e.Timestamp))
 	}
 }
 

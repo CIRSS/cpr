@@ -8,7 +8,6 @@ cpr_process(p3, p2, r0, true, 0, nil).
 cpr_process(p4, p2, r0, true, 0, nil).
 cpr_process(p5, p2, r0, true, 0, nil).
 cpr_process(p6, p4, r0, true, 0, nil).
-cpr_process(p7, p2, r0, true, 0, nil).
 
 %---------------------------------------------------------------------------------------------------
 % FACT: cpr_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).
@@ -32,8 +31,7 @@ cpr_file_open(o23, r0, p3, '/mnt/cpr/examples/01-xsb-examples/02-hello-go', 4, t
 cpr_file_open(o24, r0, p4, '/mnt/cpr/examples/01-xsb-examples/02-hello-go', 4, true, nil).
 cpr_file_open(o25, r0, p5, '/mnt/cpr/examples/01-xsb-examples/02-hello-go', 4, true, nil).
 cpr_file_open(o26, r0, p6, '/mnt/cpr/examples/01-xsb-examples/02-hello-go', 4, true, nil).
-cpr_file_open(o27, r0, p7, '/mnt/cpr/examples/01-xsb-examples/02-hello-go', 4, true, nil).
-cpr_file_open(o28, r0, p2, '/proc/self/exe', 24, false, nil).
+cpr_file_open(o27, r0, p2, '/proc/self/exe', 24, false, nil).
 
 %---------------------------------------------------------------------------------------------------
 % FACT: cpr_run(RunID, RunName).
@@ -60,5 +58,4 @@ cpr_accessed_path(o23, r0, '.', i2, sw).
 cpr_accessed_path(o24, r0, '.', i2, sw).
 cpr_accessed_path(o25, r0, '.', i2, sw).
 cpr_accessed_path(o26, r0, '.', i2, sw).
-cpr_accessed_path(o27, r0, '.', i2, sw).
-cpr_accessed_path(o28, r0, '/proc/self/exe', i10, os).
+cpr_accessed_path(o27, r0, '/proc/self/exe', i10, os).
