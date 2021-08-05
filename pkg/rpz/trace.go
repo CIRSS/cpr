@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"io"
+	"strings"
 
 	"github.com/cirss/cpr/pkg/cpr"
 	"github.com/cirss/geist/pkg/rdf"
@@ -11,14 +12,13 @@ import (
 )
 
 var (
-	MaskTimestamps          = true
 	IgnoreFirstProcessFiles = true
 	WorkingDirPathIndex     int64
 )
 
 type Trace struct {
 	FirstProcess int64
-	PathRoles    []PathRole
+	PathRoles    []cpr.PathRole
 	Run          WorkflowRun
 	Processes    []Process
 	Executions   []Execution
@@ -40,12 +40,12 @@ func ExtractTrace(runName string, traceDir string, config cpr.Config) Trace {
 	trace.FirstProcess = trace.Processes[0].ID
 
 	runID := int64(0)
-	trace.PathRoles = GetPathRoleFacts(config, runID)
+	trace.PathRoles = cpr.GetPathRoleFacts(config, runID)
 	trace.Run = NewWorkflowRun(runID, runName)
 
 	trace.Executions = GetExecutions(db)
 	trace.Arguments = GetArguments(trace.Executions)
-	WorkingDirPathIndex, _ = PathIndex(trace.Executions[0].WorkingDir)
+	WorkingDirPathIndex, _ = cpr.PathIndex(trace.Executions[0].WorkingDir)
 
 	trace.FileOpens = GetFileOpens(trace, db)
 	trace.Accesses = GetAccessedPaths(trace.Executions, trace.FileOpens)
@@ -59,7 +59,7 @@ func WriteTraceFacts(file io.Writer, trace Trace) {
 	WriteArgumentFacts(file, trace.Arguments)
 	WriteFileOpenFacts(file, trace.FileOpens)
 	WriteRunFacts(file, trace.Run)
-	WritePathRoleFacts(file, trace.PathRoles)
+	cpr.WritePathRoleFacts(file, trace.PathRoles)
 	WriteAccessedPathFacts(file, trace.Accesses)
 }
 
@@ -80,11 +80,31 @@ func GetTraceGraph(trace Trace) *rdf.Graph {
 	AddArgumentTriples(graph, trace.Arguments)
 	AddFileOpenTriples(graph, trace.FileOpens)
 	AddAccessedPathTriples(graph, trace.Accesses)
-	AddPathRoleTriples(graph, trace.PathRoles)
+	cpr.AddPathRoleTriples(graph, trace.PathRoles)
 
 	return graph
 }
 
 func RunBaseUri(g *rdf.Graph, run WorkflowRun) rdf.Uri {
 	return g.NewUri(fmt.Sprintf("http://cirss.illinois.edu/runs/%d/", run.RunID))
+}
+
+func TrimWorkingDirPrefix(absolutePath string) string {
+	prefix := absolutePath
+	prefixLength := len(absolutePath)
+	for {
+		prefixPathIndex, ok := cpr.PathIndex(prefix)
+		if !ok {
+			return absolutePath
+		}
+		if prefixPathIndex == WorkingDirPathIndex {
+			return "." + absolutePath[prefixLength:]
+		}
+		prefixLength = strings.LastIndex(prefix, "/")
+		if prefixLength == -1 {
+			break
+		}
+		prefix = prefix[:prefixLength]
+	}
+	return absolutePath
 }

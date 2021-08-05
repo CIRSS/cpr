@@ -5,6 +5,7 @@ import (
 	"io"
 	"strconv"
 
+	"github.com/cirss/cpr/pkg/cpr"
 	"github.com/cirss/geist/pkg/rdf"
 )
 
@@ -21,13 +22,13 @@ func NewWorkflowRun(runId int64, runName string) WorkflowRun {
 }
 
 func WriteRunFacts(writer io.Writer, run WorkflowRun) {
-	printRowHeader(writer, "cpr_run(RunID, RunName).")
+	cpr.PrintRowHeader(writer, "cpr_run(RunID, RunName).")
 	fmt.Fprintln(writer, run)
 }
 
 func (r WorkflowRun) String() string {
 	return fmt.Sprintf("cpr_run(%s, %s).",
-		R(r.RunID), Q(r.RunName))
+		cpr.R(r.RunID), cpr.Q(r.RunName))
 }
 
 func AddRunTriples(g *rdf.Graph, trace Trace, run WorkflowRun) {

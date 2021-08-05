@@ -1,8 +1,7 @@
-package rpz
+package cpr
 
 import (
 	"os"
-	"strings"
 	"syscall"
 )
 
@@ -27,26 +26,6 @@ func PathIndex(path string) (pathIndex int64, ok bool) {
 		nextPathIndex++
 	}
 	return pathIndex, true
-}
-
-func TrimWorkingDirPrefix(absolutePath string) string {
-	prefix := absolutePath
-	prefixLength := len(absolutePath)
-	for {
-		prefixPathIndex, ok := PathIndex(prefix)
-		if !ok {
-			return absolutePath
-		}
-		if prefixPathIndex == WorkingDirPathIndex {
-			return "." + absolutePath[prefixLength:]
-		}
-		prefixLength = strings.LastIndex(prefix, "/")
-		if prefixLength == -1 {
-			break
-		}
-		prefix = prefix[:prefixLength]
-	}
-	return absolutePath
 }
 
 // Inode returns the inode number for the given absolute path

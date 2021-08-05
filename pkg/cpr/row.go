@@ -1,4 +1,4 @@
-package rpz
+package cpr
 
 import (
 	"database/sql"
@@ -7,11 +7,15 @@ import (
 	"strconv"
 )
 
+var (
+	MaskTimestamps = true
+)
+
 const (
 	separator = "%---------------------------------------------------------------------------------------------------"
 )
 
-func printRowHeader(writer io.Writer, header string) {
+func PrintRowHeader(writer io.Writer, header string) {
 	fmt.Fprintln(writer)
 	fmt.Fprintln(writer, separator)
 	fmt.Fprintln(writer, "% FACT:", header)
@@ -22,7 +26,7 @@ func Q(s string) string {
 	return "'" + s + "'"
 }
 
-func int64OrNil(prefix string, i sql.NullInt64) string {
+func Int64OrNil(prefix string, i sql.NullInt64) string {
 	if i.Valid {
 		return prefix + strconv.FormatInt(i.Int64, 10)
 	}
@@ -33,20 +37,8 @@ func D(id int64) string {
 	return Prepend("d", id)
 }
 
-func E(id int64) string {
-	return Prepend("e", id)
-}
-
 func I(id int64) string {
 	return Prepend("i", id)
-}
-
-func O(id int64) string {
-	return Prepend("o", id)
-}
-
-func P(id int64) string {
-	return Prepend("p", id)
 }
 
 func R(id int64) string {
@@ -57,7 +49,7 @@ func Prepend(s string, i int64) string {
 	return s + strconv.FormatInt(i, 10)
 }
 
-func timestampUint64(value uint64) string {
+func TimestampUint64(value uint64) string {
 	if MaskTimestamps {
 		return "nil"
 	}

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 
+	"github.com/cirss/cpr/pkg/cpr"
 	"github.com/cirss/geist/pkg/rdf"
 )
 
@@ -40,7 +41,7 @@ func GetExecutions(db *sql.DB) []Execution {
 }
 
 func WriteExecutionFacts(w io.Writer, executed []Execution) {
-	printRowHeader(w, "cpr_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).")
+	cpr.PrintRowHeader(w, "cpr_execution(ExecID, RunID, ProcessID, FilePath, WorkingDir, TimeStamp).")
 	for _, f := range executed {
 		fmt.Fprintln(w, f)
 	}
@@ -49,7 +50,7 @@ func WriteExecutionFacts(w io.Writer, executed []Execution) {
 // String prints one row of the executed_files table of trace.sqlite3 as a Prolog fact
 func (f Execution) String() string {
 	return fmt.Sprintf("cpr_execution(%s, %s, %s, %s, %s, %s).",
-		E(f.ExecID), R(f.RunID), P(f.Process), Q(f.Name), Q(f.WorkingDir), timestampUint64(f.Timestamp))
+		E(f.ExecID), cpr.R(f.RunID), P(f.Process), cpr.Q(f.Name), cpr.Q(f.WorkingDir), cpr.TimestampUint64(f.Timestamp))
 }
 
 func AddExecutionTriples(g *rdf.Graph, executions []Execution) {
@@ -58,13 +59,17 @@ func AddExecutionTriples(g *rdf.Graph, executions []Execution) {
 		g.AddNewTriple(executionURI, "rdf:type", g.NewUri("os:Execution"))
 		g.AddNewTriple(executionURI, "os:startedProcess", ProcessUri(g, e.Process))
 		g.AddNewTriple(executionURI, "os:executedFile", e.Name)
-		pathIndex, _ := PathIndex(e.Name)
+		pathIndex, _ := cpr.PathIndex(e.Name)
 		g.AddNewTriple(executionURI, "os:resourcePath", AccessedPathUri(g, pathIndex))
 		g.AddNewTriple(executionURI, "os:hadWorkingDirectory", e.WorkingDir)
-		g.AddNewTriple(executionURI, "os:atTime", timestampUint64(e.Timestamp))
+		g.AddNewTriple(executionURI, "os:atTime", cpr.TimestampUint64(e.Timestamp))
 	}
 }
 
 func ExecutionUri(g *rdf.Graph, id int64) rdf.Uri {
 	return g.NewUri(fmt.Sprintf("execution/%d", id))
+}
+
+func E(id int64) string {
+	return cpr.Prepend("e", id)
 }

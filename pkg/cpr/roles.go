@@ -1,11 +1,10 @@
-package rpz
+package cpr
 
 import (
 	"fmt"
 	"io"
 	"strings"
 
-	"github.com/cirss/cpr/pkg/cpr"
 	"github.com/cirss/geist/pkg/rdf"
 )
 
@@ -24,7 +23,7 @@ func init() {
 	roleForPathIndex = make(map[int64]string)
 }
 
-func GetPathRoleFacts(config cpr.Config, runID int64) []PathRole {
+func GetPathRoleFacts(config Config, runID int64) []PathRole {
 	var allRoles []PathRole
 	addPathsWithRole(&allRoles, runID, "os", config.Roles.Os)
 	addPathsWithRole(&allRoles, runID, "sw", config.Roles.Sw)
@@ -75,7 +74,7 @@ func registerPathRole(path string, role string) (pathIndex int64, ok bool) {
 }
 
 func WritePathRoleFacts(w io.Writer, pathRoles []PathRole) {
-	printRowHeader(w, "cpr_path_role(RunID, Path, PathIndex, Role).")
+	PrintRowHeader(w, "cpr_path_role(RunID, Path, PathIndex, Role).")
 	for _, pr := range pathRoles {
 		fmt.Fprintln(w, pr)
 	}

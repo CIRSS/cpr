@@ -5,6 +5,7 @@ import (
 	"io"
 	"strings"
 
+	"github.com/cirss/cpr/pkg/cpr"
 	"github.com/cirss/geist/pkg/rdf"
 )
 
@@ -35,7 +36,7 @@ func GetArguments(executions []Execution) []Argument {
 }
 
 func WriteArgumentFacts(w io.Writer, arguments []Argument) {
-	printRowHeader(w, "cpr_argument(ExecID, ArgIndex, ArgValue).")
+	cpr.PrintRowHeader(w, "cpr_argument(ExecID, ArgIndex, ArgValue).")
 	for _, a := range arguments {
 		fmt.Fprintln(w, a)
 	}
@@ -44,7 +45,7 @@ func WriteArgumentFacts(w io.Writer, arguments []Argument) {
 // String prints one row of the executed_files table of trace.sqlite3 as a Prolog fact
 func (a Argument) String() string {
 	return fmt.Sprintf("cpr_argument(%s, %d, %s).",
-		E(a.ExecID), a.Index, Q(a.Value))
+		E(a.ExecID), a.Index, cpr.Q(a.Value))
 }
 
 func AddArgumentTriples(g *rdf.Graph, arguments []Argument) {

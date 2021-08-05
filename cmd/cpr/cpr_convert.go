@@ -37,7 +37,7 @@ func Convert(cc *cli.CommandContext) (err error) {
 
 	config := cpr.LoadConfig("cpr.yml")
 
-	rpz.MaskTimestamps = *notimestamps
+	cpr.MaskTimestamps = *notimestamps
 	rpz.IgnoreFirstProcessFiles = *noroot
 
 	trace := rpz.ExtractTrace(*name, *src, config)

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 
+	"github.com/cirss/cpr/pkg/cpr"
 	"github.com/cirss/geist/pkg/rdf"
 )
 
@@ -21,10 +22,10 @@ func GetAccessedPaths(executed []Execution, opens []FileOpen) []AccessedPath {
 	var accessed []AccessedPath
 
 	for _, e := range executed {
-		fileIndex, _ := PathIndex(e.Name)
+		fileIndex, _ := cpr.PathIndex(e.Name)
 		runID := e.RunID
 		path := TrimWorkingDirPrefix(e.Name)
-		role := Role(path)
+		role := cpr.Role(path)
 		if role != "nul" {
 			f := AccessedPath{E(e.ExecID), runID, e.Name, path, fileIndex, role}
 			accessed = append(accessed, f)
@@ -32,10 +33,10 @@ func GetAccessedPaths(executed []Execution, opens []FileOpen) []AccessedPath {
 	}
 
 	for _, o := range opens {
-		fileIndex, _ := PathIndex(o.Name)
+		fileIndex, _ := cpr.PathIndex(o.Name)
 		runID := o.RunID
 		path := TrimWorkingDirPrefix(o.Name)
-		role := Role(path)
+		role := cpr.Role(path)
 		f := AccessedPath{O(o.OpenID), runID, o.Name, path, fileIndex, role}
 		accessed = append(accessed, f)
 	}
@@ -44,7 +45,7 @@ func GetAccessedPaths(executed []Execution, opens []FileOpen) []AccessedPath {
 }
 
 func WriteAccessedPathFacts(w io.Writer, accessed []AccessedPath) {
-	printRowHeader(w, "cpr_accessed_path(AccessID, RunId, Path, PathIndex, PathRole).")
+	cpr.PrintRowHeader(w, "cpr_accessed_path(AccessID, RunId, Path, PathIndex, PathRole).")
 	for _, f := range accessed {
 		fmt.Fprintln(w, f)
 	}
@@ -52,7 +53,7 @@ func WriteAccessedPathFacts(w io.Writer, accessed []AccessedPath) {
 
 func (f AccessedPath) String() string {
 	return fmt.Sprintf("cpr_accessed_path(%s, %s, %s, %s, %s).",
-		f.AccessID, R(f.RunID), Q(f.Relative), I(f.PathIndex), f.PathRole)
+		f.AccessID, cpr.R(f.RunID), cpr.Q(f.Relative), cpr.I(f.PathIndex), f.PathRole)
 }
 
 func AddAccessedPathTriples(g *rdf.Graph, accessed []AccessedPath) {
@@ -66,4 +67,8 @@ func AddAccessedPathTriples(g *rdf.Graph, accessed []AccessedPath) {
 
 func AccessedPathUri(g *rdf.Graph, pathIndex int64) rdf.Uri {
 	return g.NewUri(fmt.Sprintf("fileresource/%d", pathIndex))
+}
+
+func O(id int64) string {
+	return cpr.Prepend("o", id)
 }
