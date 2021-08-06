@@ -25,7 +25,10 @@ func GetAccessedPaths(executed []Execution, opens []FileOpen) []AccessedPath {
 		fileIndex, _ := cpr.PathIndex(e.Name)
 		runID := e.RunID
 		path := TrimWorkingDirPrefix(e.Name)
-		role := cpr.Role(path)
+		role, ok := cpr.FindRoleOfPath(path)
+		if !ok {
+			role = "nil"
+		}
 		if role != "nul" {
 			f := AccessedPath{E(e.ExecID), runID, e.Name, path, fileIndex, role}
 			accessed = append(accessed, f)
@@ -36,7 +39,10 @@ func GetAccessedPaths(executed []Execution, opens []FileOpen) []AccessedPath {
 		fileIndex, _ := cpr.PathIndex(o.Name)
 		runID := o.RunID
 		path := TrimWorkingDirPrefix(o.Name)
-		role := cpr.Role(path)
+		role, ok := cpr.FindRoleOfPath(path)
+		if !ok {
+			role = "nil"
+		}
 		f := AccessedPath{O(o.OpenID), runID, o.Name, path, fileIndex, role}
 		accessed = append(accessed, f)
 	}

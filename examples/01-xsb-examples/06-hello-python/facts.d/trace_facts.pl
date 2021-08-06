@@ -160,8 +160,8 @@ cpr_path_role(r0, '/tmp', i6, nul).
 %---------------------------------------------------------------------------------------------------
 % FACT: cpr_accessed_path(AccessID, RunId, Path, PathIndex, PathRole).
 %---------------------------------------------------------------------------------------------------
-cpr_accessed_path(e1, r0, './run.sh', i66, sw).
-cpr_accessed_path(e2, r0, './hello.py', i65, sw).
+cpr_accessed_path(e1, r0, './run.sh', i67, sw).
+cpr_accessed_path(e2, r0, './hello.py', i66, sw).
 cpr_accessed_path(e3, r0, '/usr/bin/python3', i13, sw).
 cpr_accessed_path(o20, r0, '.', i3, sw).
 cpr_accessed_path(o21, r0, '/usr/bin/env', i7, sw).
@@ -249,12 +249,12 @@ cpr_accessed_path(o106, r0, '/usr/lib/python3.8/_sitebuiltins.py', i55, os).
 cpr_accessed_path(o107, r0, '/usr/lib/python3.8/__pycache__/_sitebuiltins.cpython-38.pyc', i56, os).
 cpr_accessed_path(o108, r0, '/usr/local/lib/python3.8/dist-packages', i57, nil).
 cpr_accessed_path(o109, r0, '/usr/local/lib/python3.8/dist-packages', i57, nil).
-cpr_accessed_path(o110, r0, '/usr/lib/python3/dist-packages', i61, os).
-cpr_accessed_path(o111, r0, '/usr/lib/python3/dist-packages', i61, os).
+cpr_accessed_path(o110, r0, '/usr/lib/python3/dist-packages', i62, os).
+cpr_accessed_path(o111, r0, '/usr/lib/python3/dist-packages', i62, os).
 cpr_accessed_path(o112, r0, '/usr/lib/python3.8', i24, os).
-cpr_accessed_path(o113, r0, '/usr/lib/python3.8/sitecustomize.py', i63, os).
-cpr_accessed_path(o114, r0, '/usr/lib/python3.8/sitecustomize.py', i63, os).
-cpr_accessed_path(o115, r0, '/usr/lib/python3.8/__pycache__/sitecustomize.cpython-38.pyc', i64, os).
+cpr_accessed_path(o113, r0, '/usr/lib/python3.8/sitecustomize.py', i64, os).
+cpr_accessed_path(o114, r0, '/usr/lib/python3.8/sitecustomize.py', i64, os).
+cpr_accessed_path(o115, r0, '/usr/lib/python3.8/__pycache__/sitecustomize.cpython-38.pyc', i65, os).
 cpr_accessed_path(o116, r0, '/usr/lib/python3.8', i24, os).
 cpr_accessed_path(o117, r0, '/usr/lib/python3.8/lib-dynload', i25, os).
 cpr_accessed_path(o118, r0, '/usr/lib/python3.8/lib-dynload', i25, os).
@@ -264,16 +264,16 @@ cpr_accessed_path(o121, r0, '/usr/local/lib/python3.8/dist-packages', i57, nil).
 cpr_accessed_path(o122, r0, '/usr/local/lib/python3.8/dist-packages', i57, nil).
 cpr_accessed_path(o123, r0, '/usr/local/lib/python3.8/dist-packages', i57, nil).
 cpr_accessed_path(o124, r0, '/usr/local/lib/python3.8/dist-packages', i57, nil).
-cpr_accessed_path(o125, r0, '/usr/lib/python3/dist-packages', i61, os).
-cpr_accessed_path(o126, r0, '/usr/lib/python3/dist-packages', i61, os).
-cpr_accessed_path(o127, r0, '/usr/lib/python3/dist-packages', i61, os).
-cpr_accessed_path(o128, r0, '/usr/lib/python3/dist-packages', i61, os).
+cpr_accessed_path(o125, r0, '/usr/lib/python3/dist-packages', i62, os).
+cpr_accessed_path(o126, r0, '/usr/lib/python3/dist-packages', i62, os).
+cpr_accessed_path(o127, r0, '/usr/lib/python3/dist-packages', i62, os).
+cpr_accessed_path(o128, r0, '/usr/lib/python3/dist-packages', i62, os).
 cpr_accessed_path(o129, r0, '/usr/lib/python3.8', i24, os).
 cpr_accessed_path(o130, r0, '/usr/lib/python3.8/lib-dynload', i25, os).
 cpr_accessed_path(o131, r0, '/usr/local/lib/python3.8/dist-packages', i57, nil).
-cpr_accessed_path(o132, r0, '/usr/lib/python3/dist-packages', i61, os).
-cpr_accessed_path(o133, r0, './hello.py', i65, sw).
-cpr_accessed_path(o134, r0, './hello.py', i65, sw).
-cpr_accessed_path(o135, r0, './hello.py', i65, sw).
-cpr_accessed_path(o136, r0, './hello.py', i65, sw).
-cpr_accessed_path(o137, r0, './hello.py', i65, sw).
+cpr_accessed_path(o132, r0, '/usr/lib/python3/dist-packages', i62, os).
+cpr_accessed_path(o133, r0, './hello.py', i66, sw).
+cpr_accessed_path(o134, r0, './hello.py', i66, sw).
+cpr_accessed_path(o135, r0, './hello.py', i66, sw).
+cpr_accessed_path(o136, r0, './hello.py', i66, sw).
+cpr_accessed_path(o137, r0, './hello.py', i66, sw).

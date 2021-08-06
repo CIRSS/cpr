@@ -41,9 +41,9 @@ cpr_file_read(o95,r0,p2,i50,'/usr/lib/python3.8/__pycache__/_collections_abc.cpy
 cpr_file_read(o99,r0,p2,i52,'/usr/lib/python3.8/__pycache__/posixpath.cpython-38.pyc',os).
 cpr_file_read(o103,r0,p2,i54,'/usr/lib/python3.8/__pycache__/genericpath.cpython-38.pyc',os).
 cpr_file_read(o107,r0,p2,i56,'/usr/lib/python3.8/__pycache__/_sitebuiltins.cpython-38.pyc',os).
-cpr_file_read(o115,r0,p2,i64,'/usr/lib/python3.8/__pycache__/sitecustomize.cpython-38.pyc',os).
-cpr_file_read(o134,r0,p2,i65,'./hello.py',sw).
-cpr_file_read(o137,r0,p2,i65,'./hello.py',sw).
+cpr_file_read(o115,r0,p2,i65,'/usr/lib/python3.8/__pycache__/sitecustomize.cpython-38.pyc',os).
+cpr_file_read(o134,r0,p2,i66,'./hello.py',sw).
+cpr_file_read(o137,r0,p2,i66,'./hello.py',sw).
 
 
 %---------------------------------------------------------------------------------------------------

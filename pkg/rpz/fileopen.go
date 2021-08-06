@@ -39,7 +39,10 @@ func GetFileOpens(trace Trace, db *sql.DB) []FileOpen {
 		}
 
 		path := TrimWorkingDirPrefix(f.Name)
-		role := cpr.Role(path)
+		role, ok := cpr.FindRoleOfPath(path)
+		if !ok {
+			role = "nil"
+		}
 		if role != "nul" {
 			opened = append(opened, f)
 		}
@@ -82,7 +85,11 @@ func AddFileOpenTriples(g *rdf.Graph, fileOpens []FileOpen) {
 			g.AddNewTriple(accessURI, "os:accessMode", g.NewUri("cpr:Search"))
 		}
 		g.AddNewTriple(accessURI, "os:accessStartTime", cpr.TimestampUint64(fo.Timestamp))
-		g.AddNewTriple(accessURI, "os:resourceRole", cpr.Role(fo.Name))
+		role, ok := cpr.FindRoleOfPath(fo.Name)
+		if !ok {
+			role = "nil"
+		}
+		g.AddNewTriple(accessURI, "os:resourceRole", role)
 	}
 }
 

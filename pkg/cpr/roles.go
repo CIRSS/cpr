@@ -39,22 +39,40 @@ func (pr PathRole) String() string {
 		R(pr.RunID), Q(pr.Path), I(pr.PathIndex), pr.Role)
 }
 
-func Role(path string) string {
-	prefix := path
-	prefixLength := len(path)
+func FindRoleOfPath(path string) (role string, ok bool) {
 	for {
-		prefixPathIndex, ok := PathIndex(prefix)
-		t, ok := roleForPathIndex[prefixPathIndex]
+
+		// look up index of path
+		pathIndex, ok := PathIndex(path)
+
+		// if there is a role associated with the index return it
+		t, ok := roleForPathIndex[pathIndex]
 		if ok {
-			return t
+			return t, true
 		}
-		prefixLength = strings.LastIndex(prefix, "/")
-		if prefixLength == -1 {
+
+		// if the path with no role stop search in failure
+		if path == "/" {
 			break
 		}
-		prefix = prefix[:prefixLength]
+
+		// find the end of the longest remaining prefix in the path
+		finalSlashIndex := strings.LastIndex(path, "/")
+
+		// if there is no remaining prefix stop search in failure
+		if finalSlashIndex == -1 {
+			break
+		}
+
+		// reduce path to longest remaining prefix and repeat loop
+		if finalSlashIndex == 0 {
+			path = "/"
+		} else {
+			path = path[:finalSlashIndex]
+		}
 	}
-	return "nil"
+
+	return "", false
 }
 
 func addPathsWithRole(allRoles *[]PathRole, runID int64, role string, pathsWithRole []string) {
