@@ -28,7 +28,7 @@ func PathIndex(path string) (pathIndex int64, ok bool) {
 	return pathIndex, true
 }
 
-// Inode returns the inode number for the given absolute path
+// Inode returns the inode number for the given path
 func inode(path string) (uint64, bool) {
 	fileinfo, err := os.Stat(path)
 	if err != nil {

@@ -3,6 +3,7 @@ package cpr
 import (
 	"fmt"
 	"io"
+	"path/filepath"
 	"strings"
 
 	"github.com/cirss/geist/pkg/rdf"
@@ -40,6 +41,10 @@ func (pr PathRole) String() string {
 }
 
 func FindRoleOfPath(path string) (role string, ok bool) {
+	path, err := filepath.Abs(path)
+	if err != nil {
+		return "", false
+	}
 	for {
 
 		// look up index of path
